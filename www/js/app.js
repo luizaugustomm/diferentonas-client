@@ -52,7 +52,7 @@ angular.module('Diferentonas', ['ionic'])
 })
 
 
-.controller('CardsController', function($scope) {
+.controller('CardsController', function($scope, $location) {
     $scope.cards = [
         {"topic": "Saúde", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales facilisis nulla nec faucibus. Nunc sed fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla a arcu ornare, sodales nulla eu, dignissim nunc. Phasellus vulputate eros in elit malesuada tempus. Praesent tempus velit a arcu accumsan, id pellentesque ipsum ornare. Proin mi massa, egestas nec nisl sit amet, varius pulvinar quam."},
         {"topic": "Educação", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales facilisis nulla nec faucibus. Nunc sed fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla a arcu ornare, sodales nulla eu, dignissim nunc. Phasellus vulputate eros in elit malesuada tempus. Praesent tempus velit a arcu accumsan, id pellentesque ipsum ornare. Proin mi massa, egestas nec nisl sit amet, varius pulvinar quam."},
@@ -70,5 +70,9 @@ angular.module('Diferentonas', ['ionic'])
 
     $scope.isCardShown = function(card) {
         return $scope.shownCard === card;
+    }
+
+    $scope.returnClicked = function() {
+        $location.path("/");
     }
 });
