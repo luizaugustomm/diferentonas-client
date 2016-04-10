@@ -2,16 +2,16 @@
     <h1 class=title>Cidade diferentona</h1>
 </ion-header-bar>
 
-<ion-content id="form-wrapper" ng-controller="CitySelectorController">
+<ion-content id="form-wrapper" class = "" ng-controller="CitySelectorController">
     <label class="item item-input">
         <i class="icon placeholder-icon ion-location"></i>
-        <input type="text" placeholder="Informe uma cidade" ng-model="cityInput">
+        <input type="search" placeholder="Eu sou de..." ng-model="cityInput">
+        <i class="icon ion-android-cancel clickable" ng-click="cityCleared()" ng-show="cityInput"></i>
     </label>
-    <ion-list ng-show="cityInput">
+    <ion-list ng-show="cityInput" ng-hide="isSelected">
         <ion-radio ng-repeat="city in cities | filter:cityInput" ng-click="selectCity(city)">
-            {{city.name}}
+            {{ city.nome }} - {{ city.uf }}
         </ion-item>
     </ion-list>
-    <button class="button button-block button-positive">OK</button>
-    <a href="#/cards">Cards</a>
+    <button class="button button-block button-positive" ng-click="citySearched(selectedCity)">OK</button>
 </ion-content>

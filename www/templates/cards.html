@@ -1,8 +1,40 @@
 <ion-header-bar class="bar-stable bar-positive">
     <button class="button icon ion-android-arrow-back" ng-click="returnClicked()"></button>
-    <h1 class="title">Patos</h1>
+    <h1 class="title">{{ City.info.nome }} - {{ City.info.uf }}</h1>
 </ion-header-bar>
 <ion-content>
+    <h4>Informações gerais</h4>
+    <ion-list class="list-inset">
+        <ion-item>IDH Médio: {{ City.info.idhm }}</ion-item>
+      <ion-item>Habitantes: {{ City.info.populacao }}</ion-item>
+      <ion-item>Similares:
+        <ion-list>
+          <ion-item ng-repeat="similar in City.similars">
+            {{ similar.nome }}
+          </ion-item>
+        </ion-list>
+      </ion-item>
+    </ion-list>
+
+    <h4>{{ City.info.nome }} é diferentona em...</h4>
+    <ion-list>
+        <ion-item ng-repeat="item in City.info.scores" ng-if="item.score > 0.9 || item.score < -0.9">
+            <div class="card">
+                <div class="item item-divider">
+                    {{ item.tema }}
+                </div>
+                <div class="item item-text-wrap">
+                    <span ng-if="item.score < -0.9 && item.score > -2">Bem menos que as outras</span>
+                    <span ng-if="item.score < -2">Muito menor que as outras</span>
+                    <span ng-if="item.score > 0.9 && item.score < 2">Bem mais que as outras</span>
+                    <span ng-if="item.score > 2">Muito maior que as outras</span>
+                </div>
+            </div>
+        </ion-item>
+    </ion-list>
+
+
+    <!-- <h4>Temas</h4>
     <ion-list ng-controller="CardsController">
         <ion-item ng-repeat="card in cards" class="item item-text-wrap">
             <div ng-class="isCardShown(card) ? 'card-expand active' : 'card-expand inactive'">
@@ -14,5 +46,5 @@
                 {{ isCardShown(card) ? 'Mostrar menos' : 'Mostrar mais'}}
             </div>
         </ion-item>
-    </ion-list>
+    </ion-list> -->
 </ion-content>

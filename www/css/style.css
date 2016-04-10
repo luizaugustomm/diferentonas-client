@@ -1,4 +1,8 @@
 
+.clickable {
+    cursor: pointer;
+}
+
 ion-content#form-wrapper {
     position: absolute;
     top: 50%;
