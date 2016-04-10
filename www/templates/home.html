@@ -1,21 +1,17 @@
-<ion-pane>
-    <ion-header-bar align-title="center" class="bar-clean">
-        <h1 class=title>A diferentona?</h1>
-    </ion-header-bar>
-    <ion-content id="form-wrapper">
-        <label class="item item-input">
-            <i class="icon ion-location placeholder-icon"></i>
-            <input type="text" placeholder="Informe uma cidade" ng-model="cityInput">
-        </label>
-        <ion-list ng-show="cityInput">
-          <ion-radio ng-repeat="city in cities | filter:cityInput" ng-click="selectCity(city)">
-              {{city.name}}
-          </ion-item>
-        </ion-list>
-        <button class="button button-block button-positive">OK</button>
-        <a href="#/about">About</a>
-        <pre>
-            {{cities}}{{selectedCity}}
-        </pre>
-    </ion-content>
-</ion-pane>
+<ion-header-bar align-title="center" class="bar-stable">
+    <h1 class=title>Cidade diferentona</h1>
+</ion-header-bar>
+
+<ion-content id="form-wrapper" ng-controller="CitySelectorController">
+    <label class="item item-input">
+        <i class="icon placeholder-icon ion-location"></i>
+        <input type="text" placeholder="Informe uma cidade" ng-model="cityInput">
+    </label>
+    <ion-list ng-show="cityInput">
+        <ion-radio ng-repeat="city in cities | filter:cityInput" ng-click="selectCity(city)">
+            {{city.name}}
+        </ion-item>
+    </ion-list>
+    <button class="button button-block button-positive">OK</button>
+    <a href="#/cards">Cards</a>
+</ion-content>

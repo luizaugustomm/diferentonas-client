@@ -1,14 +1,17 @@
+<ion-header-bar class="bar-stable bar-positive">
+    <h1 class="title">Patos</h1>
+</ion-header-bar>
 <ion-content>
-    <div class="card">
-      <div class="item item-divider">
-        I'm a Header in a Card!
-      </div>
-      <div class="item item-text-wrap">
-        This is a basic Card with some text.
-      </div>
-      <div class="item item-divider">
-        I'm a Footer in a Card!
-      </div>
-    </div>
-    <a href="#/">Home</a>
+    <ion-list ng-controller="CardsController">
+        <ion-item ng-repeat="card in cards" class="item item-text-wrap">
+            <div ng-class="isCardShown(card) ? 'card-expand active' : 'card-expand inactive'">
+                <h2>{{ card.topic }}</h2>
+                <p>{{ card.description }}</p>
+            </div>
+            <div ng-click="toggleCard(card)" ng-class="isCardShown(card) ? 'card-expand-footer active' : 'card-expand-footer inactive'">
+                <i ng-class="isCardShown(card) ? 'ion-android-remove-circle' : 'ion-android-add-circle'"></i>
+                {{ isCardShown(card) ? 'Mostrar menos' : 'Mostrar mais'}}
+            </div>
+        </ion-item>
+    </ion-list>
 </ion-content>

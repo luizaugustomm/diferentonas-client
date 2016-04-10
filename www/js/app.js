@@ -3,7 +3,8 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('diferentonas', ['ionic'])
+angular.module('Diferentonas', ['ionic'])
+
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,24 +24,23 @@ angular.module('diferentonas', ['ionic'])
   });
 })
 
+
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('index', {
             url: '/',
             templateUrl: 'templates/home.html',
-            controller: 'HomeController'
         })
-        .state('about', {
-            url: '/about',
-            templateUrl: 'templates/about.html',
-            controller: 'AboutController'
+        .state('cards', {
+            url: '/cards',
+            templateUrl: 'templates/cards.html',
+            controller: 'CardsController'
         })
     $urlRouterProvider.otherwise('/');
 })
 
 
-
-.controller('HomeController', function($scope, $http) {
+.controller('CitySelectorController', function($scope, $http) {
     $scope.cityInput = "";
     $scope.selectedCity = null;
 
@@ -49,9 +49,26 @@ angular.module('diferentonas', ['ionic'])
     $scope.selectCity = function(city) {
         $scope.selectedCity = city;
     };
-
 })
 
-.controller('AboutController', function($scope) {
 
+.controller('CardsController', function($scope) {
+    $scope.cards = [
+        {"topic": "Saúde", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales facilisis nulla nec faucibus. Nunc sed fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla a arcu ornare, sodales nulla eu, dignissim nunc. Phasellus vulputate eros in elit malesuada tempus. Praesent tempus velit a arcu accumsan, id pellentesque ipsum ornare. Proin mi massa, egestas nec nisl sit amet, varius pulvinar quam."},
+        {"topic": "Educação", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales facilisis nulla nec faucibus. Nunc sed fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla a arcu ornare, sodales nulla eu, dignissim nunc. Phasellus vulputate eros in elit malesuada tempus. Praesent tempus velit a arcu accumsan, id pellentesque ipsum ornare. Proin mi massa, egestas nec nisl sit amet, varius pulvinar quam."},
+        {"topic": "Transporte", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales facilisis nulla nec faucibus. Nunc sed fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla a arcu ornare, sodales nulla eu, dignissim nunc. Phasellus vulputate eros in elit malesuada tempus. Praesent tempus velit a arcu accumsan, id pellentesque ipsum ornare. Proin mi massa, egestas nec nisl sit amet, varius pulvinar quam."},
+        {"topic": "Moradia", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales facilisis nulla nec faucibus. Nunc sed fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla a arcu ornare, sodales nulla eu, dignissim nunc. Phasellus vulputate eros in elit malesuada tempus. Praesent tempus velit a arcu accumsan, id pellentesque ipsum ornare. Proin mi massa, egestas nec nisl sit amet, varius pulvinar quam."}
+    ];
+
+    $scope.toggleCard = function(card) {
+        if ($scope.isCardShown(card)) {
+            $scope.shownCard = null;
+        } else {
+            $scope.shownCard = card;
+        }
+    };
+
+    $scope.isCardShown = function(card) {
+        return $scope.shownCard === card;
+    }
 });
