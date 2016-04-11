@@ -89,13 +89,6 @@ angular.module('Diferentonas', ['ionic'])
 
     $scope.City = City;
 
-    $scope.cards = [
-        {"topic": "Saúde", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales facilisis nulla nec faucibus. Nunc sed fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla a arcu ornare, sodales nulla eu, dignissim nunc. Phasellus vulputate eros in elit malesuada tempus. Praesent tempus velit a arcu accumsan, id pellentesque ipsum ornare. Proin mi massa, egestas nec nisl sit amet, varius pulvinar quam."},
-        {"topic": "Educação", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales facilisis nulla nec faucibus. Nunc sed fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla a arcu ornare, sodales nulla eu, dignissim nunc. Phasellus vulputate eros in elit malesuada tempus. Praesent tempus velit a arcu accumsan, id pellentesque ipsum ornare. Proin mi massa, egestas nec nisl sit amet, varius pulvinar quam."},
-        {"topic": "Transporte", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales facilisis nulla nec faucibus. Nunc sed fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla a arcu ornare, sodales nulla eu, dignissim nunc. Phasellus vulputate eros in elit malesuada tempus. Praesent tempus velit a arcu accumsan, id pellentesque ipsum ornare. Proin mi massa, egestas nec nisl sit amet, varius pulvinar quam."},
-        {"topic": "Moradia", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sodales facilisis nulla nec faucibus. Nunc sed fringilla nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla a arcu ornare, sodales nulla eu, dignissim nunc. Phasellus vulputate eros in elit malesuada tempus. Praesent tempus velit a arcu accumsan, id pellentesque ipsum ornare. Proin mi massa, egestas nec nisl sit amet, varius pulvinar quam."}
-    ];
-
     $scope.toggleCard = function(card) {
         if ($scope.isCardShown(card)) {
             $scope.shownCard = null;
