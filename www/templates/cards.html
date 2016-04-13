@@ -14,13 +14,18 @@
     <h4>{{ City.info.nome }} é diferentona em...</h4>
     <div class="card" ng-repeat="item in City.info.scores" ng-if="item.score > 0.9 || item.score < -0.9">
         <div class="item item-divider">
-            {{ item.tema }}
+            {{ beautify(item.tema) }}
         </div>
         <div class="item item-text-wrap">
             <span ng-if="item.score < -0.9 && item.score > -2">Recebe menos verba que as cidades parecidas</span>
             <span ng-if="item.score < -2">Recebe bem menos verba que as cidades parecidas</span>
             <span ng-if="item.score > 0.9 && item.score < 2">Recebe mais verba que as cidades parecidas</span>
             <span ng-if="item.score > 2">Recebe bem mais verba que as cidades parecidas</span>
+            <br>
+            <p>
+                Total investido em {{ City.info.nome }}: R$ {{ formatCurrency(item.total) }}<br>
+                Média de investimentos em cidades semelhantes: R$ {{ formatCurrency(item.media) }}
+            </p>
         </div>
     </div>
 

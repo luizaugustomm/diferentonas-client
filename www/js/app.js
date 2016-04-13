@@ -104,4 +104,20 @@ angular.module('Diferentonas', ['ionic'])
     $scope.returnClicked = function() {
         $location.path("/");
     }
+
+    $scope.formatCurrency = function(number) {
+        number = Math.round(number);
+        var tmp = number+'00';
+        tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
+        if( tmp.length > 6 )
+                tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+        return tmp;
+    }
+
+    $scope.beautify = function(str) {
+        var tmp =  str.replace(/MINISTERIO D[AEO]S? /, "");
+        if (tmp === 'Presidencia da República')
+            return tmp;
+        return tmp.charAt(0) + tmp.slice(1).toLowerCase();
+    }
 });
