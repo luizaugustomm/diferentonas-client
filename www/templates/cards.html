@@ -17,50 +17,50 @@
             {{ beautify(item.tema) }}
         </div>
         <div class="item item-text-wrap">
-            <span ng-if="item.score < -0.9 && item.score > -2">Recebe menos verba que as cidades parecidas</span>
-            <span ng-if="item.score < -2">Recebe bem menos verba que as cidades parecidas</span>
-            <span ng-if="item.score > 0.9 && item.score < 2">Recebe mais verba que as cidades parecidas</span>
-            <span ng-if="item.score > 2">Recebe bem mais verba que as cidades parecidas</span>
+            <span ng-if="item.score < -0.9 && item.score > -2">Recebeu menos verba que as cidades parecidas</span>
+            <span ng-if="item.score < -2">Recebeu bem menos verba que as cidades parecidas</span>
+            <span ng-if="item.score > 0.9 && item.score < 2">Recebeu mais verba que as cidades parecidas</span>
+            <span ng-if="item.score > 2">Recebeu bem mais verba que as cidades parecidas</span>
             <br>
             <p>
-                Total investido em {{ City.info.nome }}: R$ {{ formatCurrency(item.total) }}<br>
-                Média de investimentos em cidades semelhantes: R$ {{ formatCurrency(item.media) }}
+                {{ City.info.nome }}: R$ {{ formatCurrency(item.total) }}<br>
+                Média em cidades semelhantes: R$ {{ formatCurrency(item.media) }}
             </p>
+        </div>
+        <div class="item item-divider">
+            <a href="#" class="subdued"><i class="icon ion-social-facebook"></i></a>
+            <a href="#" class="subdued"><i class="icon ion-social-twitter"></i></a>
+            <a href="#" class="subdued"><i class="icon ion-social-googleplus"></i></a>
         </div>
     </div>
 
     <!-- <ion-list>
-        <ion-item ng-repeat="item in City.info.scores" ng-if="item.score > 0.9 || item.score < -0.9">
+    <ion-item ng-repeat="item in City.info.scores" ng-if="item.score > 0.9 || item.score < -0.9">
 
-        </ion-item>
-    </ion-list> -->
+</ion-item>
+</ion-list> -->
 
-    <h4>Cidades parecidas com {{ City.info.nome }} - {{ City.info.uf }}</h4>
-    <ion-list>
-        <ion-item ng-repeat="similar in City.similars" class="item item-text-wrap">
-            <div ng-class="isCardShown(similar) ? 'card-expand active' : 'card-expand inactive'">
-                <h2>{{ similar.nome }} - {{ similar.uf }}</h2>
-                <p>
-                    População: {{ similar.populacao }} habitantes<br>
-                    Renda (IDH): {{ similar.idhmRenda }}<br>
-                    Educação (IDH): {{ similar.idhmEducacao }}<br>
-                    Longevidade (IDH): {{ similar.idhmLongevidade }}<br>
-                </p>
-            </div>
-            <div ng-click="toggleCard(similar)" ng-class="isCardShown(similar) ? 'card-expand-footer active' : 'card-expand-footer inactive'">
-                <i ng-class="isCardShown(similar) ? 'ion-android-remove-circle' : 'ion-android-add-circle'"></i>
-                {{ isCardShown(similar) ? 'Mostrar menos' : 'Mostrar mais'}}
-            </div>
-        </ion-item>
-    </ion-list>
+<h4>Cidades parecidas com {{ City.info.nome }} - {{ City.info.uf }}</h4>
+<ion-list>
+    <ion-item ng-repeat="similar in City.similars" class="item item-text-wrap">
+        <div ng-class="isCardShown(similar) ? 'card-expand active' : 'card-expand inactive'">
+            <h2><a ng-click="citySearched(similar)" href="#/cards">{{ similar.nome }} - {{ similar.uf }}</a></h2>
+            <p ng-repeat="score in similar.scores">{{ beautify(score.tema) }}: R$ {{ formatCurrency(score.total) }}</p>
+        </div>
+        <div ng-click="toggleCard(similar)" ng-class="isCardShown(similar) ? 'card-expand-footer active' : 'card-expand-footer inactive'">
+            <i ng-class="isCardShown(similar) ? 'ion-android-remove-circle' : 'ion-android-add-circle'"></i>
+            {{ isCardShown(similar) ? 'Mostrar menos' : 'Mostrar mais'}}
+        </div>
+    </ion-item>
+</ion-list>
 
 
-    <!-- <h4>Temas</h4>
-    <ion-list ng-controller="CardsController">
-    <ion-item ng-repeat="card in cards" class="item item-text-wrap">
-    <div ng-class="isCardShown(card) ? 'card-expand active' : 'card-expand inactive'">
-    <h2>{{ card.topic }}</h2>
-    <p>{{ card.description }}</p>
+<!-- <h4>Temas</h4>
+<ion-list ng-controller="CardsController">
+<ion-item ng-repeat="card in cards" class="item item-text-wrap">
+<div ng-class="isCardShown(card) ? 'card-expand active' : 'card-expand inactive'">
+<h2>{{ card.topic }}</h2>
+<p>{{ card.description }}</p>
 </div>
 <div ng-click="toggleCard(card)" ng-class="isCardShown(card) ? 'card-expand-footer active' : 'card-expand-footer inactive'">
 <i ng-class="isCardShown(card) ? 'ion-android-remove-circle' : 'ion-android-add-circle'"></i>

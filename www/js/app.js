@@ -57,7 +57,7 @@ angular.module('Diferentonas', ['ionic'])
     });
 
     $scope.selectCity = function(city) {
-        $scope.cityInput = city.nome;
+        $scope.cityInput = city.nome + ' - ' + city.uf;
         $scope.selectedCity = city;
         $scope.isSelected = !$scope.isSelected;
     };
@@ -74,18 +74,18 @@ angular.module('Diferentonas', ['ionic'])
             City.similars = data;
         })
         $scope.City = City;
-        $location.path("/cards");
+        $location.path('/cards');
     }
 
     $scope.cityCleared = function() {
-        $scope.cityInput = "";
+        $scope.cityInput = '';
         $scope.selectedCity = null;
         $scope.isSelected = false;
     }
 })
 
 
-.controller('CardsController', function($scope, $location, City) {
+.controller('CardsController', function($scope, $location, $http, City) {
 
     $scope.City = City;
 
@@ -102,22 +102,54 @@ angular.module('Diferentonas', ['ionic'])
     }
 
     $scope.returnClicked = function() {
-        $location.path("/");
+        $location.path('/');
     }
 
-    $scope.formatCurrency = function(number) {
-        number = Math.round(number);
-        var tmp = number+'00';
-        tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
-        if( tmp.length > 6 )
-                tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
-        return tmp;
+    $scope.citySearched = function(city) {
+        $http.get('http://diferentonas.herokuapp.com/cidade/'.concat(city.id), {
+            headers: {'Access-Control-Allow-Origin': '*'}
+        }).success(function(data) {
+            City.info = data;
+        })
+        $http.get('http://diferentonas.herokuapp.com/cidade/'.concat(city.id).concat('/similares'), {
+            headers: {'Access-Control-Allow-Origin': '*'}
+        }).success(function(data) {
+            City.similars = data;
+        })
+        $scope.City = City;
+    }
+
+    // $scope.formatCurrency = function(number) {
+    //     number = Math.round(number);
+    //     var tmp = number;
+    //     tmp = tmp.replace(/([0-9]{2})$/g, ',$1');
+    //     if( tmp.length > 6 )
+    //             tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, '.$1,$2');
+    //     return tmp;
+    // }
+
+    $scope.formatCurrency = function(n, c, d, t) {
+        n = Math.round(n);
+        c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
+        return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
     }
 
     $scope.beautify = function(str) {
-        var tmp =  str.replace(/MINISTERIO D[AEO]S? /, "");
+        var tmp =  str.replace(/MINIST[EÉ]RIO D[AEO]S? /, '');
         if (tmp === 'Presidencia da República')
             return tmp;
+        tmp = tmp.replace('JUSTICA', 'JUSTIÇA')
+        tmp = tmp.replace('PECUARIA', ' PECUÁRIA')
+        tmp = tmp.replace('CIENCIA', 'CIÊNCIA')
+        tmp = tmp.replace('INOVACAO', 'INOVAÇÃO')
+        tmp = tmp.replace('EDUCACAO', 'EDUCAÇÃO')
+        tmp = tmp.replace('INTEGRACAO', 'INTEGRAÇÃO')
+        tmp = tmp.replace('SAUDE', 'SAÚDE')
+        tmp = tmp.replace('COMUNICACOES', 'COMUNICAÇÕES')
+        tmp = tmp.replace('COMERCIO', 'COMÉRCIO')
+        tmp = tmp.replace('AGRARIO', 'AGRÁRIO')
+        tmp = tmp.replace('ORCAMENTO', 'ORÇAMENTO')
+        tmp = tmp.replace('GESTAO', 'GESTÃO')
         return tmp.charAt(0) + tmp.slice(1).toLowerCase();
     }
 });
