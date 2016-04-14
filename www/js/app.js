@@ -58,7 +58,7 @@ angular.module('Diferentonas', ['ionic'])
     });
 
     $scope.inputIsFocused = function() {
-        $scope.isInputSelected = true;
+        $scope.isInputSelected = !$scope.isInputSelected;
     }
 
     $scope.selectCity = function(city) {

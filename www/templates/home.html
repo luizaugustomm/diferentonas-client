@@ -6,7 +6,7 @@
             <a href="javascript:" ng-click="cityCleared()"><i class="icon icon-right ion-android-close" ng-show="cityInput"></i></a>
         </div>
             <ion-list ng-show="cityInput" ng-hide="isSelected">
-                <ion-radio class="shorter" ng-repeat="city in cities | filter:cityInput | limitTo: 3" ng-click="selectCity(city)">
+                <ion-radio class="shorter" ng-repeat="city in cities | filter:cityInput | limitTo: 15" ng-click="selectCity(city)">
                     {{ city.nome }} - {{ city.uf }}
                 </ion-radio>
             </ion-list>

@@ -2,7 +2,7 @@
     <ion-header-bar class="bar-stable bar-royal">
         <button class="button icon ion-android-arrow-back" ng-click="returnClicked()"></button>
         <h1 class="title">{{ City.info.nome }} - {{ City.info.uf }}</h1>
-        <button class="button icon ion-help" ng-click="helpClicked()"></button>
+        <!-- <button class="button icon ion-help" ng-click="helpClicked()"></button> -->
     </ion-header-bar>
 
 
@@ -29,8 +29,7 @@
                             {{ beautify(item.tema) }}
                         </div>
                         <div class="vote-component">
-                            <a href="#" class="subdued"><i class="icon ion-thumbsup"></i></a>
-                            <a href="#" class="subdued"><i class="icon ion-thumbsdown"></i></a>
+                            <a href="#" class="subdued"><i class="icon ion-alert-circled icon-bigger"></i></a>
                         </div>
                     </div>
                     <div class="item item-text-wrap">
