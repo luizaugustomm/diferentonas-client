@@ -51,15 +51,22 @@ angular.module('Diferentonas', ['ionic'])
     $scope.cityInput = "";
     $scope.selectedCity = null;
     $scope.isSelected = false;
+    $scope.isInputSelected = false;
 
     $http.get('js/cities.json').success(function(data) {
         $scope.cities = data;
     });
 
+    $scope.inputIsFocused = function() {
+        $scope.isInputSelected = true;
+    }
+
     $scope.selectCity = function(city) {
         $scope.cityInput = city.nome + ' - ' + city.uf;
         $scope.selectedCity = city;
         $scope.isSelected = !$scope.isSelected;
+        $scope.cityCleared();
+        $scope.citySearched(city);
     };
 
     $scope.citySearched = function(city) {
@@ -81,11 +88,12 @@ angular.module('Diferentonas', ['ionic'])
         $scope.cityInput = '';
         $scope.selectedCity = null;
         $scope.isSelected = false;
+        $scope.isInputSelected = false;
     }
 })
 
 
-.controller('CardsController', function($scope, $location, $http, City) {
+.controller('CardsController', function($scope, $location, $http, $ionicScrollDelegate, City) {
 
     $scope.City = City;
 
@@ -117,16 +125,17 @@ angular.module('Diferentonas', ['ionic'])
             City.similars = data;
         })
         $scope.City = City;
+        $ionicScrollDelegate.scrollTop();
     }
 
-    // $scope.formatCurrency = function(number) {
-    //     number = Math.round(number);
-    //     var tmp = number;
-    //     tmp = tmp.replace(/([0-9]{2})$/g, ',$1');
-    //     if( tmp.length > 6 )
-    //             tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, '.$1,$2');
-    //     return tmp;
-    // }
+    $scope.hasOutliers = function(city) {
+        var count = 0;
+        city.scores.forEach(function(theme) {
+            if (theme.score > 0.9 || theme.score < -0.9)
+            count = count + 1;
+        });
+        return count !== 0;
+    }
 
     $scope.formatCurrency = function(n, c, d, t) {
         n = Math.round(n);

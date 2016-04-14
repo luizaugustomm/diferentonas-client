@@ -1,71 +1,73 @@
-<ion-header-bar class="bar-stable bar-positive">
-    <button class="button icon ion-android-arrow-back" ng-click="returnClicked()"></button>
-    <h1 class="title">{{ City.info.nome }} - {{ City.info.uf }}</h1>
-</ion-header-bar>
-<ion-content>
-    <h4>Informações gerais</h4>
-    <ion-list class="list-inset">
-        <ion-item>População: {{ City.info.populacao }} habitantes</ion-item>
-        <ion-item>Renda (IDH): {{ City.info.idhmRenda }}</ion-item>
-        <ion-item>Educação (IDH): {{ City.info.idhmEducacao }}</ion-item>
-        <ion-item>Longevidade (IDH): {{ City.info.idhmLongevidade }}</ion-item>
-    </ion-list>
+<ion-pane class="cards">
+    <ion-header-bar class="bar-stable bar-royal">
+        <button class="button icon ion-android-arrow-back" ng-click="returnClicked()"></button>
+        <h1 class="title">{{ City.info.nome }} - {{ City.info.uf }}</h1>
+        <button class="button icon ion-help" ng-click="helpClicked()"></button>
+    </ion-header-bar>
 
-    <h4>{{ City.info.nome }} é diferentona em...</h4>
-    <div class="card" ng-repeat="item in City.info.scores" ng-if="item.score > 0.9 || item.score < -0.9">
-        <div class="item item-divider">
-            {{ beautify(item.tema) }}
+
+
+
+    <ion-content>
+        <div class="list">
+
+            <div class="item item-divider">Informações gerais</div>
+            <div class="item">População: {{ formatCurrency(City.info.populacao).replace(",00", "") }} habitantes</div>
+            <div class="item">
+                Índice de Desenvolvimento Humano
+                <ion-list>
+                    <ion-item>Renda: {{ City.info.idhmRenda.toFixed(2) }}</ion-item>
+                    <ion-item>Educação: {{ City.info.idhmEducacao.toFixed(2) }}</ion-item>
+                    <ion-item>Longevidade: {{ City.info.idhmLongevidade.toFixed(2) }}</ion-item>
+                </ion-list>
+            </div>
+            <div ng-if="hasOutliers(City.info)">
+                <div class="item item-text-wrap item-divider">{{ City.info.nome }} é diferentona nas verbas para...</div>
+                <div class="citem card" ng-repeat="item in City.info.scores" ng-if="item.score > 0.9 || item.score < -0.9">
+                    <div class="item item-divider">
+                        <div class="item-text-wrap theme-component">
+                            {{ beautify(item.tema) }}
+                        </div>
+                        <div class="vote-component">
+                            <a href="#" class="subdued"><i class="icon ion-thumbsup"></i></a>
+                            <a href="#" class="subdued"><i class="icon ion-thumbsdown"></i></a>
+                        </div>
+                    </div>
+                    <div class="item item-text-wrap">
+                        <span ng-if="item.score < -0.9 && item.score > -2">Recebeu bem menos verba</span>
+                        <span ng-if="item.score < -2">Recebeu muito menos verba</span>
+                        <span ng-if="item.score > 0.9 && item.score < 2">Recebeu bem mais verba</span>
+                        <span ng-if="item.score > 2">Recebeu muito mais verba</span>
+                        <br>
+                        <p>
+                            {{ City.info.nome }}: R$ {{ formatCurrency(item.total) }}<br>
+                            Cidades semelhantes (média): R$ {{ formatCurrency(item.media) }}
+                        </p>
+                    </div>
+                    <div class="item item-divider">
+                        <a href="#" class="subdued"><i class="icon ion-social-facebook"></i></a>
+                        <a href="#" class="subdued"><i class="icon ion-social-twitter"></i></a>
+                        <a href="#" class="subdued"><i class="icon ion-social-googleplus"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="item item-text-wrap">
-            <span ng-if="item.score < -0.9 && item.score > -2">Recebeu menos verba que as cidades parecidas</span>
-            <span ng-if="item.score < -2">Recebeu bem menos verba que as cidades parecidas</span>
-            <span ng-if="item.score > 0.9 && item.score < 2">Recebeu mais verba que as cidades parecidas</span>
-            <span ng-if="item.score > 2">Recebeu bem mais verba que as cidades parecidas</span>
-            <br>
-            <p>
-                {{ City.info.nome }}: R$ {{ formatCurrency(item.total) }}<br>
-                Média em cidades semelhantes: R$ {{ formatCurrency(item.media) }}
-            </p>
-        </div>
-        <div class="item item-divider">
-            <a href="#" class="subdued"><i class="icon ion-social-facebook"></i></a>
-            <a href="#" class="subdued"><i class="icon ion-social-twitter"></i></a>
-            <a href="#" class="subdued"><i class="icon ion-social-googleplus"></i></a>
+        <div class="item item-divider" ng-if="!hasOutliers(City.info)">{{ City.info.nome }} não é diferentona em nada!</div>
+        <div class="item item-divider">Cidades parecidas com {{ City.info.nome }} - {{ City.info.uf }}</div>
+        <div class="item">
+            <ion-list>
+                <ion-item ng-repeat="similar in City.similars" class="item item-text-wrap">
+                    <div ng-class="isCardShown(similar) ? 'card-expand active' : 'card-expand inactive'">
+                        <h2><a ng-click="citySearched(similar)" href="#/cards">{{ similar.nome }} - {{ similar.uf }}</a></h2>
+                        <p ng-repeat="score in similar.scores">{{ beautify(score.tema) }}: R$ {{ formatCurrency(score.total) }}</p>
+                    </div>
+                    <div ng-click="toggleCard(similar)" ng-class="isCardShown(similar) ? 'card-expand-footer active' : 'card-expand-footer inactive'">
+                        <i ng-class="isCardShown(similar) ? 'ion-android-remove-circle' : 'ion-android-add-circle'"></i>
+                        {{ isCardShown(similar) ? 'Mostrar menos' : 'Mostrar mais'}}
+                    </div>
+                </ion-item>
+            </ion-list>
         </div>
     </div>
-
-    <!-- <ion-list>
-    <ion-item ng-repeat="item in City.info.scores" ng-if="item.score > 0.9 || item.score < -0.9">
-
-</ion-item>
-</ion-list> -->
-
-<h4>Cidades parecidas com {{ City.info.nome }} - {{ City.info.uf }}</h4>
-<ion-list>
-    <ion-item ng-repeat="similar in City.similars" class="item item-text-wrap">
-        <div ng-class="isCardShown(similar) ? 'card-expand active' : 'card-expand inactive'">
-            <h2><a ng-click="citySearched(similar)" href="#/cards">{{ similar.nome }} - {{ similar.uf }}</a></h2>
-            <p ng-repeat="score in similar.scores">{{ beautify(score.tema) }}: R$ {{ formatCurrency(score.total) }}</p>
-        </div>
-        <div ng-click="toggleCard(similar)" ng-class="isCardShown(similar) ? 'card-expand-footer active' : 'card-expand-footer inactive'">
-            <i ng-class="isCardShown(similar) ? 'ion-android-remove-circle' : 'ion-android-add-circle'"></i>
-            {{ isCardShown(similar) ? 'Mostrar menos' : 'Mostrar mais'}}
-        </div>
-    </ion-item>
-</ion-list>
-
-
-<!-- <h4>Temas</h4>
-<ion-list ng-controller="CardsController">
-<ion-item ng-repeat="card in cards" class="item item-text-wrap">
-<div ng-class="isCardShown(card) ? 'card-expand active' : 'card-expand inactive'">
-<h2>{{ card.topic }}</h2>
-<p>{{ card.description }}</p>
-</div>
-<div ng-click="toggleCard(card)" ng-class="isCardShown(card) ? 'card-expand-footer active' : 'card-expand-footer inactive'">
-<i ng-class="isCardShown(card) ? 'ion-android-remove-circle' : 'ion-android-add-circle'"></i>
-{{ isCardShown(card) ? 'Mostrar menos' : 'Mostrar mais'}}
-</div>
-</ion-item>
-</ion-list> -->
 </ion-content>
+</ion-pane>

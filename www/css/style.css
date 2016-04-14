@@ -1,17 +1,58 @@
 
-.clickable {
-    cursor: pointer;
+/* HOME */
+
+ion-pane.home {
+    background-color: #469E71;
 }
 
-ion-content#form-wrapper {
+.descer {
     position: absolute;
     top: 50%;
     right: 0;
     left: 0;
+    transition: top 1s;
+}
+
+.subir {
+    top : 10%;
+}
+
+.shorter {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.rounded {
+    border-radius: 10px 35px 35px 10px;
+}
+
+.part-rounded {
+    border-radius: 10px 10px 0px 0px;
+}
+
+i.icon-right {
+    padding-right: 15px;
+}
+
+i.icon-bigger {
+    font-size: 30px;
 }
 
 
 /* CARDS */
+
+.theme-component {
+    width : 75%;
+    float : left;
+}
+
+.vote-component {
+    display:table-cell;
+    width : 15%;
+    float : right;
+    align : right;
+    vertical-align:middle;
+}
 
 .card-expand {
     position: relative;
@@ -44,7 +85,7 @@ ion-content#form-wrapper {
     }
 
     .card-expand.active {
-        max-height: 200px;
+        max-height: 500px;
         transition: max-height 0.3s ease-out;
     }
 
