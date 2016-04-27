@@ -36,13 +36,20 @@ angular.module('Diferentonas', ['ionic'])
         templateUrl: 'templates/cards.html',
         controller: 'CardsController'
     })
+    .state('convenios', {
+        url: '/convenios',
+        templateUrl: 'templates/convenios.html',
+        controller: 'ConveniosController'
+    })
     $urlRouterProvider.otherwise('/');
 })
 
 .factory('City', function() {
     return {
         'info': null,
-        'similars': null
+        'similars': null,
+        'convenios': null,
+        'convFiltrados': null
     };
 })
 
@@ -80,6 +87,11 @@ angular.module('Diferentonas', ['ionic'])
         }).success(function(data) {
             City.similars = data;
         })
+        $http.get('http://diferentonas.herokuapp.com/cidade/'.concat(city.id).concat('/convenios'), {
+            headers: {'Access-Control-Allow-Origin': '*'}
+        }).success(function(data) {
+            City.convenios = data;
+        })
         $scope.City = City;
         $location.path('/cards');
     }
@@ -113,20 +125,32 @@ angular.module('Diferentonas', ['ionic'])
         $location.path('/');
     }
 
-    $scope.citySearched = function(city) {
-        $http.get('http://diferentonas.herokuapp.com/cidade/'.concat(city.id), {
-            headers: {'Access-Control-Allow-Origin': '*'}
-        }).success(function(data) {
-            City.info = data;
-        })
-        $http.get('http://diferentonas.herokuapp.com/cidade/'.concat(city.id).concat('/similares'), {
-            headers: {'Access-Control-Allow-Origin': '*'}
-        }).success(function(data) {
-            City.similars = data;
-        })
-        $scope.City = City;
-        $ionicScrollDelegate.scrollTop();
+    $scope.checkConvenios = function(tema) {
+        var convFiltrados = [];
+        for (var index in City.convenios) {
+            if (City.convenios[index].orgaoSuperior === tema)
+                convFiltrados.push(City.convenios[index]);
+        }
+        console.log(convFiltrados);
+        City.convFiltrados = convFiltrados;
+
+        $location.path('/convenios');
     }
+
+    // $scope.citySearched = function(city) {
+    //     $http.get('http://diferentonas.herokuapp.com/cidade/'.concat(city.id), {
+    //         headers: {'Access-Control-Allow-Origin': '*'}
+    //     }).success(function(data) {
+    //         City.info = data;
+    //     })
+    //     $http.get('http://diferentonas.herokuapp.com/cidade/'.concat(city.id).concat('/similares'), {
+    //         headers: {'Access-Control-Allow-Origin': '*'}
+    //     }).success(function(data) {
+    //         City.similars = data;
+    //     })
+    //     $scope.City = City;
+    //     $ionicScrollDelegate.scrollTop();
+    // }
 
     $scope.hasOutliers = function(city) {
         var count = 0;
@@ -168,4 +192,33 @@ angular.module('Diferentonas', ['ionic'])
         tmp = tmp.replace('GESTAO', 'GESTÃO')
         return tmp.charAt(0) + tmp.slice(1).toLowerCase();
     }
-});
+})
+
+.controller('ConveniosController', function($scope, City) {
+    $scope.City = City;
+
+    $scope.beautify = function(str) {
+        var tmp =  str.replace(/MINIST[EÉ]RIO D[AEO]S? /, '');
+        if (tmp === 'Presidencia da República')
+            return tmp;
+        tmp = tmp.replace('JUSTICA', 'JUSTIÇA')
+        tmp = tmp.replace('PECUARIA', ' PECUÁRIA')
+        tmp = tmp.replace('CIENCIA', 'CIÊNCIA')
+        tmp = tmp.replace('INOVACAO', 'INOVAÇÃO')
+        tmp = tmp.replace('EDUCACAO', 'EDUCAÇÃO')
+        tmp = tmp.replace('INTEGRACAO', 'INTEGRAÇÃO')
+        tmp = tmp.replace('SAUDE', 'SAÚDE')
+        tmp = tmp.replace('COMUNICACOES', 'COMUNICAÇÕES')
+        tmp = tmp.replace('COMERCIO', 'COMÉRCIO')
+        tmp = tmp.replace('AGRARIO', 'AGRÁRIO')
+        tmp = tmp.replace('ORCAMENTO', 'ORÇAMENTO')
+        tmp = tmp.replace('GESTAO', 'GESTÃO')
+        return tmp.charAt(0) + tmp.slice(1).toLowerCase();
+    }
+
+    $scope.formatCurrency = function(n, c, d, t, j) {
+        n = Math.round(n);
+        c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
+        return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+    }
+})
