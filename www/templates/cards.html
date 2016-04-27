@@ -9,9 +9,9 @@
         <div ng-if="hasOutliers(City.info)">
             <div class="citem card" ng-repeat="item in City.info.scores" ng-if="item.score > 0.9 || item.score < -0.9">
 
-                <div class="item item-divider">
+                <!-- <div class="item item-divider icon-info">
                     <a href="#" class="subdued"><i class="icon ion-alert-circled icon-bigger"></i></a>
-                </div>
+                </div> -->
 
                 <div class="item item-divider">
                     <div class="item item-divider">
@@ -23,22 +23,22 @@
                         <span ng-if="item.score > 0.9 && item.score < 2">Recebeu bem mais verba</span>
                         <span ng-if="item.score > 2">Recebeu muito mais verba</span>
                         <br> -->
-                        <table>
-                            <tr>
-                                <td>{{ City.info.nome }}</td>
-                                <td>Semelhantes (média)</td>
-                            </tr>
-                            <tr>
-                                <td>R$ {{ formatCurrency(item.total) }}</td>
-                                <td>R$ {{ formatCurrency(item.media) }}</td>
-                            </tr>
-                        </table>
+                        <div style="float: left; width: 45%">
+                            {{ City.info.nome }}<br>
+                            {{ formatCurrency(item.total) }}
+                        </div>
+                        <i style="float: left; width: 10%" class="icon ion-close-round"></i>
+                        <div style="float: left; width: 45%">
+                            Semelhantes<br>
+                            {{ formatCurrency(item.media) }}
+                        </div>
                     </div>
                 </div>
 
                 <div class="item item-divider">
                     <a href="#" class="subdued"><i class="icon ion-heart"></i></a>
                     <a href="#" class="subdued"><i class="icon ion-heart-broken"></i></a>
+                    <a href="#" class="subdued"><i class="icon ion-fireball"></i></a>
                 </div>
             </div>
         </div>

@@ -137,10 +137,17 @@ angular.module('Diferentonas', ['ionic'])
         return count !== 0;
     }
 
-    $scope.formatCurrency = function(n, c, d, t) {
-        n = Math.round(n);
-        c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
-        return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+    $scope.formatCurrency = function(n) {
+        if (n >= 1000000 && n < 2000000)
+            return 'R$ ' + Math.round(n * 0.000001) + ' Milhão'
+        else if (n >= 2000000)
+            return 'R$ ' + Math.round(n * 0.000001) + ' Milhões'
+        else
+            return 'R$ ' + Math.round(n * 0.001) + ' Mil'
+
+        // n = Math.round(n);
+        // c = isNaN(c = Math.abs(c)) ? 2 : c, d = d == undefined ? "," : d, t = t == undefined ? "." : t, s = n < 0 ? "-" : "", i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", j = (j = i.length) > 3 ? j % 3 : 0;
+        // return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
     }
 
     $scope.beautify = function(str) {

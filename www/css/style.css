@@ -41,17 +41,23 @@ i.icon-bigger {
 
 /* CARDS */
 
-.theme-component {
-    width : 75%;
-    float : left;
+.icon-info {
+    float: left;
+    height: 100%;
 }
 
-.vote-component {
-    display:table-cell;
-    width : 15%;
+.info {
+    width : 2%;
+}
+
+.vote {
+    vertical-align: middle;
     float : right;
-    align : right;
-    vertical-align:middle;
+}
+
+.centered-text {
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .card-expand {
