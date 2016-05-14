@@ -1,0 +1,15 @@
+<ion-pane class="login">
+    <ion-content class="padding" ng-controller="LoginCtrl">
+      <img src="img/logo.png" alt="" >
+        <div class="list list-inset">
+
+            <label class="item item-input">
+                <input type="text" placeholder="Username" ng-model="data.username">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="data.password">
+            </label>
+        </div>
+        <button class="button button-block button-royal" ng-click="login()">Login</button>
+    </ion-content>
+</ion-pane>
