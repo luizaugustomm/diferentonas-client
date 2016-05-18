@@ -1,8 +1,4 @@
-//Main class for the app
-//Loads the frist screen
-
-var login = angular.module('Diferentonas', ['ionic'])
-
+angular.module('Diferentonas', ['ionic'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -18,15 +14,34 @@ var login = angular.module('Diferentonas', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
-    .state('login', {url: '/login',templateUrl: 'templates/login.html'})
-    .state('home', {url: '/search',templateUrl: 'templates/search.html'})
-    .state('cards', {url: '/cards',templateUrl: 'templates/cards.html'})
+      .state('login', {
+          url: '/login',
+          templateUrl: 'templates/login.html'
+      })
+      .state('search', {
+        url: '/search',
+        templateUrl: 'templates/search.html',
+        controller: 'SearchCtrl',
+        controllerAs: 'Search'
+      })
+      .state('city', {
+        url: '/city/:id_city',
+        templateUrl: 'templates/city.html',
+        controller: 'CityCtrl',
+        controllerAs: 'City'
+      })
+      .state('themes', {
+        url: '/themes/:id_city',
+        templateUrl: 'templates/themes.html',
+        controller: 'ThemesCtrl',
+        controllerAs: 'Themes'
+      })
     $urlRouterProvider.otherwise('/login');
 })
 
-login.controller('LoginCtrl', function($scope,$location) {
+.controller('LoginCtrl', function($scope,$location) {
     $scope.data = {};
- 
+
     $scope.login = function() {
         //Insert the function for authenticate the user
         console.log("LOGIN user: " + $scope.data.username + " - PW: " + $scope.data.password);
