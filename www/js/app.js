@@ -31,7 +31,7 @@ angular.module('Diferentonas', ['ionic'])
         controllerAs: 'City'
       })
       .state('themes', {
-        url: '/themes/:id_city',
+        url: '/themes/:id_city/:score',
         templateUrl: 'templates/themes.html',
         controller: 'ThemesCtrl',
         controllerAs: 'Themes'

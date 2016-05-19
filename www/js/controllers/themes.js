@@ -3,6 +3,7 @@ angular.module('Diferentonas')
 .controller('ThemesCtrl', ['$stateParams', '$http', 'City', function($stateParams, $http, City) {
     var vm = this;
     vm.id = $stateParams.id_city;
+    vm.score = $stateParams.score;
     vm.city = City;
     if (vm.city.info === null) {
       var api = 'http://diferentonas.herokuapp.com/cidade/';

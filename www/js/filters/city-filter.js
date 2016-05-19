@@ -32,4 +32,10 @@ angular.module('Diferentonas')
       else
           return 'R$ ' + Math.round(n * 0.001) + ' Mil'
     }
+  })
+
+  .filter('abs', function() {
+      return function(num) {
+        return Math.abs(num);
+      }
   });
