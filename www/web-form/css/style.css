@@ -1,0 +1,104 @@
+body {
+    margin:0;
+    background-color: #E2E3E5;
+}
+
+img {
+    max-width: 100%;
+    height: 44px;
+    width: 46px
+}
+
+p {
+    margin: 10px;
+    font-size: 18px;
+    color: #444242;
+}
+
+form{
+    position:fixed;
+   top: 10%;
+   left:10%;
+   right:5%;
+}
+
+button{
+    position: absolute;
+    right:    15%;
+    bottom:   15%;
+    border: none;
+    border-radius: 25px;
+    font-size:16px; 
+    color:#fff;
+    width: 120px;
+    height: 40px; 
+    margin: 10px;
+    background-color: #5850C0;
+}
+button:hover {background-color: #111;}
+
+textarea[type=text] {
+  border: none;
+  border-radius: 5px;
+  height: 40px; 
+  font-size:16px; 
+  color:#bbb;
+
+  -webkit-appearance: none;
+  width: 90%;
+}
+
+#mensagem{
+    height: 300px;
+}
+
+/*Nav-bar*/
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #444242;
+}
+
+ul.topnav li {float: right;}
+
+ul.topnav li a {
+    display: inline-block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+ul.topnav li a:hover {background-color: #111;}
+
+ul.topnav li.icon {display: none;}
+
+
+@media screen and (max-width:680px) {
+  ul.topnav li:not(:last-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:680px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}

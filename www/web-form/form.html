@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<title>As Diferentonas - Enviar mensagem</title>
+<head>
+	<meta charset="utf-8">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+	<ul class="topnav">
+		<img src="index.svg" alt="" >
+		<li><a href="#sobre">Sobre</a></li>
+		<li><a href="hist.html">Histórico</a></li>
+		<li><a href="form.html">Mandar Mensagem</a></li>
+		<li class="icon">
+			<a href="javascript:void(0);" onclick="myFunction()">&#9776;</a>
+	  	</li>
+  	</ul>
+  	<script>
+  		function myFunction() {
+  			document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
+  		}
+	</script>
+
+	<form id="mensagemForm">
+		<p>Tema</p>
+		<textarea type="text" id="tema">Tema principal da mensagem</textarea>
+		<p>Mensagem</p>
+		<textarea type="text" id="mensagem">Exemplo: Usuários, se aproxima o período de submissão de projetos...	</textarea>
+	</form>
+
+	<button type="submit" form="mensagemForm" value="submit" onclick="alert('Mensagem enviada.')">ENVIAR</button>	
+</body>
+
