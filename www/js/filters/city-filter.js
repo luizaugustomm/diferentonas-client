@@ -2,6 +2,7 @@ angular.module('Diferentonas')
 
   .filter('formatName', function() {
     return function(name) {
+      if (!name) return;
       var tmp = name.replace(/MINIST[EÉ]RIO D[AEO]S? /, '');
       if (tmp === 'Presidencia da República') return tmp;
 

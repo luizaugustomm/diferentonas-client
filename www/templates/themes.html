@@ -10,10 +10,10 @@
       <div class="card" ng-repeat="convenio in Themes.city.convenios">
         <div class="item item-text-wrap">
           <p>
-            <span class="positive">{{ convenio.ano }}</span> {{ convenio.situacao }}
+            <span class="positive">{{ convenio.ano }}</span> {{ convenio.status }}
           </p>
-          <p>{{ convenio.objeto | formatName }}</p>
-          <p><span class="positive">{{ convenio.repasse | currency:'R$ ' }}</span></p>
+          <p>{{ convenio.titulo | formatName }}</p>
+          <p><span class="positive">{{ convenio.valorGovF | currency:'R$ ' }}</span></p>
         </div>
       </div>
     </ion-content>
