@@ -6,3 +6,4 @@ platforms/
 plugins/
 .bowerrc
 .editorconfig
+.publish/
