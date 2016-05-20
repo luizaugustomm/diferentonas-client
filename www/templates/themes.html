@@ -1,19 +1,20 @@
 <ion-pane class="cards">
     <ion-header-bar class="bar bar-header">
-      <button class="button icon ion-android-arrow-back" ui-sref="search"></button>
+      <button class="button icon ion-android-arrow-back" ui-sref="city({'id_city': Themes.city.info.id})"></button>
       <h1 class="title">{{ Themes.city.info.nome }} - {{ Themes.city.info.uf }}</h1>
     </ion-header-bar>
     <ion-header-bar class="bar bar-subheader">
-      <h2 class="title">Iniciativas</h2>
+      <h2 class="title">Iniciativas de {{Themes.score}}</h2>
     </ion-header-bar>
+
     <ion-content class="padding content-default">
-      <div class="card" ng-repeat="convenio in Themes.city.convenios">
+      <div class="card" ng-repeat="iniciativa in Themes.city.convenios | filter:Themes.score:true">
         <div class="item item-text-wrap">
           <p>
-            <span class="positive">{{ convenio.ano }}</span> {{ convenio.status }}
+            <span class="positive">{{ iniciativa.ano }}</span> {{ iniciativa.status }}
           </p>
-          <p>{{ convenio.titulo | formatName }}</p>
-          <p><span class="positive">{{ convenio.valorGovF | currency:'R$ ' }}</span></p>
+          <p>{{ iniciativa.titulo | formatName }}</p>
+          <p><span class="positive">{{ iniciativa.verbaGovernoFederal | currency:'R$ ' }}</span></p>
         </div>
       </div>
     </ion-content>

@@ -3,12 +3,20 @@
       <button class="button icon ion-android-arrow-back" ui-sref="search"></button>
       <h1 class="title">{{ City.city.info.nome }} - {{ City.city.info.uf }}</h1>
     </ion-header-bar>
+    <ion-header-bar class="bar bar-subheader">
+      <h2 class="title">Áreas</h2>
+    </ion-header-bar>
+    
     <ion-content class="padding content-default">
-      <div class="card" ng-repeat="item in City.city.info.scores" ui-sref="themes({'id_city': City.city.info.id})">
-          <div class="item item-text-wrap">
-            <p>{{ item.area | formatName }}</p>
+
+      <div class="card"
+        ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
+        ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
+        ng-hide="score.valorScore == 0 || City.isNeutral(score)">
+          <div class="item item-text-wrap" ng-class="{'card-positive': (score.valorScore >= 1), 'card-negative': (score.valorScore <= -1)}">
+            <p>{{ score.area | formatName }}</p>
             <p class="text-center">
-              <span class="item-positive">{{ item.repasseTotal | formatCurrency }}</span>
+              {{ score.repasseTotal | formatCurrency }}
               <br>
               <span class="text-sm">{{ City.city.info.nome }}</span>
             </p>
@@ -17,11 +25,38 @@
               <div class="progress-bar progress-bar-positive" style="width: 50%"></div>
             </div>
             <p class="text-center">
-              {{ item.mediaCidadesSemelhantes | formatCurrency }}
+              {{ score.mediaCidadesSemelhantes | formatCurrency }}
               <br>
               <span class="text-sm">Média</span>
             </p>
           </div>
+      </div>
+      <button class="button button-block button-clear button-positive" ng-click="City.toggleNeutrals()">
+        Ver todos
+      </button>
+      <div ng-show="City.showNeutrals">
+        <div class="card"
+          ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
+          ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
+          ng-hide="score.valorScore == 0 || !City.isNeutral(score)">
+            <div class="item item-text-wrap" ng-class="{'card-positive': (score.valorScore >= 1), 'card-negative': (score.valorScore <= -1)}">
+              <p>{{ score.area | formatName }}</p>
+              <p class="text-center">
+                {{ score.repasseTotal | formatCurrency }}
+                <br>
+                <span class="text-sm">{{ City.city.info.nome }}</span>
+              </p>
+              <div class="progress">
+                <div class="progress-bar progress-bar-negative" style="width: 50%"></div>
+                <div class="progress-bar progress-bar-positive" style="width: 50%"></div>
+              </div>
+              <p class="text-center">
+                {{ score.mediaCidadesSemelhantes | formatCurrency }}
+                <br>
+                <span class="text-sm">Média</span>
+              </p>
+            </div>
+        </div>
       </div>
     </ion-content>
 </ion-pane>
