@@ -14,7 +14,7 @@
         score="score"
         ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
         ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
-        ng-hide="score.valorScore == 0 || City.isNeutral(score)"></df-theme-card>
+        ng-hide="score.valorScore == 0 || City.city.isNeutral(score)"></df-theme-card>
 
       <button class="button button-block button-clear button-positive" ng-click="City.toggleNeutrals()">
         Ver todos
@@ -26,7 +26,7 @@
           score="score"
           ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
           ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
-          ng-hide="score.valorScore == 0 || !City.isNeutral(score)"></df-theme-card>
+          ng-hide="score.valorScore == 0 || !City.city.isNeutral(score)"></df-theme-card>
       </div>
 
     </ion-content>
