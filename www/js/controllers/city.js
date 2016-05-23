@@ -34,7 +34,7 @@ angular.module('Diferentonas')
     $http.get(api.concat(vm.id).concat('/iniciativas'), {
         headers: {'Access-Control-Allow-Origin': '*'}
     }).success(function(data) {
-        vm.city.convenios = data;
-        City.convenios = data;
+        vm.city.inicitivas = data;
+        City.inicitivas = data;
     })
 }]);

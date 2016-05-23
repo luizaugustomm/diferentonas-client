@@ -5,7 +5,7 @@ angular.module('Diferentonas')
     vm.id = $stateParams.id_city;
     vm.score = $stateParams.score;
     vm.city = City;
-    if (vm.city.info === null) {
+    if (!vm.city.hasData()) {
       var api = 'http://diferentonas.herokuapp.com/cidade/';
       // var api = 'http://0.0.0.0:9000/cidade/';
       $http.get(api.concat(vm.id), {
@@ -23,8 +23,8 @@ angular.module('Diferentonas')
       $http.get(api.concat(vm.id).concat('/iniciativas'), {
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
-          vm.city.convenios = data;
-          City.convenios = data;
+          vm.city.inicitivas = data;
+          City.inicitivas = data;
       })
     }
 }]);

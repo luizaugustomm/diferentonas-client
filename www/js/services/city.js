@@ -14,7 +14,7 @@ angular.module('Diferentonas')
             scores: []
           },
           similars: null,
-          convenios: null,
+          iniciativas: null,
           convFiltrados: null,
           isNeutral: function(score) {
             return (score.valorScore > -1 && score.valorScore < 1);
@@ -39,6 +39,12 @@ angular.module('Diferentonas')
                   break;
               }
             }
+          },
+          getInitiativeStatus: function(initiative) {
+            return initiative.status.replace(/ /g,'-').replace(/,/g,'').toLowerCase();
+          },
+          hasData: function() {
+            return (this.info.id !== null)
           }
       };
   });

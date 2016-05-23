@@ -4,18 +4,10 @@
       <h1 class="title">{{ Themes.city.info.nome }} - {{ Themes.city.info.uf }}</h1>
     </ion-header-bar>
     <ion-header-bar class="bar bar-subheader">
-      <h2 class="title">Iniciativas de {{Themes.score}}</h2>
+      <h2 class="title">Iniciativas em {{Themes.score}}</h2>
     </ion-header-bar>
 
     <ion-content class="padding content-default">
-      <div class="card" ng-repeat="iniciativa in Themes.city.convenios | filter:Themes.score:true">
-        <div class="item item-text-wrap">
-          <p>
-            <span class="positive">{{ iniciativa.ano }}</span> {{ iniciativa.status }}
-          </p>
-          <p>{{ iniciativa.titulo | formatName }}</p>
-          <p><span class="positive">{{ iniciativa.verbaGovernoFederal | currency:'R$ ' }}</span></p>
-        </div>
-      </div>
+      <df-initiative-card iniciativa="iniciativa" city="Themes.city" ng-repeat="iniciativa in Themes.city.inicitivas | filter:Themes.score:true"></df-initiative-card>
     </ion-content>
 </ion-pane>
