@@ -1,0 +1,59 @@
+<ion-pane class="cards">
+    <ion-header-bar class="bar bar-header">
+      <button class="button icon ion-android-arrow-back" ui-sref="themes({'id_city': Initiative.city.info.id, 'score': Initiative.score})"></button>
+      <h1 class="title">{{Initiative.initiative.titulo}}</h1>
+    </ion-header-bar>
+
+    <div class="tabs tabs-striped tabs-top tabs-icon-only">
+      <a class="tab-item active">
+        <i class="icon ion-information-circled"></i>
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-chatbubbles"></i>
+      </a>
+    </div>
+
+    <ion-content class="padding-top content-default has-subheader">
+
+      <div class="initiative-card initiative-progress padding">
+        <div class="row">
+          <div class="col">{{Initiative.initiative.status}}</div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            Início:
+            {{Initiative.initiative.dataInicio}}</div>
+          <div class="col">
+            Conclusão:
+            {{Initiative.initiative.dataConclusaoMunicipio}}
+          </div>
+          <div class="col">
+            Prestação de contas:
+            {{Initiative.initiative.dataConclusaoGovernoFederal}}
+          </div>
+        </div>
+      </div>
+
+      <div class="initiative-card initiative-values padding">
+        <p class="initiative-values-title">
+          Valor repassado pelo Governo Federal <br>
+          ({{Initiative.initiative.fonte}})
+        </p>
+        <p><strong>{{Initiative.initiative.verbaGovernoFederal | currency}}</strong></p>
+        <p>
+          Valor complementado pela Prefeitura: <br>
+          {{Initiative.initiative.verbaMunicipio | currency}}
+        </p>
+        <p>
+          Valor total: <br>
+          <strong>{{Initiative.initiative.verbaGovernoFederal+Initiative.initiative.verbaMunicipio | currency}}</strong>
+        </p>
+      </div>
+
+      <div class="initiative-card initiative-evaluation padding">
+        Avaliação sobre esta iniciativa
+      </div>
+
+    </ion-content>
+</ion-pane>

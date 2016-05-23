@@ -40,6 +40,15 @@ angular.module('Diferentonas')
               }
             }
           },
+          getInitiativeByID: function(initiatives, initiativeId) {
+            if (initiatives !== null) {
+              for (var i = 0; i < initiatives.length; i++) {
+                if (initiatives[i].id == initiativeId) {
+                  return initiatives[i];
+                }
+              }
+            }
+          },
           getInitiativeStatus: function(initiative) {
             return initiative.status.replace(/ /g,'-').replace(/,/g,'').toLowerCase();
           },
