@@ -1,21 +1,23 @@
 <ion-pane class="cards">
     <ion-header-bar class="bar bar-header">
       <button class="button icon ion-android-arrow-back" ui-sref="city({'id_city': Themes.city.info.id})"></button>
-      <h1 class="title">{{ Themes.city.info.nome }} - {{ Themes.city.info.uf }}</h1>
-    </ion-header-bar>
-    <ion-header-bar class="bar bar-subheader">
-      <h2 class="title">Iniciativas de {{Themes.score}}</h2>
+      <h1 class="title">{{Themes.score}}</h1>
     </ion-header-bar>
 
-    <ion-content class="padding content-default">
-      <div class="card" ng-repeat="iniciativa in Themes.city.convenios | filter:Themes.score:true">
-        <div class="item item-text-wrap">
-          <p>
-            <span class="positive">{{ iniciativa.ano }}</span> {{ iniciativa.status }}
-          </p>
-          <p>{{ iniciativa.titulo | formatName }}</p>
-          <p><span class="positive">{{ iniciativa.verbaGovernoFederal | currency:'R$ ' }}</span></p>
-        </div>
-      </div>
+    <div class="tabs tabs-striped tabs-top tabs-icon-only">
+      <a class="tab-item active">
+        <i class="icon ion-arrow-graph-up-right"></i>
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-chatbubbles"></i>
+      </a>
+    </div>
+
+    <ion-content class="padding content-default has-subheader">
+      <df-initiative-card
+        iniciativa="iniciativa"
+        city="Themes.city"
+        ui-sref="initiative({'id_city': Themes.city.info.id, 'score': Themes.score, 'id_initiative': iniciativa.id})"
+        ng-repeat="iniciativa in Themes.city.inicitivas | filter:Themes.score:true"></df-initiative-card>
     </ion-content>
 </ion-pane>

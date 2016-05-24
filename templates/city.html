@@ -6,57 +6,28 @@
     <ion-header-bar class="bar bar-subheader">
       <h2 class="title">Áreas</h2>
     </ion-header-bar>
-    
+
     <ion-content class="padding content-default">
 
-      <div class="card"
+      <df-theme-card
+        city="City.city"
+        score="score"
         ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
         ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
-        ng-hide="score.valorScore == 0 || City.isNeutral(score)">
-          <div class="item item-text-wrap" ng-class="{'card-positive': (score.valorScore >= 1), 'card-negative': (score.valorScore <= -1)}">
-            <p>{{ score.area | formatName }}</p>
-            <p class="text-center">
-              {{ score.repasseTotal | formatCurrency }}
-              <br>
-              <span class="text-sm">{{ City.city.info.nome }}</span>
-            </p>
-            <div class="progress">
-              <div class="progress-bar progress-bar-negative" style="width: 50%"></div>
-              <div class="progress-bar progress-bar-positive" style="width: 50%"></div>
-            </div>
-            <p class="text-center">
-              {{ score.mediaCidadesSemelhantes | formatCurrency }}
-              <br>
-              <span class="text-sm">Média</span>
-            </p>
-          </div>
-      </div>
+        ng-hide="score.valorScore == 0 || City.city.isNeutral(score)"></df-theme-card>
+
       <button class="button button-block button-clear button-positive" ng-click="City.toggleNeutrals()">
         Ver todos
       </button>
+
       <div ng-show="City.showNeutrals">
-        <div class="card"
+        <df-theme-card
+          city="City.city"
+          score="score"
           ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
           ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
-          ng-hide="score.valorScore == 0 || !City.isNeutral(score)">
-            <div class="item item-text-wrap" ng-class="{'card-positive': (score.valorScore >= 1), 'card-negative': (score.valorScore <= -1)}">
-              <p>{{ score.area | formatName }}</p>
-              <p class="text-center">
-                {{ score.repasseTotal | formatCurrency }}
-                <br>
-                <span class="text-sm">{{ City.city.info.nome }}</span>
-              </p>
-              <div class="progress">
-                <div class="progress-bar progress-bar-negative" style="width: 50%"></div>
-                <div class="progress-bar progress-bar-positive" style="width: 50%"></div>
-              </div>
-              <p class="text-center">
-                {{ score.mediaCidadesSemelhantes | formatCurrency }}
-                <br>
-                <span class="text-sm">Média</span>
-              </p>
-            </div>
-        </div>
+          ng-hide="score.valorScore == 0 || !City.city.isNeutral(score)"></df-theme-card>
       </div>
+
     </ion-content>
 </ion-pane>

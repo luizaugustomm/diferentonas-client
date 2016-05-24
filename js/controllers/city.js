@@ -3,18 +3,14 @@ angular.module('Diferentonas')
 .controller('CityCtrl', ['$stateParams', '$http', 'City', function($stateParams, $http, City) {
     var vm = this;
     vm.id = $stateParams.id_city;
-    vm.city = {};
+    vm.city = City;
     vm.showNeutrals = false;
 
     vm.orderByScore = function(score) {
-      if (score.area == "TOTAL GERAL" && vm.isNeutral(score)) {
+      if (score.area == "TOTAL GERAL" && vm.city.isNeutral(score)) {
         return 10;
       }
       return Math.abs(score.valorScore)*-1;
-    }
-
-    vm.isNeutral = function(score) {
-      return (score.valorScore > -1 && score.valorScore < 1);
     }
 
     vm.toggleNeutrals = function() {
@@ -38,7 +34,7 @@ angular.module('Diferentonas')
     $http.get(api.concat(vm.id).concat('/iniciativas'), {
         headers: {'Access-Control-Allow-Origin': '*'}
     }).success(function(data) {
-        vm.city.convenios = data;
-        City.convenios = data;
+        vm.city.inicitivas = data;
+        City.inicitivas = data;
     })
 }]);

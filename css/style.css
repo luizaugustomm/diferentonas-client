@@ -9,6 +9,29 @@
 .item.card-positive p { color: #fff;}
 .item.card-negative p { color: #fff;}
 
+.status { font-weight: bold; }
+.status.em-andamento { color: #DD9F16; }
+.status.concluída-segundo-a-prefeitura { color: #7770CB; }
+.status.não-iniciada { color: #000; }
+.status.aprovada-pelo-governo-federal { color: #58A87D; }
+.status.aprovada-pelo-governo-federal-com-ressalvas { color: #58A87D; }
+
+.initiative-card {
+  margin-top: 20px;
+  font-size: 0.8em;
+  line-height: 1em;
+  text-transform: uppercase;
+  color: #FFF;
+}
+.initiative-progress {
+  background-color: #DD9F16;
+}
+.initiative-values {
+  background-color: #58A87D;
+}
+.initiative-evaluation {
+  background-color: #5D5D5D;
+}
 .text-sm {
   font-size: 0.8em;
 }

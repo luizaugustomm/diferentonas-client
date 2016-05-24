@@ -36,6 +36,12 @@ angular.module('Diferentonas', ['ionic'])
         controller: 'ThemesCtrl',
         controllerAs: 'Themes'
       })
+      .state('initiative', {
+        url: '/initiative/:id_city/:score/:id_initiative',
+        templateUrl: 'templates/initiative.html',
+        controller: 'InitiativeCtrl',
+        controllerAs: 'Initiative'
+      })
     $urlRouterProvider.otherwise('/login');
 })
 
