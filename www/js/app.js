@@ -42,6 +42,18 @@ angular.module('Diferentonas', ['ionic'])
         controller: 'InitiativeCtrl',
         controllerAs: 'Initiative'
       })
+      .state('initiative-comments', {
+        url: '/initiative-comments/:id_city/:score/:id_initiative',
+        templateUrl: 'templates/initiative-comments.html',
+        controller: 'InitiativeCommentsCtrl',
+        controllerAs: 'Comments'
+      })
+      .state('initiative-replies', {
+        url: '/initiative-replies/:id_city/:score/:id_initiative',
+        templateUrl: 'templates/initiative-replies.html',
+        controller: 'InitiativeRepliesCtrl',
+        controllerAs: 'Replies'
+      })
     $urlRouterProvider.otherwise('/login');
 })
 

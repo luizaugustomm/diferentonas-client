@@ -97,3 +97,21 @@
     font-size: 30px;
     color : #C64832;
 }
+.reaction-icon {
+  float: right;
+  color: #5850C0;
+  font-size: 1.2em;
+}
+.item-avatar-text {
+  border: none;
+  padding-top: 0;
+}
+/* ionic overhide */
+.item-divider {
+  background-color: #FFF;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.list:last-child.card {
+  margin-bottom: 0;
+}
