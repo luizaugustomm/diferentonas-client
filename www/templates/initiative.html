@@ -24,29 +24,28 @@
       </div>
 
       <div class="initiative-card initiative-progress padding">
-		 <div class="row">
-          <div class="col">{{Initiative.initiative.status}}</div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            Início:
-            {{Initiative.initiative.dataInicio}}</div>
-          <div class="col">
-            Conclusão:
-            {{Initiative.initiative.dataConclusaoMunicipio}}
-          </div>
-          <div class="col">
-            Prestação de contas:
-            {{Initiative.initiative.dataConclusaoGovernoFederal}}
-          </div>
-        </div>
-		        </div>
-		    </div>
+          Andamento: <br><strong>{{Initiative.initiative.status}}</strong>
+            <div class="progress-chart-end">
+              Prestação de contas:<br>
+              {{Initiative.initiative.dataConclusaoGovernoFederal}}
+            </div>
+            <div class="progress-chart-conclusion">
+              Conclusão: <br>
+              {{Initiative.initiative.dataConclusaoMunicipio}}
+            </div>
+            <div class="progress-chart-status" ng-class="">
+              <strong>Status: <br>
+              {{Initiative.initiative.status}}</strong>
+            </div>
+            <div class='progress-chart'>
+            </div>
+            <div class='progress-chart-begin'>
+                 Início: <br>
+                  {{Initiative.initiative.dataInicio}}
+            </div>
       </div>
 
       <div class="initiative-card initiative-values padding">
-        <!--<i class="col-icon ion-social-usd" style="color:#58A87D"></i>!-->
         <p class="initiative-values-title">
         	<div class="row">
 		        <div class = "col">

@@ -1,5 +1,4 @@
 angular.module('Diferentonas')
-
 .controller('BarChartCtrl', function($scope){
 	$scope.options = {  
 		chart: {
@@ -21,5 +20,4 @@ angular.module('Diferentonas')
 					values: [{"label":"Bomba","value":20,"color": "#5D5D5D"}, 
 						 {"label":"Curti","value":10,"color": "#5D5D5D"}, 
         				 {"label":"Não curti","value":70,"color": "#5D5D5D"}]}];
-})
-
+});
