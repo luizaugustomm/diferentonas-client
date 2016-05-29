@@ -1,4 +1,4 @@
-angular.module('Diferentonas', ['ionic'])
+angular.module('Diferentonas', ['ionic','nvd3'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {

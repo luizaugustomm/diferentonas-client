@@ -14,9 +14,17 @@
     </div>
 
     <ion-content class="padding-top content-default has-subheader">
+		<div class="initiative-card initiative-title padding">
+        <div class = "col">
+	        <p class="initiative-values-title">
+	          Título: <br>
+	          <p><strong>{{Initiative.initiative.titulo}}</strong></p>
+	        </p>
+	    </div>
+      </div>
 
       <div class="initiative-card initiative-progress padding">
-        <div class="row">
+		 <div class="row">
           <div class="col">{{Initiative.initiative.status}}</div>
         </div>
 
@@ -33,27 +41,38 @@
             {{Initiative.initiative.dataConclusaoGovernoFederal}}
           </div>
         </div>
+		        </div>
+		    </div>
       </div>
 
       <div class="initiative-card initiative-values padding">
+        <!--<i class="col-icon ion-social-usd" style="color:#58A87D"></i>!-->
         <p class="initiative-values-title">
-          Valor repassado pelo Governo Federal <br>
-          ({{Initiative.initiative.fonte}})
-        </p>
-        <p><strong>{{Initiative.initiative.verbaGovernoFederal | currency}}</strong></p>
-        <p>
-          Valor complementado pela Prefeitura: <br>
-          {{Initiative.initiative.verbaMunicipio | currency}}
-        </p>
-        <p>
-          Valor total: <br>
-          <strong>{{Initiative.initiative.verbaGovernoFederal+Initiative.initiative.verbaMunicipio | currency}}</strong>
+        	<div class="row">
+		        <div class = "col">
+		        	Valor repassado pelo Governo Federal <br>
+		        	({{Initiative.initiative.fonte}})
+        		</p>
+        		<p><strong>{{Initiative.initiative.verbaGovernoFederal | currency}}</strong></p>
+        			<p>
+          			Valor complementado pela Prefeitura: <br>
+          			{{Initiative.initiative.verbaMunicipio | currency}}
+        			</p>
+        		<p>
+          			Valor total: <br>
+          			<strong>{{Initiative.initiative.verbaGovernoFederal+Initiative.initiative.verbaMunicipio | currency}}</strong>
+   				</p>
+		        </div>
+		    </div>
         </p>
       </div>
-
-      <div class="initiative-card initiative-evaluation padding">
-        Avaliação sobre esta iniciativa
+      <div class="initiative-card initiative-evaluation padding" ng-controller="BarChartCtrl">
+		    Avaliação sobre esta iniciativa
+		    <nvd3 options="options" data="data"></nvd3>
+        <div class = "row">
+        <div class = "col"><i class="icon-chart ion-alert-circled"></i></div>
+        <div class = "col"><i class="icon-chart ion-heart" style="color:#99003c"></i></div> 
+        <div class = "col"><i class="icon-chart ion-heart-broken" style="color:#99003c"></i></div>
       </div>
-
     </ion-content>
 </ion-pane>
