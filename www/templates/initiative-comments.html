@@ -25,17 +25,17 @@
       <div class="row text-center">
         <div class="col">
           <button class="button icon ion-heart button-reaction"
-            ng-class="{'active': Comments.comment.reaction === 'coracao'}"
+            ng-class="{'active': Comments.comment.tipo === 'coracao'}"
             ng-click="Comments.selectReaction('coracao')"></button>
         </div>
         <div class="col">
           <button class="button icon ion-heart-broken button-reaction"
-            ng-class="{'active': Comments.comment.reaction === 'coracao_partido'}"
+            ng-class="{'active': Comments.comment.tipo === 'coracao_partido'}"
             ng-click="Comments.selectReaction('coracao_partido')"></button>
         </div>
         <div class="col">
           <button class="button icon ion-flame button-reaction"
-            ng-class="{'active': Comments.comment.reaction === 'bomba'}"
+            ng-class="{'active': Comments.comment.tipo === 'bomba'}"
             ng-click="Comments.selectReaction('bomba')"></button>
         </div>
       </div>
@@ -45,7 +45,7 @@
         <div class="item">
           <div class="list">
             <label class="item item-input">
-              <textarea rows="5" placeholder="Inicie aqui uma discussão!" ng-model="Comments.comment.text"></textarea>
+              <textarea rows="5" placeholder="Inicie aqui uma discussão!" ng-model="Comments.comment.conteudo"></textarea>
             </label>
           </div>
         </div>

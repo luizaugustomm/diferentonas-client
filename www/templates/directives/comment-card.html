@@ -1,19 +1,19 @@
 <div class="list card">
 
   <div class="item item-avatar">
-    <img src="http://www.gravatar.com/avatar/484649846498?f=y&d=retro">
+    <!-- <img src="http://www.gravatar.com/avatar/484649846498?f=y&d=retro"> -->
     <div class="reaction-icon">
-      <i class="icon ion-heart"></i>
+      <i class="icon" ng-class="getIcon()"></i>
     </div>
-    <h2>{{comment.reaction}}</h2>
-    <h4 class="small">30% confiável</h4>
+    <!-- <h2>Username</h2>
+    <h4 class="small">% confiável</h4> -->
   </div>
 
   <div class="item item-text-wrap item-avatar-text">
-    <p>{{comment.text}}</p>
+    <p>{{comment.conteudo}}</p>
   </div>
 
-  <div class="item item-divider">
+  <!-- <div class="item item-divider">
     <div class="row">
       <div class="col col-50 col-mid">
         <a
@@ -23,6 +23,6 @@
       <div class="col text-center"><a class="button button-icon icon ion-happy"></a></div>
       <div class="col text-center"><a class="button button-icon icon ion-sad"></a></div>
     </div>
-  </div>
+  </div> -->
 
 </div>
