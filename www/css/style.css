@@ -169,6 +169,53 @@
 .button.button-full.button-reply {
   margin: 0 0 -1px 0;
 }
+.tabs.main-nav {
+  background: none;
+  border: none;
+}
+.tab-item.main-nav {
+  opacity: 1;
+}
+.tab-item.main-nav > img {
+  background-color: #444242;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+.user-profile-card {
+  margin: 100px 20px 20px 20px;
+  padding-bottom: 10px;
+  background-color: #444242;
+  color: #FFF;
+}
+.user-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: -80px;
+  margin-bottom: 20px;
+}
+p.user-confiability {
+  font-size: 1.1em;
+}
+.gov-message-card {
+  margin: 0 0 0 15px;
+  background-color: #5F57C1;
+  color: #FFF;
+  padding: 15px 15px 15px 30px;
+}
+.gov-message-card > h2 {
+  margin-top: 0;
+  font-size: 1em;
+  font-weight: bold;
+  color: #FFF;
+}
+.gov-message-img {
+  float: left;
+  margin-left: -50px;
+  background-color: #FFF;
+  border-radius: 50%;
+  z-index: 9999;
+}
 /* ionic overhide */
 .item-divider {
   background-color: #FFF;

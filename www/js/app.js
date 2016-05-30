@@ -24,6 +24,20 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
         controller: 'SearchCtrl',
         controllerAs: 'Search'
       })
+      .state('timeline', {
+        url: '/timeline',
+        templateUrl: 'templates/timeline.html',
+        controller: 'TimelineCtrl',
+        controllerAs: 'Timeline'
+      })
+      .state('profile', {
+        url: '/profile',
+        templateUrl: 'templates/profile.html'
+      })
+      .state('messages', {
+        url: '/messages',
+        templateUrl: 'templates/messages.html'
+      })
       .state('city', {
         url: '/city/:id_city',
         templateUrl: 'templates/city.html',
