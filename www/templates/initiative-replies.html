@@ -19,10 +19,24 @@
 
       <div class="list card">
 
-        <div class="item item-avatar">
-          <img src="http://www.gravatar.com/avatar/9298868a35b491cf3bcbf6966fdf64f7?f=y&d=retro">
+        <a class="item item-avatar" href="#" ng-repeat="comment in Replies.replies">
+          <img src="http://www.gravatar.com/avatar/484649846498?f=y&d=retro">
           <h2>Username</h2>
+          <p>{{comment.text}}</p>
+        </a>
+
+        <div class="item">
+          <div class="list">
+            <label class="item item-input">
+              <textarea rows="5" placeholder="Participe aqui desta discurssão!" ng-model="Replies.reply"></textarea>
+            </label>
+          </div>
         </div>
+        <button type="submit" class="button button-full button-positive button-reply"
+          ng-disabled="!Replies.reply"
+          ng-click="Replies.submitReply()">
+          Enviar
+        </button>
 
       </div>
 

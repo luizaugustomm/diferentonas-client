@@ -1,4 +1,4 @@
-angular.module('Diferentonas', ['ionic'])
+angular.module('Diferentonas', ['ionic', 'ionic-toast'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
