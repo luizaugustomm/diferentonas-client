@@ -5,16 +5,12 @@
     <div class="reaction-icon">
       <i class="icon ion-heart"></i>
     </div>
-    <h2>Username</h2>
+    <h2>{{comment.reaction}}</h2>
     <h4 class="small">30% confiável</h4>
   </div>
 
   <div class="item item-text-wrap item-avatar-text">
-    <p>
-      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-      the content is from a card-body consisting of an image and paragraph text. The footer
-      consists of tabs, icons aligned left, within the card-footer.
-    </p>
+    <p>{{comment.text}}</p>
   </div>
 
   <div class="item item-divider">
@@ -22,7 +18,7 @@
       <div class="col col-50 col-mid">
         <a
           class="button icon-left ion-chatbubble button-clear button-dark"
-          ui-sref="initiative-replies({'id_city': 2504009, 'score': 'Trabalho', 'id_initiative': 782332})"> 32</a>
+          ui-sref="initiative-replies({'id_city': city.info.id, 'score': score, 'id_initiative': initiative.id})"> 32</a>
       </div>
       <div class="col text-center"><a class="button button-icon icon ion-happy"></a></div>
       <div class="col text-center"><a class="button button-icon icon ion-sad"></a></div>

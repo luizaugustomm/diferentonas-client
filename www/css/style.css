@@ -109,6 +109,21 @@
 .item-reply {
   background-color: #ECECEE;
 }
+.card-reaction {
+  margin-top: -35px;
+  padding-top: 35px;
+}
+.button-reaction {
+  z-index: 3;
+  background-color: #727176;
+  border-radius: 50%;
+  width: 47px;
+  height: 52px;
+  color: #fff;
+}
+.button-reaction.active {
+  background-color: #5850C0;
+}
 .button.button-full.button-reply {
   margin: 0 0 -1px 0;
 }

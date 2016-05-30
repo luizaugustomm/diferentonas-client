@@ -15,31 +15,29 @@ angular.module('Diferentonas')
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
           $ionicLoading.hide();
-          ionicToast.show("Opinião enviada com sucesso.", 'middle', false, 2500);
+          ionicToast.show("Opinião enviada com sucesso.", 'bottom', false, 2500);
           vm.replies.push({ "text": vm.reply });
           vm.reply = "";
       }).error(function(data) {
           $ionicLoading.hide();
-          ionicToast.show("Algo deu errado.", 'middle', false, 2500);
+          ionicToast.show("Algo deu errado.", 'bottom', false, 2500);
       });
     }
 
     if (!vm.city.hasData()) {
-      var api = 'http://diferentonas.herokuapp.com/cidade/';
-      // var api = 'http://0.0.0.0:9000/cidade/';
-      $http.get(api.concat(vm.id), {
+      $http.get(api.concat("/cidade/", vm.id), {
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
           vm.city.info = data;
           City.info = data;
       })
-      $http.get(api.concat(vm.id).concat('/similares'), {
+      $http.get(api.concat("/cidade/", vm.id, "/similares"), {
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
           vm.city.similars = data;
           City.similars = data;
       })
-      $http.get(api.concat(vm.id).concat('/iniciativas'), {
+      $http.get(api.concat("/cidade/", vm.id, "/iniciativas"), {
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
           vm.city.inicitivas = data;
