@@ -1,0 +1,63 @@
+<ion-pane class="cards">
+    <ion-header-bar class="bar bar-header">
+      <button class="button icon ion-android-arrow-back" ui-sref="initiative({'id_city': Comments.city.info.id, 'score': Comments.score, 'id_initiative': Comments.initiative.id})"></button>
+      <h1 class="title">{{Comments.initiative.titulo}}</h1>
+    </ion-header-bar>
+
+    <div class="tabs tabs-striped tabs-top tabs-icon-only">
+      <a class="tab-item" ui-sref="initiative({'id_city': Comments.city.info.id, 'score': Comments.score, 'id_initiative': Comments.initiative.id})">
+        <i class="icon ion-information-circled"></i>
+      </a>
+      <a class="tab-item active">
+        <i class="icon ion-chatbubbles"></i>
+      </a>
+    </div>
+
+    <ion-content class="padding-top content-default has-subheader">
+
+      <div class="list card" ng-hide="Comments.comments.length">
+        <a href="#" class="item">
+          <i class="ion-alert-circled"></i>
+          Esta iniciativa ainda não foi discutida.
+        </a>
+      </div>
+
+      <div class="row text-center">
+        <div class="col">
+          <button class="button icon ion-heart button-reaction"
+            ng-class="{'active': Comments.comment.tipo === 'coracao'}"
+            ng-click="Comments.selectReaction('coracao')"></button>
+        </div>
+        <div class="col">
+          <button class="button icon ion-heart-broken button-reaction"
+            ng-class="{'active': Comments.comment.tipo === 'coracao_partido'}"
+            ng-click="Comments.selectReaction('coracao_partido')"></button>
+        </div>
+        <div class="col">
+          <button class="button icon ion-flame button-reaction"
+            ng-class="{'active': Comments.comment.tipo === 'bomba'}"
+            ng-click="Comments.selectReaction('bomba')"></button>
+        </div>
+      </div>
+
+      <div class="list card card-reaction">
+
+        <div class="item">
+          <div class="list">
+            <label class="item item-input">
+              <textarea rows="5" placeholder="Inicie aqui uma discussão!" ng-model="Comments.comment.conteudo"></textarea>
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="button button-full button-positive button-reply"
+          ng-disabled="!Comments.isReadyToSend()"
+          ng-click="Comments.submitComment()">
+          Lançar discussão
+        </button>
+
+      </div>
+
+      <df-comment-card city="Comments.city" score="Comments.score" initiative="Comments.initiative" comment="comment" ng-repeat="comment in Comments.comments"></df-comment-card>
+
+    </ion-content>
+</ion-pane>

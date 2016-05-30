@@ -1,0 +1,44 @@
+<ion-pane class="cards">
+    <ion-header-bar class="bar bar-header">
+      <button class="button icon ion-android-arrow-back" ui-sref="initiative({'id_city': Replies.city.info.id, 'score': Replies.score, 'id_initiative': Replies.initiative.id})"></button>
+      <h1 class="title">{{Replies.initiative.titulo}}</h1>
+    </ion-header-bar>
+
+    <div class="tabs tabs-striped tabs-top tabs-icon-only">
+      <a class="tab-item" ui-sref="initiative({'id_city': Replies.city.info.id, 'score': Replies.score, 'id_initiative': Replies.initiative.id})">
+        <i class="icon ion-information-circled"></i>
+      </a>
+      <a class="tab-item active">
+        <i class="icon ion-chatbubbles"></i>
+      </a>
+    </div>
+
+    <ion-content class="padding-top content-default has-subheader">
+
+      <df-comment-card></df-comment-card>
+
+      <div class="list card">
+
+        <a class="item item-avatar" href="#" ng-repeat="comment in Replies.replies">
+          <img src="http://www.gravatar.com/avatar/484649846498?f=y&d=retro">
+          <h2>Username</h2>
+          <p>{{comment.text}}</p>
+        </a>
+
+        <div class="item">
+          <div class="list">
+            <label class="item item-input">
+              <textarea rows="5" placeholder="Participe aqui desta discurssão!" ng-model="Replies.reply"></textarea>
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="button button-full button-positive button-reply"
+          ng-disabled="!Replies.reply"
+          ng-click="Replies.submitReply()">
+          Enviar
+        </button>
+
+      </div>
+
+    </ion-content>
+</ion-pane>

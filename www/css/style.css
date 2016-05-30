@@ -111,7 +111,6 @@
     font-size: 30px;
     color : #C64832;
 }
-
 .progress-chart {
   height: 300px;
   width: 5px;
@@ -138,5 +137,44 @@
 .progress-chart-status{
   position: absolute;
   margin: 35px 0 0 50%;
-  color: #DD9F16
+  color: #DD9F16;
+}
+.reaction-icon {
+  float: right;
+  color: #5850C0;
+  font-size: 1.2em;
+}
+.item-avatar-text {
+  border: none;
+  padding-top: 0;
+}
+.item-reply {
+  background-color: #ECECEE;
+}
+.card-reaction {
+  margin-top: -35px;
+  padding-top: 35px;
+}
+.button-reaction {
+  z-index: 3;
+  background-color: #727176;
+  border-radius: 50%;
+  width: 47px;
+  height: 52px;
+  color: #fff;
+}
+.button-reaction.active {
+  background-color: #5850C0;
+}
+.button.button-full.button-reply {
+  margin: 0 0 -1px 0;
+}
+/* ionic overhide */
+.item-divider {
+  background-color: #FFF;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.list:last-child.card {
+  margin-bottom: 0;
 }

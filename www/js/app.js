@@ -1,4 +1,4 @@
-angular.module('Diferentonas', ['ionic','nvd3'])
+angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -41,6 +41,18 @@ angular.module('Diferentonas', ['ionic','nvd3'])
         templateUrl: 'templates/initiative.html',
         controller: 'InitiativeCtrl',
         controllerAs: 'Initiative'
+      })
+      .state('initiative-comments', {
+        url: '/initiative-comments/:id_city/:score/:id_initiative',
+        templateUrl: 'templates/initiative-comments.html',
+        controller: 'InitiativeCommentsCtrl',
+        controllerAs: 'Comments'
+      })
+      .state('initiative-replies', {
+        url: '/initiative-replies/:id_city/:score/:id_initiative',
+        templateUrl: 'templates/initiative-replies.html',
+        controller: 'InitiativeRepliesCtrl',
+        controllerAs: 'Replies'
       })
     $urlRouterProvider.otherwise('/login');
 })
