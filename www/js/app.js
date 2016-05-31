@@ -36,7 +36,9 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
       })
       .state('messages', {
         url: '/messages',
-        templateUrl: 'templates/messages.html'
+        templateUrl: 'templates/messages.html',
+        controller: 'MessagesCtrl',
+        controllerAs: 'Messages'
       })
       .state('city', {
         url: '/city/:id_city',

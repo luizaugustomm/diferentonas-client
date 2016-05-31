@@ -17,6 +17,8 @@ angular.module('Diferentonas')
         })
     }
 
+    vm.getMessages();
+
     vm.submit = function() {
         var data = {
             titulo: vm.title,
