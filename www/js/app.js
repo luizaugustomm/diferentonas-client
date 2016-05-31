@@ -68,6 +68,12 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
         controller: 'InitiativeRepliesCtrl',
         controllerAs: 'Replies'
       })
+      .state('broadcast', {
+        url: '/broadcast',
+        templateUrl: 'templates/broadcast.html',
+        controller: 'BroadcastCtrl',
+        controllerAs: 'Broadcast'
+      })
     $urlRouterProvider.otherwise('/login');
 })
 
