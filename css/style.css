@@ -17,20 +17,34 @@
 .status.aprovada-pelo-governo-federal-com-ressalvas { color: #58A87D; }
 
 .initiative-card {
-  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 5px;
   font-size: 0.8em;
   line-height: 1em;
   text-transform: uppercase;
-  color: #FFF;
+  color: #5D5D5D;
 }
+
+.icon-chart{
+  font-size: 30px;
+  text-align: center;
+  position: absolute;
+  margin: -5% 0 0 8%;
+}
+
+.initiative-title {
+  background-color: #fff;
+}
+
 .initiative-progress {
-  background-color: #DD9F16;
+  background-color: #fff;
 }
 .initiative-values {
-  background-color: #58A87D;
+  background-color: #fff;
 }
 .initiative-evaluation {
-  background-color: #5D5D5D;
+  background-color: #fff;
 }
 .text-sm {
   font-size: 0.8em;
@@ -96,4 +110,118 @@
 .icon-balanced {
     font-size: 30px;
     color : #C64832;
+}
+.progress-chart {
+  height: 300px;
+  width: 5px;
+  margin: 20px 0 10px 50%;
+  overflow: hidden;
+  background-color: #5D5D5D;
+  border-radius: 6px;
+}
+.progress-chart-begin{
+  position: absolute;
+  margin: -35px 0 0 25%;
+}
+
+.progress-chart-end{
+  position: absolute;
+  margin: 20px 0 0 3%;
+}
+
+.progress-chart-conclusion{
+  position: absolute;
+  margin: 35px 0 0 20%;
+}
+
+.progress-chart-status{
+  position: absolute;
+  margin: 35px 0 0 50%;
+  color: #DD9F16;
+}
+.reaction-icon {
+  float: right;
+  color: #5850C0;
+  font-size: 1.2em;
+}
+.item-avatar-text {
+  border: none;
+  padding-top: 0;
+}
+.item-reply {
+  background-color: #ECECEE;
+}
+.card-reaction {
+  margin-top: -35px;
+  padding-top: 35px;
+}
+.button-reaction {
+  z-index: 3;
+  background-color: #727176;
+  border-radius: 50%;
+  width: 47px;
+  height: 52px;
+  color: #fff;
+}
+.button-reaction.active {
+  background-color: #5850C0;
+}
+.button.button-full.button-reply {
+  margin: 0 0 -1px 0;
+}
+.tabs.main-nav {
+  background: none;
+  border: none;
+}
+.tab-item.main-nav {
+  opacity: 1;
+}
+.tab-item.main-nav > img {
+  background-color: #444242;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+.user-profile-card {
+  margin: 100px 20px 20px 20px;
+  padding-bottom: 10px;
+  background-color: #444242;
+  color: #FFF;
+}
+.user-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: -80px;
+  margin-bottom: 20px;
+}
+p.user-confiability {
+  font-size: 1.1em;
+}
+.gov-message-card {
+  margin: 0 0 0 15px;
+  background-color: #5F57C1;
+  color: #FFF;
+  padding: 15px 15px 15px 30px;
+}
+.gov-message-card > h2 {
+  margin-top: 0;
+  font-size: 1em;
+  font-weight: bold;
+  color: #FFF;
+}
+.gov-message-img {
+  float: left;
+  margin-left: -50px;
+  background-color: #FFF;
+  border-radius: 50%;
+  z-index: 9999;
+}
+/* ionic overhide */
+.item-divider {
+  background-color: #FFF;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.list:last-child.card {
+  margin-bottom: 0;
 }

@@ -8,52 +8,72 @@
       <a class="tab-item active">
         <i class="icon ion-information-circled"></i>
       </a>
-      <a class="tab-item">
+      <a class="tab-item" ui-sref="initiative-comments({'id_city': Initiative.city.info.id, 'score': Initiative.score, 'id_initiative': Initiative.initiative.id})">
         <i class="icon ion-chatbubbles"></i>
       </a>
     </div>
 
     <ion-content class="padding-top content-default has-subheader">
+		  <div class="initiative-card initiative-title padding">
+        <div class = "col">
+	        <p class="initiative-values-title">
+	          Título: <br>
+	          <p><strong>{{Initiative.initiative.titulo}}</strong></p>
+	        </p>
+	      </div>
+      </div>
 
       <div class="initiative-card initiative-progress padding">
-        <div class="row">
-          <div class="col">{{Initiative.initiative.status}}</div>
-        </div>
-
-        <div class="row">
-          <div class="col">
-            Início:
-            {{Initiative.initiative.dataInicio}}</div>
-          <div class="col">
-            Conclusão:
-            {{Initiative.initiative.dataConclusaoMunicipio}}
-          </div>
-          <div class="col">
-            Prestação de contas:
-            {{Initiative.initiative.dataConclusaoGovernoFederal}}
-          </div>
-        </div>
+          Andamento: <br><strong>{{Initiative.initiative.status}}</strong>
+            <div class="progress-chart-end">
+              Prestação de contas:<br>
+              {{Initiative.initiative.dataConclusaoGovernoFederal}}
+            </div>
+            <div class="progress-chart-conclusion">
+              Conclusão: <br>
+              {{Initiative.initiative.dataConclusaoMunicipio}}
+            </div>
+            <div class="progress-chart-status" ng-class="">
+              <strong>Status: <br>
+              {{Initiative.initiative.status}}</strong>
+            </div>
+            <div class='progress-chart'></div>
+            <div class='progress-chart-begin'>
+                 Início: <br>
+                  {{Initiative.initiative.dataInicio}}
+            </div>
       </div>
 
       <div class="initiative-card initiative-values padding">
         <p class="initiative-values-title">
-          Valor repassado pelo Governo Federal <br>
-          ({{Initiative.initiative.fonte}})
-        </p>
-        <p><strong>{{Initiative.initiative.verbaGovernoFederal | currency}}</strong></p>
-        <p>
-          Valor complementado pela Prefeitura: <br>
-          {{Initiative.initiative.verbaMunicipio | currency}}
-        </p>
-        <p>
-          Valor total: <br>
-          <strong>{{Initiative.initiative.verbaGovernoFederal+Initiative.initiative.verbaMunicipio | currency}}</strong>
+        	<div class="row">
+		        <div class = "col">
+		        	Valor repassado pelo Governo Federal <br>
+		        	({{Initiative.initiative.fonte}})
+        		</p>
+        		<p><strong>{{Initiative.initiative.verbaGovernoFederal | currency}}</strong></p>
+        			<p>
+          			Valor complementado pela Prefeitura: <br>
+          			{{Initiative.initiative.verbaMunicipio | currency}}
+        			</p>
+        		<p>
+          			Valor total: <br>
+          			<strong>{{Initiative.initiative.verbaGovernoFederal+Initiative.initiative.verbaMunicipio | currency}}</strong>
+   				</p>
+		        </div>
+		    </div>
         </p>
       </div>
-
-      <div class="initiative-card initiative-evaluation padding">
-        Avaliação sobre esta iniciativa
+      <div class="initiative-card initiative-evaluation padding" ng-controller="BarChartCtrl">
+		    Avaliação sobre esta iniciativa
+                <nvd3 options="options" data="data"></nvd3>
+        <div class = "row">
+          <div class = "col"><i class="icon-chart ion-alert-circled"></i></div>
+          <div class = "col"><i class="icon-chart ion-heart" style="color:#99003c"></i></div>
+          <div class = "col"><i class="icon-chart ion-heart-broken" style="color:#99003c"></i></div>
+        </div>
       </div>
-
     </ion-content>
+
+    <ng-include src="'templates/main-nav.html'"></ng-include>
 </ion-pane>

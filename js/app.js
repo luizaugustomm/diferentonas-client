@@ -1,4 +1,4 @@
-angular.module('Diferentonas', ['ionic'])
+angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -24,6 +24,22 @@ angular.module('Diferentonas', ['ionic'])
         controller: 'SearchCtrl',
         controllerAs: 'Search'
       })
+      .state('timeline', {
+        url: '/timeline',
+        templateUrl: 'templates/timeline.html',
+        controller: 'TimelineCtrl',
+        controllerAs: 'Timeline'
+      })
+      .state('profile', {
+        url: '/profile',
+        templateUrl: 'templates/profile.html'
+      })
+      .state('messages', {
+        url: '/messages',
+        templateUrl: 'templates/messages.html',
+        controller: 'MessagesCtrl',
+        controllerAs: 'Messages'
+      })
       .state('city', {
         url: '/city/:id_city',
         templateUrl: 'templates/city.html',
@@ -41,6 +57,24 @@ angular.module('Diferentonas', ['ionic'])
         templateUrl: 'templates/initiative.html',
         controller: 'InitiativeCtrl',
         controllerAs: 'Initiative'
+      })
+      .state('initiative-comments', {
+        url: '/initiative-comments/:id_city/:score/:id_initiative',
+        templateUrl: 'templates/initiative-comments.html',
+        controller: 'InitiativeCommentsCtrl',
+        controllerAs: 'Comments'
+      })
+      .state('initiative-replies', {
+        url: '/initiative-replies/:id_city/:score/:id_initiative',
+        templateUrl: 'templates/initiative-replies.html',
+        controller: 'InitiativeRepliesCtrl',
+        controllerAs: 'Replies'
+      })
+      .state('broadcast', {
+        url: '/broadcast',
+        templateUrl: 'templates/broadcast.html',
+        controller: 'BroadcastCtrl',
+        controllerAs: 'Broadcast'
       })
     $urlRouterProvider.otherwise('/login');
 })

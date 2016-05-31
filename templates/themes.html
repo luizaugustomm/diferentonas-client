@@ -20,4 +20,6 @@
         ui-sref="initiative({'id_city': Themes.city.info.id, 'score': Themes.score, 'id_initiative': iniciativa.id})"
         ng-repeat="iniciativa in Themes.city.inicitivas | filter:Themes.score:true"></df-initiative-card>
     </ion-content>
+
+    <ng-include src="'templates/main-nav.html'"></ng-include>
 </ion-pane>

@@ -1,0 +1,28 @@
+<ion-pane class="broadcast">
+    <ion-content class="padding" ng-controller="BroadcastCtrl">
+        <ion-list>
+            <label class="item item-input">
+                <input type="text" placeholder="Título" required ng-model="Broadcast.title">
+            </label>
+            <label class="item item-input">
+                <textarea placeholder="Digite aqui a mensagem..." rows="10" required ng-model="Broadcast.message"></textarea>
+            </label>
+        </ion-list>
+        <button type="submit" class="button button-block button-royal" ng-click="Broadcast.submit()">Enviar</button>
+
+
+    <ion-list>
+          <ion-item class="card" ng-repeat="message in Broadcast.messages">
+              <div class="item item-divider">
+                  {{ message.titulo }}
+                  <a href="#" ng-click="Broadcast.delete(message.id)"><i class="icon ion-trash-b"></i></a>
+              </div>
+              <div class="item item-text-wrap">
+                  {{ message.conteudo }}
+              </div>
+          </ion-item>
+        </ion-list>
+    </ion-content>
+
+    <ng-include src="'templates/main-nav.html'"></ng-include>
+</ion-pane>
