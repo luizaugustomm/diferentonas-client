@@ -113,12 +113,38 @@
 }
 .progress-chart {
   height: 300px;
-  width: 5px;
-  margin: 20px 0 10px 50%;
+  width: 4px;
+  margin: 30px 0 25px 50%;
   overflow: hidden;
-  background-color: #5D5D5D;
-  border-radius: 6px;
+  background-color: #DD9F16;
 }
+
+.triangle-status{
+  height: 3px;
+  width: 15px;
+  position: absolute;
+  margin-top: 298px;
+  margin-left: -5px;
+  border: solid 8px;
+  border-color: transparent #DD9F16 transparent transparent;
+}
+
+.progress-chart-done {
+  height: 300px;
+  width: 4px;
+  position: absolute;
+  background-color:#5D5D5D;
+}
+
+.legend-progress-chart{
+  height: 3px;
+  width: 15px;
+  position: absolute;
+  margin-top: 298px;
+  margin-left: -5px;
+  background-color: #5D5D5D;
+}
+
 .progress-chart-begin{
   position: absolute;
   margin: -35px 0 0 25%;
@@ -131,7 +157,7 @@
 
 .progress-chart-conclusion{
   position: absolute;
-  margin: 35px 0 0 20%;
+  margin: 90px 0 0 20%;
 }
 
 .progress-chart-status{
