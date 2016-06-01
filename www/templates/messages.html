@@ -6,11 +6,7 @@
 
     <ion-content class="padding content-default">
 
-        <div class="gov-message-card" ng-repeat="message in Messages.messages">
-            <img src="img/home.svg" alt="Perfil" width="40px" class="gov-message-img" />
-            <h2>{{ message.titulo }}</h2>
-            <p>{{ message.conteudo }}</p>
-        </div>
+        <df-message-card message="message" ng-repeat="message in Messages.messages"></df-message-card>
 
     </ion-content>
 

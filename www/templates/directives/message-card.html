@@ -1,0 +1,10 @@
+<div class="gov-message-card">
+    <img src="img/home.svg" alt="Perfil" width="40px" class="gov-message-img" />
+    <div class="row">
+      <div class="col col-90"><h2 class="gov-message-title">{{ message.titulo }}</h2></div>
+      <div class="col col-10 text-right" ng-show="canDelete"><a href="#" ng-click="delete(message.id)" class="gov-message-icon"><i class="icon ion-trash-b"></i></a></div>
+    </div>
+    <div class="row">
+      <div class="col"><p>{{ message.conteudo }}</p></div>
+    </div>
+</div>

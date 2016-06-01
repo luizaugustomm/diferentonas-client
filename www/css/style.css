@@ -253,7 +253,7 @@ p.user-confiability {
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
-.gov-message-card > h2 {
+h2.gov-message-title {
   margin-top: 0;
   font-size: 1em;
   font-weight: bold;
@@ -265,6 +265,13 @@ p.user-confiability {
   background-color: #FFF;
   border-radius: 50%;
   z-index: 9999;
+}
+.gov-message-icon {
+  color: #fff;
+  font-size: 1.6em;
+}
+.gov-message-card > div.row > div.col {
+  padding: 0;
 }
 /* ionic overhide */
 .item-divider {

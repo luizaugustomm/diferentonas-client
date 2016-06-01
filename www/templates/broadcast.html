@@ -1,5 +1,5 @@
 <ion-pane class="broadcast">
-    <ion-content class="padding" ng-controller="BroadcastCtrl">
+    <ion-content class="padding content-default" ng-controller="BroadcastCtrl">
         <ion-list>
             <label class="item item-input">
                 <input type="text" placeholder="Título" required ng-model="Broadcast.title">
@@ -10,18 +10,15 @@
         </ion-list>
         <button type="submit" class="button button-block button-royal" ng-click="Broadcast.submit()">Enviar</button>
 
+        <br>
+        <h4 class="text-center">Histórico de alertas</h4>
+        <br>
 
-    <ion-list>
-          <ion-item class="card" ng-repeat="message in Broadcast.messages">
-              <div class="item item-divider">
-                  {{ message.titulo }}
-                  <a href="#" ng-click="Broadcast.delete(message.id)"><i class="icon ion-trash-b"></i></a>
-              </div>
-              <div class="item item-text-wrap">
-                  {{ message.conteudo }}
-              </div>
-          </ion-item>
-        </ion-list>
+        <df-message-card
+          ng-repeat="message in Broadcast.messages"
+          message="message"
+          can-delete="true"></df-message-card>
+
     </ion-content>
 
     <ng-include src="'templates/main-nav.html'"></ng-include>
