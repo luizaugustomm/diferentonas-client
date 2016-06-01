@@ -1,7 +1,7 @@
 <div class="card">
   <div class="item item-text-wrap" ng-class="{'card-positive': (score.valorScore >= 1), 'card-negative': (score.valorScore <= -1)}">
     <p>{{ city.getScoreText(score); }}</p>
-    <p>{{ score.area | formatName }}</p>
+    <p class="theme-title">{{ score.area | formatName }}</p>
     <p class="text-center">
       {{ score.repasseTotal | formatCurrency }}
       <br>
