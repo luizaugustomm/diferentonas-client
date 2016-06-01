@@ -246,7 +246,7 @@ p.user-confiability {
   font-size: 1.1em;
 }
 .gov-message-card {
-  margin: 0 0 0 15px;
+  margin: 0 0 15px 15px;
   background-color: #5F57C1;
   color: #FFF;
   padding: 15px 15px 15px 30px;
