@@ -1,7 +1,7 @@
 <ion-pane class="cards">
     <ion-header-bar class="bar bar-header">
       <button class="button icon ion-android-arrow-back" ui-sref="themes({'id_city': Initiative.city.info.id, 'score': Initiative.score})"></button>
-      <h1 class="title">{{Initiative.initiative.titulo}}</h1>
+      <h1 class="title">{{Initiative.score}}</h1>
     </ion-header-bar>
 
     <div class="tabs tabs-striped tabs-top tabs-icon-only">
@@ -14,8 +14,9 @@
     </div>
 
     <ion-content class="padding-top content-default has-subheader">
+      <br>
 		  <div class="initiative-card initiative-title padding">
-        <div class = "col">
+        <div class="col">
 	        <p class="initiative-values-title">
 	          Título: <br>
 	          <p><strong>{{Initiative.initiative.titulo}}</strong></p>
@@ -33,15 +34,25 @@
               Conclusão: <br>
               {{Initiative.initiative.dataConclusaoMunicipio}}
             </div>
-            <div class="progress-chart-status" ng-class="">
+            <div class="progress-chart-status" ng-to-date status-iniciative="{{Initiative.initiative.status}}"
+            begin-iniciative="{{Initiative.initiative.dataInicio}}" end-iniciative="{{Initiative.initiative.dataConclusaoMunicipio}}" end="{{Initiative.initiative.dataConclusaoGovernoFederal}}">
               <strong>Status: <br>
               {{Initiative.initiative.status}}</strong>
             </div>
-            <div class='progress-chart'></div>
+            <div class='progress-chart'>
+              <div class = "legend-progress-chart"></div>
+              <div class = "legend-progress-chart" style="margin-top: 75px"></div>
+              <div class = "legend-progress-chart" style="margin-top: 0px"></div>
+              <div class="triangle-status" ng-show-status  status-iniciative="{{Initiative.initiative.status}}"
+            begin-iniciative="{{Initiative.initiative.dataInicio}}" end-iniciative="{{Initiative.initiative.dataConclusaoMunicipio}}" end="{{Initiative.initiative.dataConclusaoGovernoFederal}}"></div>
+              <div class='progress-chart-done' ng-to-done  status-iniciative="{{Initiative.initiative.status}}"
+            begin-iniciative="{{Initiative.initiative.dataInicio}}" end-iniciative="{{Initiative.initiative.dataConclusaoMunicipio}}" end="{{Initiative.initiative.dataConclusaoGovernoFederal}}"></div>
+            </div>
             <div class='progress-chart-begin'>
                  Início: <br>
                   {{Initiative.initiative.dataInicio}}
             </div>
+
       </div>
 
       <div class="initiative-card initiative-values padding">

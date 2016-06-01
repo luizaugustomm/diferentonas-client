@@ -21,7 +21,7 @@ angular.module('Diferentonas')
           },
           getScoreText: function(score) {
             if (this.isNeutral(score)) {
-              return "Recebeu na média";
+              return "Recebeu dentro do esperado";
             } else {
               var x = score.valorScore;
               switch (true) {

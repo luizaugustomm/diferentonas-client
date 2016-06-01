@@ -19,11 +19,12 @@
 .initiative-card {
   margin-left: 20px;
   margin-right: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 0;
   font-size: 0.8em;
   line-height: 1em;
   text-transform: uppercase;
   color: #5D5D5D;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .icon-chart{
@@ -46,6 +47,26 @@
 .initiative-evaluation {
   background-color: #fff;
 }
+
+.empty-initiative-message {
+    text-align: center;
+    font-size: 16px;
+    padding: 20px 0px 10px 0px;
+}
+
+.empty-initiative-message i {
+    text-align: center;
+    display: block;
+    font-size: 40px;
+    padding: 10px 0px 10px 0px;
+}
+
+.item p.theme-title {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 2px 2px 10px 2px;
+}
+
 .text-sm {
   font-size: 0.8em;
 }
@@ -113,12 +134,38 @@
 }
 .progress-chart {
   height: 300px;
-  width: 5px;
-  margin: 20px 0 10px 50%;
+  width: 4px;
+  margin: 30px 0 25px 50%;
   overflow: hidden;
-  background-color: #5D5D5D;
-  border-radius: 6px;
+  background-color: #DD9F16;
 }
+
+.triangle-status{
+  height: 3px;
+  width: 15px;
+  position: absolute;
+  margin-top: 298px;
+  margin-left: -5px;
+  border: solid 8px;
+  border-color: transparent #DD9F16 transparent transparent;
+}
+
+.progress-chart-done {
+  height: 300px;
+  width: 4px;
+  position: absolute;
+  background-color:#5D5D5D;
+}
+
+.legend-progress-chart{
+  height: 3px;
+  width: 15px;
+  position: absolute;
+  margin-top: 298px;
+  margin-left: -5px;
+  background-color: #5D5D5D;
+}
+
 .progress-chart-begin{
   position: absolute;
   margin: -35px 0 0 25%;
@@ -131,7 +178,7 @@
 
 .progress-chart-conclusion{
   position: absolute;
-  margin: 35px 0 0 20%;
+  margin: 90px 0 0 20%;
 }
 
 .progress-chart-status{
@@ -186,6 +233,8 @@
   padding-bottom: 10px;
   background-color: #444242;
   color: #FFF;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 .user-picture {
   width: 150px;
@@ -198,12 +247,14 @@ p.user-confiability {
   font-size: 1.1em;
 }
 .gov-message-card {
-  margin: 0 0 0 15px;
+  margin: 0 0 15px 15px;
   background-color: #5F57C1;
   color: #FFF;
   padding: 15px 15px 15px 30px;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
-.gov-message-card > h2 {
+h2.gov-message-title {
   margin-top: 0;
   font-size: 1em;
   font-weight: bold;
@@ -215,6 +266,13 @@ p.user-confiability {
   background-color: #FFF;
   border-radius: 50%;
   z-index: 9999;
+}
+.gov-message-icon {
+  color: #fff;
+  font-size: 1.6em;
+}
+.gov-message-card > div.row > div.col {
+  padding: 0;
 }
 /* ionic overhide */
 .item-divider {
