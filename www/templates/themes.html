@@ -16,9 +16,9 @@
     <ion-content class="padding content-default has-subheader">
 
         <div class="empty-initiative-message" ng-if="!Themes.hasInitiatives(Themes.score)">
-            <span >Não há iniciativas nesta área</span>
-            <i class="icon ion-happy-outline"></i>
+            Não há iniciativas em {{Themes.score}}.
         </div>
+
         <df-initiative-card
         iniciativa="iniciativa"
         city="Themes.city"

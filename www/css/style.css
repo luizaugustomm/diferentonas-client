@@ -17,13 +17,27 @@
 .status.aprovada-pelo-governo-federal-com-ressalvas { color: #58A87D; }
 
 .initiative-card {
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 5px;
+  margin: 0 20px 1px 20px;
+  padding-top: 20px;
+  padding-left: 30px;
   font-size: 0.8em;
   line-height: 1em;
   text-transform: uppercase;
   color: #5D5D5D;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.initiative-icon {
+  float: left;
+  margin-left: -48px;
+  background-color: #FFF;
+  border-radius: 50%;
+  z-index: 9999;
+}
+.initiative-currency {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 15px;
 }
 
 .icon-chart{
@@ -232,6 +246,8 @@
   padding-bottom: 10px;
   background-color: #444242;
   color: #FFF;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 .user-picture {
   width: 150px;
@@ -244,12 +260,14 @@ p.user-confiability {
   font-size: 1.1em;
 }
 .gov-message-card {
-  margin: 0 0 0 15px;
+  margin: 0 0 15px 15px;
   background-color: #5F57C1;
   color: #FFF;
   padding: 15px 15px 15px 30px;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
-.gov-message-card > h2 {
+h2.gov-message-title {
   margin-top: 0;
   font-size: 1em;
   font-weight: bold;
@@ -261,6 +279,13 @@ p.user-confiability {
   background-color: #FFF;
   border-radius: 50%;
   z-index: 9999;
+}
+.gov-message-icon {
+  color: #fff;
+  font-size: 1.6em;
+}
+.gov-message-card > div.row > div.col {
+  padding: 0;
 }
 /* ionic overhide */
 .item-divider {
