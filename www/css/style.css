@@ -19,11 +19,12 @@
 .initiative-card {
   margin-left: 20px;
   margin-right: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 0;
   font-size: 0.8em;
   line-height: 1em;
   text-transform: uppercase;
   color: #5D5D5D;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .icon-chart{
