@@ -27,4 +27,15 @@ angular.module('Diferentonas')
           City.inicitivas = data;
       })
     }
+
+    vm.hasInitiatives = function(area) {
+        has = false;
+        vm.city.info.scores.forEach(function(score) {
+            if (score.area === area && score.repasseTotal !== 0) {
+                has = true;
+                return;
+            }
+        });
+        return has;
+    }
 }]);

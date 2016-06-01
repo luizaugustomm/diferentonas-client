@@ -46,6 +46,20 @@
 .initiative-evaluation {
   background-color: #fff;
 }
+
+.empty-initiative-message {
+    text-align: center;
+    font-size: 16px;
+    padding: 20px 0px 10px 0px;
+}
+
+.empty-initiative-message i {
+    text-align: center;
+    display: block;
+    font-size: 40px;
+    padding: 10px 0px 10px 0px;
+}
+
 .text-sm {
   font-size: 0.8em;
 }
