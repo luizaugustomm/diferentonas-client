@@ -5,7 +5,8 @@ angular.module('Diferentonas')
     restrict: 'E',
     scope: {
       city: '=',
-      score: '='
+      score: '=',
+      baseColor: '='
     },
     templateUrl: 'templates/directives/theme-card.html'
   }

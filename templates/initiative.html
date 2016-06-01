@@ -16,6 +16,7 @@
     <ion-content class="padding-top content-default has-subheader">
       <br>
 		  <div class="initiative-card initiative-title padding">
+        <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
         <div class="col">
 	        <p class="initiative-values-title">
 	          Título: <br>
@@ -25,57 +26,48 @@
       </div>
 
       <div class="initiative-card initiative-progress padding">
-          Andamento: <br><strong>{{Initiative.initiative.status}}</strong>
-            <div class="progress-chart-end">
-              Prestação de contas:<br>
-              {{Initiative.initiative.dataConclusaoGovernoFederal}}
-            </div>
-            <div class="progress-chart-conclusion">
-              Conclusão: <br>
-              {{Initiative.initiative.dataConclusaoMunicipio}}
-            </div>
-            <div class="progress-chart-status" ng-to-date status-iniciative="{{Initiative.initiative.status}}"
-            begin-iniciative="{{Initiative.initiative.dataInicio}}" end-iniciative="{{Initiative.initiative.dataConclusaoMunicipio}}" end="{{Initiative.initiative.dataConclusaoGovernoFederal}}">
-              <strong>Status: <br>
-              {{Initiative.initiative.status}}</strong>
-            </div>
-            <div class='progress-chart'>
-              <div class = "legend-progress-chart"></div>
-              <div class = "legend-progress-chart" style="margin-top: 75px"></div>
-              <div class = "legend-progress-chart" style="margin-top: 0px"></div>
-              <div class="triangle-status" ng-show-status  status-iniciative="{{Initiative.initiative.status}}"
-            begin-iniciative="{{Initiative.initiative.dataInicio}}" end-iniciative="{{Initiative.initiative.dataConclusaoMunicipio}}" end="{{Initiative.initiative.dataConclusaoGovernoFederal}}"></div>
-              <div class='progress-chart-done' ng-to-done  status-iniciative="{{Initiative.initiative.status}}"
-            begin-iniciative="{{Initiative.initiative.dataInicio}}" end-iniciative="{{Initiative.initiative.dataConclusaoMunicipio}}" end="{{Initiative.initiative.dataConclusaoGovernoFederal}}"></div>
-            </div>
-            <div class='progress-chart-begin'>
-                 Início: <br>
-                  {{Initiative.initiative.dataInicio}}
-            </div>
-
+          <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
+          Andamento: <br>
+          <p><strong>{{Initiative.initiative.status}}</strong></p>
+          <div class="progress-chart-end">
+            Prestação de contas:<br>
+            {{Initiative.initiative.dataConclusaoGovernoFederal}}
+          </div>
+          <div class="progress-chart-conclusion">
+            Conclusão: <br>
+            {{Initiative.initiative.dataConclusaoMunicipio}}
+          </div>
+          <div class="progress-chart-status" ng-to-date status-iniciative="{{Initiative.initiative.status}}"
+          begin-iniciative="{{Initiative.initiative.dataInicio}}" end-iniciative="{{Initiative.initiative.dataConclusaoMunicipio}}" end="{{Initiative.initiative.dataConclusaoGovernoFederal}}">
+            <strong>Status: <br>
+            {{Initiative.initiative.status}}</strong>
+          </div>
+          <div class='progress-chart'>
+            <div class = "legend-progress-chart"></div>
+            <div class = "legend-progress-chart" style="margin-top: 75px"></div>
+            <div class = "legend-progress-chart" style="margin-top: 0px"></div>
+            <div class="triangle-status" ng-show-status  status-iniciative="{{Initiative.initiative.status}}"
+          begin-iniciative="{{Initiative.initiative.dataInicio}}" end-iniciative="{{Initiative.initiative.dataConclusaoMunicipio}}" end="{{Initiative.initiative.dataConclusaoGovernoFederal}}"></div>
+            <div class='progress-chart-done' ng-to-done  status-iniciative="{{Initiative.initiative.status}}"
+          begin-iniciative="{{Initiative.initiative.dataInicio}}" end-iniciative="{{Initiative.initiative.dataConclusaoMunicipio}}" end="{{Initiative.initiative.dataConclusaoGovernoFederal}}"></div>
+          </div>
+          <div class='progress-chart-begin'>
+               Início: <br>
+                {{Initiative.initiative.dataInicio}}
+          </div>
       </div>
 
       <div class="initiative-card initiative-values padding">
-        <p class="initiative-values-title">
-        	<div class="row">
-		        <div class = "col">
-		        	Valor repassado pelo Governo Federal <br>
-		        	({{Initiative.initiative.fonte}})
-        		</p>
-        		<p><strong>{{Initiative.initiative.verbaGovernoFederal | currency}}</strong></p>
-        			<p>
-          			Valor complementado pela Prefeitura: <br>
-          			{{Initiative.initiative.verbaMunicipio | currency}}
-        			</p>
-        		<p>
-          			Valor total: <br>
-          			<strong>{{Initiative.initiative.verbaGovernoFederal+Initiative.initiative.verbaMunicipio | currency}}</strong>
-   				</p>
-		        </div>
-		    </div>
-        </p>
-      </div>
+        <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
+      	<p>Valor repassado pelo Governo Federal <strong>({{Initiative.initiative.fonte}})</strong></p>
+    		<p class="initiative-currency">{{Initiative.initiative.verbaGovernoFederal | currency}}</p>
+  			<p>Valor complementado pela Prefeitura:</p>
+    		<p class="initiative-currency">{{Initiative.initiative.verbaMunicipio | currency}}</p>
+    		<p>Valor total:</p>
+  			<p class="initiative-currency">{{Initiative.initiative.verbaGovernoFederal+Initiative.initiative.verbaMunicipio | currency}}</p>
+	    </div>
       <div class="initiative-card initiative-evaluation padding" ng-controller="BarChartCtrl">
+        <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
 		    Avaliação sobre esta iniciativa
                 <nvd3 options="options" data="data"></nvd3>
         <div class = "row">

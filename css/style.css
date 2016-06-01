@@ -17,14 +17,27 @@
 .status.aprovada-pelo-governo-federal-com-ressalvas { color: #58A87D; }
 
 .initiative-card {
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 0;
+  margin: 0 20px 1px 20px;
+  padding-top: 20px;
+  padding-left: 30px;
   font-size: 0.8em;
   line-height: 1em;
   text-transform: uppercase;
   color: #5D5D5D;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.initiative-icon {
+  float: left;
+  margin-left: -48px;
+  background-color: #FFF;
+  border-radius: 50%;
+  z-index: 9999;
+}
+.initiative-currency {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 15px;
 }
 
 .icon-chart{
