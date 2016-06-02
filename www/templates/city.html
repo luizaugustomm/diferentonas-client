@@ -16,6 +16,7 @@
         <df-theme-card
         city="City.city"
         score="score"
+        base-color="'#FFF'"
         ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
         ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
         ng-hide="score.valorScore == 0 || City.city.isNeutral(score)"></df-theme-card>
@@ -32,6 +33,16 @@
             ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
             ng-hide="score.valorScore == 0 || !City.city.isNeutral(score)"></df-theme-card>
         </div>
+
+      <div ng-show="City.showNeutrals">
+        <df-theme-card
+          city="City.city"
+          score="score"
+          base-color="'#9D9C9F'"
+          ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
+          ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
+          ng-hide="score.valorScore == 0 || !City.city.isNeutral(score)"></df-theme-card>
+      </div>
 
     </ion-content>
 
