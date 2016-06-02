@@ -19,7 +19,7 @@
         base-color="'#FFF'"
         ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
         ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
-        ng-hide="score.valorScore == 0 || City.city.isNeutral(score)"></df-theme-card>
+        ng-hide="score.area === 'TOTAL GERAL' || score.valorScore == 0 || City.city.isNeutral(score)"></df-theme-card>
 
         <button class="button button-block button-clear button-positive" ng-show="City.hasNeutralThemes()" ng-click="City.toggleNeutralThemes()">
             Ver todas
