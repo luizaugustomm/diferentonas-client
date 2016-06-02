@@ -9,7 +9,7 @@
         <ion-list ng-show="Search.cityInput">
             <ion-item
               class="shorter"
-              ng-repeat="city in Search.cities | filter:Search.cityInput | limitTo: 8"
+              ng-repeat="city in Search.cities | ignoreAccents:Search.cityInput | limitTo: 8"
               ng-click="Search.selectCity(city)"
               ui-sref="city({'id_city': city.id})">
                 {{ city.nome }} - {{ city.uf }}
