@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('InitiativeCtrl', ['$stateParams', '$http', 'City', function($stateParams, $http, City) {
+.controller('InitiativeCtrl', ['$stateParams', '$http','$ionicLoading', 'ionicToast','City', function($stateParams, $http,$ionicLoading, ionicToast,City) {
     var vm = this;
     vm.id = $stateParams.id_city;
     vm.score = $stateParams.score;
@@ -31,5 +31,24 @@ angular.module('Diferentonas')
       })
     } else {
       vm.initiative = vm.city.getInitiativeByID(vm.city.inicitivas, vm.id_initiative);
+    }
+
+    vm.followInitiative = function() {
+      console.log("seguindo");
+      console.log(vm.id_initiative);
+      //adicionar chamada que faz o check do usuário seguir a iniciativa
+      var api = 'http://diferentonas.herokuapp.com/iniciativas/';
+
+      $http.post(api.concat(vm.id_initiative, "/inscritos"), vm.id_initiative, {
+          headers: {'Access-Control-Allow-Origin': '*'}
+      }).success(function(data) {
+          $ionicLoading.hide();
+          ionicToast.show("Seguindo iniciativa!", 'bottom', false, 2500);
+          })
+        .error(function(data) {
+          $ionicLoading.hide();
+          ionicToast.show("Algo deu errado.", 'bottom', false, 2500);
+      });
+
     }
 }]);

@@ -181,11 +181,13 @@
 
 .progress-chart-begin{
   position: absolute;
-  margin: -35px 0 0 25%;
+  text-align: left;
+  margin: -35px 0 0 20%;
 }
 
 .progress-chart-end{
   position: absolute;
+  text-align: left;
   margin: 20px 0 0 3%;
 }
 
@@ -294,4 +296,21 @@ h2.gov-message-title {
 }
 .list:last-child.card {
   margin-bottom: 0;
+}
+
+#follow{
+  background: #5D5D5D;
+  height: 35px;
+  width: 35px;
+  color:#fff;
+  border-radius: 50%; 
+}
+
+#follow:active{
+  background: #000;
+}
+
+.icon-follow{
+  font-size: 23px;
+  margin-left: -1px;
 }
