@@ -4,7 +4,7 @@ angular.module('Diferentonas')
     var vm = this;
     vm.id = $stateParams.id_city;
     vm.city = City;
-    vm.showNeutrals = false;
+    vm.showNeutralThemes = false;
 
     vm.orderByScore = function(score) {
       if (score.area == "TOTAL GERAL" && vm.city.isNeutral(score)) {
@@ -13,8 +13,26 @@ angular.module('Diferentonas')
       return Math.abs(score.valorScore)*-1;
     }
 
-    vm.toggleNeutrals = function() {
-      vm.showNeutrals = !vm.showNeutrals;
+    vm.toggleNeutralThemes = function() {
+      vm.showNeutralThemes = !vm.showNeutralThemes;
+    }
+
+    vm.hasNeutralThemes = function() {
+        var neutrals = 0;
+        vm.city.info.scores.forEach(function(score) {
+            if (vm.city.isNeutral(score))
+                neutrals += 1;
+        });
+        return neutrals !== 0;
+    }
+
+    vm.hasDifferentThemes = function() {
+        var diferentices = 0;
+        vm.city.info.scores.forEach(function(score) {
+            if (vm.city.isDifferent(score))
+                diferentices += 1;
+        });
+        return diferentices !== 0;
     }
 
     var api = 'http://diferentonas.herokuapp.com/cidade/';

@@ -12,7 +12,8 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
     });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    $ionicConfigProvider.scrolling.jsScrolling(false);
     $stateProvider
       .state('login', {
           url: '/login',

@@ -61,13 +61,13 @@
   background-color: #fff;
 }
 
-.empty-initiative-message {
+.empty-message {
     text-align: center;
     font-size: 16px;
     padding: 20px 0px 10px 0px;
 }
 
-.empty-initiative-message i {
+.empty-message i {
     text-align: center;
     display: block;
     font-size: 40px;
