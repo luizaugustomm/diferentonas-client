@@ -230,8 +230,7 @@
   margin: 0 0 -1px 0;
 }
 .tabs.main-nav {
-  background: none;
-  border: none;
+  background-size: 0px;
 }
 .tab-item.main-nav {
   opacity: 1;
