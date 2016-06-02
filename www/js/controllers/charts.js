@@ -3,7 +3,6 @@ angular.module('Diferentonas')
 	$scope.options = {
 		chart: {
 			type: 'discreteBarChart',
-				width: 50,
     		height: 200,
     		x: function(d){return d.label;},
     		y: function(d){return d.value;},
