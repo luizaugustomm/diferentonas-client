@@ -1,21 +1,30 @@
 <ion-view>
   <ion-content class="content-primary has-tabs">
 
-      <div class="search-input padding" ng-class="{'search-input-up': Search.isSearching}">
-        <div class="item item-input" ng-class="Search.cityInput ? 'search-input-part-rounded' : 'search-input-rounded'">
-          <input type="text" placeholder="Eu sou de..." ng-model="Search.cityInput" ng-focus="Search.startSearch()">
-          <i class="icon icon-right icon-balanced placeholder-icon ion-search"></i>
+      <form novalidate ng-submit="Search.search()">
+
+        <div class="search-input padding" ng-class="{'search-input-up': Search.isSearching}">
+          <div class="item item-input" ng-class="Search.selectedCity.nome ? 'search-input-part-rounded' : 'search-input-rounded'">
+            <input
+              type="text"
+              placeholder="Eu sou de..."
+              ng-model="Search.selectedCity.nome"
+              ng-focus="Search.startSearch()">
+            <i class="icon icon-right icon-balanced placeholder-icon ion-search"
+              ng-click="Search.search()"></i>
+          </div>
+          <ion-list ng-show="Search.selectedCity.nome">
+              <ion-item
+                class="shorter"
+                ng-repeat="city in Search.cities | ignoreAccents:Search.selectedCity.nome | orderBy:'nome' | limitTo: 8"
+                ng-click="Search.selectCity(city)"
+                ui-sref="city({'id_city': city.id})">
+                  {{ city.nome }} - {{ city.uf }}
+              </ion-item>
+          </ion-list>
         </div>
-        <ion-list ng-show="Search.cityInput">
-            <ion-item
-              class="shorter"
-              ng-repeat="city in Search.cities | filter:Search.cityInput | limitTo: 8"
-              ng-click="Search.selectCity(city)"
-              ui-sref="city({'id_city': city.id})">
-                {{ city.nome }} - {{ city.uf }}
-            </ion-item>
-        </ion-list>
-      </div>
+
+      </form>
 
 
   </ion-content>
