@@ -1,5 +1,5 @@
 <ion-pane class="broadcast">
-    <ion-content class="padding content-default" ng-controller="BroadcastCtrl">
+    <ion-content class="padding content-default has-tabs" ng-controller="BroadcastCtrl">
         <ion-list>
             <label class="item item-input">
                 <input type="text" placeholder="Título" required ng-model="Broadcast.title">
@@ -21,5 +21,5 @@
 
     </ion-content>
 
-    <ng-include src="'templates/main-nav.html'"></ng-include>
+    <df-main-nav nav-class="'content-default'"></df-main-nav>
 </ion-pane>

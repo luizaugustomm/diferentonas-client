@@ -17,14 +17,27 @@
 .status.aprovada-pelo-governo-federal-com-ressalvas { color: #58A87D; }
 
 .initiative-card {
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 0;
+  margin: 0 20px 1px 20px;
+  padding-top: 20px;
+  padding-left: 30px;
   font-size: 0.8em;
   line-height: 1em;
   text-transform: uppercase;
   color: #5D5D5D;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.initiative-icon {
+  float: left;
+  margin-left: -48px;
+  background-color: #FFF;
+  border-radius: 50%;
+  z-index: 9999;
+}
+.initiative-currency {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 15px;
 }
 
 .icon-chart{
@@ -48,13 +61,13 @@
   background-color: #fff;
 }
 
-.empty-initiative-message {
+.empty-message {
     text-align: center;
     font-size: 16px;
     padding: 20px 0px 10px 0px;
 }
 
-.empty-initiative-message i {
+.empty-message i {
     text-align: center;
     display: block;
     font-size: 40px;
@@ -168,11 +181,13 @@
 
 .progress-chart-begin{
   position: absolute;
-  margin: -35px 0 0 25%;
+  text-align: left;
+  margin: -35px 0 0 20%;
 }
 
 .progress-chart-end{
   position: absolute;
+  text-align: left;
   margin: 20px 0 0 3%;
 }
 
@@ -217,8 +232,7 @@
   margin: 0 0 -1px 0;
 }
 .tabs.main-nav {
-  background: none;
-  border: none;
+  background-size: 0px;
 }
 .tab-item.main-nav {
   opacity: 1;
@@ -282,4 +296,25 @@ h2.gov-message-title {
 }
 .list:last-child.card {
   margin-bottom: 0;
+}
+
+#follow{
+  background: #5D5D5D;
+  height: 35px;
+  width: 35px;
+  color:#fff;
+  border-radius: 50%;
+}
+
+#follow:active{
+  background: #000;
+}
+
+.icon-follow{
+  font-size: 23px;
+  margin-left: -1px;
+}
+
+.loading-container {
+  background-color: #5850C0;
 }

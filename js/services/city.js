@@ -19,6 +19,9 @@ angular.module('Diferentonas')
           isNeutral: function(score) {
             return (score.valorScore > -1 && score.valorScore < 1);
           },
+          isDifferent: function(score) {
+            return (score.valorScore <= -1 || score.valorScore >= 1);
+          },
           getScoreText: function(score) {
             if (this.isNeutral(score)) {
               return "Recebeu dentro do esperado";

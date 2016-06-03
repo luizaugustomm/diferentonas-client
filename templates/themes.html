@@ -13,10 +13,10 @@
         </a>
     </div>
 
-    <ion-content class="padding content-default has-subheader">
+    <ion-content class="padding content-default has-subheader has-tabs">
 
-        <div class="empty-initiative-message" ng-if="!Themes.hasInitiatives(Themes.score)">
-            Não há iniciativas em {{Themes.score}}.
+        <div class="empty-message" ng-if="!Themes.hasInitiatives(Themes.score)">
+            Não há iniciativas em <span style="font-weight: bold">{{Themes.score}}</span>.
         </div>
 
         <df-initiative-card
@@ -26,5 +26,6 @@
         ng-repeat="iniciativa in Themes.city.inicitivas | filter:Themes.score:true"></df-initiative-card>
     </ion-content>
 
-    <ng-include src="'templates/main-nav.html'"></ng-include>
+    <df-main-nav nav-class="'content-default'"></df-main-nav>
+
 </ion-pane>

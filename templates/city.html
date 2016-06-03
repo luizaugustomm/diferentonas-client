@@ -1,36 +1,41 @@
 <ion-pane class="cards">
     <ion-header-bar class="bar bar-header">
-      <button class="button icon ion-android-arrow-back" ui-sref="search"></button>
-      <h1 class="title">{{ City.city.info.nome }} - {{ City.city.info.uf }}</h1>
+        <button class="button icon ion-android-arrow-back" ui-sref="search"></button>
+        <h1 class="title">{{ City.city.info.nome }} - {{ City.city.info.uf }}</h1>
     </ion-header-bar>
     <ion-header-bar class="bar bar-subheader">
-      <h2 class="title">Áreas</h2>
+        <h2 class="title">Áreas</h2>
     </ion-header-bar>
 
-    <ion-content class="padding content-default">
+    <ion-content class="padding content-default has-tabs">
 
-      <df-theme-card
+        <div class="empty-message" ng-if="!City.hasDifferentThemes()">
+            Não há áreas com diferentices em <span style="font-weight: bold">{{City.city.info.nome}}</span>.
+        </div>
+
+        <df-theme-card
         city="City.city"
         score="score"
+        base-color="'#FFF'"
         ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
         ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
-        ng-hide="score.valorScore == 0 || City.city.isNeutral(score)"></df-theme-card>
+        ng-hide="score.area === 'TOTAL GERAL' || score.valorScore == 0 || City.city.isNeutral(score)"></df-theme-card>
 
-      <button class="button button-block button-clear button-positive" ng-click="City.toggleNeutrals()">
-        Ver todos
-      </button>
+        <button class="button button-block button-clear button-positive" ng-show="City.hasNeutralThemes()" ng-click="City.toggleNeutralThemes()">
+            Ver todas
+        </button>
 
-      <div ng-show="City.showNeutrals">
-        <df-theme-card
-          city="City.city"
-          score="score"
-          ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
-          ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
-          ng-hide="score.valorScore == 0 || !City.city.isNeutral(score)"></df-theme-card>
-      </div>
+        <div ng-show="City.showNeutralThemes">
+            <df-theme-card
+            city="City.city"
+            score="score"
+            ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
+            ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
+            ng-hide="score.area === 'TOTAL GERAL' || score.valorScore == 0 || !City.city.isNeutral(score)"></df-theme-card>
+        </div>
 
     </ion-content>
 
-    <ng-include src="'templates/main-nav.html'"></ng-include>
-    
+    <df-main-nav nav-class="'content-default'"></df-main-nav>
+
 </ion-pane>

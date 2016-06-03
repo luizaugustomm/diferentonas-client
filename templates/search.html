@@ -1,5 +1,5 @@
 <ion-view>
-  <ion-content class="content-primary">
+  <ion-content class="content-primary has-tabs">
 
       <div class="search-input padding" ng-class="{'search-input-up': Search.isSearching}">
         <div class="item item-input" ng-class="Search.cityInput ? 'search-input-part-rounded' : 'search-input-rounded'">
@@ -20,6 +20,6 @@
 
   </ion-content>
 
-  <ng-include src="'templates/main-nav.html'"></ng-include>
+  <df-main-nav nav-class="'content-primary'"></df-main-nav>
 
 </ion-view>

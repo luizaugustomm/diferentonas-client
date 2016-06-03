@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 .controller('BarChartCtrl', function($scope){
-	$scope.options = {  
+	$scope.options = {
 		chart: {
 			type: 'discreteBarChart',
     		height: 200,
@@ -15,10 +15,10 @@ angular.module('Diferentonas')
     		margin:{"left":5, "right":10, "top":40, "bottom":20}
 			}
 		};
-  		
-	$scope.data = [{key:"Analise de iniciativa", 
-					values: [{"label":"Bomba","value":20,"color": "#5D5D5D"}, 
-						 {"label":"Curti","value":10,"color": "#5D5D5D"}, 
+
+	$scope.data = [{key:"Analise de iniciativa",
+					values: [{"label":"Bomba","value":20,"color": "#5D5D5D"},
+						 {"label":"Curti","value":10,"color": "#5D5D5D"},
         				 {"label":"Não curti","value":70,"color": "#5D5D5D"}]}];
 });
 
@@ -30,7 +30,7 @@ angular.module('Diferentonas')
         link: function(scope, elem, attrs) {
             var margin = "320px 0 0 50%";
             angular.element(document).ready(function (){
-            	if(attrs.statusIniciative=="Aprovada pelo Governo Federal" || 
+            	if(attrs.statusIniciative=="Aprovada pelo Governo Federal" ||
             		attrs.statusIniciative=="Aprovada pelo Governo Federal com ressalvas"){
             		margin="20px 0 0 50%";
             	}else if(attrs.statusIniciative=="Em andamento"){
@@ -49,8 +49,8 @@ angular.module('Diferentonas')
             		margin = "90px 0 0 50%";
             	}
             	elem.css("margin", margin);
-            }); 
-        }      
+            });
+        }
     }
 });
 
@@ -62,7 +62,7 @@ angular.module('Diferentonas')
         link: function(scope, elem, attrs) {
             var height = "300px";
             angular.element(document).ready(function (){
-            	if(attrs.statusIniciative=="Aprovada pelo Governo Federal"|| 
+            	if(attrs.statusIniciative=="Aprovada pelo Governo Federal"||
             		attrs.statusIniciative=="Aprovada pelo Governo Federal com ressalvas"){
             		height = "0px";
             	}else if(attrs.statusIniciative=="Concluída, segundo a prefeitura"){
@@ -82,8 +82,8 @@ angular.module('Diferentonas')
             		height = ((currentDay/daypx)+75) + "px";
             	}
             	elem.css("height", height);
-            }); 
-        }      
+            });
+        }
     }
 });
 
@@ -95,7 +95,7 @@ angular.module('Diferentonas')
         link: function(scope, elem, attrs) {
             var margin = "290px";
             angular.element(document).ready(function (){
-            	if(attrs.statusIniciative=="Aprovada pelo Governo Federal" || 
+            	if(attrs.statusIniciative=="Aprovada pelo Governo Federal" ||
             		attrs.statusIniciative=="Aprovada pelo Governo Federal com ressalvas"){
             		margin="-5px";
             	}else if(attrs.statusIniciative=="Em andamento"){
@@ -114,7 +114,7 @@ angular.module('Diferentonas')
             		margin = "68px";
             	}
             	elem.css("margin-top", margin);
-            }); 
-        }      
+            });
+        }
     }
 });

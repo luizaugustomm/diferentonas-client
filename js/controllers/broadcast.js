@@ -22,7 +22,8 @@ angular.module('Diferentonas')
     vm.submit = function() {
         var data = {
             titulo: vm.title,
-            conteudo: vm.message
+            conteudo: vm.message,
+            autor: "User01"
         };
         if (vm.title && vm.message) {
             $http.post(api, data)

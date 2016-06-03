@@ -1,10 +1,11 @@
 angular.module('Diferentonas')
 
-.controller('CityCtrl', ['$stateParams', '$http', 'City', function($stateParams, $http, City) {
+.controller('CityCtrl', ['$stateParams', '$http', '$ionicLoading', 'City', function($stateParams, $http, $ionicLoading, City) {
+
     var vm = this;
     vm.id = $stateParams.id_city;
     vm.city = City;
-    vm.showNeutrals = false;
+    vm.showNeutralThemes = false;
 
     vm.orderByScore = function(score) {
       if (score.area == "TOTAL GERAL" && vm.city.isNeutral(score)) {
@@ -13,12 +14,31 @@ angular.module('Diferentonas')
       return Math.abs(score.valorScore)*-1;
     }
 
-    vm.toggleNeutrals = function() {
-      vm.showNeutrals = !vm.showNeutrals;
+    vm.toggleNeutralThemes = function() {
+      vm.showNeutralThemes = !vm.showNeutralThemes;
+    }
+
+    vm.hasNeutralThemes = function() {
+        var neutrals = 0;
+        vm.city.info.scores.forEach(function(score) {
+            if (vm.city.isNeutral(score))
+                neutrals += 1;
+        });
+        return neutrals !== 0;
+    }
+
+    vm.hasDifferentThemes = function() {
+        var diferentices = 0;
+        vm.city.info.scores.forEach(function(score) {
+            if (vm.city.isDifferent(score))
+                diferentices += 1;
+        });
+        return diferentices !== 0;
     }
 
     var api = 'http://diferentonas.herokuapp.com/cidade/';
     // var api = 'http://0.0.0.0:9000/cidade/';
+
     $http.get(api.concat(vm.id), {
         headers: {'Access-Control-Allow-Origin': '*'}
     }).success(function(data) {
@@ -36,5 +56,10 @@ angular.module('Diferentonas')
     }).success(function(data) {
         vm.city.inicitivas = data;
         City.inicitivas = data;
+        $ionicLoading.hide();
+    }).error(function(data) {
+        $ionicLoading.hide();
     })
+
+
 }]);
