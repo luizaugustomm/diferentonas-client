@@ -8,11 +8,10 @@
     </ion-header-bar>
 
     <div class="tabs tabs-striped tabs-top tabs-icon-only">
-      <a class="tab-item active">
-        <i class="icon ion-information-circled"></i>
-      </a>
+      <a class="tab-item active">Informação</a>
+      <a class="tab-item">Semelhantes</a>
       <a class="tab-item" ui-sref="initiative-comments({'id_city': Initiative.city.info.id, 'score': Initiative.score, 'id_initiative': Initiative.initiative.id})">
-        <i class="icon ion-chatbubbles"></i>
+        Discussões
       </a>
     </div>
 
@@ -30,7 +29,7 @@
 
       <div class="initiative-card initiative-progress padding">
           <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
-  
+
           <div class="progress-chart-end">
             Prestação de contas:<br>
             {{Initiative.initiative.dataConclusaoGovernoFederal}}
