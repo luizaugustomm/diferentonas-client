@@ -1,7 +1,7 @@
 <ion-pane class="cards">
     <ion-header-bar class="bar bar-header">
       <button class="button icon ion-android-arrow-back" ui-sref="initiative({'id_city': Comments.city.info.id, 'score': Comments.score, 'id_initiative': Comments.initiative.id})"></button>
-      <h1 class="title">{{Comments.initiative.titulo}}</h1>
+      <h1 class="title">{{Comments.initiative.area}}</h1>
     </ion-header-bar>
 
     <div class="tabs tabs-striped tabs-top tabs-icon-only">
@@ -14,10 +14,6 @@
     </div>
 
     <ion-content class="padding-top content-default has-subheader has-tabs">
-
-      <div class="empty-initiative-message" ng-hide="Comments.comments.length">
-          Esta iniciativa ainda não foi discutida.
-      </div>
 
       <div class="row text-center">
         <div class="col">
@@ -52,6 +48,10 @@
           Lançar discussão
         </button>
 
+      </div>
+
+      <div class="empty-message" ng-hide="Comments.comments.length">
+          Esta iniciativa ainda não foi discutida.
       </div>
 
       <df-comment-card city="Comments.city" score="Comments.score" initiative="Comments.initiative" comment="comment" ng-repeat="comment in Comments.comments"></df-comment-card>

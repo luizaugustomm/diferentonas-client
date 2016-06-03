@@ -24,7 +24,7 @@ angular.module('Diferentonas')
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
           $ionicLoading.hide();
-          ionicToast.show("discussão lançada!", 'bottom', false, 2500);
+          ionicToast.show("Discussão lançada!", 'bottom', false, 2500);
           vm.comments.push(vm.comment);
           vm.comment = {
             "tipo": "",
