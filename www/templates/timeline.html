@@ -11,7 +11,8 @@
         iniciativa="iniciativa"
         city="Timeline.city"
         ng-repeat="iniciativa in Timeline.initiatives"></df-initiative-card>
-
+      <ion-infinite-scroll distance="2" on-infinite="Timeline.loadMore()" ng-if="!moredata">
+      </ion-infinite-scroll>
     </ion-content>
 
     <df-main-nav nav-class="'content-default'"></df-main-nav>
