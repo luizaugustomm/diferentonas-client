@@ -303,7 +303,7 @@ h2.gov-message-title {
   height: 35px;
   width: 35px;
   color:#fff;
-  border-radius: 50%; 
+  border-radius: 50%;
 }
 
 #follow:active{
@@ -313,4 +313,8 @@ h2.gov-message-title {
 .icon-follow{
   font-size: 23px;
   margin-left: -1px;
+}
+
+.loading-container {
+  background-color: #5850C0;
 }

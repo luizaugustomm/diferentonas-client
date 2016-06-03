@@ -1,6 +1,7 @@
 angular.module('Diferentonas')
 
-.controller('CityCtrl', ['$stateParams', '$http', 'City', function($stateParams, $http, City) {
+.controller('CityCtrl', ['$stateParams', '$http', '$ionicLoading', 'City', function($stateParams, $http, $ionicLoading, City) {
+
     var vm = this;
     vm.id = $stateParams.id_city;
     vm.city = City;
@@ -37,6 +38,7 @@ angular.module('Diferentonas')
 
     var api = 'http://diferentonas.herokuapp.com/cidade/';
     // var api = 'http://0.0.0.0:9000/cidade/';
+
     $http.get(api.concat(vm.id), {
         headers: {'Access-Control-Allow-Origin': '*'}
     }).success(function(data) {
@@ -54,5 +56,10 @@ angular.module('Diferentonas')
     }).success(function(data) {
         vm.city.inicitivas = data;
         City.inicitivas = data;
+        $ionicLoading.hide();
+    }).error(function(data) {
+        $ionicLoading.hide();
     })
+
+
 }]);
