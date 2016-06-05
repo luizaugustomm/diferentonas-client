@@ -1,7 +1,7 @@
 angular.module('Diferentonas')
 
 .controller('CityCtrl', ['$stateParams', '$http', '$ionicLoading', '$ionicScrollDelegate', 'City', function($stateParams, $http, $ionicLoading, $ionicScrollDelegate, City) {
-
+    $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.id = $stateParams.id_city;
     vm.city = City;
