@@ -59,6 +59,12 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
         controller: 'InitiativeCtrl',
         controllerAs: 'Initiative'
       })
+      .state('initiative-similar', {
+        url: '/initiative-similar/:id_city/:score/:id_initiative',
+        templateUrl: 'templates/initiative-similar.html',
+        controller: 'InitiativeSimilarCtrl',
+        controllerAs: 'Similar'
+      })
       .state('initiative-comments', {
         url: '/initiative-comments/:id_city/:score/:id_initiative',
         templateUrl: 'templates/initiative-comments.html',
