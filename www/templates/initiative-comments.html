@@ -5,11 +5,10 @@
     </ion-header-bar>
 
     <div class="tabs tabs-striped tabs-top tabs-icon-only">
-      <a class="tab-item" ui-sref="initiative({'id_city': Comments.city.info.id, 'score': Comments.score, 'id_initiative': Comments.initiative.id})">
-        <i class="icon ion-information-circled"></i>
-      </a>
-      <a class="tab-item active">
-        <i class="icon ion-chatbubbles"></i>
+      <a class="tab-item">Informação</a>
+      <a class="tab-item" ui-sref="initiative-similar({'id_city': Comments.city.info.id, 'score': Comments.score, 'id_initiative': Comments.initiative.id})">Semelhantes</a>
+      <a class="tab-item active" ui-sref="initiative-comments({'id_city': Comments.city.info.id, 'score': Comments.score, 'id_initiative': Comments.initiative.id})">
+        Discussões
       </a>
     </div>
 
