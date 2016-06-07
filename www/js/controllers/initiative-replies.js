@@ -40,11 +40,11 @@ angular.module('Diferentonas')
       $http.get(api.concat("/cidade/", vm.id, "/iniciativas"), {
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
-          vm.city.inicitivas = data;
-          vm.initiative = vm.city.getInitiativeByID(vm.city.inicitivas, vm.id_initiative);
-          City.inicitivas = data;
+          vm.city.iniciativas = data;
+          vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
+          City.iniciativas = data;
       })
     } else {
-      vm.initiative = vm.city.getInitiativeByID(vm.city.inicitivas, vm.id_initiative);
+      vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
     }
 }]);

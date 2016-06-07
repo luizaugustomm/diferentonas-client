@@ -8,7 +8,7 @@ angular.module('Diferentonas')
     vm.score = $stateParams.score;
     vm.id_initiative = parseInt($stateParams.id_initiative);
     vm.city = City;
-    // vm.initiative = vm.city.inicitivas[vm.id_initiative];
+    // vm.initiative = vm.city.iniciativas[vm.id_initiative];
     if (!vm.city.hasData()) {
       // var api = 'http://0.0.0.0:9000/cidade/';
       $http.get(api.concat("cidade/", vm.id), {
@@ -26,9 +26,9 @@ angular.module('Diferentonas')
       $http.get(api.concat("cidade/", vm.id, "/iniciativas"), {
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
-          vm.city.inicitivas = data;
-          City.inicitivas = data;
-          vm.initiative = vm.city.getInitiativeByID(vm.city.inicitivas, vm.id_initiative);
+          vm.city.iniciativas = data;
+          City.iniciativas = data;
+          vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
           $http.get(api.concat("iniciativas/", vm.id_initiative, "/similares"), {
               headers: {'Access-Control-Allow-Origin': '*'}
           }).success(function(data) {
@@ -37,7 +37,7 @@ angular.module('Diferentonas')
           });
       })
     } else {
-      vm.initiative = vm.city.getInitiativeByID(vm.city.inicitivas, vm.id_initiative);
+      vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
       $http.get(api.concat("iniciativas/", vm.id_initiative, "/similares"), {
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {

@@ -1,13 +1,5 @@
 angular.module('Diferentonas')
 
-.filter('formatName', function() {
-    return function(name) {
-        if (!name) return;
-        var tmp = name.replace('TOTAL GERAL', 'GERAL');
-        return tmp.toUpperCase();
-    }
-})
-
 .filter('formatCurrency', function() {
     return function(n) {
         if (n >= 1100000000) {

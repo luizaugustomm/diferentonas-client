@@ -20,9 +20,8 @@
   margin: 0 20px 1px 20px;
   padding-top: 20px;
   padding-left: 30px;
-  font-size: 0.8em;
+  font-size: 0.9em;
   line-height: 1em;
-  text-transform: uppercase;
   color: #5D5D5D;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
@@ -34,7 +33,7 @@
   z-index: 9999;
 }
 .initiative-currency {
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 15px;
@@ -49,6 +48,7 @@
 
 .initiative-title {
   background-color: #fff;
+  font-size: 1em;
 }
 
 .initiative-progress {
@@ -181,18 +181,19 @@
 
 .progress-chart-begin{
   position: absolute;
-  text-align: left;
+  text-align: right;
   margin: -35px 0 0 20%;
 }
 
 .progress-chart-end{
   position: absolute;
-  text-align: left;
+  text-align: right;
   margin: 20px 0 0 3%;
 }
 
 .progress-chart-conclusion{
   position: absolute;
+  text-align: right;
   margin: 90px 0 0 20%;
 }
 

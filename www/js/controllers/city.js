@@ -51,8 +51,8 @@ angular.module('Diferentonas')
     $http.get(api.concat(vm.id).concat('/iniciativas'), {
         headers: {'Access-Control-Allow-Origin': '*'}
     }).success(function(data) {
-        vm.city.inicitivas = data;
-        City.inicitivas = data;
+        vm.city.iniciativas = data;
+        City.iniciativas = data;
         $ionicLoading.hide();
     }).error(function(data) {
         $ionicLoading.hide();
