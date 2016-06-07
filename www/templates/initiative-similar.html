@@ -5,11 +5,9 @@
     </ion-header-bar>
 
     <div class="tabs tabs-striped tabs-top tabs-icon-only">
-      <a class="tab-item" ui-sref="initiative({'id_city': Similar.city.info.id, 'score': Similar.score, 'id_initiative': Similar.initiative.id})">Informação</a>
-      <a class="tab-item active" ui-sref="initiative-similar({'id_city': Similar.city.info.id, 'score': Similar.score, 'id_initiative': Similar.initiative.id})">Semelhantes</a>
-      <a class="tab-item" ui-sref="initiative-comments({'id_city': Similar.city.info.id, 'score': Similar.score, 'id_initiative': Similar.initiative.id})">
-        Discussões
-      </a>
+      <a nav-transition="none" class="tab-item" ui-sref="initiative({'id_city': Similar.city.info.id, 'score': Similar.score, 'id_initiative': Similar.initiative.id})">Informações</a>
+      <a nav-transition="none" class="tab-item active">Semelhantes</a>
+      <a nav-transition="none" class="tab-item" ui-sref="initiative-comments({'id_city': Similar.city.info.id, 'score': Similar.score, 'id_initiative': Similar.initiative.id})">Discussões</a>
     </div>
 
     <ion-content class="padding-top content-default has-subheader has-tabs">
