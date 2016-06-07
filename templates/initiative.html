@@ -8,12 +8,9 @@
     </ion-header-bar>
 
     <div class="tabs tabs-striped tabs-top tabs-icon-only">
-      <a class="tab-item active">
-        <i class="icon ion-information-circled"></i>
-      </a>
-      <a class="tab-item" ui-sref="initiative-comments({'id_city': Initiative.city.info.id, 'score': Initiative.score, 'id_initiative': Initiative.initiative.id})">
-        <i class="icon ion-chatbubbles"></i>
-      </a>
+      <a nav-transition="none" class="tab-item active">Informações</a>
+      <a nav-transition="none" class="tab-item" ui-sref="initiative-similar({'id_city': Initiative.city.info.id, 'score': Initiative.score, 'id_initiative': Initiative.initiative.id})">Semelhantes</a>
+      <a nav-transition="none" class="tab-item" ui-sref="initiative-comments({'id_city': Initiative.city.info.id, 'score': Initiative.score, 'id_initiative': Initiative.initiative.id})">Discussões</a>
     </div>
 
     <ion-content class="padding-top content-default has-subheader has-tabs">
@@ -21,22 +18,21 @@
 		  <div class="initiative-card initiative-title padding">
         <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
         <div class="col">
-	        <p class="initiative-values-title">
-	          Título: <br>
-	          <p><strong>{{Initiative.initiative.titulo}}</strong></p>
-	        </p>
+	        <strong class="initiative-values-title">
+	          {{Initiative.initiative.titulo}}
+	        </strong>
 	      </div>
       </div>
 
       <div class="initiative-card initiative-progress padding">
           <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
-  
+
           <div class="progress-chart-end">
             Prestação de contas:<br>
             {{Initiative.initiative.dataConclusaoGovernoFederal}}
           </div>
           <div class="progress-chart-conclusion">
-            Conclusão: <br>
+            Conclusão:<br>
             {{Initiative.initiative.dataConclusaoMunicipio}}
           </div>
           <div class="progress-chart-status" ng-to-date status-iniciative="{{Initiative.initiative.status}}"
@@ -61,16 +57,15 @@
 
       <div class="initiative-card initiative-values padding">
         <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
-      	<p>Valor repassado pelo Governo Federal <strong>({{Initiative.initiative.fonte}})</strong></p>
+      	<p>Valor repassada pelo Governo Federal<br> <strong>({{Initiative.initiative.fonte === Initiative.initiative.concedente ? Initiative.initiative.fonte : Initiative.initiative.fonte + ' / ' + Initiative.initiative.concedente}}):</strong></p>
     		<p class="initiative-currency">{{Initiative.initiative.verbaGovernoFederal | currency}}</p>
-  			<p>Valor complementado pela Prefeitura:</p>
+  			<p>Valor complementada pela Prefeitura:</p>
     		<p class="initiative-currency">{{Initiative.initiative.verbaMunicipio | currency}}</p>
     		<p>Valor total:</p>
   			<p class="initiative-currency">{{Initiative.initiative.verbaGovernoFederal+Initiative.initiative.verbaMunicipio | currency}}</p>
 	    </div>
       <div class="initiative-card initiative-evaluation padding" ng-controller="BarChartCtrl">
         <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
-		    Avaliação sobre esta iniciativa
                 <nvd3 options="options" data="data"></nvd3>
         <div class = "row">
           <div class = "col"><i class="icon-chart ion-alert-circled"></i></div>

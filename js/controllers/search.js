@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('SearchCtrl', ['$http', '$state', '$filter', '$ionicLoading', 'City', function($http, $state, $filter, $ionicLoading, City) {
+.controller('SearchCtrl', ['$http', '$state', '$filter', 'City', function($http, $state, $filter, City) {
   var vm = this;
   vm.cityInput = "";
   vm.cities = [];
@@ -15,7 +15,6 @@ angular.module('Diferentonas')
     vm.isSearching = true;
   }
   vm.selectCity = function(city) {
-    $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     vm.selectedCity = {
       "id": city.id,
       "uf": city.uf,

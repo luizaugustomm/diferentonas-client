@@ -1,9 +1,10 @@
 angular.module('Diferentonas')
 
-.controller('TimelineCtrl', ['$http', 'City', function($http, City) {
+.controller('TimelineCtrl', ['$scope','$http', 'City', function($scope,$http, City) {
     var vm = this;
     var api = "http://diferentonas.herokuapp.com";
     vm.city = City;
+    $scope.moreData=false;
     vm.initiatives = [
       {
       id: 817260,
@@ -36,6 +37,7 @@ angular.module('Diferentonas')
       dataInicio: "30/01/2015",
       dataConclusaoMunicipio: "29/01/2017",
       dataConclusaoGovernoFederal: null
+
     }];
 
     if (!vm.city.hasData()) {
@@ -54,11 +56,24 @@ angular.module('Diferentonas')
       $http.get(api.concat("/cidade/", vm.id, "/iniciativas"), {
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
-          vm.city.inicitivas = data;
-          vm.initiative = vm.city.getInitiativeByID(vm.city.inicitivas, vm.id_initiative);
-          City.inicitivas = data;
+          vm.city.iniciativas = data;
+          vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
+          City.iniciativas = data;
       });
     } else {
-      vm.initiative = vm.city.getInitiativeByID(vm.city.inicitivas, vm.id_initiative);
+      vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
     }
+
+    vm.loadMore = function() {
+      var items = [];
+      $http.get('js/test-timeline.json').success(function(data){
+        items = data;
+        vm.initiatives.push(items);
+        moreData = true;
+      }).error(function(data) {
+          ionicToast.show("Todas as novidades carregadas", 'bottom', false, 2500);
+      });
+      $scope.$broadcast('scroll.infiniteScrollComplete');
+      items = [];
+    };
 }]);

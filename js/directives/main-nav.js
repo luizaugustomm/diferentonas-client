@@ -8,4 +8,14 @@ angular.module('Diferentonas')
     },
     templateUrl: 'templates/directives/main-nav.html'
   }
+}])
+
+.directive('dfScrollTo', ['$ionicScrollDelegate', function($ionicScrollDelegate) {
+  return {
+    link: function (scope, element, attrs) {
+      element.on('click', function (event) {
+        $ionicScrollDelegate.scrollTo(0, element[0].offsetTop, true);
+      });
+    }
+  };
 }]);

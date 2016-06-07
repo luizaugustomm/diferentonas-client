@@ -1,7 +1,7 @@
 angular.module('Diferentonas')
 
-.controller('CityCtrl', ['$stateParams', '$http', '$ionicLoading', 'City', function($stateParams, $http, $ionicLoading, City) {
-
+.controller('CityCtrl', ['$stateParams', '$http', '$ionicLoading', '$ionicScrollDelegate', 'City', function($stateParams, $http, $ionicLoading, $ionicScrollDelegate, City) {
+    $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.id = $stateParams.id_city;
     vm.city = City;
@@ -13,11 +13,9 @@ angular.module('Diferentonas')
       }
       return Math.abs(score.valorScore)*-1;
     }
-
     vm.toggleNeutralThemes = function() {
       vm.showNeutralThemes = !vm.showNeutralThemes;
     }
-
     vm.hasNeutralThemes = function() {
         var neutrals = 0;
         vm.city.info.scores.forEach(function(score) {
@@ -26,7 +24,6 @@ angular.module('Diferentonas')
         });
         return neutrals !== 0;
     }
-
     vm.hasDifferentThemes = function() {
         var diferentices = 0;
         vm.city.info.scores.forEach(function(score) {
@@ -54,8 +51,8 @@ angular.module('Diferentonas')
     $http.get(api.concat(vm.id).concat('/iniciativas'), {
         headers: {'Access-Control-Allow-Origin': '*'}
     }).success(function(data) {
-        vm.city.inicitivas = data;
-        City.inicitivas = data;
+        vm.city.iniciativas = data;
+        City.iniciativas = data;
         $ionicLoading.hide();
     }).error(function(data) {
         $ionicLoading.hide();

@@ -24,7 +24,7 @@ angular.module('Diferentonas')
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
           $ionicLoading.hide();
-          ionicToast.show("discussão lançada!", 'bottom', false, 2500);
+          ionicToast.show("Discussão lançada!", 'bottom', false, 2500);
           vm.comments.push(vm.comment);
           vm.comment = {
             "tipo": "",
@@ -61,11 +61,11 @@ angular.module('Diferentonas')
       $http.get(api.concat("/cidade/", vm.id, "/iniciativas"), {
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
-          vm.city.inicitivas = data;
-          vm.initiative = vm.city.getInitiativeByID(vm.city.inicitivas, vm.id_initiative);
-          City.inicitivas = data;
+          vm.city.iniciativas = data;
+          vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
+          City.iniciativas = data;
       });
     } else {
-      vm.initiative = vm.city.getInitiativeByID(vm.city.inicitivas, vm.id_initiative);
+      vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
     }
 }]);
