@@ -2,7 +2,7 @@
     <ion-header-bar class="bar bar-header">
       <button class="button icon ion-android-arrow-back" ui-sref="themes({'id_city': Initiative.city.info.id, 'score': Initiative.score})"></button>
       <h1 class="title">{{Initiative.score}}</h1>
-      <button id = "follow" class="button" ng-click="Initiative.followInitiative()">
+      <button ng-class="Initiative.initiative.seguidaPeloRequisitante ? 'follow' : 'unfollow'" class="icon-follow button" ng-click="Initiative.followInitiative()">
         <i class="icon-follow ion-eye"></i>
       </button>
     </ion-header-bar>
