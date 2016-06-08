@@ -5,9 +5,11 @@
     </ion-header-bar>
 
     <ion-content class="padding content-default has-tabs">
+        <div class="empty-message" ng-if="Messages.messages.length === 0">
+          Não há novos alertas.
+        </div>
 
         <df-message-card message="message" ng-repeat="message in Messages.messages"></df-message-card>
-
     </ion-content>
 
     <df-main-nav nav-class="'content-default'"></df-main-nav>
