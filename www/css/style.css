@@ -38,6 +38,10 @@
   margin-top: 0;
   margin-bottom: 15px;
 }
+.item p.initiative-card-city {
+  font-size: 0.8em;
+  color: #B3B2B5;
+}
 
 .icon-chart{
   font-size: 30px;
