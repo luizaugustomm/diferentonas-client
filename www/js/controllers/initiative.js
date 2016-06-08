@@ -6,6 +6,10 @@ angular.module('Diferentonas')
     vm.theme = $stateParams.theme;
     vm.id_initiative = parseInt($stateParams.id_initiative);
     vm.city = City;
+    vm.bomba = 0;
+    vm.coracao = 0;
+    vm.coracao_partido = 0;
+
     // vm.initiative = vm.city.iniciativas[vm.id_initiative];
     if (!vm.city.hasData()) {
       var api = 'http://diferentonas.herokuapp.com/cidade/';
@@ -64,4 +68,39 @@ angular.module('Diferentonas')
       }
       console.log("Iniciativa #" + vm.id_initiative + " está sendo seguida? " + vm.initiative.seguidaPeloRequisitante);
     }
+
+
+    if(vm.initiative.sumario.coracao_partido >= 1){
+      vm.coracao_partido = vm.initiative.sumario.coracao_partido;
+    }
+    if(vm.initiative.sumario.coracao >= 1){
+      vm.coracao = vm.initiative.sumario.coracao;
+    }
+    if(vm.initiative.sumario.bomba >= 1){
+      vm.bomba = vm.initiative.sumario.bomba;
+    }
+
+    vm.data = [{key:"Analise de iniciativa",
+              values: [{"label":"Bomba","value":vm.bomba,"color": "#5D5D5D"},
+                      {"label":"Curti","value":vm.coracao,"color": "#5D5D5D"},
+                      {"label":"Não curti","value":vm.coracao_partido,"color": "#5D5D5D"}]}];
+    
+    vm.options = {
+      chart: {
+        type: 'discreteBarChart',
+          height: 200,
+          x: function(d){return d.label;},
+          y: function(d){return d.value;},
+            showValues: true,
+          interactive: false,
+          stacked: false,
+          xAxis: {showMaxMin: false},
+          showYAxis:false,
+          showXAxis:false,
+          margin:{"left":5, "right":10, "top":40, "bottom":20}
+        }
+    };
+
 }]);
+
+

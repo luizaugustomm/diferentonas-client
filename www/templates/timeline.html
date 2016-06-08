@@ -7,10 +7,9 @@
 
     <ion-content class="padding content-default has-tabs">
 
-      <df-initiative-card
-        iniciativa="iniciativa"
-        city="Timeline.city"
-        ng-repeat="iniciativa in Timeline.initiatives"></df-initiative-card>
+      <df-timeline-card
+        novidade="iniciativa"
+        ng-repeat="iniciativa in Timeline.initiatives"></df-timeline-card>
       <ion-infinite-scroll distance="2" on-infinite="Timeline.loadMore()" ng-if="!moredata">
       </ion-infinite-scroll>
     </ion-content>
