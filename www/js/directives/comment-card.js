@@ -5,7 +5,7 @@ angular.module('Diferentonas')
     restrict: 'E',
     scope: {
       "city": "=",
-      "score": "=",
+      "theme": "=",
       "initiative": "=",
       "comment": "="
     },

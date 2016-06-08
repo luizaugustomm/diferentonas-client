@@ -3,7 +3,7 @@ angular.module('Diferentonas')
 .controller('InitiativeCtrl', ['$stateParams', '$http','$ionicLoading', 'ionicToast','City', function($stateParams, $http,$ionicLoading, ionicToast,City) {
     var vm = this;
     vm.id = $stateParams.id_city;
-    vm.score = $stateParams.score;
+    vm.theme = $stateParams.theme;
     vm.id_initiative = parseInt($stateParams.id_initiative);
     vm.city = City;
     // vm.initiative = vm.city.iniciativas[vm.id_initiative];

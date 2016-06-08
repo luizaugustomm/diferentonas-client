@@ -48,31 +48,31 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
         controllerAs: 'City'
       })
       .state('themes', {
-        url: '/themes/:id_city/:score',
+        url: '/themes/:id_city/:theme',
         templateUrl: 'templates/themes.html',
         controller: 'ThemesCtrl',
         controllerAs: 'Themes'
       })
       .state('initiative', {
-        url: '/initiative/:id_city/:score/:id_initiative',
+        url: '/initiative/:id_city/:theme/:id_initiative',
         templateUrl: 'templates/initiative.html',
         controller: 'InitiativeCtrl',
         controllerAs: 'Initiative'
       })
       .state('initiative-similar', {
-        url: '/initiative-similar/:id_city/:score/:id_initiative',
+        url: '/initiative-similar/:id_city/:theme/:id_initiative',
         templateUrl: 'templates/initiative-similar.html',
         controller: 'InitiativeSimilarCtrl',
         controllerAs: 'Similar'
       })
       .state('initiative-comments', {
-        url: '/initiative-comments/:id_city/:score/:id_initiative',
+        url: '/initiative-comments/:id_city/:theme/:id_initiative',
         templateUrl: 'templates/initiative-comments.html',
         controller: 'InitiativeCommentsCtrl',
         controllerAs: 'Comments'
       })
       .state('initiative-replies', {
-        url: '/initiative-replies/:id_city/:score/:id_initiative',
+        url: '/initiative-replies/:id_city/:theme/:id_initiative',
         templateUrl: 'templates/initiative-replies.html',
         controller: 'InitiativeRepliesCtrl',
         controllerAs: 'Replies'

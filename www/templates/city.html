@@ -20,7 +20,7 @@
         score="score"
         base-color="'#FFF'"
         ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
-        ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
+        ui-sref="themes({'id_city': City.city.info.id, 'theme': score.area})"
         ng-hide="score.area === 'TOTAL GERAL' || score.valorScore == 0 || City.city.isNeutral(score)"></df-theme-card>
 
 
@@ -33,7 +33,7 @@
             city="City.city"
             score="score"
             ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
-            ui-sref="themes({'id_city': City.city.info.id, 'score': score.area})"
+            ui-sref="themes({'id_city': City.city.info.id, 'theme': score.area})"
             ng-hide="score.area === 'TOTAL GERAL' || score.valorScore == 0 || !City.city.isNeutral(score)"></df-theme-card>
         </div>
 
