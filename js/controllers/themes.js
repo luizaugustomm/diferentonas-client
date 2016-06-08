@@ -3,7 +3,7 @@ angular.module('Diferentonas')
 .controller('ThemesCtrl', ['$stateParams', '$http', 'City', function($stateParams, $http, City) {
     var vm = this;
     vm.id = $stateParams.id_city;
-    vm.score = $stateParams.score;
+    vm.theme = $stateParams.theme;
     vm.city = City;
     if (!vm.city.hasData()) {
       var api = 'http://diferentonas.herokuapp.com/cidade/';
@@ -28,10 +28,10 @@ angular.module('Diferentonas')
       })
     }
 
-    vm.hasInitiatives = function(area) {
+    vm.hasInitiatives = function(theme) {
         has = false;
         vm.city.info.scores.forEach(function(score) {
-            if (score.area === area && score.repasseTotal !== 0) {
+            if (score.area === theme && score.repasseTotal !== 0) {
                 has = true;
                 return;
             }

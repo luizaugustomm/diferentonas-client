@@ -1,16 +1,16 @@
 <ion-pane class="cards">
     <ion-header-bar class="bar bar-header">
-      <button class="button icon ion-android-arrow-back" ui-sref="themes({'id_city': Initiative.city.info.id, 'score': Initiative.score})"></button>
-      <h1 class="title">{{Initiative.score}}</h1>
-      <button id = "follow" class="button" ng-click="Initiative.followInitiative()">
+      <button class="button icon ion-android-arrow-back" ui-sref="themes({'id_city': Initiative.city.info.id, 'theme': Initiative.theme})"></button>
+      <h1 class="title">{{Initiative.theme}}</h1>
+      <button ng-class="Initiative.initiative.seguidaPeloRequisitante ? 'follow' : 'unfollow'" class="icon-follow button" ng-click="Initiative.followInitiative()">
         <i class="icon-follow ion-eye"></i>
       </button>
     </ion-header-bar>
 
     <div class="tabs tabs-striped tabs-top tabs-icon-only">
       <a nav-transition="none" class="tab-item active">Informações</a>
-      <a nav-transition="none" class="tab-item" ui-sref="initiative-similar({'id_city': Initiative.city.info.id, 'score': Initiative.score, 'id_initiative': Initiative.initiative.id})">Semelhantes</a>
-      <a nav-transition="none" class="tab-item" ui-sref="initiative-comments({'id_city': Initiative.city.info.id, 'score': Initiative.score, 'id_initiative': Initiative.initiative.id})">Discussões</a>
+      <a nav-transition="none" class="tab-item" ui-sref="initiative-similar({'id_city': Initiative.city.info.id, 'theme': Initiative.theme, 'id_initiative': Initiative.initiative.id})">Semelhantes</a>
+      <a nav-transition="none" class="tab-item" ui-sref="initiative-comments({'id_city': Initiative.city.info.id, 'theme': Initiative.theme, 'id_initiative': Initiative.initiative.id})">Discussões</a>
     </div>
 
     <ion-content class="padding-top content-default has-subheader has-tabs">
