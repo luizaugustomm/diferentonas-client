@@ -16,10 +16,10 @@
         </div>
 
         <df-initiative-card
-        iniciativa="iniciativa"
-        city="Themes.city"
-        ui-sref="initiative({'id_city': Themes.city.info.id, 'theme': Themes.theme, 'id_initiative': iniciativa.id})"
-        ng-repeat="iniciativa in Themes.city.iniciativas | filter:Themes.theme:true"></df-initiative-card>
+          iniciativa="iniciativa"
+          city="Themes.city"
+          ui-sref="initiative({'id_city': Themes.city.info.id, 'theme': Themes.theme, 'id_initiative': iniciativa.id})"
+          ng-repeat="iniciativa in Themes.city.iniciativas | filter:Themes.theme:true"></df-initiative-card>
     </ion-content>
 
     <df-main-nav nav-class="'content-default'"></df-main-nav>
