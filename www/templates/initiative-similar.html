@@ -1,7 +1,7 @@
 <ion-pane class="cards">
     <ion-header-bar class="bar bar-header">
         <button class="button icon ion-android-arrow-back" ui-sref="initiative({'id_city': Similar.city.info.id, 'theme': Similar.theme, 'id_initiative': Similar.initiative.id})"></button>
-        <h1 class="title">{{Similar.theme}}</h1>
+        <h1 class="title">{{Similar.initiative.titulo}}</h1>
     </ion-header-bar>
 
     <div class="tabs tabs-striped tabs-top tabs-icon-only">
@@ -12,23 +12,14 @@
 
     <ion-content class="padding-top content-default has-subheader has-tabs">
 
-      <div class="card">
-        <div class="item item-text-wrap">
-          <p class="initiative-values-title">
-            Iniciativas semelhantes a: <br>
-            <p><strong>{{Similar.initiative.titulo}}</strong></p>
-          </p>
-        </div>
-      </div>
-
       <div class="empty-message" ng-hide="Similar.initiative.similar.length">
           Não há iniciativas semelhantes.
       </div>
 
       <df-initiative-card
         iniciativa="iniciativa"
-        city="Similar.city"
-        ui-sref="initiative({'id_city': Similar.city.info.id, 'theme': Similar.theme, 'id_initiative': iniciativa.id})"
+        city="iniciativa.cidade"
+        ui-sref="initiative({'id_city': iniciativa.cidade.id, 'theme': Similar.theme, 'id_initiative': iniciativa.id})"
         ng-repeat="iniciativa in Similar.initiative.similar"></df-initiative-card>
     </ion-content>
 

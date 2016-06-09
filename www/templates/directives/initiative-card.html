@@ -1,6 +1,6 @@
 <div class="card">
   <div class="item item-text-wrap">
-    <p class="initiative-card-city">{{city.info.nome}} - {{city.info.uf}}</p>
+    <p class="initiative-card-city" ng-show="city.nome">{{city.nome}} - {{city.uf}}</p>
     <p><strong>{{ iniciativa.titulo }}</strong></p>
     <br>
     <div class="row">
@@ -14,10 +14,10 @@
   </div>
   <div class="item item-divider">
     <div class="row">
-      <div class="col-25"></div>
-      <div class="col-25">{{iniciativa.sumario.coracao}}</div>
-      <div class="col-25">{{iniciativa.sumario.coracao_partido}}</div>
-      <div class="col-25">{{iniciativa.sumario.bomba}}</div>
+      <div class="col-25 text-center"><i class="ion-ios-chatbubble"></i> {{iniciativa.sumario.coracao+iniciativa.sumario.coracao_partido+iniciativa.sumario.bomba}}</div>
+      <div class="col-25 text-center"><i class="ion-heart"></i> {{iniciativa.sumario.coracao}}</div>
+      <div class="col-25 text-center"><i class="ion-heart-broken"></i> {{iniciativa.sumario.coracao_partido}}</div>
+      <div class="col-25 text-center"><i class="ion-flame"></i> {{iniciativa.sumario.bomba}}</div>
     </div>
   </div>
 </div>

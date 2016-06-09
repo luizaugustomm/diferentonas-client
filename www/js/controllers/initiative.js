@@ -84,7 +84,7 @@ angular.module('Diferentonas')
               values: [{"label":"Bomba","value":vm.bomba,"color": "#5D5D5D"},
                       {"label":"Curti","value":vm.coracao,"color": "#5D5D5D"},
                       {"label":"Não curti","value":vm.coracao_partido,"color": "#5D5D5D"}]}];
-    
+
     vm.options = {
       chart: {
         type: 'discreteBarChart',
@@ -102,5 +102,3 @@ angular.module('Diferentonas')
     };
 
 }]);
-
-
