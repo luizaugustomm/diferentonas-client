@@ -1,0 +1,16 @@
+<div class="initiative-card initiative-title padding">
+    <p class="status">{{ novidade.opiniao.iniciativa.status }}</p>
+    <p class="padding-bottom">{{ novidade.opiniao.iniciativa.verbaGovernoFederal | currency:'R$ ' }}</p>
+    <p>{{ novidade.opiniao.iniciativa.titulo }}</p>
+</div>
+<div class="initiative-card initiative-title padding" style="margin-bottom: 20px">
+		<div style="text-align: left">
+			<p><strong>{{novidade.opiniao.autor.login}} : </strong></p>
+		</div>
+		<div class = "col-feeling">
+			<i class="icon ion-alert-circled" ng-show-bomb tipo="{{novidade.opiniao.tipo}}"></i>
+        	<i class="icon ion-heart" ng-show-heart tipo="{{novidade.opiniao.tipo}}"></i>
+        	<i class="icon ion-heart-broken" ng-show-brokenheart tipo="{{novidade.opiniao.tipo}}"></i>
+		</div>
+	<p>{{novidade.opiniao.conteudo}}<br></p>
+</div>

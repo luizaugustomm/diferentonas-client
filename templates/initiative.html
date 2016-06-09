@@ -64,9 +64,9 @@
     		<p>Valor total:</p>
   			<p class="initiative-currency">{{Initiative.initiative.verbaGovernoFederal+Initiative.initiative.verbaMunicipio | currency}}</p>
 	    </div>
-      <div class="initiative-card initiative-evaluation padding" ng-controller="BarChartCtrl">
+      <div class="initiative-card initiative-evaluation padding">
         <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
-                <nvd3 options="options" data="data"></nvd3>
+                <nvd3 options="Initiative.options" data="Initiative.data"></nvd3>
         <div class = "row">
           <div class = "col"><i class="icon-chart ion-alert-circled"></i></div>
           <div class = "col"><i class="icon-chart ion-heart" style="color:#99003c"></i></div>

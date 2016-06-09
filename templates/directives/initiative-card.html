@@ -1,7 +1,23 @@
 <div class="card">
   <div class="item item-text-wrap">
-    <p class="status" ng-class="city.getInitiativeStatus(iniciativa)">{{ iniciativa.status }}</p>
-    <p class="padding-bottom">{{ iniciativa.verbaGovernoFederal | currency:'R$ ' }}</p>
-    <p>{{ iniciativa.titulo }}</p>
+    <p class="initiative-card-city" ng-show="city.nome">{{city.nome}} - {{city.uf}}</p>
+    <p><strong>{{ iniciativa.titulo }}</strong></p>
+    <br>
+    <div class="row">
+      <div class="col-50">
+        <i class="ion-android-time status" ng-class="city.getInitiativeStatus(iniciativa)"></i> {{ iniciativa.status }}
+      </div>
+      <div class="col-50">
+        <i class="ion-social-usd balanced"></i> {{ iniciativa.verbaGovernoFederal | currency:'R$ ' }}
+      </div>
+    </div>
+  </div>
+  <div class="item item-divider">
+    <div class="row">
+      <div class="col-25 text-center"><i class="ion-ios-chatbubble"></i> {{iniciativa.sumario.coracao+iniciativa.sumario.coracao_partido+iniciativa.sumario.bomba}}</div>
+      <div class="col-25 text-center"><i class="ion-heart"></i> {{iniciativa.sumario.coracao}}</div>
+      <div class="col-25 text-center"><i class="ion-heart-broken"></i> {{iniciativa.sumario.coracao_partido}}</div>
+      <div class="col-25 text-center"><i class="ion-flame"></i> {{iniciativa.sumario.bomba}}</div>
+    </div>
   </div>
 </div>
