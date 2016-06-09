@@ -319,3 +319,11 @@ h2.gov-message-title {
 .loading-container {
   background-color: #5850C0;
 }
+
+.col-feeling{
+   text-align: left;
+   font-size: 26px;
+   margin-left: 200px;
+   margin-top: -35px;
+   padding-bottom: 25px;
+}
