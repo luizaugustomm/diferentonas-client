@@ -54,7 +54,9 @@ angular.module('Diferentonas')
           setSumario(vm.initiative.sumario);
           City.iniciativas = data;
           $ionicLoading.hide();
-      })
+      }).error(function(data) {
+      $ionicLoading.hide();
+      });
     } else {
       vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
       setSumario(vm.initiative.sumario);

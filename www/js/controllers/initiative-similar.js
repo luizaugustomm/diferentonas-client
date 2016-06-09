@@ -34,6 +34,8 @@ angular.module('Diferentonas')
           }).success(function(data) {
               vm.initiative.similar = data;
               $ionicLoading.hide();
+          }).error(function(data) {
+              $ionicLoading.hide();
           });
       })
     } else {
@@ -42,6 +44,8 @@ angular.module('Diferentonas')
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
           vm.initiative.similar = data;
+          $ionicLoading.hide();
+      }).error(function(data) {
           $ionicLoading.hide();
       });
     }
