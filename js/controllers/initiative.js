@@ -26,7 +26,8 @@ angular.module('Diferentonas')
             xAxis: {showMaxMin: false},
             showYAxis:false,
             showXAxis:false,
-            margin:{"left":5, "right":10, "top":40, "bottom":20}
+            margin:{"left":5, "right":10, "top":40, "bottom":20},
+            valueFormat: function(d){ return d3.format('d')(d) }
           }
       };
     }
