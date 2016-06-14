@@ -5,6 +5,12 @@ android:
   - tools
   - build-tools-23
   - android-23
+env:
+  global:
+  - APP_NAME="Diferentonas"
+  - DEVELOPER_NAME="Luiz Augusto de Macêdo Morais"
+  - PROFILE_NAME="Luiz Augusto Morais"
+  - HOCKEYAPP_UPLOAD_BRANCH="master"
 before_install:
 - export LANG=pt_BR.UTF-8
 - npm install -g npm
@@ -14,19 +20,12 @@ script:
 - ionic platform add android
 - cordova plugin add com.testfairy.cordova-plugin
 - cordova build android
-env:
-  global:
-  - APP_NAME="Diferentonas"
-  - DEVELOPER_NAME="Luiz Augusto de Macêdo Morais"
-  - PROFILE_NAME="Luiz Augusto Morais"
-  - HOCKEYAPP_UPLOAD_BRANCH="master"
-before_deploy:
-  - cp /home/travis/build/luizaugustomm/diferentonas-client/platforms/android/build/outputs/apk/android-debug.apk diferentonas.apk
 deploy:
+  skip_cleanup: true
   provider: testfairy
   api-key:
     secure: IAFz/uweY8zAh6xDXoacW5BU0iFD2qpo7gCJgOXjyNNO/hIMiDqn8h/EQjTuQC8Va+JVyhbMikM1s1TZ01HcfxHjhElj85p8LrwIzFhYGEfNc8VsAVvL4g0zoGN+e3ibC+XXqx/GFfDRn5drLqdU6DbLDUhxJY7qvB0vFgzo0gZ8qcMwmC0mI4NB1wrAvfOOJ71OCvxP8pvA/Yb3vt1ydjUh+eqz+FJcCtC78SGWQBnOqrw4c3b7dSISbcvFljLYwdnJSM44sULaoFUFf0HqAK31wrLuDY4QblGn2GokkOMlSuVA0KvXSiB0hsRpIxQ9FsOr0MGuJbJ04f780EgXdM/nog2g4gFOMoNdQtl/8SaERJRM0Ax+JboCVzWy0fIuzNCeGiCzOu03CbdqnqOMNV2AJhRyBP04kWINnlst23/GUdvdoapmzcJDoCvCaBh2B206e4h6gCUk1M/DvH8vrf2QJTs0RC6dllFpHKoJKsiwTfwnttX5irN1oRvdze16y9c2FzTJn9SNCuMEnzYl1JjOiU+i+LDp7CCJvg9UaZ9kTjQW34U+DVq7kcUfwbUjl51AZvLMZFtXByeK+XVH/68NgqM56TjzxRzMJPiGp8lkockE88NkrkGymVKrq0KVLv+OpcMi8yo+qMivQ4f4dZohukS23U0by581GGDw4E8=
-  app-file: "android-debug.apk"
+  app-file: "/home/travis/build/luizaugustomm/diferentonas-client/platforms/android/build/outputs/apk/android-debug.apk"
   keystore-file: "my-release-key.keystore"
   storepass:
     secure: QdA7uFujk8I+UsUtOsmsZsw4YJXjyjHj2VXV5UF/sQ96PjuhaRc9ew0ehbiNmq4cu9wSQUjNeovPC0/sipETVji1EbYdAcJMA/rfW4os0s550KcAj+W0uIjzS9dmfdyviLejhI6ErCtSqTddrvNSrJuWQ7E/iEXPtBV9AGHaomOWMPC+iY+TKVznfwhDoxSmqJx1xmvK3FW/Z+bhOI3lB0tqrVbDTSCBQeF9r+30TvrDONJH/r05G+1skMGhlBnRPu3qBvOU2BdZ476MlFokFRSeoJOCdGZ4RDPA3vq3VE1Ihp4p9/XpZZpRSDsLHtkIbQxNCj0liyOWHhOBTfcX/BVSwle6/dzb8cmFM48+5sh2Rou8K0t0knuidt6VtMGVdI5jhCsSlislU8ySrwqYi7CeN4uRbPgviNUMjEjiszGUs051iVi4UOL4SyhBrvikqdezz9DcAEaDApDutr0XJ9G7p/xrnxpxaDn4NDdBvVlqCW7Gwgty635dkVmAh6KBy0rfRidEFz6ASJ1Ddf4SX9wpkloO+5ejE6i8XOABRNInXkkvIpcj70Bwm9xlecqU+GKVN7e3iFw8jiRKpmHl/2vfDQ/pzON1oJAbUnIrujuGGJDkd9rDp+JSWR/xoe1ixj8E9U3ixtObdsIBQPFgX0fTvTpiRSCI2C9Wt5wQufs=
