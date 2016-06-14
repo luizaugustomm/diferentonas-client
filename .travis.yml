@@ -1,20 +1,14 @@
 language: android
 android:
   components:
-    - platform-tools
-    - tools
-
-    # The BuildTools version used by your project
-    - build-tools-23
-
-    # The SDK version used to compile your project
-    - android-23
-
+  - platform-tools
+  - tools
+  - build-tools-23
+  - android-23
 before_install:
 - export LANG=pt_BR.UTF-8
 - npm install -g npm
 - npm install -g cordova ionic
-
 script:
 - npm install
 - ionic platform add android
@@ -25,3 +19,10 @@ env:
   - DEVELOPER_NAME="Luiz Augusto de Macêdo Morais"
   - PROFILE_NAME="Luiz Augusto Morais"
   - HOCKEYAPP_UPLOAD_BRANCH="master"
+deploy:
+  provider: testfairy
+  api-key:
+    secure: IAFz/uweY8zAh6xDXoacW5BU0iFD2qpo7gCJgOXjyNNO/hIMiDqn8h/EQjTuQC8Va+JVyhbMikM1s1TZ01HcfxHjhElj85p8LrwIzFhYGEfNc8VsAVvL4g0zoGN+e3ibC+XXqx/GFfDRn5drLqdU6DbLDUhxJY7qvB0vFgzo0gZ8qcMwmC0mI4NB1wrAvfOOJ71OCvxP8pvA/Yb3vt1ydjUh+eqz+FJcCtC78SGWQBnOqrw4c3b7dSISbcvFljLYwdnJSM44sULaoFUFf0HqAK31wrLuDY4QblGn2GokkOMlSuVA0KvXSiB0hsRpIxQ9FsOr0MGuJbJ04f780EgXdM/nog2g4gFOMoNdQtl/8SaERJRM0Ax+JboCVzWy0fIuzNCeGiCzOu03CbdqnqOMNV2AJhRyBP04kWINnlst23/GUdvdoapmzcJDoCvCaBh2B206e4h6gCUk1M/DvH8vrf2QJTs0RC6dllFpHKoJKsiwTfwnttX5irN1oRvdze16y9c2FzTJn9SNCuMEnzYl1JjOiU+i+LDp7CCJvg9UaZ9kTjQW34U+DVq7kcUfwbUjl51AZvLMZFtXByeK+XVH/68NgqM56TjzxRzMJPiGp8lkockE88NkrkGymVKrq0KVLv+OpcMi8yo+qMivQ4f4dZohukS23U0by581GGDw4E8=
+  app-file: "/home/travis/build/luizaugustomm/diferentonas-client/platforms/android/build/outputs/apk/android-debug.apk"
+  auto-update: true
+  metrics: cpu,memory,network,logcat,battery
