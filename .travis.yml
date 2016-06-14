@@ -1,24 +1,24 @@
-language: objective-c
-os:
-  - osx
-osx_image: xcode7
+language: android
+android:
+  components:
+    - platform-tools
+    - tools
+
+    # The BuildTools version used by your project
+    - build-tools-23
+
+    # The SDK version used to compile your project
+    - android-23
+
 before_install:
 - export LANG=pt_BR.UTF-8
-- brew update
 - npm install -g npm
-- npm install -g grunt-cli cordova ionic
+- npm install -g cordova ionic
+
 script:
 - npm install
-- grunt test
-- grunt pushCoverage
-- ionic platform add ios
-- ionic plugin add cordova-plugin-app-version
-- ionic plugin add cordova-plugin-network-information
-- ionic plugin add ionic-plugin-keyboard
-- ionic plugin add cordova-plugin-x-toast
-- ionic plugin add phonegap-plugin-push
-- ionic build ios --device --release
-- ionic build ios --device --release
+- ionic platform add android
+- ionic build android
 env:
   global:
   - APP_NAME="Diferentonas"
