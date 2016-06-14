@@ -21,7 +21,6 @@ script:
 - ionic platform add android
 - cordova plugin add com.testfairy.cordova-plugin
 - cordova build android
-- jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore $APP_FILE android
 deploy:
   skip_cleanup: true
   provider: testfairy
