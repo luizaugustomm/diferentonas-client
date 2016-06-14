@@ -1,0 +1,27 @@
+language: objective-c
+os:
+  - osx
+osx_image: xcode7
+before_install:
+- export LANG=pt_BR.UTF-8
+- brew update
+- npm install -g npm
+- npm install -g grunt-cli cordova ionic
+script:
+- npm install
+- grunt test
+- grunt pushCoverage
+- ionic platform add ios
+- ionic plugin add cordova-plugin-app-version
+- ionic plugin add cordova-plugin-network-information
+- ionic plugin add ionic-plugin-keyboard
+- ionic plugin add cordova-plugin-x-toast
+- ionic plugin add phonegap-plugin-push
+- ionic build ios --device --release
+- ionic build ios --device --release
+env:
+  global:
+  - APP_NAME="Diferentonas"
+  - DEVELOPER_NAME="Luiz Augusto de Macêdo Morais"
+  - PROFILE_NAME="Luiz Augusto Morais"
+  - HOCKEYAPP_UPLOAD_BRANCH="master"
