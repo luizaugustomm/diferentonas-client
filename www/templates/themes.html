@@ -1,7 +1,10 @@
 <ion-pane class="cards">
     <ion-header-bar class="bar bar-header">
         <button class="button icon ion-android-arrow-back" ui-sref="city({'id_city': Themes.city.info.id})"></button>
-        <h1 class="title">{{Themes.theme}}</h1>
+        <span class="two-line-title">
+          <strong>{{Themes.theme}}</strong><br>
+          <span style="font-size: 12px;">{{Themes.city.info.nome}} - {{Themes.city.info.uf}}</span>
+      </span>
     </ion-header-bar>
 
     <div class="tabs tabs-striped tabs-top tabs-icon-only">

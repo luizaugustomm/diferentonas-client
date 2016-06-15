@@ -50,6 +50,15 @@
   margin: -5% 0 0 8%;
 }
 
+.two-line-title {
+  color : #5D5D5D;
+  display: center;
+  text-align: center;
+  line-height: 17px;
+  font-size: 15px;
+  width: 400px;
+}
+
 .initiative-title {
   background-color: #fff;
   font-size: 1em;
