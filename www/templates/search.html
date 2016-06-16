@@ -18,7 +18,7 @@
                 class="shorter"
                 ng-repeat="city in Search.cities | ignoreAccents:Search.selectedCity.nome | orderBy:'nome' | limitTo: 8"
                 ng-click="Search.selectCity(city)"
-                ui-sref="city({'id_city': city.id})">
+                ui-sref="city({'id': city.id})">
                   {{ city.nome }} - {{ city.uf }}
               </ion-item>
           </ion-list>

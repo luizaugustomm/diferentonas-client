@@ -1,4 +1,4 @@
-angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
+angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3', 'ngResource'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
@@ -43,7 +43,7 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
         controllerAs: 'Messages'
       })
       .state('city', {
-        url: '/city/:id_city',
+        url: '/city/:id',
         templateUrl: 'templates/city.html',
         controller: 'CityCtrl',
         controllerAs: 'City'
