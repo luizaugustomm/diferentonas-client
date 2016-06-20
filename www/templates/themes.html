@@ -1,9 +1,9 @@
 <ion-pane class="cards">
     <ion-header-bar class="bar bar-header">
-        <button class="button icon ion-android-arrow-back" ui-sref="city({'id_city': Themes.city.info.id})"></button>
+        <button class="button icon ion-android-arrow-back" ui-sref="city({'id': Themes.city.id})"></button>
         <span class="two-line-title">
           <strong>{{Themes.theme}}</strong><br>
-          <span style="font-size: 12px;">{{Themes.city.info.nome}} - {{Themes.city.info.uf}}</span>
+          <span style="font-size: 12px;">{{Themes.city.nome}} - {{Themes.city.uf}}</span>
       </span>
     </ion-header-bar>
 
@@ -14,15 +14,15 @@
 
     <ion-content class="padding content-default has-subheader has-tabs">
 
-        <div class="empty-message" ng-if="!Themes.hasInitiatives(Themes.theme)">
+        <!-- <div class="empty-message" ng-if="!Themes.hasInitiatives(Themes.theme)">
             Não há iniciativas em <span style="font-weight: bold">{{Themes.theme}}</span>.
-        </div>
+        </div> -->
 
         <df-initiative-card
           iniciativa="iniciativa"
           city="Themes.city"
-          ui-sref="initiative({'id_city': Themes.city.info.id, 'theme': Themes.theme, 'id_initiative': iniciativa.id})"
-          ng-repeat="iniciativa in Themes.city.iniciativas | filter:Themes.theme:true"></df-initiative-card>
+          ui-sref="initiative({'id': Themes.city.id, 'theme': Themes.theme, 'id_initiative': iniciativa.id})"
+          ng-repeat="iniciativa in Themes.initiatives | filter:Themes.theme:true"></df-initiative-card>
     </ion-content>
 
     <df-main-nav nav-class="'content-default'"></df-main-nav>

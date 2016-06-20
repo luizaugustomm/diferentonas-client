@@ -49,13 +49,13 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3', 'ngResource'])
         controllerAs: 'City'
       })
       .state('themes', {
-        url: '/themes/:id_city/:theme',
+        url: '/themes/:id/:theme',
         templateUrl: 'templates/themes.html',
         controller: 'ThemesCtrl',
         controllerAs: 'Themes'
       })
       .state('initiative', {
-        url: '/initiative/:id_city/:theme/:id_initiative',
+        url: '/initiative/:id',
         templateUrl: 'templates/initiative.html',
         controller: 'InitiativeCtrl',
         controllerAs: 'Initiative'

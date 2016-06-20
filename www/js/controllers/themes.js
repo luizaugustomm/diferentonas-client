@@ -1,41 +1,19 @@
 angular.module('Diferentonas')
 
-.controller('ThemesCtrl', ['$stateParams', '$http', 'City', function($stateParams, $http, City) {
+.controller('ThemesCtrl', ['$stateParams', '$http', '$ionicLoading', 'City', 'Initiative', function($stateParams, $http, $ionicLoading, City, Initiative) {
+    $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
-    vm.id = $stateParams.id_city;
+    vm.initiatives = [];
+    vm.CityResource = City;
     vm.theme = $stateParams.theme;
-    vm.city = City;
-    if (!vm.city.hasData()) {
-      var api = 'http://diferentonas.herokuapp.com/cidade/';
-      // var api = 'http://0.0.0.0:9000/cidade/';
-      $http.get(api.concat(vm.id), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-      }).success(function(data) {
-          vm.city.info = data;
-          City.info = data;
-      })
-      $http.get(api.concat(vm.id).concat('/similares'), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-      }).success(function(data) {
-          vm.city.similars = data;
-          City.similars = data;
-      })
-      $http.get(api.concat(vm.id).concat('/iniciativas'), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-      }).success(function(data) {
-          vm.city.iniciativas = data;
-          City.iniciativas = data;
-      })
-    }
+    vm.city = City.get({id: $stateParams.id}, function() {
+        vm.initiatives = Initiative.query({id: $stateParams.id}, function() {
+        $ionicLoading.hide();
+      }, function(error) {
+        $ionicLoading.hide();
+      });
+    }, function(error) {
+      $ionicLoading.hide();
+    });
 
-    vm.hasInitiatives = function(theme) {
-        has = false;
-        vm.city.info.scores.forEach(function(score) {
-            if (score.area === theme && score.repasseTotal !== 0) {
-                has = true;
-                return;
-            }
-        });
-        return has;
-    }
 }]);
