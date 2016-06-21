@@ -21,7 +21,7 @@
         <df-initiative-card
           iniciativa="iniciativa"
           city="Themes.city"
-          ui-sref="initiative({'id': Themes.city.id, 'theme': Themes.theme, 'id_initiative': iniciativa.id})"
+          ui-sref="initiative({'id': iniciativa.id, 'id_city': Themes.city.id})"
           ng-repeat="iniciativa in Themes.initiatives | filter:Themes.theme:true"></df-initiative-card>
     </ion-content>
 

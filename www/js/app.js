@@ -55,7 +55,7 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3', 'ngResource'])
         controllerAs: 'Themes'
       })
       .state('initiative', {
-        url: '/initiative/:id',
+        url: '/initiative/:id/:id_city',
         templateUrl: 'templates/initiative.html',
         controller: 'InitiativeCtrl',
         controllerAs: 'Initiative'

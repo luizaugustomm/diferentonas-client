@@ -8,7 +8,6 @@ angular.module('Diferentonas')
       vm.city.hasDifferentThemes = City.hasDifferentThemes(vm.city.scores);
       vm.city.hasNeutralThemes = City.hasNeutralThemes(vm.city.scores);
       $ionicLoading.hide();
-      console.log(vm.city);
     }, function(error) {
       $ionicLoading.hide();
     });

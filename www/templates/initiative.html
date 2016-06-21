@@ -1,10 +1,7 @@
 <ion-pane class="cards">
     <ion-header-bar class="bar bar-header">
-      <button class="button icon ion-android-arrow-back" ui-sref="themes({'id_city': Initiative.city.info.id, 'theme': Initiative.theme})"></button>
-      <span class="two-line-title">
-          <strong>{{Initiative.theme}}</strong><br>
-           <span style="font-size: 12px;">{{Initiative.city.info.nome}} - {{Initiative.city.info.uf}}</span>
-      </span>
+      <button class="button icon ion-android-arrow-back" ui-sref="themes({'id': Initiative.initiative.city.id, 'theme': Initiative.theme})"></button>
+      <h1 class="title">{{Initiative.initiative.city.nome}} - {{Initiative.initiative.city.uf}}</h1>
       <button ng-class="Initiative.initiative.seguidaPeloRequisitante ? 'follow' : 'unfollow'" class="icon-follow button" ng-click="Initiative.followInitiative()">
         <i class="icon-follow ion-eye"></i>
       </button>

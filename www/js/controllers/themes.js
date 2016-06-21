@@ -7,7 +7,7 @@ angular.module('Diferentonas')
     vm.CityResource = City;
     vm.theme = $stateParams.theme;
     vm.city = City.get({id: $stateParams.id}, function() {
-        vm.initiatives = Initiative.query({id: $stateParams.id}, function() {
+        vm.initiatives = City.initiatives.query({id: $stateParams.id}, function() {
         $ionicLoading.hide();
       }, function(error) {
         $ionicLoading.hide();
