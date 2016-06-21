@@ -42,9 +42,6 @@ angular.module('Diferentonas')
     City.getInitiativeStatus = function(initiative) {
       return initiative.status.replace(/ /g,'-').replace(/,/g,'').toLowerCase();
     };
-    City.hasData = function() {
-      return (this.info.id !== null)
-    };
     City.hasNeutralThemes = function(scores) {
         var neutrals = 0;
         scores.forEach(function(score) {

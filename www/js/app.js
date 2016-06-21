@@ -55,19 +55,19 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3', 'ngResource'])
         controllerAs: 'Themes'
       })
       .state('initiative', {
-        url: '/initiative/:id/:id_city',
+        url: '/initiative/:id/:id_city/:theme',
         templateUrl: 'templates/initiative.html',
         controller: 'InitiativeCtrl',
         controllerAs: 'Initiative'
       })
       .state('initiative-similar', {
-        url: '/initiative-similar/:id_city/:theme/:id_initiative',
+        url: '/initiative-similar/:id/:id_city/:theme',
         templateUrl: 'templates/initiative-similar.html',
         controller: 'InitiativeSimilarCtrl',
         controllerAs: 'Similar'
       })
       .state('initiative-comments', {
-        url: '/initiative-comments/:id_city/:theme/:id_initiative',
+        url: '/initiative-comments/:id/:id_city/:theme',
         templateUrl: 'templates/initiative-comments.html',
         controller: 'InitiativeCommentsCtrl',
         controllerAs: 'Comments'

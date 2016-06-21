@@ -1,54 +1,21 @@
 angular.module('Diferentonas')
 
-.controller('InitiativeSimilarCtrl', ['$stateParams', '$http','$ionicLoading', 'ionicToast','City', function($stateParams, $http,$ionicLoading, ionicToast,City) {
+.controller('InitiativeSimilarCtrl', ['$stateParams', '$http','$ionicLoading', 'ionicToast', 'City', 'Initiative', function($stateParams, $http,$ionicLoading, ionicToast, City, Initiative) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
-    var api = "http://diferentonas.herokuapp.com/";
-    vm.id = $stateParams.id_city;
     vm.theme = $stateParams.theme;
-    vm.id_initiative = parseInt($stateParams.id_initiative);
-    vm.city = City;
-    // vm.initiative = vm.city.iniciativas[vm.id_initiative];
-    if (!vm.city.hasData()) {
-      // var api = 'http://0.0.0.0:9000/cidade/';
-      $http.get(api.concat("cidade/", vm.id), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-      }).success(function(data) {
-          vm.city.info = data;
-          City.info = data;
-      })
-      $http.get(api.concat("cidade/", vm.id, "/similares"), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-      }).success(function(data) {
-          vm.city.similars = data;
-          City.similars = data;
-      })
-      $http.get(api.concat("cidade/", vm.id, "/iniciativas"), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-      }).success(function(data) {
-          vm.city.iniciativas = data;
-          City.iniciativas = data;
-          vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
-          $http.get(api.concat("iniciativas/", vm.id_initiative, "/similares"), {
-              headers: {'Access-Control-Allow-Origin': '*'}
-          }).success(function(data) {
-              vm.initiative.similar = data;
-              $ionicLoading.hide();
-          }).error(function(data) {
-              $ionicLoading.hide();
-          });
-      })
-    } else {
-      vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
-      $http.get(api.concat("iniciativas/", vm.id_initiative, "/similares"), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-      }).success(function(data) {
-          vm.initiative.similar = data;
-          $ionicLoading.hide();
-      }).error(function(data) {
-          $ionicLoading.hide();
+
+    vm.initiative = Initiative.get({id: $stateParams.id}, function() {
+      // TODO issue #54 Remover essa chamada quando o objeto cidade já estiver incluso na iniciativa
+      vm.initiative.city = City.get({id: $stateParams.id_city});
+      vm.initiative.similars = Initiative.similars.query({id: $stateParams.id}, function() {
+        $ionicLoading.hide();
+      }, function(error) {
+        $ionicLoading.hide();
       });
-    }
+    }, function(error) {
+      $ionicLoading.hide();
+    });
 
     vm.followInitiative = function() {
       console.log("seguindo");

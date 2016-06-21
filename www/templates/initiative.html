@@ -10,8 +10,8 @@
 
     <div class="tabs tabs-striped tabs-top tabs-icon-only">
       <a nav-transition="none" class="tab-item active">Informações</a>
-      <a nav-transition="none" class="tab-item" ui-sref="initiative-similar({'id_city': Initiative.city.info.id, 'theme': Initiative.theme, 'id_initiative': Initiative.initiative.id})">Semelhantes</a>
-      <a nav-transition="none" class="tab-item" ui-sref="initiative-comments({'id_city': Initiative.city.info.id, 'theme': Initiative.theme, 'id_initiative': Initiative.initiative.id})">Discussões</a>
+      <a nav-transition="none" class="tab-item" ui-sref="initiative-similar({'id': Initiative.initiative.id, 'id_city': Initiative.initiative.city.id, 'theme': Initiative.theme})">Semelhantes</a>
+      <a nav-transition="none" class="tab-item" ui-sref="initiative-comments({'id': Initiative.initiative.id, 'id_city': Initiative.initiative.city.id, 'theme': Initiative.theme})">Discussões</a>
     </div>
 
     <ion-content class="padding-top content-default has-subheader has-tabs">

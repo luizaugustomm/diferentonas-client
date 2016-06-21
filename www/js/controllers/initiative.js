@@ -3,6 +3,7 @@ angular.module('Diferentonas')
 .controller('InitiativeCtrl', ['$stateParams', '$http','$ionicLoading', 'ionicToast', 'City', 'Initiative', function($stateParams, $http,$ionicLoading, ionicToast, City, Initiative) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
+    vm.theme = $stateParams.theme;
 
     var setSumario = function(sumario) {
       vm.data = [{key:"Analise de iniciativa",
@@ -28,15 +29,13 @@ angular.module('Diferentonas')
     }
 
     vm.initiative = Initiative.get({id: $stateParams.id}, function() {
-      // TODO Remover essa chamada quando o objeto cidade já estiver incluso na iniciativa
+      // TODO issue #54 Remover essa chamada quando o objeto cidade já estiver incluso na iniciativa
       vm.initiative.city = City.get({id: $stateParams.id_city});
       if (vm.initiative.sumario !== null) {
         setSumario(vm.initiative.sumario);
       }
-      console.log(vm.initiative);
       $ionicLoading.hide();
     }, function(error) {
-      console.log(error.data);
       $ionicLoading.hide();
     });
 
