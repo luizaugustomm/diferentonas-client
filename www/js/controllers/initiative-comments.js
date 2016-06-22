@@ -1,17 +1,28 @@
 angular.module('Diferentonas')
 
-.controller('InitiativeCommentsCtrl', ['$stateParams', '$http', '$ionicLoading', 'ionicToast', 'City', function($stateParams, $http, $ionicLoading, ionicToast, City) {
+.controller('InitiativeCommentsCtrl', ['$stateParams', '$http','$ionicLoading', 'ionicToast', 'City', 'Initiative', function($stateParams, $http,$ionicLoading, ionicToast, City, Initiative) {
+    $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
-    var api = "http://diferentonas.herokuapp.com";
-    vm.id = $stateParams.id_city;
     vm.theme = $stateParams.theme;
-    vm.id_initiative = parseInt($stateParams.id_initiative);
-    vm.city = City;
     vm.comments = [];
     vm.comment = {
       "tipo": "",
       "conteudo": ""
     };
+    var api = 'http://diferentonas.herokuapp.com';
+
+    vm.initiative = Initiative.get({id: $stateParams.id}, function() {
+      // TODO issue #54 Remover essa chamada quando o objeto cidade já estiver incluso na iniciativa
+      vm.initiative.city = City.get({id: $stateParams.id_city});
+      vm.initiative.similars = Initiative.similars.query({id: $stateParams.id}, function() {
+        $ionicLoading.hide();
+      }, function(error) {
+        $ionicLoading.hide();
+      });
+    }, function(error) {
+      $ionicLoading.hide();
+    });
+
     vm.selectReaction = function(reaction) {
       vm.comment.tipo = reaction;
     }
@@ -20,7 +31,7 @@ angular.module('Diferentonas')
     }
     vm.submitComment = function() {
       $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
-      $http.post(api.concat("/iniciativas/", vm.id_initiative, "/opinioes"), vm.comment, {
+      $http.post(api.concat("/iniciativas/", $stateParams.id, "/opinioes"), vm.comment, {
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
           $ionicLoading.hide();
@@ -37,35 +48,11 @@ angular.module('Diferentonas')
     }
 
     var refreshComments = function() {
-      $http.get(api.concat("/iniciativas/", vm.id_initiative, "/opinioes?pagina=0&tamanhoPagina=10"), {
+      $http.get(api.concat("/iniciativas/", $stateParams.id, "/opinioes?pagina=0&tamanhoPagina=10"), {
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
           vm.comments = data;
       })
     }
     refreshComments();
-
-    if (!vm.city.hasData()) {
-      $http.get(api.concat("/cidade/", vm.id), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-      }).success(function(data) {
-          vm.city.info = data;
-          City.info = data;
-      });
-      $http.get(api.concat("/cidade/", vm.id, "/similares"), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-      }).success(function(data) {
-          vm.city.similars = data;
-          City.similars = data;
-      });
-      $http.get(api.concat("/cidade/", vm.id, "/iniciativas"), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-      }).success(function(data) {
-          vm.city.iniciativas = data;
-          vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
-          City.iniciativas = data;
-      });
-    } else {
-      vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
-    }
 }]);
