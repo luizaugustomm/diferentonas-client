@@ -2,13 +2,13 @@
   <ion-content class="content-primary has-tabs">
 
       <form novalidate>
-
         <div class="search-input padding">
-          <div class="item item-input">
+          <div class="item item-input" ng-class="CitiesBattleSearch.selectedCities[0].nome ? 'search-input-part-rounded' : 'search-input-rounded'">
             <input
               type="text"
-              placeholder="Comparar esta cidade..."
-              ng-model="CitiesBattleSearch.selectedCities[0].nome">
+              placeholder="Comparar esta cidade"
+              ng-model="CitiesBattleSearch.selectedCities[0].nome"
+              ng-change="CitiesBattleSearch.inputChanged(0)">
             <i class="icon icon-right icon-balanced placeholder-icon ion-search"></i>
           </div>
           <ion-list ng-show="CitiesBattleSearch.selectedCities[0].nome && !CitiesBattleSearch.selectedCities[0].isSelected">
@@ -21,14 +21,15 @@
           </ion-list>
         </div>
 
-        VS
+        <div class="vs">VS</div>
 
-        <div class="search-input padding">
-          <div class="item item-input">
+        <div class="padding">
+          <div class="item item-input" ng-class="CitiesBattleSearch.selectedCities[1].nome ? 'search-input-part-rounded' : 'search-input-rounded'">
             <input
               type="text"
-              placeholder="... com esta outra cidade"
-              ng-model="CitiesBattleSearch.selectedCities[1].nome">
+              placeholder="Com esta cidade"
+              ng-model="CitiesBattleSearch.selectedCities[1].nome"
+              ng-change="CitiesBattleSearch.inputChanged(1)">
             <i class="icon icon-right icon-balanced placeholder-icon ion-search"></i>
           </div>
           <ion-list ng-show="CitiesBattleSearch.selectedCities[1].nome && !CitiesBattleSearch.selectedCities[1].isSelected">
@@ -40,9 +41,11 @@
               </ion-item>
           </ion-list>
         </div>
-
-        <button type="submit" class="button button-block button-royal", ng-click="CitiesBattleSearch.fight()">Comparar!</button>
-
+        <div class="row">
+          <div class="col text-center">
+            <button type="submit" class="button battle-button", ng-click="CitiesBattleSearch.fight()"><i class="icon icon-left icon-balanced placeholder-icon ion-flag" style="color: white"></i> Começar batalha!</button>
+          </div>
+        </div>
       </form>
 
   </ion-content>

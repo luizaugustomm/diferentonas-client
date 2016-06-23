@@ -9,8 +9,8 @@ angular.module('Diferentonas')
   });
 
   vm.selectedCities = [
-    {'id': null, 'nome': '', 'uf': null, 'isSelected': false},
-    {'id': null, 'nome': '', 'uf': null, 'isSelected': false}
+    {'id': null, 'nome': '', 'uf': '', 'isSelected': false},
+    {'id': null, 'nome': '', 'uf': '', 'isSelected': false}
   ];
 
   vm.selectCity = function(city, which) {
@@ -20,6 +20,10 @@ angular.module('Diferentonas')
       vm.selectedCities[which].uf = city.uf;
       vm.selectedCities[which].isSelected = true;
     }
+  }
+
+  vm.inputChanged = function(which) {
+    vm.selectedCities[which].isSelected = false;
   }
 
   vm.fight = function() {
