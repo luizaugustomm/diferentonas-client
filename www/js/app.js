@@ -84,6 +84,18 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
         controller: 'BroadcastCtrl',
         controllerAs: 'Broadcast'
       })
+      .state('cities-battle-search', {
+        url: '/cities-battle-search',
+        templateUrl: 'templates/cities-battle-search.html',
+        controller: 'CitiesBattleSearchCtrl',
+        controllerAs: 'CitiesBattleSearch'
+      })
+      .state('cities-battle-result', {
+        url: '/cities-battle-result/:id_first_city&:id_second_city',
+        templateUrl: 'templates/cities-battle-result.html',
+        controller: 'CitiesBattleResultCtrl',
+        controllerAs: 'CitiesBattleResult'
+      })
     $urlRouterProvider.otherwise('/login');
 })
 
