@@ -1,7 +1,8 @@
-angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
+angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
+        facebookConnectPlugin.browserInit("1168526739834367");
         if(window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             cordova.plugins.Keyboard.disableScroll(true);
@@ -18,7 +19,9 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
     $stateProvider
       .state('login', {
           url: '/login',
-          templateUrl: 'templates/login.html'
+          templateUrl: 'templates/login.html',
+          controller: 'LoginCtrl',
+          controllerAs: 'Login'
       })
       .state('search', {
         url: '/search',
@@ -85,14 +88,4 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
         controllerAs: 'Broadcast'
       })
     $urlRouterProvider.otherwise('/login');
-})
-
-.controller('LoginCtrl', function($scope,$location) {
-    $scope.data = {};
-
-    $scope.login = function() {
-        //Insert the function for authenticate the user
-        console.log("LOGIN user: " + $scope.data.username + " - PW: " + $scope.data.password);
-        $location.path("/search");
-    }
 })

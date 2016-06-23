@@ -16,6 +16,10 @@
 .status.aprovada-pelo-governo-federal { color: #58A87D; }
 .status.aprovada-pelo-governo-federal-com-ressalvas { color: #58A87D; }
 
+.login{
+  text-align: center;
+}
+
 .initiative-card {
   margin: 0 20px 1px 20px;
   padding-top: 20px;
