@@ -1,0 +1,52 @@
+<ion-view>
+  <ion-content class="content-primary has-tabs">
+
+      <form novalidate>
+
+        <div class="search-input padding">
+          <div class="item item-input">
+            <input
+              type="text"
+              placeholder="Comparar esta cidade..."
+              ng-model="CitiesBattleSearch.selectedCities[0].nome">
+            <i class="icon icon-right icon-balanced placeholder-icon ion-search"></i>
+          </div>
+          <ion-list ng-show="CitiesBattleSearch.selectedCities[0].nome && !CitiesBattleSearch.selectedCities[0].isSelected">
+              <ion-item
+                class="shorter"
+                ng-repeat="city in CitiesBattleSearch.cities | ignoreAccents:CitiesBattleSearch.selectedCities[0].nome | orderBy:'nome' | limitTo: 8"
+                ng-click="CitiesBattleSearch.selectCity(city, 0)">
+                  {{ city.nome }} - {{ city.uf }}
+              </ion-item>
+          </ion-list>
+        </div>
+
+        VS
+
+        <div class="search-input padding">
+          <div class="item item-input">
+            <input
+              type="text"
+              placeholder="... com esta outra cidade"
+              ng-model="CitiesBattleSearch.selectedCities[1].nome">
+            <i class="icon icon-right icon-balanced placeholder-icon ion-search"></i>
+          </div>
+          <ion-list ng-show="CitiesBattleSearch.selectedCities[1].nome && !CitiesBattleSearch.selectedCities[1].isSelected">
+              <ion-item
+                class="shorter"
+                ng-repeat="city in CitiesBattleSearch.cities | ignoreAccents:CitiesBattleSearch.selectedCities[1].nome | orderBy:'nome' | limitTo: 8"
+                ng-click="CitiesBattleSearch.selectCity(city, 1)">
+                  {{ city.nome }} - {{ city.uf }}
+              </ion-item>
+          </ion-list>
+        </div>
+
+        <button type="submit" class="button button-block button-royal", ng-click="CitiesBattleSearch.fight()">Comparar!</button>
+
+      </form>
+
+  </ion-content>
+
+  <df-main-nav nav-class="'content-primary'"></df-main-nav>
+
+</ion-view>
