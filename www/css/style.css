@@ -1,6 +1,7 @@
 .content-default   { background-color: #E2E3E5; }
 .content-primary   { background-color: #5850C0; }
 .content-secondary { background-color: #444242; }
+.content-tertiary  { background-color: #FFAA00; }
 
 .item p.item-positive,
 .item-positive { color: #58A87D; }
@@ -18,6 +19,21 @@
 
 .login{
   text-align: center;
+}
+
+.search-tab {
+  top: 0 !important;
+}
+
+.city-search {
+  font-weight: bold;
+  background-color: #FFAA00!important;
+}
+
+.battle-search {
+  font-weight: bold;
+  color : #FFFFFF;
+  background-color: #5850C0!important;
 }
 
 .initiative-card {

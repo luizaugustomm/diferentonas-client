@@ -1,0 +1,25 @@
+<ion-pane class="cards">
+  <ion-header-bar class="bar bar-header">
+      <button class="button icon ion-android-arrow-back" ui-sref="cities-battle-search"></button>
+      <h1 class="title"><span class="first-city">{{ CitiesBattleResult.getFirstCity() }}</span> VS <span class="second-city">{{ CitiesBattleResult.getSecondCity() }}</span></h1>
+  </ion-header-bar>
+
+      <ion-header-bar class="bar-subheader">
+        <span class="CitiesBattleResult.winner.class">{{ CitiesBattleResult.getWinner() }}</span> é a vencedora por {{ CitiesBattleResult.getBattleScores() }}
+      </ion-header-bar>
+
+      <ion-content class="padding content-default has-subheader has-tabs">
+
+        <!-- <df-theme-card
+          city="City.city"
+          score="score"
+          base-color="'#FFF'"
+          ng-repeat="score in City.city.info.scores | orderBy:City.orderByScore"
+          ui-sref="themes({'id_city': City.city.info.id, 'theme': score.area})"
+          ng-hide="score.area === 'TOTAL GERAL' || score.valorScore == 0 || City.city.isNeutral(score)"></df-theme-card> -->
+
+      </ion-content>
+
+      <df-main-nav nav-class="'content-default'"></df-main-nav>
+
+</ion-pane>

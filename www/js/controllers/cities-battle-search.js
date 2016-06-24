@@ -30,4 +30,4 @@ angular.module('Diferentonas')
     $state.go('cities-battle-result', {'id_first_city': vm.selectedCities[0].id,
                                        'id_second_city': vm.selectedCities[1].id});
   }
-}])
+}]);
