@@ -53,5 +53,5 @@ gulp.task('git-check', function(done) {
 
 gulp.task('deploy', function() {
   return gulp.src('./www/**/*')
-    .pipe(ghPages('https://${GH_TOKEN}@github.com/luizaugustomm/diferentonas-client.git'));
+    .pipe(ghPages());
 });

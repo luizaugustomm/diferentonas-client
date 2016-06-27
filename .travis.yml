@@ -21,12 +21,6 @@ script:
 - ionic platform add android
 - cordova plugin add com.testfairy.cordova-plugin
 - cordova build android
-- git config --global user.email "luizaugustomm@gmail.com"
-- git config --global user.name "Luiz Augusto Morais"
-- git remote set-url origin https://${GH_TOKEN}@github.com/luizaugustomm/diferentonas-client.git
-- export GIT_TAG=$TRAVIS_BUILD_NUMBER
-- git tag $GIT_TAG -a -m "Generated tag from Travis CI for build $TRAVIS_BUILD_NUMBER"
-- gulp deploy
 deploy:
   skip_cleanup: true
   provider: testfairy
