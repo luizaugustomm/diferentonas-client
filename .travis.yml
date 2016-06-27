@@ -25,7 +25,7 @@ script:
 - git config --global user.name "Luiz Augusto Morais"
 - git remote set-url origin git@github.com:luizaugustomm/diferentonas-client.git
 - npm install travis-encrypt -g
-- travis-encrypt -r diferentonas-client -k GH_TOKEN -v 4f902a71ea336206c3a57dc2a09afa6b8db7d660
+- travis-encrypt -r diferentonas-client -k GH_TOKEN -v 90cf3c8d4c14f4f2184d86c1fec1e9409b016149
 - export GIT_TAG=$TRAVIS_BUILD_NUMBER
 - git tag $GIT_TAG -a -m "Generated tag from Travis CI for build $TRAVIS_BUILD_NUMBER"
 - gulp deploy
