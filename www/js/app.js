@@ -6,7 +6,7 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova'])
         if(window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             cordova.plugins.Keyboard.disableScroll(true);
-            TestFairy.begin('c5a6698ec054a327018a8ceddde9fa3997317e12');
+            cordova.plugins.TestFairy.begin('c5a6698ec054a327018a8ceddde9fa3997317e12');
         }
         if(window.StatusBar) {
             StatusBar.styleDefault();
