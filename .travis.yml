@@ -23,6 +23,9 @@ script:
 - cordova build android
 - git config --global user.email "luizaugustomm@gmail.com"
 - git config --global user.name "Luiz Augusto Morais"
+- git remote set-url origin git@github.com:luizaugustomm/diferentonas-client.git
+- npm install travis-encrypt -g
+- travis-encrypt -r diferentonas-client -k GH_TOKEN -v 4f902a71ea336206c3a57dc2a09afa6b8db7d660
 - export GIT_TAG=$TRAVIS_BUILD_NUMBER
 - git tag $GIT_TAG -a -m "Generated tag from Travis CI for build $TRAVIS_BUILD_NUMBER"
 - gulp deploy
