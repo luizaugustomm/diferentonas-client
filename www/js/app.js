@@ -1,4 +1,4 @@
-angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova'])
+angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngResource'])
 
 .run(function($ionicPlatform,UserService,$state) {
     $ionicPlatform.ready(function() {
@@ -51,31 +51,31 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova'])
         controllerAs: 'Messages'
       })
       .state('city', {
-        url: '/city/:id_city',
+        url: '/city/:id',
         templateUrl: 'templates/city.html',
         controller: 'CityCtrl',
         controllerAs: 'City'
       })
       .state('themes', {
-        url: '/themes/:id_city/:theme',
+        url: '/themes/:id/:theme',
         templateUrl: 'templates/themes.html',
         controller: 'ThemesCtrl',
         controllerAs: 'Themes'
       })
       .state('initiative', {
-        url: '/initiative/:id_city/:theme/:id_initiative',
+        url: '/initiative/:id/:id_city/:theme',
         templateUrl: 'templates/initiative.html',
         controller: 'InitiativeCtrl',
         controllerAs: 'Initiative'
       })
       .state('initiative-similar', {
-        url: '/initiative-similar/:id_city/:theme/:id_initiative',
+        url: '/initiative-similar/:id/:id_city/:theme',
         templateUrl: 'templates/initiative-similar.html',
         controller: 'InitiativeSimilarCtrl',
         controllerAs: 'Similar'
       })
       .state('initiative-comments', {
-        url: '/initiative-comments/:id_city/:theme/:id_initiative',
+        url: '/initiative-comments/:id/:id_city/:theme',
         templateUrl: 'templates/initiative-comments.html',
         controller: 'InitiativeCommentsCtrl',
         controllerAs: 'Comments'

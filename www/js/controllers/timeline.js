@@ -1,28 +1,30 @@
 angular.module('Diferentonas')
 
-.controller('TimelineCtrl', ['$scope','$http','ionicToast','City', function($scope,$http,ionicToast,City) {
+.controller('TimelineCtrl', ['$scope', '$http', '$ionicLoading', 'ionicToast', 'Timeline', function($scope , $http, $ionicLoading, ionicToast, Timeline) {
+    $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
-    var api = "http://diferentonas.herokuapp.com";
-    vm.city = City;
-    $scope.moreData=false;
+    vm.moreData = false;
     vm.initiatives = [];
 
-    $http.get(api.concat("/linhadotempo")).success(function(data){
-        if(data.length == 0){
-              vm.initiatives = [{id: null,
-              titulo: "No momento não temos novidades para serem exibidas, para ver novidades na sua linha do tempo você deve seguir Iniciativas ou Cidades.",
-              status: "Não existem novidades disponíveis no sistema"}];
-        }else{
-              vm.initiatives = data;
-              $scope.moreData = false;
-        }
-    }).error(function(data) {
-          ionicToast.show("Não foi possível carregar mais novidades.", 'bottom', false, 2500);
-      });
+    vm.initiatives = Timeline.query(function() {
+      if (vm.initiatives.length == 0) {
+        vm.initiatives = [{
+          id: null,
+          titulo: "No momento não temos novidades para serem exibidas, para ver novidades na sua linha do tempo você deve seguir Iniciativas ou Cidades.",
+          status: "Não existem novidades disponíveis no sistema"}];
+      } else {
+          vm.moreData = false;
+      }
+        vm.moreData = false;
+        $ionicLoading.hide();
+    }, function(error) {
+        $ionicLoading.hide();
+        ionicToast.show("Não foi possível carregar mais novidades.", 'bottom', false, 2500);
+    });
 
     vm.loadMore = function() {
       var items = [];
-      $http.get(api.concat("/linhadotempo")).success(function(data){    
+      $http.get(api.concat("/linhadotempo")).success(function(data){
         if(data.length == 0){
           ionicToast.show("Não existem mais novidades", 'bottom', false, 2500);
           moreData = false;

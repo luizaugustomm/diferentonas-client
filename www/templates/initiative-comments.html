@@ -1,12 +1,12 @@
 <ion-pane class="cards">
     <ion-header-bar class="bar bar-header">
-      <button class="button icon ion-android-arrow-back" ui-sref="initiative({'id_city': Comments.city.info.id, 'theme': Comments.theme, 'id_initiative': Comments.initiative.id})"></button>
-      <h1 class="title">{{Comments.initiative.area}}</h1>
+      <button class="button icon ion-android-arrow-back" ui-sref="initiative({'id': Comments.initiative.id, 'id_city': Comments.initiative.city.id, 'theme': Comments.theme})"></button>
+      <h1 class="title">{{Comments.initiative.titulo}}</h1>
     </ion-header-bar>
 
     <div class="tabs tabs-striped tabs-top tabs-icon-only">
-      <a nav-transition="none" class="tab-item" ui-sref="initiative({'id_city': Comments.city.info.id, 'theme': Comments.theme, 'id_initiative': Comments.initiative.id})">Informações</a>
-      <a nav-transition="none" class="tab-item" ui-sref="initiative-similar({'id_city': Comments.city.info.id, 'theme': Comments.theme, 'id_initiative': Comments.initiative.id})">Semelhantes</a>
+      <a nav-transition="none" class="tab-item" ui-sref="initiative({'id': Comments.initiative.id, 'id_city': Comments.initiative.city.id, 'theme': Comments.theme})">Informações</a>
+      <a nav-transition="none" class="tab-item" ui-sref="initiative-similar({'id': Comments.initiative.id, 'id_city': Comments.initiative.city.id, 'theme': Comments.theme})">Semelhantes</a>
       <a nav-transition="none" class="tab-item active">Discussões</a>
     </div>
 
