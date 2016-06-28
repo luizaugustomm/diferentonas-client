@@ -6,7 +6,7 @@ angular.module('Diferentonas')
   var vm = this;
   vm.firstCity = {};
   vm.secondCity = {};
-  vm.themes = {};
+  vm.themes = [];
 
   $http.get('http://diferentonas.herokuapp.com/cidade/'.concat($stateParams.id_first_city),
   {headers: {'Access-Control-Allow-Origin': '*'}}).success(function(data) {
@@ -20,25 +20,42 @@ angular.module('Diferentonas')
 
       for (i = 0; i < vm.firstCity.scores.length; i++) {
         if (vm.firstCity.scores[i].area === 'TOTAL GERAL')  continue;
-        vm.themes[vm.firstCity.scores[i].area] = {
+        vm.themes[i] = {
+          name: vm.firstCity.scores[i].area,
           firstCityMoney: vm.firstCity.scores[i].repasseTotal,
           secondCityMoney: vm.secondCity.scores[i].repasseTotal
         }
         if (vm.firstCity.scores[i].repasseTotal > vm.secondCity.scores[i].repasseTotal) {
           vm.firstCity.battleScore++;
-          vm.themes[vm.firstCity.scores[i].area].status = 'won';
+          vm.themes[i].status = 'won';
         } else if (vm.firstCity.scores[i].repasseTotal < vm.secondCity.scores[i].repasseTotal) {
           vm.secondCity.battleScore++;
-          vm.themes[vm.firstCity.scores[i].area].status = 'lost';
+          vm.themes[i].status = 'lost';
         } else {
-          vm.themes[vm.firstCity.scores[i].area].status = 'tied';
+          vm.themes[i].status = 'tied';
         }
       }
-        console.log(vm.themes);
-        console.log(vm.firstCity);
-        console.log(vm.secondCity);
     });
   });
-
   $ionicLoading.hide();
+
+  vm.getFullCityName = function(city) {
+    return city.nome + ' - ' + city.uf;
+  }
+
+  vm.getBattleStatus = function() {
+    if (vm.firstCity.battleScore > vm.secondCity.battleScore) return 'won';
+    if (vm.firstCity.battleScore < vm.secondCity.battleScore) return 'lost';
+    else                                                      return 'tied';
+  }
+
+  vm.getResultText = function(theme) {
+    if (theme.status === 'won') {
+      return vm.getFullCityName(theme.firstCity) + ' ganhou de ' + vm.getFullCityName(theme.secondCity) + ' por ' + (vm.theme.firstCityMoney - vm.theme.secondCityMoney);
+    } else if (theme.status === 'lost') {
+      return vm.getFullCityName(theme.secondCity) + ' ganhou de ' + vm.getFullCityName(theme.firstCity) + ' por ' + (vm.theme.secondCityMoney - vm.theme.firstCityMoney);
+    } else {
+      return 'As duas cidades receberam a mesma quantidade de verbas';
+    }
+  }
 }])
