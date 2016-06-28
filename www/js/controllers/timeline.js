@@ -15,7 +15,6 @@ angular.module('Diferentonas')
         }else{
               vm.initiatives = data;
               $scope.moreData = false;
-              console.log(data);
         }
     }).error(function(data) {
           ionicToast.show("Não foi possível carregar mais novidades.", 'bottom', false, 2500);

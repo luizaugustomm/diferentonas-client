@@ -1,7 +1,10 @@
 angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,UserService,$state) {
     $ionicPlatform.ready(function() {
+        if( UserService.getUser() != null){
+          $state.go('search');
+        }
         facebookConnectPlugin.browserInit("1168526739834367");
         if(window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -37,7 +40,9 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova'])
       })
       .state('profile', {
         url: '/profile',
-        templateUrl: 'templates/profile.html'
+        templateUrl: 'templates/profile.html',
+        controller: 'ProfileCtrl',
+        controllerAs: 'Profile'
       })
       .state('messages', {
         url: '/messages',
