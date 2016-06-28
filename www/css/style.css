@@ -49,8 +49,11 @@
 }
 
 .city-lost-card {
-  color: #FFFFFF;
   background-color: #7D427D;
+}
+
+.item.city-lost-card p {
+  color: #FFFFFF!important;
 }
 
 .initiative-card {
