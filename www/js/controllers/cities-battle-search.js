@@ -2,7 +2,11 @@ angular.module('Diferentonas')
 
 .controller('CitiesBattleSearchCtrl', ['$state', '$http', 'City', function($state, $http, City) {
   var vm = this;
-  // vm.cities = City.getCities();
+  vm.cities = [];
+
+  $http.get('js/cities.json').success(function(data) {
+    vm.cities = data;
+  });
 
   function clearFields() {
     vm.selectedCities = [
@@ -10,10 +14,6 @@ angular.module('Diferentonas')
       {'id': null, 'nome': '', 'uf': '', 'isSelected': false}
     ];
   }
-
-  $http.get('js/cities.json').success(function(data) {
-    vm.cities = data;
-  });
 
   vm.selectedCities = null;
   clearFields();
