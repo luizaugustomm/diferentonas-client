@@ -1,6 +1,7 @@
 .content-default   { background-color: #E2E3E5; }
 .content-primary   { background-color: #5850C0; }
 .content-secondary { background-color: #444242; }
+.content-tertiary  { background-color: #FFAA00; }
 
 .item p.item-positive,
 .item-positive { color: #58A87D; }
@@ -15,6 +16,25 @@
 .status.não-iniciada { color: #000; }
 .status.aprovada-pelo-governo-federal { color: #58A87D; }
 .status.aprovada-pelo-governo-federal-com-ressalvas { color: #58A87D; }
+
+.login{
+  text-align: center;
+}
+
+.search-tab {
+  top: 0 !important;
+}
+
+.city-search {
+  font-weight: bold;
+  background-color: #FFAA00!important;
+}
+
+.battle-search {
+  font-weight: bold;
+  color : #FFFFFF;
+  background-color: #5850C0!important;
+}
 
 .initiative-card {
   margin: 0 20px 1px 20px;
@@ -72,6 +92,24 @@
 }
 .initiative-evaluation {
   background-color: #fff;
+}
+
+.vs {
+  color : white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+  padding: 15px 0px 15px 0px;
+}
+
+.battle-button {
+  color : white;
+  background-color: #C64832;
+  padding: 0px 15px 0px 15px;
+  margin-top: 15px;
+  border-radius: 35px;
+  display:inline-block;
+  text-align: center;
 }
 
 .empty-message {

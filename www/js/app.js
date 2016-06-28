@@ -1,11 +1,13 @@
-angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3', 'ngResource'])
+
+angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3', 'ngResource', 'ngCordova'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
+        facebookConnectPlugin.browserInit("1168526739834367");
         if(window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             cordova.plugins.Keyboard.disableScroll(true);
-            TestFairy.begin('c5a6698ec054a327018a8ceddde9fa3997317e12');
+            cordova.plugins.TestFairy.begin('c5a6698ec054a327018a8ceddde9fa3997317e12');
         }
         if(window.StatusBar) {
             StatusBar.styleDefault();
@@ -18,7 +20,9 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3', 'ngResource'])
     $stateProvider
       .state('login', {
           url: '/login',
-          templateUrl: 'templates/login.html'
+          templateUrl: 'templates/login.html',
+          controller: 'LoginCtrl',
+          controllerAs: 'Login'
       })
       .state('search', {
         url: '/search',
@@ -84,15 +88,17 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3', 'ngResource'])
         controller: 'BroadcastCtrl',
         controllerAs: 'Broadcast'
       })
+      .state('cities-battle-search', {
+        url: '/cities-battle-search',
+        templateUrl: 'templates/cities-battle-search.html',
+        controller: 'CitiesBattleSearchCtrl',
+        controllerAs: 'CitiesBattleSearch'
+      })
+      .state('cities-battle-result', {
+        url: '/cities-battle-result/:id_first_city&:id_second_city',
+        templateUrl: 'templates/cities-battle-result.html',
+        controller: 'CitiesBattleResultCtrl',
+        controllerAs: 'CitiesBattleResult'
+      })
     $urlRouterProvider.otherwise('/login');
-})
-
-.controller('LoginCtrl', function($scope,$location) {
-    $scope.data = {};
-
-    $scope.login = function() {
-        //Insert the function for authenticate the user
-        console.log("LOGIN user: " + $scope.data.username + " - PW: " + $scope.data.password);
-        $location.path("/search");
-    }
 })
