@@ -1,6 +1,13 @@
 
 angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngResource'])
 
+.constant('ApiEndpoint', {
+// usar quando for gerar aplicativo (apk, ipa) ou testar com emulador
+//  url: 'http://diferentonas.herokuapp.com'
+// usar quando for executar com ionic serve ou fazer upload no github io
+  url: 'http://localhost:8100'
+})
+
 .run(function($ionicPlatform,UserService,$state) {
     $ionicPlatform.ready(function() {
         if( UserService.getUser() != null){

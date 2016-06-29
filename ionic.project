@@ -1,4 +1,30 @@
 {
   "name": "Diferentonas",
-  "app_id": "683526c2"
+  "app_id": "683526c2",
+  "proxies": [
+  {
+    "path": "/cidades",
+    "proxyUrl": "http://diferentonas.herokuapp.com/cidades"
+  },
+  {
+    "path": "/cidade",
+    "proxyUrl": "http://diferentonas.herokuapp.com/cidade"
+  },
+  {
+    "path": "/mensagens",
+    "proxyUrl": "http://diferentonas.herokuapp.com/mensagens"
+  },
+  {
+    "path": "/iniciativas",
+    "proxyUrl": "http://diferentonas.herokuapp.com/iniciativas"
+  },
+  {
+    "path": "/linhadotempo",
+    "proxyUrl": "http://diferentonas.herokuapp.com/linhadotempo"
+  },
+  {
+    "path": "/atualizacoes",
+    "proxyUrl": "http://diferentonas.herokuapp.com/atualizacoes"
+  }
+  ]
 }

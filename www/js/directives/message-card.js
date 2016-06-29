@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.directive('dfMessageCard', ['$http', function($http) {
+.directive('dfMessageCard', ['$http', 'ApiEndpoint', function($http, ApiEndpoint) {
   return {
     restrict: 'E',
     scope: {
@@ -10,7 +10,7 @@ angular.module('Diferentonas')
     templateUrl: 'templates/directives/message-card.html',
     link: function(scope, element, attrs) {
       scope.delete = function(id) {
-        var api = 'http://diferentonas.herokuapp.com/mensagens';
+        var api = ApiEndpoint.url + '/mensagens';
         $http.delete(api.concat('/'+id)).success(function(data, status) {
           element.remove();
         })

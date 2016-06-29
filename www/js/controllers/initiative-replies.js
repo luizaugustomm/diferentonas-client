@@ -1,8 +1,8 @@
 angular.module('Diferentonas')
 
-.controller('InitiativeRepliesCtrl', ['$stateParams', '$http', '$ionicLoading', 'ionicToast', 'City', function($stateParams, $http, $ionicLoading, ionicToast, City) {
+.controller('InitiativeRepliesCtrl', ['$stateParams', '$http', '$ionicLoading', 'ionicToast', 'City', 'ApiEndpoint', function($stateParams, $http, $ionicLoading, ionicToast, City, ApiEndpoint) {
     var vm = this;
-    var api = "http://diferentonas.herokuapp.com";
+    var api = ApiEndpoint.url;
     vm.id = $stateParams.id_city;
     vm.theme = $stateParams.theme;
     vm.id_initiative = parseInt($stateParams.id_initiative);

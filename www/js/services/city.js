@@ -1,9 +1,9 @@
 angular.module('Diferentonas')
 
-  .factory('City', function($resource) {
-    var City = $resource('http://diferentonas.herokuapp.com/cidade/:id');
+  .factory('City', ['$resource', 'ApiEndpoint', function($resource, ApiEndpoint) {
+    var City = $resource(ApiEndpoint.url + '/cidade/:id');
     City.cities = $resource('js/cities.json');
-    City.initiatives = $resource('http://diferentonas.herokuapp.com/cidade/:id/iniciativas');
+    City.initiatives = $resource(ApiEndpoint.url +'/cidade/:id/iniciativas');
     City.isNeutral = function(score) {
       return (score.valorScore > -1 && score.valorScore < 1);
     };
@@ -60,4 +60,4 @@ angular.module('Diferentonas')
         return diferentices !== 0;
     };
     return City;
-  });
+  }]);

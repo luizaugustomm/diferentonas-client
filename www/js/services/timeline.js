@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-  .factory('Timeline', function($resource) {
-    var Timeline = $resource('http://diferentonas.herokuapp.com/linhadotempo/:id');
+  .factory('Timeline', ['$resource', 'ApiEndpoint', function($resource, ApiEndpoint) {
+    var Timeline = $resource(ApiEndpoint.url + '/linhadotempo/:id');
     return Timeline;
-  });
+  }]);

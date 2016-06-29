@@ -1,18 +1,18 @@
 angular.module('Diferentonas')
 
-.controller('CitiesBattleResultCtrl', ['$http', '$stateParams', '$ionicLoading', '$filter', function($http, $stateParams, $ionicLoading, $filter) {
+.controller('CitiesBattleResultCtrl', ['$http', '$stateParams', '$ionicLoading', '$filter', 'ApiEndpoint',  function($http, $stateParams, $ionicLoading, $filter, ApiEndpoint) {
   $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
   var vm = this;
   vm.firstCity = {};
   vm.secondCity = {};
   vm.themes = [];
 
-  $http.get('http://diferentonas.herokuapp.com/cidade/'.concat($stateParams.id_first_city),
+  $http.get(ApiEndpoint.url + '/cidade/'.concat($stateParams.id_first_city),
   {headers: {'Access-Control-Allow-Origin': '*'}}).success(function(data) {
     vm.firstCity = data;
     vm.firstCity.battleScore = 0;
 
-    $http.get('http://diferentonas.herokuapp.com/cidade/'.concat($stateParams.id_second_city),
+    $http.get(ApiEndpoint.url + '/cidade/'.concat($stateParams.id_second_city),
     {headers: {'Access-Control-Allow-Origin': '*'}}).success(function(data) {
       vm.secondCity = data;
       vm.secondCity.battleScore = 0;

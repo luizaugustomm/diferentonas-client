@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-  .factory('Message', function($resource) {
-    var Message = $resource('http://diferentonas.herokuapp.com/mensagens/:id');
+  .factory('Message', ['$resource', 'ApiEndpoint', function($resource, ApiEndpoint) {
+    var Message = $resource(ApiEndpoint.url + '/mensagens/:id');
     return Message;
-  });
+  }]);
