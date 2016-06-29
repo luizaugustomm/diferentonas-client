@@ -2,7 +2,6 @@ angular.module('Diferentonas')
 
 .controller('CitiesBattleResultCtrl', ['$http', '$stateParams', '$ionicLoading', '$filter', function($http, $stateParams, $ionicLoading, $filter) {
   $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
-
   var vm = this;
   vm.firstCity = {};
   vm.secondCity = {};
@@ -36,6 +35,7 @@ angular.module('Diferentonas')
         }
       }
     });
+    $ionicLoading.hide();
   });
 
   vm.getFullCityName = function(city) {
@@ -57,6 +57,4 @@ angular.module('Diferentonas')
       return 'As cidades empataram nesta área';
     }
   }
-
-  $ionicLoading.hide();
 }])
