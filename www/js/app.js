@@ -1,5 +1,5 @@
 
-angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3', 'ngResource', 'ngCordova'])
+angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngResource'])
 
 .run(function($ionicPlatform,UserService,$state) {
     $ionicPlatform.ready(function() {
