@@ -8,7 +8,7 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngRe
         }
         facebookConnectPlugin.browserInit("1168526739834367");
         if(window.cordova && window.cordova.plugins.Keyboard) {
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
             cordova.plugins.Keyboard.disableScroll(true);
             cordova.plugins.TestFairy.begin('c5a6698ec054a327018a8ceddde9fa3997317e12');
         }
