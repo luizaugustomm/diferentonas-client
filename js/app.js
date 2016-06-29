@@ -5,7 +5,7 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngRe
 // usar quando for gerar aplicativo (apk, ipa) ou testar com emulador
 //  url: 'http://diferentonas.herokuapp.com'
 // usar quando for executar com ionic serve ou fazer upload no github io
-  url: 'http://diferentonas.herokuapp.com'
+  url: 'https://crossorigin.me/http://diferentonas.herokuapp.com'
 })
 
 .run(function($ionicPlatform,UserService,$state) {
