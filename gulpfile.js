@@ -7,6 +7,9 @@ var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
 var ghPages = require('gulp-gh-pages');
+var replace = require('replace');
+
+var replaceFiles = ['./www/js/app.js'];
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -51,7 +54,57 @@ gulp.task('git-check', function(done) {
   done();
 });
 
-gulp.task('deploy', function() {
+gulp.task('deploy-ionic-serve', ['remove-ghpages-proxy'], function() {
+  return replace({
+    regex: "http://diferentonas.herokuapp.com",
+    replacement: "http://localhost:8100",
+    paths: replaceFiles,
+    recursive: false,
+    silent: false,
+  });
+})
+
+gulp.task('deploy-emulator', ['remove-ghpages-proxy'], function() {
+  return replace({
+    regex: "http://localhost:8100",
+    replacement: "http://diferentonas.herokuapp.com",
+    paths: replaceFiles,
+    recursive: false,
+    silent: false,
+  });
+})
+
+gulp.task('deploy-ionic-serve', function() {
+  return replace({
+    regex: "http://diferentonas.herokuapp.com",
+    replacement: "http://localhost:8100",
+    paths: replaceFiles,
+    recursive: false,
+    silent: false,
+  });
+})
+
+gulp.task('add-ghpages-proxy', function() {
+  return replace({
+    regex: "http://",
+    replacement: "https://crossorigin.me/http://",
+    paths: replaceFiles,
+    recursive: false,
+    silent: false,
+  });
+})
+
+gulp.task('remove-ghpages-proxy', function() {
+  return replace({
+    regex: "https://crossorigin.me/http://",
+    replacement: "http://",
+    paths: replaceFiles,
+    recursive: false,
+    silent: false,
+  });
+})
+
+gulp.task('deploy', ['deploy-emulator', 'add-ghpages-proxy'], function() {
   return gulp.src('./www/**/*')
     .pipe(ghPages());
 });

@@ -3,9 +3,9 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngRe
 
 .constant('ApiEndpoint', {
 // usar quando for gerar aplicativo (apk, ipa) ou testar com emulador
-//  url: 'http://diferentonas.herokuapp.com'
+//  url: 'https://crossorigin.me/http://localhost:8100'
 // usar quando for executar com ionic serve ou fazer upload no github io
-  url: 'http://localhost:8100'
+  url: 'https://crossorigin.me/http://localhost:8100'
 })
 
 .run(function($ionicPlatform,UserService,$state) {
@@ -25,7 +25,7 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngRe
     });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $httpProvider) {
     $ionicConfigProvider.scrolling.jsScrolling(false);
     $stateProvider
       .state('login', {
@@ -111,6 +111,6 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngRe
         templateUrl: 'templates/cities-battle-result.html',
         controller: 'CitiesBattleResultCtrl',
         controllerAs: 'CitiesBattleResult'
-      })
+      });
     $urlRouterProvider.otherwise('/login');
 })
