@@ -25,7 +25,7 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngRe
     });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider, $httpProvider) {
     $ionicConfigProvider.scrolling.jsScrolling(false);
     $stateProvider
       .state('login', {
@@ -111,6 +111,7 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngRe
         templateUrl: 'templates/cities-battle-result.html',
         controller: 'CitiesBattleResultCtrl',
         controllerAs: 'CitiesBattleResult'
-      })
+      });
     $urlRouterProvider.otherwise('/login');
+    $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 })
