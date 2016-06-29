@@ -7,3 +7,4 @@ plugins/
 .bowerrc
 .editorconfig
 .publish/
+.DS_Store
