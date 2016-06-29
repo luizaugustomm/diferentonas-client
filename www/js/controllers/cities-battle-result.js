@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('CitiesBattleResultCtrl', ['$http', '$stateParams', '$ionicLoading', function($http, $stateParams, $ionicLoading) {
+.controller('CitiesBattleResultCtrl', ['$http', '$stateParams', '$ionicLoading', '$filter', function($http, $stateParams, $ionicLoading, $filter) {
   $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
 
   var vm = this;
@@ -21,7 +21,7 @@ angular.module('Diferentonas')
       for (i = 0; i < vm.firstCity.scores.length; i++) {
         if (vm.firstCity.scores[i].area === 'TOTAL GERAL')  continue;
         vm.themes[i] = {
-          name: vm.firstCity.scores[i].area,
+          nome: vm.firstCity.scores[i].area,
           firstCityMoney: vm.firstCity.scores[i].repasseTotal,
           secondCityMoney: vm.secondCity.scores[i].repasseTotal
         }
@@ -37,7 +37,6 @@ angular.module('Diferentonas')
       }
     });
   });
-  $ionicLoading.hide();
 
   vm.getFullCityName = function(city) {
     return city.nome + ' - ' + city.uf;
@@ -49,13 +48,15 @@ angular.module('Diferentonas')
     else                                                      return 'tied';
   }
 
-  vm.getResultText = function(theme) {
+  vm.getDetails = function(theme) {
     if (theme.status === 'won') {
-      return vm.getFullCityName(theme.firstCity) + ' ganhou de ' + vm.getFullCityName(theme.secondCity) + ' por ' + (vm.theme.firstCityMoney - vm.theme.secondCityMoney);
+      return vm.getFullCityName(vm.firstCity) + ' ganhou de ' + vm.getFullCityName(vm.secondCity) + ' por ' + $filter('formatCurrency')(theme.firstCityMoney - theme.secondCityMoney);
     } else if (theme.status === 'lost') {
-      return vm.getFullCityName(theme.secondCity) + ' ganhou de ' + vm.getFullCityName(theme.firstCity) + ' por ' + (vm.theme.secondCityMoney - vm.theme.firstCityMoney);
+      return vm.getFullCityName(vm.secondCity) + ' ganhou de ' + vm.getFullCityName(vm.firstCity) + ' por ' + $filter('formatCurrency')(theme.secondCityMoney - theme.firstCityMoney);
     } else {
-      return 'As duas cidades receberam a mesma quantidade de verbas';
+      return 'As cidades empataram nesta área';
     }
   }
+
+  $ionicLoading.hide();
 }])

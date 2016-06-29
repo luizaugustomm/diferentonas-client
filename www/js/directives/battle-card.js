@@ -4,11 +4,10 @@ angular.module('Diferentonas')
   return {
     restrict: 'E',
     scope: {
+      details: '=',
       theme: '=',
-      icon: '=',
-      resultText: '=',
-      firstCityMoney: '=',
-      secondCityMoney: '=',
+      firstcitymoney: '=',
+      secondcitymoney: '=',
       status: '='
     },
     templateUrl: 'templates/directives/battle-card.html'

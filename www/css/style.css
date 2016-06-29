@@ -17,6 +17,11 @@
 .status.aprovada-pelo-governo-federal { color: #58A87D; }
 .status.aprovada-pelo-governo-federal-com-ressalvas { color: #58A87D; }
 
+.smaller-text {
+  font-size: 13px!important;
+
+}
+
 .login{
   text-align: center;
 }
@@ -38,10 +43,12 @@
 
 .first-city-name {
   color: #FFAA00;
+  font-weight: bold;
 }
 
 .second-city-name {
   color: #7D427D;
+  font-weight: bold;
 }
 
 .city-won-card {
@@ -53,7 +60,7 @@
 }
 
 .item.city-lost-card p {
-  color: #FFFFFF!important;
+  color: #FFFFFF;
 }
 
 .initiative-card {
