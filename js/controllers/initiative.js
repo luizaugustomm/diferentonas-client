@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('InitiativeCtrl', ['$stateParams', '$http','$ionicLoading', 'ionicToast', 'City', 'Initiative', function($stateParams, $http,$ionicLoading, ionicToast, City, Initiative) {
+.controller('InitiativeCtrl', ['$stateParams', '$http','$ionicLoading', 'ionicToast', 'City', 'Initiative', 'ApiEndpoint', function($stateParams, $http,$ionicLoading, ionicToast, City, Initiative, ApiEndpoint) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.theme = $stateParams.theme;
@@ -41,10 +41,10 @@ angular.module('Diferentonas')
 
     vm.followInitiative = function() {
       //adicionar chamada que faz o check do usuário seguir a iniciativa
-      var api = 'http://diferentonas.herokuapp.com/iniciativas/';
+      var api = ApiEndpoint.url + '/iniciativas/';
 
       if (vm.initiative.seguidaPeloRequisitante) {
-        $http.delete(api.concat(vm.id_initiative, "/inscritos"), vm.id_initiative, {
+        $http.delete(api.concat(vm.initiative.id, "/inscritos"), vm.initiative.id, {
             headers: {'Access-Control-Allow-Origin': '*'}
         }).success(function(data) {
             vm.initiative.seguidaPeloRequisitante = false;
@@ -53,10 +53,11 @@ angular.module('Diferentonas')
             })
           .error(function(data) {
             $ionicLoading.hide();
+            console.log(data);
             ionicToast.show("Algo deu errado.", 'bottom', false, 2500);
         });
       } else {
-        $http.post(api.concat(vm.id_initiative, "/inscritos"), vm.id_initiative, {
+        $http.post(api.concat(vm.initiative.id, "/inscritos"), vm.initiative.id, {
             headers: {'Access-Control-Allow-Origin': '*'}
         }).success(function(data) {
             vm.initiative.seguidaPeloRequisitante = true;
@@ -68,7 +69,7 @@ angular.module('Diferentonas')
             ionicToast.show("Algo deu errado.", 'bottom', false, 2500);
         });
       }
-      console.log("Iniciativa #" + vm.id_initiative + " está sendo seguida? " + vm.initiative.seguidaPeloRequisitante);
+      console.log("Iniciativa #" + vm.initiative.id + " está sendo seguida? " + vm.initiative.seguidaPeloRequisitante);
     }
 
 }]);

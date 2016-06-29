@@ -1,9 +1,9 @@
 
 angular.module('Diferentonas')
 
-.controller('BroadcastCtrl', ['$http', function($http) {
+.controller('BroadcastCtrl', ['$http', 'ApiEndpoint', function($http, ApiEndpoint) {
     var vm = this;
-    var api = 'http://diferentonas.herokuapp.com/mensagens';
+    var api = ApiEndpoint.url + '/mensagens';
 
     vm.title = '';
     vm.message = '';

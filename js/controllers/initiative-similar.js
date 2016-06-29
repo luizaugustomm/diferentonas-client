@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('InitiativeSimilarCtrl', ['$stateParams', '$http', '$ionicLoading', 'ionicToast', 'City', 'Initiative', function($stateParams, $http,$ionicLoading, ionicToast, City, Initiative) {
+.controller('InitiativeSimilarCtrl', ['$stateParams', '$http', '$ionicLoading', 'ionicToast', 'City', 'Initiative', 'ApiEndpoint', function($stateParams, $http,$ionicLoading, ionicToast, City, Initiative, ApiEndpoint) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.theme = $stateParams.theme;
@@ -21,7 +21,7 @@ angular.module('Diferentonas')
       console.log("seguindo");
       console.log(vm.id_initiative);
       //adicionar chamada que faz o check do usuário seguir a iniciativa
-      var api = 'http://diferentonas.herokuapp.com/iniciativas/';
+      var api = ApiEndpoint.url + '/iniciativas/';
 
       $http.post(api.concat(vm.id_initiative, "/inscritos"), vm.id_initiative, {
           headers: {'Access-Control-Allow-Origin': '*'}

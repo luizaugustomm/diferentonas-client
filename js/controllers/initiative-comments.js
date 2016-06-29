@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('InitiativeCommentsCtrl', ['$stateParams', '$http','$ionicLoading', 'ionicToast', 'City', 'Initiative', function($stateParams, $http,$ionicLoading, ionicToast, City, Initiative) {
+.controller('InitiativeCommentsCtrl', ['$stateParams', '$http','$ionicLoading', 'ionicToast', 'City', 'Initiative', 'ApiEndpoint', function($stateParams, $http,$ionicLoading, ionicToast, City, Initiative, ApiEndpoint) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.theme = $stateParams.theme;
@@ -9,7 +9,7 @@ angular.module('Diferentonas')
       "tipo": "",
       "conteudo": ""
     };
-    var api = 'http://diferentonas.herokuapp.com';
+    var api = ApiEndpoint.url;
 
     vm.initiative = Initiative.get({id: $stateParams.id}, function() {
       // TODO issue #54 Remover essa chamada quando o objeto cidade já estiver incluso na iniciativa
