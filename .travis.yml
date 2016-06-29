@@ -19,6 +19,8 @@ before_install:
 script:
 - npm install
 - ionic platform add android
+- cordova plugin add ionic-plugin-keyboard
+- cordova plugin add cordova-plugin-whitelist
 - cordova plugin add com.testfairy.cordova-plugin
 - cordova build android
 deploy:
