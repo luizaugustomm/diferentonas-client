@@ -1,12 +1,12 @@
 
 angular.module('Diferentonas')
 
-.controller('MessagesCtrl', ['$http', function($http) {
+.controller('MessagesCtrl', ['$http', '$ionicLoading', 'Message', function($http, $ionicLoading, Message) {
+    $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
-    
-    $http.get('http://diferentonas.herokuapp.com/mensagens', {
-        headers: {'Access-Control-Allow-Origin': '*'}
-    }).success(function(data) {
-        vm.messages = data;
-    })
+    vm.messages = Message.query(function() {
+      $ionicLoading.hide();
+    }, function(error) {
+      $ionicLoading.hide();
+    });
 }]);

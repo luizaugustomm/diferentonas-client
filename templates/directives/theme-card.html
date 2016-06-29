@@ -1,11 +1,11 @@
 <div class="card">
   <div class="item item-text-wrap" ng-class="{'card-positive': (score.valorScore >= 1), 'card-negative': (score.valorScore <= -1)}">
-    <p>{{ city.getScoreText(score); }}</p>
+    <p>{{ scoreText }}</p>
     <p class="theme-title">{{ score.area }}</p>
     <p class="text-center">
       {{ score.repasseTotal | formatCurrency }}
       <br>
-      <span class="text-sm">{{ city.info.nome }}</span>
+      <span class="text-sm">{{ city.nome }}</span>
     </p>
 
     <df-theme-chart score-value="score.valorScore" base-color="baseColor"></df-theme-chart>

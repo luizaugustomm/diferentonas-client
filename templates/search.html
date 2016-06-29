@@ -1,9 +1,15 @@
 <ion-view>
-  <ion-content class="content-primary has-tabs">
+
+  <div class="tabs tabs-striped tabs-top search-tab city-search">
+    <a nav-transition="none" class="tab-item active">Buscar cidade</a>
+    <a nav-transition="none" class="tab-item" ui-sref="cities-battle-search()">Batalha das diferentonas</a>
+  </div>
+
+  <ion-content class="content-tertiary has-tabs">
 
       <form novalidate ng-submit="Search.search()">
 
-        <div class="search-input padding" ng-class="{'search-input-up': Search.isSearching}">
+        <div class="search-input padding">
           <div class="item item-input" ng-class="Search.selectedCity.nome ? 'search-input-part-rounded' : 'search-input-rounded'">
             <input
               type="text"
@@ -18,7 +24,7 @@
                 class="shorter"
                 ng-repeat="city in Search.cities | ignoreAccents:Search.selectedCity.nome | orderBy:'nome' | limitTo: 8"
                 ng-click="Search.selectCity(city)"
-                ui-sref="city({'id_city': city.id})">
+                ui-sref="city({'id': city.id})">
                   {{ city.nome }} - {{ city.uf }}
               </ion-item>
           </ion-list>
@@ -29,6 +35,6 @@
 
   </ion-content>
 
-  <df-main-nav nav-class="'content-primary'"></df-main-nav>
+  <df-main-nav nav-class="'content-tertiary'"></df-main-nav>
 
 </ion-view>

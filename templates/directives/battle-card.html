@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="item item-text-wrap" ng-class="{'city-won-card': (status === 'won'), 'city-lost-card': (status === 'lost')}">
+    <p class="theme-title">{{ theme }}</p>
+    <p class="text-center smaller-text">{{ details }}</p>
+    <p class="theme-title text-center">
+      {{ firstcitymoney | formatCurrency }} x {{ secondcitymoney | formatCurrency }}
+    </p>
+  </div>
+</div>

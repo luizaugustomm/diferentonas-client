@@ -3,12 +3,18 @@ angular.module('Diferentonas')
 .controller('CityCtrl', ['$stateParams', '$http', '$ionicLoading', '$ionicScrollDelegate', 'City', function($stateParams, $http, $ionicLoading, $ionicScrollDelegate, City) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
-    vm.id = $stateParams.id_city;
-    vm.city = City;
+    vm.CityResource = City;
+    vm.city = City.get({id: $stateParams.id}, function() {
+      vm.city.hasDifferentThemes = City.hasDifferentThemes(vm.city.scores);
+      vm.city.hasNeutralThemes = City.hasNeutralThemes(vm.city.scores);
+      $ionicLoading.hide();
+    }, function(error) {
+      $ionicLoading.hide();
+    });
     vm.showNeutralThemes = false;
 
     vm.orderByScore = function(score) {
-      if (score.area == "TOTAL GERAL" && vm.city.isNeutral(score)) {
+      if (score.area == "TOTAL GERAL" && City.isNeutral(score)) {
         return 10;
       }
       return Math.abs(score.valorScore)*-1;
@@ -16,47 +22,5 @@ angular.module('Diferentonas')
     vm.toggleNeutralThemes = function() {
       vm.showNeutralThemes = !vm.showNeutralThemes;
     }
-    vm.hasNeutralThemes = function() {
-        var neutrals = 0;
-        vm.city.info.scores.forEach(function(score) {
-            if (vm.city.isNeutral(score))
-                neutrals += 1;
-        });
-        return neutrals !== 0;
-    }
-    vm.hasDifferentThemes = function() {
-        var diferentices = 0;
-        vm.city.info.scores.forEach(function(score) {
-            if (vm.city.isDifferent(score))
-                diferentices += 1;
-        });
-        return diferentices !== 0;
-    }
-
-    var api = 'http://diferentonas.herokuapp.com/cidade/';
-    // var api = 'http://0.0.0.0:9000/cidade/';
-
-    $http.get(api.concat(vm.id), {
-        headers: {'Access-Control-Allow-Origin': '*'}
-    }).success(function(data) {
-        vm.city.info = data;
-        City.info = data;
-    })
-    $http.get(api.concat(vm.id).concat('/similares'), {
-        headers: {'Access-Control-Allow-Origin': '*'}
-    }).success(function(data) {
-        vm.city.similars = data;
-        City.similars = data;
-    })
-    $http.get(api.concat(vm.id).concat('/iniciativas'), {
-        headers: {'Access-Control-Allow-Origin': '*'}
-    }).success(function(data) {
-        vm.city.iniciativas = data;
-        City.iniciativas = data;
-        $ionicLoading.hide();
-    }).error(function(data) {
-        $ionicLoading.hide();
-    })
-
 
 }]);

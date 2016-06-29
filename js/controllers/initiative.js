@@ -1,19 +1,15 @@
 angular.module('Diferentonas')
 
-.controller('InitiativeCtrl', ['$stateParams', '$http','$ionicLoading', 'ionicToast','City', function($stateParams, $http,$ionicLoading, ionicToast,City) {
+.controller('InitiativeCtrl', ['$stateParams', '$http','$ionicLoading', 'ionicToast', 'City', 'Initiative', function($stateParams, $http,$ionicLoading, ionicToast, City, Initiative) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
-    vm.id = $stateParams.id_city;
     vm.theme = $stateParams.theme;
-    vm.id_initiative = parseInt($stateParams.id_initiative);
-    vm.city = City;
 
     var setSumario = function(sumario) {
       vm.data = [{key:"Analise de iniciativa",
                 values: [{"label":"Bomba","value":sumario.bomba,"color": "#5D5D5D"},
                         {"label":"Curti","value":sumario.coracao,"color": "#5D5D5D"},
                         {"label":"Não curti","value":sumario.coracao_partido,"color": "#5D5D5D"}]}];
-
       vm.options = {
         chart: {
           type: 'discreteBarChart',
@@ -32,38 +28,16 @@ angular.module('Diferentonas')
       };
     }
 
-    if (!vm.city.hasData()) {
-      var api = 'http://diferentonas.herokuapp.com/cidade/';
-      // var api = 'http://0.0.0.0:9000/cidade/';
-      $http.get(api.concat(vm.id), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-      }).success(function(data) {
-          vm.city.info = data;
-          City.info = data;
-      })
-      $http.get(api.concat(vm.id).concat('/similares'), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-      }).success(function(data) {
-          vm.city.similars = data;
-          City.similars = data;
-      })
-      $http.get(api.concat(vm.id).concat('/iniciativas'), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-      }).success(function(data) {
-          vm.city.iniciativas = data;
-          vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
-          setSumario(vm.initiative.sumario);
-          City.iniciativas = data;
-          $ionicLoading.hide();
-      }).error(function(data) {
+    vm.initiative = Initiative.get({id: $stateParams.id}, function() {
+      // TODO issue #54 Remover essa chamada quando o objeto cidade já estiver incluso na iniciativa
+      vm.initiative.city = City.get({id: $stateParams.id_city});
+      if (vm.initiative.sumario !== null) {
+        setSumario(vm.initiative.sumario);
+      }
       $ionicLoading.hide();
-      });
-    } else {
-      vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
-      setSumario(vm.initiative.sumario);
+    }, function(error) {
       $ionicLoading.hide();
-    }
-
+    });
 
     vm.followInitiative = function() {
       //adicionar chamada que faz o check do usuário seguir a iniciativa
@@ -96,6 +70,5 @@ angular.module('Diferentonas')
       }
       console.log("Iniciativa #" + vm.id_initiative + " está sendo seguida? " + vm.initiative.seguidaPeloRequisitante);
     }
-
 
 }]);

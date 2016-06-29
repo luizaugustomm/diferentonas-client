@@ -1,11 +1,16 @@
-angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
 
-.run(function($ionicPlatform) {
+angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngResource'])
+
+.run(function($ionicPlatform,UserService,$state) {
     $ionicPlatform.ready(function() {
+        if( UserService.getUser() != null){
+          $state.go('search');
+        }
+        facebookConnectPlugin.browserInit("1168526739834367");
         if(window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             cordova.plugins.Keyboard.disableScroll(true);
-            TestFairy.begin('c5a6698ec054a327018a8ceddde9fa3997317e12');
+            cordova.plugins.TestFairy.begin('c5a6698ec054a327018a8ceddde9fa3997317e12');
         }
         if(window.StatusBar) {
             StatusBar.styleDefault();
@@ -18,7 +23,9 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
     $stateProvider
       .state('login', {
           url: '/login',
-          templateUrl: 'templates/login.html'
+          templateUrl: 'templates/login.html',
+          controller: 'LoginCtrl',
+          controllerAs: 'Login'
       })
       .state('search', {
         url: '/search',
@@ -34,7 +41,9 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
       })
       .state('profile', {
         url: '/profile',
-        templateUrl: 'templates/profile.html'
+        templateUrl: 'templates/profile.html',
+        controller: 'ProfileCtrl',
+        controllerAs: 'Profile'
       })
       .state('messages', {
         url: '/messages',
@@ -43,31 +52,31 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
         controllerAs: 'Messages'
       })
       .state('city', {
-        url: '/city/:id_city',
+        url: '/city/:id',
         templateUrl: 'templates/city.html',
         controller: 'CityCtrl',
         controllerAs: 'City'
       })
       .state('themes', {
-        url: '/themes/:id_city/:theme',
+        url: '/themes/:id/:theme',
         templateUrl: 'templates/themes.html',
         controller: 'ThemesCtrl',
         controllerAs: 'Themes'
       })
       .state('initiative', {
-        url: '/initiative/:id_city/:theme/:id_initiative',
+        url: '/initiative/:id/:id_city/:theme',
         templateUrl: 'templates/initiative.html',
         controller: 'InitiativeCtrl',
         controllerAs: 'Initiative'
       })
       .state('initiative-similar', {
-        url: '/initiative-similar/:id_city/:theme/:id_initiative',
+        url: '/initiative-similar/:id/:id_city/:theme',
         templateUrl: 'templates/initiative-similar.html',
         controller: 'InitiativeSimilarCtrl',
         controllerAs: 'Similar'
       })
       .state('initiative-comments', {
-        url: '/initiative-comments/:id_city/:theme/:id_initiative',
+        url: '/initiative-comments/:id/:id_city/:theme',
         templateUrl: 'templates/initiative-comments.html',
         controller: 'InitiativeCommentsCtrl',
         controllerAs: 'Comments'
@@ -84,15 +93,17 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3'])
         controller: 'BroadcastCtrl',
         controllerAs: 'Broadcast'
       })
+      .state('cities-battle-search', {
+        url: '/cities-battle-search',
+        templateUrl: 'templates/cities-battle-search.html',
+        controller: 'CitiesBattleSearchCtrl',
+        controllerAs: 'CitiesBattleSearch'
+      })
+      .state('cities-battle-result', {
+        url: '/cities-battle-result/:id_first_city&:id_second_city',
+        templateUrl: 'templates/cities-battle-result.html',
+        controller: 'CitiesBattleResultCtrl',
+        controllerAs: 'CitiesBattleResult'
+      })
     $urlRouterProvider.otherwise('/login');
-})
-
-.controller('LoginCtrl', function($scope,$location) {
-    $scope.data = {};
-
-    $scope.login = function() {
-        //Insert the function for authenticate the user
-        console.log("LOGIN user: " + $scope.data.username + " - PW: " + $scope.data.password);
-        $location.path("/search");
-    }
 })
