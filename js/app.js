@@ -113,5 +113,4 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngRe
         controllerAs: 'CitiesBattleResult'
       });
     $urlRouterProvider.otherwise('/login');
-    $httpProvider.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 })
