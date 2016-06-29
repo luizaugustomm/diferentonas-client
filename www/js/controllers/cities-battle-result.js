@@ -1,69 +1,60 @@
 angular.module('Diferentonas')
 
-.controller('CitiesBattleResultCtrl', ['$stateParams', '$http', 'City', function($stateParams, $http, City) {
+.controller('CitiesBattleResultCtrl', ['$http', '$stateParams', '$ionicLoading', '$filter', function($http, $stateParams, $ionicLoading, $filter) {
+  $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
   var vm = this;
-  vm.first = null;
-  vm.second = null;
+  vm.firstCity = {};
+  vm.secondCity = {};
+  vm.themes = [];
 
-  var api = 'http://diferentonas.herokuapp.com/cidade/';
+  $http.get('http://diferentonas.herokuapp.com/cidade/'.concat($stateParams.id_first_city),
+  {headers: {'Access-Control-Allow-Origin': '*'}}).success(function(data) {
+    vm.firstCity = data;
+    vm.firstCity.battleScore = 0;
 
-  $http.get(api.concat($stateParams.id_first_city), {
-      headers: {'Access-Control-Allow-Origin': '*'}
-  }).success(function(data) {
-      vm.first = data;
-  })
+    $http.get('http://diferentonas.herokuapp.com/cidade/'.concat($stateParams.id_second_city),
+    {headers: {'Access-Control-Allow-Origin': '*'}}).success(function(data) {
+      vm.secondCity = data;
+      vm.secondCity.battleScore = 0;
 
-  $http.get(api.concat($stateParams.id_second_city), {
-      headers: {'Access-Control-Allow-Origin': '*'}
-  }).success(function(data) {
-      vm.second = data;
-  })
-
-  var results = {}
-  for (var i = 0; i < 21; i++) {
-    if (vm.first.scores[i].repasseTotal > vm.second.scores[i].repasseTotal) {
-      results[vm.first.scores[i].area] = vm.getFirstCity();
-    } else {
-      results[vm.second.scores[i].area] = vm.getSecondCity();
-    }
-  }
-
-  vm.winner = {}
-  var firstScore = 0;
-  var secondScore = 0;
-  results.forEach(function(result) {
-    if (result === vm.getFirstCity()) {
-      firstScore++;
-    } else {
-      secondScore++;
-    }
+      for (i = 0; i < vm.firstCity.scores.length; i++) {
+        if (vm.firstCity.scores[i].area === 'TOTAL GERAL')  continue;
+        vm.themes[i] = {
+          nome: vm.firstCity.scores[i].area,
+          firstCityMoney: vm.firstCity.scores[i].repasseTotal,
+          secondCityMoney: vm.secondCity.scores[i].repasseTotal
+        }
+        if (vm.firstCity.scores[i].repasseTotal > vm.secondCity.scores[i].repasseTotal) {
+          vm.firstCity.battleScore++;
+          vm.themes[i].status = 'won';
+        } else if (vm.firstCity.scores[i].repasseTotal < vm.secondCity.scores[i].repasseTotal) {
+          vm.secondCity.battleScore++;
+          vm.themes[i].status = 'lost';
+        } else {
+          vm.themes[i].status = 'tied';
+        }
+      }
+    });
+    $ionicLoading.hide();
   });
-  if (firstScore > secondScore) {
-    vm.winner.nome = vm.first.nome;
-    vm.winner.uf = vm.first.uf;
-    vm.winner.battleScore = firstScore;
-    vm.winner.class = 'first-city';
-  } else {
-    vm.winner.nome = vm.second.nome;
-    vm.winner.uf = vm.second.uf;
-    vm.winner.battleScore = secondScore;
-    vm.winner.class = 'second-city';
+
+  vm.getFullCityName = function(city) {
+    return city.nome + ' - ' + city.uf;
   }
 
-  vm.getFirstCity = function() {
-    return vm.first.nome + ' - ' + vm.first.uf;
+  vm.getBattleStatus = function() {
+    if (vm.firstCity.battleScore > vm.secondCity.battleScore) return 'won';
+    if (vm.firstCity.battleScore < vm.secondCity.battleScore) return 'lost';
+    else                                                      return 'tied';
   }
 
-  vm.getSecondCity = function() {
-    return vm.second.nome + ' - ' + vm.second.uf;
+  vm.getDetails = function(theme) {
+    if (theme.status === 'won') {
+      return vm.getFullCityName(vm.firstCity) + ' ganhou de ' + vm.getFullCityName(vm.secondCity) + ' por ' + $filter('formatCurrency')(theme.firstCityMoney - theme.secondCityMoney);
+    } else if (theme.status === 'lost') {
+      return vm.getFullCityName(vm.secondCity) + ' ganhou de ' + vm.getFullCityName(vm.firstCity) + ' por ' + $filter('formatCurrency')(theme.secondCityMoney - theme.firstCityMoney);
+    } else {
+      return 'As cidades empataram nesta área';
+    }
   }
-
-  vm.getWinner = function() {
-    return vm.winner.nome + ' - ' + vm.winner.uf;
-  }
-
-  vm.getBattleScores = function() {
-    return firstScore + ' x ' + secondScore;
-  }
-
-}]);
+}])

@@ -2,6 +2,7 @@ angular.module('Diferentonas')
 
   .factory('City', function($resource) {
     var City = $resource('http://diferentonas.herokuapp.com/cidade/:id');
+    City.cities = $resource('js/cities.json');
     City.initiatives = $resource('http://diferentonas.herokuapp.com/cidade/:id/iniciativas');
     City.isNeutral = function(score) {
       return (score.valorScore > -1 && score.valorScore < 1);

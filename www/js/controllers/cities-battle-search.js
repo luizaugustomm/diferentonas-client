@@ -2,16 +2,21 @@ angular.module('Diferentonas')
 
 .controller('CitiesBattleSearchCtrl', ['$state', '$http', 'City', function($state, $http, City) {
   var vm = this;
-  // vm.cities = City.getCities();
+  vm.cities = [];
 
   $http.get('js/cities.json').success(function(data) {
     vm.cities = data;
   });
 
-  vm.selectedCities = [
-    {'id': null, 'nome': '', 'uf': '', 'isSelected': false},
-    {'id': null, 'nome': '', 'uf': '', 'isSelected': false}
-  ];
+  function clearFields() {
+    vm.selectedCities = [
+      {'id': null, 'nome': '', 'uf': '', 'isSelected': false},
+      {'id': null, 'nome': '', 'uf': '', 'isSelected': false}
+    ];
+  }
+
+  vm.selectedCities = null;
+  clearFields();
 
   vm.selectCity = function(city, which) {
     if (which >= 0 && which < 2) {
@@ -29,5 +34,6 @@ angular.module('Diferentonas')
   vm.fight = function() {
     $state.go('cities-battle-result', {'id_first_city': vm.selectedCities[0].id,
                                        'id_second_city': vm.selectedCities[1].id});
+    clearFields();
   }
 }]);

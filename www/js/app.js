@@ -1,3 +1,4 @@
+
 angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngResource'])
 
 .run(function($ionicPlatform,UserService,$state) {
