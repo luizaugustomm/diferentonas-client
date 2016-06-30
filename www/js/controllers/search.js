@@ -2,20 +2,23 @@ angular.module('Diferentonas')
 
 .controller('SearchCtrl', ['$http', '$state', '$filter', 'City', function($http, $state, $filter, City) {
 
-  function clearFields() {
+  var vm = this;
+
+  vm.clearFields = function() {
     vm.selectedCity = {
       'id': null,
       'uf': null,
       'nome': ''
     };
     vm.cityInput = '';
+    vm.isSearching = false;
+    console.log(vm.selectedCity);
   }
 
-  var vm = this;
   vm.cityInput = '';
   vm.cities = [];
   vm.selectedCity = null;
-  clearFields();
+  vm.clearFields();
   vm.isSearching = false;
 
   vm.startSearch = function() {
@@ -31,8 +34,8 @@ angular.module('Diferentonas')
   vm.search = function() {
     var city = $filter('filter')(vm.cities, vm.selectedCity.nome)[0];
     vm.selectCity(city);
+    vm.clearFields();
     $state.go('city', {'id_city': vm.selectedCity.id});
-    clearFields();
   }
 
   $http.get('js/cities.json').success(function(data) {
