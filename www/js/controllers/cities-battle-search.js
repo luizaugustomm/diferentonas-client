@@ -8,7 +8,7 @@ angular.module('Diferentonas')
     vm.cities = data;
   });
 
-  function clearFields() {
+  vm.clearFields= function() {
     vm.selectedCities = [
       {'id': null, 'nome': '', 'uf': '', 'isSelected': false},
       {'id': null, 'nome': '', 'uf': '', 'isSelected': false}
@@ -16,7 +16,7 @@ angular.module('Diferentonas')
   }
 
   vm.selectedCities = null;
-  clearFields();
+  vm.clearFields();
 
   vm.selectCity = function(city, which) {
     if (which >= 0 && which < 2) {
@@ -31,9 +31,13 @@ angular.module('Diferentonas')
     vm.selectedCities[which].isSelected = false;
   }
 
+  vm.isReady = function() {
+    return (vm.selectedCities[0].id !== null && vm.selectedCities[1].id);
+  }
+
   vm.fight = function() {
     $state.go('cities-battle-result', {'id_first_city': vm.selectedCities[0].id,
                                        'id_second_city': vm.selectedCities[1].id});
-    clearFields();
+    vm.clearFields();
   }
 }]);

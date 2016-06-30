@@ -12,7 +12,6 @@ angular.module('Diferentonas')
     };
     vm.cityInput = '';
     vm.isSearching = false;
-    console.log(vm.selectedCity);
   }
 
   vm.cityInput = '';
