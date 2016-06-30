@@ -3,6 +3,7 @@ angular.module('Diferentonas')
   .factory('City', ['$resource', 'ApiEndpoint', function($resource, ApiEndpoint) {
     var City = $resource(ApiEndpoint.url + '/cidade/:id');
     City.cities = $resource('js/cities.json');
+    City.similars = $resource(ApiEndpoint.url +'/cidade/:id/similares');
     City.initiatives = $resource(ApiEndpoint.url +'/cidade/:id/iniciativas');
     City.isNeutral = function(score) {
       return (score.valorScore > -1 && score.valorScore < 1);
