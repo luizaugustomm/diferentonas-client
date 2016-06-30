@@ -74,16 +74,6 @@ gulp.task('deploy-emulator', ['remove-ghpages-proxy'], function() {
   });
 })
 
-gulp.task('deploy-ionic-serve', function() {
-  return replace({
-    regex: "http://diferentonas.herokuapp.com",
-    replacement: "http://localhost:8100",
-    paths: replaceFiles,
-    recursive: false,
-    silent: false,
-  });
-})
-
 gulp.task('add-ghpages-proxy', function() {
   return replace({
     regex: "http://",
