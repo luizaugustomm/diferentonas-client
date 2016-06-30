@@ -1,8 +1,8 @@
 <ion-view>
 
   <div class="tabs tabs-striped tabs-top search-tab city-search">
-    <a nav-transition="none" class="tab-item active">Buscar cidade</a>
-    <a nav-transition="none" class="tab-item" ui-sref="cities-battle-search()">Batalha das diferentonas</a>
+    <a nav-transition="none" class="tab-item content-tertiary active">Buscar cidade</a>
+    <a nav-transition="none" class="tab-item content-primary" ui-sref="cities-battle-search()">Batalha das diferentonas</a>
   </div>
 
   <ion-content class="content-tertiary has-tabs">
@@ -11,18 +11,21 @@
 
         <div class="search-input padding">
           <div class="item item-input" ng-class="Search.selectedCity.nome ? 'search-input-part-rounded' : 'search-input-rounded'">
+            <i class="icon icon-balanced placeholder-icon ion-search"
+              ng-click="Search.search()"></i>
             <input
               type="text"
               placeholder="Eu sou de..."
               ng-model="Search.selectedCity.nome"
               ng-focus="Search.startSearch()">
-            <i class="icon icon-right icon-balanced placeholder-icon ion-search"
-              ng-click="Search.search()"></i>
+            <i class="icon icon-right ion-close-circled placeholder-icon"
+              ng-click="Search.clearFields()"
+              ng-show="Search.selectedCity.nome"></i>
           </div>
           <ion-list ng-show="Search.selectedCity.nome">
               <ion-item
                 class="shorter"
-                ng-repeat="city in Search.cities | ignoreAccents:Search.selectedCity.nome | orderBy:'nome' | limitTo: 8"
+                ng-repeat="city in Search.cities | ignoreAccents:Search.selectedCity.nome | orderBy:'nome' | limitTo: 6"
                 ng-click="Search.selectCity(city)"
                 ui-sref="city({'id': city.id})">
                   {{ city.nome }} - {{ city.uf }}

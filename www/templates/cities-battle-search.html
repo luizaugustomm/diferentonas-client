@@ -1,21 +1,25 @@
 <ion-view>
 
   <div class="tabs tabs-striped tabs-top search-tab battle-search">
-    <a nav-transition="none" class="tab-item" ui-sref="search()">Buscar cidade</a>
-    <a nav-transition="none" class="tab-item active">Batalha das diferentonas</a>
+    <a nav-transition="none" class="tab-item content-tertiary" ui-sref="search()">Buscar cidade</a>
+    <a nav-transition="none" class="tab-item content-primary active">Batalha das diferentonas</a>
   </div>
 
   <ion-content class="content-primary has-tabs">
 
+
       <form novalidate>
         <div class="search-input padding">
           <div class="item item-input" ng-class="CitiesBattleSearch.selectedCities[0].nome ? 'search-input-part-rounded' : 'search-input-rounded'">
+            <i class="icon icon-balanced placeholder-icon ion-search"></i>
             <input
               type="text"
               placeholder="Comparar esta cidade"
               ng-model="CitiesBattleSearch.selectedCities[0].nome"
               ng-change="CitiesBattleSearch.inputChanged(0)">
-            <i class="icon icon-right icon-balanced placeholder-icon ion-search"></i>
+              <i class="icon icon-right ion-close-circled placeholder-icon"
+                ng-click="CitiesBattleSearch.clearFields()"
+                ng-show="CitiesBattleSearch.selectedCities[0].nome"></i>
           </div>
           <ion-list ng-show="CitiesBattleSearch.selectedCities[0].nome && !CitiesBattleSearch.selectedCities[0].isSelected">
               <ion-item
@@ -31,12 +35,15 @@
 
         <div class="padding">
           <div class="item item-input" ng-class="CitiesBattleSearch.selectedCities[1].nome ? 'search-input-part-rounded' : 'search-input-rounded'">
+            <i class="icon icon-balanced placeholder-icon ion-search"></i>
             <input
               type="text"
               placeholder="Com esta cidade"
               ng-model="CitiesBattleSearch.selectedCities[1].nome"
               ng-change="CitiesBattleSearch.inputChanged(1)">
-            <i class="icon icon-right icon-balanced placeholder-icon ion-search"></i>
+              <i class="icon icon-right ion-close-circled placeholder-icon"
+                ng-click="CitiesBattleSearch.clearFields()"
+                ng-show="CitiesBattleSearch.selectedCities[1].nome"></i>
           </div>
           <ion-list ng-show="CitiesBattleSearch.selectedCities[1].nome && !CitiesBattleSearch.selectedCities[1].isSelected">
               <ion-item
@@ -49,7 +56,7 @@
         </div>
         <div class="row">
           <div class="col text-center">
-            <button type="submit" class="button battle-button", ng-click="CitiesBattleSearch.fight()"><i class="icon icon-left icon-balanced placeholder-icon ion-flag" style="color: white"></i> Começar batalha!</button>
+            <button type="submit" class="button battle-button" ng-click="CitiesBattleSearch.fight()" ng-disabled="!CitiesBattleSearch.isReady()"><i class="icon icon-left icon-balanced placeholder-icon ion-flag" style="color: white"></i> Começar batalha!</button>
           </div>
         </div>
       </form>

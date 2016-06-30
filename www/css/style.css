@@ -174,7 +174,7 @@
     left: 30%;
 }
 .search-input {
-  padding-top: 60%;
+  padding-top: 120px;
   transition: padding 0.5s;
 }
 .search-input-up {
@@ -367,6 +367,18 @@ h2.gov-message-title {
 .gov-message-card > div.row > div.col {
   padding: 0;
 }
+.tabs-top.tabs-striped .tab-item.content-primary,
+.tabs-top.tabs-striped .tab-item.content-primary,
+.tabs-top.tabs-striped .tab-item.content-primary {
+  background-color: #5850C0;
+  color: #fff;
+}
+.tabs-top.tabs-striped .tab-item.content-tertiary,
+.tabs-top.tabs-striped .tab-item.content-tertiary,
+.tabs-top.tabs-striped .tab-item.content-tertiary {
+  background-color: #FFAA00;
+  color: #fff;
+}
 /* ionic overhide */
 .item-divider {
   background-color: #FFF;
@@ -375,6 +387,18 @@ h2.gov-message-title {
 }
 .list:last-child.card {
   margin-bottom: 0;
+}
+.tab-item {
+  max-width: none;
+}
+.tabs-top.tabs-striped .tab-item.tab-item-active,
+.tabs-top.tabs-striped .tab-item.active,
+.tabs-top.tabs-striped .tab-item.activated {
+  border-style: none;
+}
+.tabs-top > .tabs,
+.tabs.tabs-top {
+  background: none;
 }
 
 .unfollow {
