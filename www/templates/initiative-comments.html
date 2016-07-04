@@ -54,7 +54,12 @@
     Esta iniciativa ainda não foi discutida.
   </div>
 
-  <df-comment-card city="Comments.city" theme="Comments.theme" initiative="Comments.initiative" comment="comment" ng-repeat="comment in Comments.comments"></df-comment-card>
+  <df-comment-card
+  city="Comments.city"
+  theme="Comments.theme"
+  initiative="Comments.initiative"
+  comment="comment"
+  ng-repeat="comment in Comments.comments | orderBy:comment.criadaEm"></df-comment-card>
 
 </ion-content>
 
