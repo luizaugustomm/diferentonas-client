@@ -1,0 +1,33 @@
+<ion-pane class="cards">
+  <ion-header-bar align-title="center" class="bar bar-header" align-title="center">
+    <button class="button icon ion-android-arrow-back" ng-click="BattleThemes.goBack()"></button>
+    <h1 class="title"><span class="first-city-name">{{ BattleThemes.getFullCityName(BattleThemes.firstCity) }}</span> x <span class="second-city-name">{{ BattleThemes.getFullCityName(BattleThemes.secondCity) }}</span></h1>
+  </ion-header-bar>
+
+  <ion-header-bar align-title="center" ng-if="BattleThemes.getBattleStatus() === 'won'" class="bar-subheader">
+    <span class="first-city-name">{{ BattleThemes.getFullCityName(BattleThemes.firstCity) }}</span> é a vencedora por {{ BattleThemes.firstCity.battleScore }} x {{ BattleThemes.secondCity.battleScore }}
+  </ion-header-bar>
+
+  <ion-header-bar align-title="center" ng-if="BattleThemes.getBattleStatus() === 'lost'" class="bar-subheader">
+    <span class="second-city-name">{{ BattleThemes.getFullCityName(BattleThemes.secondCity) }}</span> é a vencedora por {{ BattleThemes.secondCity.battleScore }} x {{ BattleThemes.firstCity.battleScore }}
+  </ion-header-bar>
+
+  <ion-header-bar align-title="center" ng-if="BattleThemes.getBattleStatus() === 'tied'" class="bar-subheader">
+    <span>A batalha empatou em {{ BattleThemes.firstCity.battleScore }} x {{ BattleThemes.secondCity.battleScore }}
+    </ion-header-bar>
+
+    <ion-content class="padding content-default has-subheader has-tabs">
+
+      <df-battle-card
+      details="BattleThemes.getDetails(theme)"
+      theme="theme.nome"
+      firstcitymoney="theme.firstCityMoney"
+      secondcitymoney="theme.secondCityMoney"
+      status="theme.status"
+      ng-repeat="theme in BattleThemes.themes"></df-battle-card>
+
+    </ion-content>
+
+    <df-main-nav nav-class="'content-default'"></df-main-nav>
+
+  </ion-pane>
