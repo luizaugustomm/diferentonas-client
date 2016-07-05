@@ -11,10 +11,10 @@ angular.module('Diferentonas')
     };
     var api = ApiEndpoint.url;
 
-    vm.initiative = Initiative.get({id: $stateParams.id}, function() {
+    vm.initiative = Initiative.get({id: $stateParams.id_initiative}, function() {
       // TODO issue #54 Remover essa chamada quando o objeto cidade já estiver incluso na iniciativa
       vm.initiative.city = City.get({id: $stateParams.id_city});
-      vm.initiative.similars = Initiative.similars.query({id: $stateParams.id}, function() {
+      vm.initiative.similars = Initiative.similars.query({id: $stateParams.id_initiative}, function() {
         $ionicLoading.hide();
       }, function(error) {
         $ionicLoading.hide();
@@ -31,7 +31,7 @@ angular.module('Diferentonas')
     }
     vm.submitComment = function() {
       $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
-      $http.post(api.concat("/iniciativas/", $stateParams.id, "/opinioes"), vm.comment, {
+      $http.post(api.concat("/iniciativas/", $stateParams.id_initiative, "/opinioes"), vm.comment, {
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
           $ionicLoading.hide();
@@ -48,7 +48,7 @@ angular.module('Diferentonas')
     }
 
     var refreshComments = function() {
-      $http.get(api.concat("/iniciativas/", $stateParams.id, "/opinioes?pagina=0&tamanhoPagina=10"), {
+      $http.get(api.concat("/iniciativas/", $stateParams.id_initiative, "/opinioes?pagina=0&tamanhoPagina=10"), {
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {
           vm.comments = data;

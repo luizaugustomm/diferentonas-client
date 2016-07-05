@@ -34,7 +34,7 @@ angular.module('Diferentonas')
     var city = $filter('filter')(vm.cities, vm.selectedCity.nome)[0];
     vm.selectCity(city);
     vm.clearFields();
-    $state.go('city', {'id_city': vm.selectedCity.id});
+    $state.go('city-themes', {'id_city': vm.selectedCity.id});
   }
 
   $http.get('js/cities.json').success(function(data) {
