@@ -1,14 +1,14 @@
 angular.module('Diferentonas')
 
-.controller('InitiativeSimilarCtrl', ['$ionicHistory', '$stateParams', '$http', '$ionicLoading', 'ionicToast', 'City', 'Initiative', 'ApiEndpoint', function($ionicHistory, $stateParams, $http, $ionicLoading, ionicToast, City, Initiative, ApiEndpoint) {
+.controller('InitiativeSimilarsCtrl', ['$ionicHistory', '$stateParams', '$http', '$ionicLoading', 'ionicToast', 'City', 'Initiative', 'ApiEndpoint', function($ionicHistory, $stateParams, $http, $ionicLoading, ionicToast, City, Initiative, ApiEndpoint) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.theme = $stateParams.theme;
 
-    vm.initiative = Initiative.get({id: $stateParams.id}, function() {
+    vm.initiative = Initiative.get({id: $stateParams.id_initiative}, function() {
       // TODO issue #54 Remover essa chamada quando o objeto cidade já estiver incluso na iniciativa
       vm.initiative.city = City.get({id: $stateParams.id_city});
-      vm.initiative.similars = Initiative.similars.query({id: $stateParams.id}, function() {
+      vm.initiative.similars = Initiative.similars.query({id: $stateParams.id_initiative}, function() {
         $ionicLoading.hide();
       }, function(error) {
         $ionicLoading.hide();

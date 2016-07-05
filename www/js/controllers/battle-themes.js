@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('CitiesBattleResultCtrl', ['$ionicHistory', '$http', '$stateParams', '$ionicLoading', '$filter', 'ApiEndpoint',  function($ionicHistory, $http, $stateParams, $ionicLoading, $filter, ApiEndpoint) {
+.controller('BattleThemesCtrl', ['$ionicHistory', '$http', '$stateParams', '$ionicLoading', '$filter', 'ApiEndpoint',  function($ionicHistory, $http, $stateParams, $ionicLoading, $filter, ApiEndpoint) {
   $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
   var vm = this;
   vm.firstCity = {};
@@ -61,5 +61,5 @@ angular.module('Diferentonas')
   vm.goBack = function() {
     $ionicHistory.goBack();
   }
-  
+
 }])

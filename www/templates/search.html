@@ -2,7 +2,7 @@
 
   <div class="tabs tabs-striped tabs-top search-tab city-search">
     <a nav-transition="none" class="tab-item content-tertiary active">Buscar cidade</a>
-    <a nav-transition="none" class="tab-item content-primary" ui-sref="cities-battle-search()">Batalha das diferentonas</a>
+    <a nav-transition="none" class="tab-item content-primary" ui-sref="battle()">Batalha das diferentonas</a>
   </div>
 
   <ion-content class="content-tertiary has-tabs">
@@ -27,7 +27,7 @@
                 class="shorter"
                 ng-repeat="city in Search.cities | ignoreAccents:Search.selectedCity.nome | orderBy:'nome' | limitTo: 6"
                 ng-click="Search.selectCity(city)"
-                ui-sref="city({'id': city.id})">
+                ui-sref="city-themes({'id_city': city.id})">
                   {{ city.nome }} - {{ city.uf }}
               </ion-item>
           </ion-list>

@@ -1,10 +1,10 @@
 angular.module('Diferentonas')
 
-.controller('CityCtrl', ['$ionicHistory', '$stateParams', '$http', '$ionicLoading', '$ionicScrollDelegate', 'City', function($ionicHistory, $stateParams, $http, $ionicLoading, $ionicScrollDelegate, City) {
+.controller('CityThemesCtrl', ['$ionicHistory', '$stateParams', '$http', '$ionicLoading', '$ionicScrollDelegate', 'City', function($ionicHistory, $stateParams, $http, $ionicLoading, $ionicScrollDelegate, City) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.CityResource = City;
-    vm.city = City.get({id: $stateParams.id}, function() {
+    vm.city = City.get({id: $stateParams.id_city}, function() {
       vm.city.hasDifferentThemes = City.hasDifferentThemes(vm.city.scores);
       vm.city.hasNeutralThemes = City.hasNeutralThemes(vm.city.scores);
       $ionicLoading.hide();

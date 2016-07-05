@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('CitiesBattleSearchCtrl', ['$state', '$http', 'City', function($state, $http, City) {
+.controller('BattleCtrl', ['$state', '$http', 'City', function($state, $http, City) {
   var vm = this;
   vm.cities = [];
 
@@ -36,7 +36,7 @@ angular.module('Diferentonas')
   }
 
   vm.fight = function() {
-    $state.go('cities-battle-result', {'id_first_city': vm.selectedCities[0].id,
+    $state.go('battle-themes', {'id_first_city': vm.selectedCities[0].id,
                                        'id_second_city': vm.selectedCities[1].id});
     vm.clearFields();
   }
