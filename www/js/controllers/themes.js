@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('ThemesCtrl', ['$stateParams', '$http', '$ionicLoading', 'City', 'Initiative', function($stateParams, $http, $ionicLoading, City, Initiative) {
+.controller('ThemesCtrl', ['$ionicHistory', '$stateParams', '$http', '$ionicLoading', 'City', 'Initiative', function($ionicHistory, $stateParams, $http, $ionicLoading, City, Initiative) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.initiatives = [];
@@ -15,5 +15,9 @@ angular.module('Diferentonas')
     }, function(error) {
       $ionicLoading.hide();
     });
+
+    vm.goBack = function() {
+      $ionicHistory.goBack();
+    }
 
 }]);

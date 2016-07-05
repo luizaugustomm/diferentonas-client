@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('InitiativeCtrl', ['$stateParams', '$http','$ionicLoading', 'ionicToast', 'City', 'Initiative', 'ApiEndpoint', function($stateParams, $http,$ionicLoading, ionicToast, City, Initiative, ApiEndpoint) {
+.controller('InitiativeCtrl', ['$ionicHistory', '$stateParams', '$http','$ionicLoading', 'ionicToast', 'City', 'Initiative', 'ApiEndpoint', function($ionicHistory, $stateParams, $http,$ionicLoading, ionicToast, City, Initiative, ApiEndpoint) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.theme = $stateParams.theme;
@@ -70,6 +70,10 @@ angular.module('Diferentonas')
         });
       }
       console.log("Iniciativa #" + vm.initiative.id + " está sendo seguida? " + vm.initiative.seguidaPeloRequisitante);
+    }
+
+    vm.goBack = function() {
+      $ionicHistory.goBack();
     }
 
 }]);

@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('InitiativeCommentsCtrl', ['$stateParams', '$http','$ionicLoading', 'ionicToast', 'City', 'Initiative', 'ApiEndpoint', function($stateParams, $http,$ionicLoading, ionicToast, City, Initiative, ApiEndpoint) {
+.controller('InitiativeCommentsCtrl', ['$ionicHistory', '$stateParams', '$http','$ionicLoading', 'ionicToast', 'City', 'Initiative', 'ApiEndpoint', function($ionicHistory, $stateParams, $http,$ionicLoading, ionicToast, City, Initiative, ApiEndpoint) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.theme = $stateParams.theme;
@@ -55,4 +55,8 @@ angular.module('Diferentonas')
       })
     }
     refreshComments();
+
+    vm.goBack = function() {
+      $ionicHistory.goBack();
+    }
 }]);

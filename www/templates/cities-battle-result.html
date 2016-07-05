@@ -1,6 +1,6 @@
 <ion-pane class="cards">
   <ion-header-bar align-title="center" class="bar bar-header" align-title="center">
-    <button class="button icon ion-android-arrow-back" ui-sref="cities-battle-search"></button>
+    <button class="button icon ion-android-arrow-back" ng-click="CitiesBattleResult.goBack()"></button>
     <h1 class="title"><span class="first-city-name">{{ CitiesBattleResult.getFullCityName(CitiesBattleResult.firstCity) }}</span> x <span class="second-city-name">{{ CitiesBattleResult.getFullCityName(CitiesBattleResult.secondCity) }}</span></h1>
   </ion-header-bar>
 

@@ -1,7 +1,7 @@
 
 angular.module('Diferentonas')
 
-.controller('MessagesCtrl', ['$http', '$ionicLoading', 'Message', function($http, $ionicLoading, Message) {
+.controller('MessagesCtrl', ['$ionicHistory', '$http', '$ionicLoading', 'Message', function($ionicHistory, $http, $ionicLoading, Message) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.messages = Message.query(function() {
@@ -9,4 +9,8 @@ angular.module('Diferentonas')
     }, function(error) {
       $ionicLoading.hide();
     });
+
+    vm.goBack = function() {
+      $ionicHistory.goBack();
+    }
 }]);

@@ -1,6 +1,6 @@
 <ion-pane class="cards">
   <ion-header-bar align-title="center" class="bar bar-header">
-    <button class="button icon ion-android-arrow-back" ui-sref="initiative({'id': Similar.initiative.id, 'id_city': Similar.initiative.city.id, 'theme': Similar.theme})"></button>
+    <button class="button icon ion-android-arrow-back" ng-click="Similar.goBack()"></button>
     <span class="two-line-title">
       <strong>{{Similar.theme}}</strong><br>
       <span style="font-size: 12px;">{{Similar.initiative.city.nome}} - {{Similar.initiative.city.uf}}</span>

@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('TimelineCtrl', ['$scope', '$http', '$ionicLoading', 'ionicToast', 'Timeline', function($scope , $http, $ionicLoading, ionicToast, Timeline) {
+.controller('TimelineCtrl', ['$ionicHistory', '$scope', '$http', '$ionicLoading', 'ionicToast', 'Timeline', function($ionicHistory, $scope , $http, $ionicLoading, ionicToast, Timeline) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.moreData = false;
@@ -39,4 +39,8 @@ angular.module('Diferentonas')
       $scope.$broadcast('scroll.infiniteScrollComplete');
       items = [];
     };
+
+    vm.goBack = function() {
+      $ionicHistory.goBack();
+    }
 }]);

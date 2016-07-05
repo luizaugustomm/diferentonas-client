@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('CityCtrl', ['$stateParams', '$http', '$ionicLoading', '$ionicScrollDelegate', 'City', function($stateParams, $http, $ionicLoading, $ionicScrollDelegate, City) {
+.controller('CityCtrl', ['$ionicHistory', '$stateParams', '$http', '$ionicLoading', '$ionicScrollDelegate', 'City', function($ionicHistory, $stateParams, $http, $ionicLoading, $ionicScrollDelegate, City) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.CityResource = City;
@@ -21,6 +21,10 @@ angular.module('Diferentonas')
     }
     vm.toggleNeutralThemes = function() {
       vm.showNeutralThemes = !vm.showNeutralThemes;
+    }
+
+    vm.goBack = function() {
+      $ionicHistory.goBack();
     }
 
 }]);

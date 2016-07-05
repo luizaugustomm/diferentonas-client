@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('InitiativeRepliesCtrl', ['$stateParams', '$http', '$ionicLoading', 'ionicToast', 'City', 'ApiEndpoint', function($stateParams, $http, $ionicLoading, ionicToast, City, ApiEndpoint) {
+.controller('InitiativeRepliesCtrl', ['$ionicHistory', '$stateParams', '$http', '$ionicLoading', 'ionicToast', 'City', 'ApiEndpoint', function($ionicHistory, $stateParams, $http, $ionicLoading, ionicToast, City, ApiEndpoint) {
     var vm = this;
     var api = ApiEndpoint.url;
     vm.id = $stateParams.id_city;
@@ -46,5 +46,9 @@ angular.module('Diferentonas')
       })
     } else {
       vm.initiative = vm.city.getInitiativeByID(vm.city.iniciativas, vm.id_initiative);
+    }
+
+    vm.goBack = function() {
+      $ionicHistory.goBack();
     }
 }]);
