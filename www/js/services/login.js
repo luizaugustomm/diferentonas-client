@@ -8,9 +8,14 @@ angular.module('Diferentonas')
     return JSON.parse(window.localStorage.starter_facebook_user || '{}');
   };
 
+  var deleteUser = function(){
+    window.localStorage.starter_facebook_user = JSON.stringify('{}');
+  }
+
   return {
     getUser: getUser,
-    setUser: setUser
+    setUser: setUser,
+    deleteUser: deleteUser
   };
 
 });
