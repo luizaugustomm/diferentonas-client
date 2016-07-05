@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('ProfileCtrl', ['UserService','$ionicActionSheet','$ionicLoading','$state', function(UserService,$ionicActionSheet,$ionicLoading,$state) {
+.controller('ProfileCtrl', ['$ionicHistory', 'UserService','$ionicActionSheet','$ionicLoading','$state', function($ionicHistory, UserService,$ionicActionSheet,$ionicLoading,$state) {
 	var vm = this;
 	vm.user = UserService.getUser();
 	var response = vm.user.authResponse;
@@ -19,7 +19,7 @@ angular.module('Diferentonas')
 			},
 			destructiveButtonClicked: function(){
 	        	facebookConnectPlugin.logout(function(){
-	        		
+
 		        },function(error){
 		        	console.log("error");
 		        });
@@ -30,4 +30,8 @@ angular.module('Diferentonas')
 			}
 		});
 	};
+
+	vm.goBack = function() {
+		$ionicHistory.goBack();
+	}
 }]);
