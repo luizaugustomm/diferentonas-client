@@ -2,10 +2,10 @@
 angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngResource'])
 
 .constant('ApiEndpoint', {
-// usar quando for gerar aplicativo (apk, ipa) ou testar com emulador
-//  url: 'https://crossorigin.me/http://diferentonas.herokuapp.com'
-// usar quando for executar com ionic serve ou fazer upload no github io
-  url: 'https://crossorigin.me/http://diferentonas.herokuapp.com'
+// usar 'gulp deploy-emulator' quando for gerar aplicativo (apk, ipa) ou testar com emulador
+// usar 'gulp deploy-ionic-serve' quando for executar com ionic serve
+// usar 'gulp deploy' para fazer upload no github io
+  url: 'https://crossorigin.me/http://diferentonas.herokuapp.com/api'
 })
 
 .run(function($ionicPlatform,UserService,$state) {
@@ -63,6 +63,12 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngRe
         templateUrl: 'templates/city.html',
         controller: 'CityCtrl',
         controllerAs: 'City'
+      })
+      .state('city-similar', {
+        url: '/city-similar/:id',
+        templateUrl: 'templates/city-similar.html',
+        controller: 'CitySimilarCtrl',
+        controllerAs: 'CitySimilar'
       })
       .state('themes', {
         url: '/themes/:id/:theme',

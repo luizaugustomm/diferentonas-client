@@ -1,6 +1,10 @@
 angular.module('Diferentonas')
 
 .filter('formatCurrency', function() {
+
+    Math.trunc = Math.trunc || function(x) {
+      return x < 0 ? Math.ceil(x) : Math.floor(x);
+    }
     return function(n) {
         if (n >= 1100000000) {
             if (Math.trunc(n * 0.00000001) % 10 === 0)  return 'R$ ' + Math.trunc(n * 0.00000001) * 0.1 + ' Bilhões';

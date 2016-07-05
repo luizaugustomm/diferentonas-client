@@ -11,9 +11,9 @@
     <df-theme-chart score-value="score.valorScore" base-color="baseColor"></df-theme-chart>
 
     <p class="text-center">
-      {{ score.mediaCidadesSemelhantes | formatCurrency }}
+      {{ (score.mediaCidadesSemelhantes - 1 * score.valorScore) | formatCurrency }} - {{ (score.mediaCidadesSemelhantes + 1 * score.valorScore) | formatCurrency }}
       <br>
-      <span class="text-sm">Média</span>
+      <span class="text-sm">Repasse em cidades semelhantes</span>
     </p>
   </div>
 </div>

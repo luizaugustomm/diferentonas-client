@@ -1,59 +1,67 @@
 <ion-pane class="cards">
-    <ion-header-bar class="bar bar-header">
-      <button class="button icon ion-android-arrow-back" ui-sref="initiative({'id': Comments.initiative.id, 'id_city': Comments.initiative.city.id, 'theme': Comments.theme})"></button>
-      <h1 class="title">{{Comments.initiative.titulo}}</h1>
-    </ion-header-bar>
+  <ion-header-bar align-title="center" class="bar bar-header">
+    <button class="button icon ion-android-arrow-back" ui-sref="initiative({'id': Comments.initiative.id, 'id_city': Comments.initiative.city.id, 'theme': Comments.theme})"></button>
+    <span class="two-line-title">
+      <strong>{{Comments.theme}}</strong><br>
+      <span style="font-size: 12px;">{{Comments.initiative.city.nome}} - {{Comments.initiative.city.uf}}</span>
+    </span>
+  </ion-header-bar>
 
-    <div class="tabs tabs-striped tabs-top tabs-icon-only">
-      <a nav-transition="none" class="tab-item" ui-sref="initiative({'id': Comments.initiative.id, 'id_city': Comments.initiative.city.id, 'theme': Comments.theme})">Informações</a>
-      <a nav-transition="none" class="tab-item" ui-sref="initiative-similar({'id': Comments.initiative.id, 'id_city': Comments.initiative.city.id, 'theme': Comments.theme})">Semelhantes</a>
-      <a nav-transition="none" class="tab-item active">Discussões</a>
+  <div class="tabs tabs-striped tabs-top tabs-icon-only">
+    <a nav-transition="none" class="tab-item" ui-sref="initiative({'id': Comments.initiative.id, 'id_city': Comments.initiative.city.id, 'theme': Comments.theme})">Informações</a>
+    <a nav-transition="none" class="tab-item" ui-sref="initiative-similar({'id': Comments.initiative.id, 'id_city': Comments.initiative.city.id, 'theme': Comments.theme})">Semelhantes</a>
+    <a nav-transition="none" class="tab-item active">Discussões</a>
+  </div>
+
+  <ion-content class="padding-top content-default has-subheader has-tabs">
+
+    <div class="row text-center">
+      <div class="col">
+        <button class="button icon ion-heart button-reaction"
+        ng-class="{'active': Comments.comment.tipo === 'coracao'}"
+        ng-click="Comments.selectReaction('coracao')"></button>
+      </div>
+      <div class="col">
+        <button class="button icon ion-heart-broken button-reaction"
+        ng-class="{'active': Comments.comment.tipo === 'coracao_partido'}"
+        ng-click="Comments.selectReaction('coracao_partido')"></button>
+      </div>
+      <div class="col">
+        <button class="button icon ion-flame button-reaction"
+        ng-class="{'active': Comments.comment.tipo === 'bomba'}"
+        ng-click="Comments.selectReaction('bomba')"></button>
+      </div>
     </div>
 
-    <ion-content class="padding-top content-default has-subheader has-tabs">
+    <div class="list card card-reaction">
 
-      <div class="row text-center">
-        <div class="col">
-          <button class="button icon ion-heart button-reaction"
-            ng-class="{'active': Comments.comment.tipo === 'coracao'}"
-            ng-click="Comments.selectReaction('coracao')"></button>
-        </div>
-        <div class="col">
-          <button class="button icon ion-heart-broken button-reaction"
-            ng-class="{'active': Comments.comment.tipo === 'coracao_partido'}"
-            ng-click="Comments.selectReaction('coracao_partido')"></button>
-        </div>
-        <div class="col">
-          <button class="button icon ion-flame button-reaction"
-            ng-class="{'active': Comments.comment.tipo === 'bomba'}"
-            ng-click="Comments.selectReaction('bomba')"></button>
+      <div class="item">
+        <div class="list">
+          <label class="item item-input">
+            <textarea rows="5" placeholder="Inicie uma discussão sobre a iniciativa: '{{ Comments.initiative.titulo }}'" ng-model="Comments.comment.conteudo"></textarea>
+          </label>
         </div>
       </div>
+      <button type="submit" class="button button-full button-positive button-reply"
+      ng-disabled="!Comments.isReadyToSend()"
+      ng-click="Comments.submitComment()">
+      Lançar discussão
+    </button>
 
-      <div class="list card card-reaction">
+  </div>
 
-        <div class="item">
-          <div class="list">
-            <label class="item item-input">
-              <textarea rows="5" placeholder="Inicie aqui uma discussão!" ng-model="Comments.comment.conteudo"></textarea>
-            </label>
-          </div>
-        </div>
-        <button type="submit" class="button button-full button-positive button-reply"
-          ng-disabled="!Comments.isReadyToSend()"
-          ng-click="Comments.submitComment()">
-          Lançar discussão
-        </button>
+  <div class="empty-message" ng-hide="Comments.comments.length">
+    Esta iniciativa ainda não foi discutida.
+  </div>
 
-      </div>
+  <df-comment-card
+  city="Comments.city"
+  theme="Comments.theme"
+  initiative="Comments.initiative"
+  comment="comment"
+  ng-repeat="comment in Comments.comments | orderBy:comment.criadaEm"></df-comment-card>
 
-      <div class="empty-message" ng-hide="Comments.comments.length">
-          Esta iniciativa ainda não foi discutida.
-      </div>
+</ion-content>
 
-      <df-comment-card city="Comments.city" theme="Comments.theme" initiative="Comments.initiative" comment="comment" ng-repeat="comment in Comments.comments"></df-comment-card>
-
-    </ion-content>
-
-    <df-main-nav nav-class="'content-default'"></df-main-nav>
+<df-main-nav nav-class="'content-default'"></df-main-nav>
 </ion-pane>

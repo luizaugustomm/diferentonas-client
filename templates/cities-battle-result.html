@@ -1,18 +1,18 @@
 <ion-pane class="cards">
-  <ion-header-bar class="bar bar-header" align-title="center">
+  <ion-header-bar align-title="center" class="bar bar-header" align-title="center">
     <button class="button icon ion-android-arrow-back" ui-sref="cities-battle-search"></button>
     <h1 class="title"><span class="first-city-name">{{ CitiesBattleResult.getFullCityName(CitiesBattleResult.firstCity) }}</span> x <span class="second-city-name">{{ CitiesBattleResult.getFullCityName(CitiesBattleResult.secondCity) }}</span></h1>
   </ion-header-bar>
 
-  <ion-header-bar ng-if="CitiesBattleResult.getBattleStatus() === 'won'" class="bar-subheader" align-title="center">
+  <ion-header-bar align-title="center" ng-if="CitiesBattleResult.getBattleStatus() === 'won'" class="bar-subheader">
     <span class="first-city-name">{{ CitiesBattleResult.getFullCityName(CitiesBattleResult.firstCity) }}</span> é a vencedora por {{ CitiesBattleResult.firstCity.battleScore }} x {{ CitiesBattleResult.secondCity.battleScore }}
   </ion-header-bar>
 
-  <ion-header-bar ng-if="CitiesBattleResult.getBattleStatus() === 'lost'" class="bar-subheader" align-title="center">
+  <ion-header-bar align-title="center" ng-if="CitiesBattleResult.getBattleStatus() === 'lost'" class="bar-subheader">
     <span class="second-city-name">{{ CitiesBattleResult.getFullCityName(CitiesBattleResult.secondCity) }}</span> é a vencedora por {{ CitiesBattleResult.secondCity.battleScore }} x {{ CitiesBattleResult.firstCity.battleScore }}
   </ion-header-bar>
 
-  <ion-header-bar ng-if="CitiesBattleResult.getBattleStatus() === 'tied'" class="bar-subheader" align-title="center">
+  <ion-header-bar align-title="center" ng-if="CitiesBattleResult.getBattleStatus() === 'tied'" class="bar-subheader">
     <span>A batalha empatou em {{ CitiesBattleResult.firstCity.battleScore }} x {{ CitiesBattleResult.secondCity.battleScore }}
     </ion-header-bar>
 
