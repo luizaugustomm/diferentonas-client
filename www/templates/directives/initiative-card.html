@@ -1,13 +1,20 @@
 <div class="card">
   <div class="item item-text-wrap">
-    <p class="initiative-card-city" ng-show="city.nome">{{city.nome}} - {{city.uf}}</p>
+    <div class="row">
+      <div class="col-75">
+        <p class="initiative-card-city" ng-show="city.nome">{{city.nome}} - {{city.uf}}</p>
+      </div>
+      <div class="col-25">
+        <p style="float: right" class="initiative-card-city">Ano: <strong>{{ initiative.ano }}</strong></p>
+      </div>
+    </div>
     <p><strong>{{ initiative.titulo }}</strong></p>
     <br>
     <div class="row">
-      <div class="col-50">
+      <div class="col-60">
         <i class="ion-android-time status" ng-class="city.getInitiativeStatus(initiative)"></i> {{ initiative.status }}
       </div>
-      <div class="col-50">
+      <div class="col-40">
         <i class="ion-social-usd balanced"></i> {{ initiative.verbaGovernoFederal | currency:'R$ ' }}
       </div>
     </div>
