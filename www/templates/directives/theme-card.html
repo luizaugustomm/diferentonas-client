@@ -11,9 +11,9 @@
     <df-theme-chart score-value="score.valorScore" base-color="baseColor"></df-theme-chart>
 
     <p class="text-center">
-      {{ (score.mediaCidadesSemelhantes - 1 * score.desvioCidadesSemelhantes) | formatCurrency }} - {{ (score.mediaCidadesSemelhantes + 1 * score.desvioCidadesSemelhantes) | formatCurrency }}
+      {{ ((score.mediaCidadesSemelhantes - 1 * score.desvioCidadesSemelhantes) >= 0) ? (score.mediaCidadesSemelhantes - 1 * score.desvioCidadesSemelhantes) : 0 | formatCurrency }} - {{ (score.mediaCidadesSemelhantes + 1 * score.desvioCidadesSemelhantes) | formatCurrency }}
       <br>
-      <span class="text-sm">Repasse em cidades semelhantes</span>
+      <span class="text-sm">Repasses comuns para cidades semelhantes</span>
     </p>
   </div>
 </div>

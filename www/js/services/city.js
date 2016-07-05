@@ -55,7 +55,7 @@ angular.module('Diferentonas')
     City.hasDifferentThemes = function(scores) {
         var diferentices = 0;
         scores.forEach(function(score) {
-            if (City.isDifferent(score))
+            if (City.isDifferent(score) && score.area !== 'TOTAL GERAL')
                 diferentices += 1;
         });
         return diferentices !== 0;
