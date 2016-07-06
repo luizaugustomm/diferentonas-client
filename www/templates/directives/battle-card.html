@@ -1,9 +1,20 @@
 <div class="card">
   <div class="item item-text-wrap" ng-class="{'city-won-card': (status === 'won'), 'city-lost-card': (status === 'lost')}">
-    <p class="theme-title">{{ theme }}</p>
-    <p class="text-center smaller-text">{{ details }}</p>
-    <p class="theme-title text-center">
-      {{ firstcitymoney | formatCurrency }} x {{ secondcitymoney | formatCurrency }}
-    </p>
+    <p class="theme-title" style="padding: 0px;">{{ theme }}</p>
+  </div>
+  <div class="item item-divider">
+    <div class="row">
+      <div class="col text-center">
+        <a href="#/city/{{firstcity.id}}/{{theme}}/initiatives" class="first-city-link">{{ firstcity.nome }} - {{ firstcity.uf }}</a>
+        <p class="theme-title">{{ firstcitymoney | formatCurrency }}</p>
+      </div>
+      <div class="col">
+        <p class="x-text">x</p>
+      </div>
+      <div class="col text-center">
+        <a href="#/city/{{secondcity.id}}/{{theme}}/initiatives" class="second-city-link">{{ secondcity.nome }} - {{ secondcity.uf }}</a>
+        <p class="theme-title">{{ secondcitymoney | formatCurrency }}</p>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('BattleThemesCtrl', ['$ionicHistory', '$http', '$stateParams', '$ionicLoading', '$filter', 'ApiEndpoint',  function($ionicHistory, $http, $stateParams, $ionicLoading, $filter, ApiEndpoint) {
+.controller('BattleThemesCtrl', ['$ionicHistory', '$http', '$stateParams', '$ionicLoading', 'ApiEndpoint',  function($ionicHistory, $http, $stateParams, $ionicLoading, ApiEndpoint) {
   $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
   var vm = this;
   vm.firstCity = {};
@@ -46,16 +46,6 @@ angular.module('Diferentonas')
     if (vm.firstCity.battleScore > vm.secondCity.battleScore) return 'won';
     if (vm.firstCity.battleScore < vm.secondCity.battleScore) return 'lost';
     else                                                      return 'tied';
-  }
-
-  vm.getDetails = function(theme) {
-    if (theme.status === 'won') {
-      return vm.getFullCityName(vm.firstCity) + ' ganhou de ' + vm.getFullCityName(vm.secondCity) + ' por ' + $filter('formatCurrency')(theme.firstCityMoney - theme.secondCityMoney);
-    } else if (theme.status === 'lost') {
-      return vm.getFullCityName(vm.secondCity) + ' ganhou de ' + vm.getFullCityName(vm.firstCity) + ' por ' + $filter('formatCurrency')(theme.secondCityMoney - theme.firstCityMoney);
-    } else {
-      return 'As cidades empataram nesta área';
-    }
   }
 
   vm.goBack = function() {

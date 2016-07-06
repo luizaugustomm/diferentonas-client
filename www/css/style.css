@@ -19,7 +19,6 @@
 
 .smaller-text {
   font-size: 13px!important;
-
 }
 
 .login{
@@ -51,12 +50,28 @@
   font-weight: bold;
 }
 
+.first-city-link {
+  color: #FFAA00;
+  font-size: 13px;
+  word-wrap: break-word;
+}
+
+.second-city-link {
+  color: #7D427D;
+  font-size: 13px;
+  word-wrap: break-word;
+}
+
 .city-won-card {
   background-color: #FFAA00;
 }
 
 .city-lost-card {
   background-color: #7D427D;
+}
+
+.item.city-won-card p {
+  color: #FFFFFF;
 }
 
 .item.city-lost-card p {
@@ -127,6 +142,15 @@
   text-align: center;
   font-size: 18px;
   padding: 15px 0px 15px 0px;
+}
+
+.x-text {
+  display: table;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 200%;
+  font-size: 20px!important;
 }
 
 .battle-button {
