@@ -70,6 +70,10 @@
   background-color: #7D427D;
 }
 
+.city-tied-card {
+  background-color: #D3D3D3;
+}
+
 .item.city-won-card p {
   color: #FFFFFF;
 }
@@ -103,6 +107,11 @@
 .item p.initiative-card-city {
   font-size: 0.8em;
   color: #B3B2B5;
+}
+
+.item p.new-initiative {
+  font-size: 1em;
+  color: #7D427D;
 }
 
 .icon-chart{
@@ -151,6 +160,13 @@
   vertical-align: middle;
   line-height: 200%;
   font-size: 20px!important;
+}
+
+.centered-text {
+  display: table;
+  vertical-align: middle;
+  width: 100%;
+  line-height: 200%;
 }
 
 .battle-button {

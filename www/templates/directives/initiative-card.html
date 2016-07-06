@@ -1,11 +1,14 @@
 <div class="card">
   <div class="item item-text-wrap">
     <div class="row">
-      <div class="col-75">
-        <p class="initiative-card-city" ng-show="city.nome">{{city.nome}} - {{city.uf}}</p>
+      <div ng-class="isnew ? 'col-40' : 'col-60'">
+        <p class="initiative-card-city centered-text" ng-show="city.nome">{{city.nome}} - {{city.uf}}</p>
       </div>
-      <div class="col-25">
-        <p style="float: right" class="initiative-card-city">Ano: <strong>{{ initiative.ano }}</strong></p>
+      <div ng-show="isnew" class="col-20">
+        <p class="new-initiative">Nova!</p>
+      </div>
+      <div class="col-40">
+        <p style="text-align: right" class="initiative-card-city">Data de início: <strong>{{ initiative.dataInicio }}</strong></p>
       </div>
     </div>
     <p><strong>{{ initiative.titulo }}</strong></p>
