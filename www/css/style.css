@@ -21,6 +21,10 @@
   font-size: 13px!important;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .login{
   text-align: center;
 }
@@ -298,26 +302,30 @@
 }
 
 .progress-chart-begin{
-  position: absolute;
+  position: relative;
+  float: left;
+  clear: left;
   text-align: right;
-  margin: -35px 0 0 20%;
+  margin: -38px 5% 0 35%;
 }
 
 .progress-chart-end{
-  position: absolute;
+  position: relative;
+  float: left;
   text-align: right;
-  margin: 20px 0 0 3%;
+  margin: 22px 5% 0 18%;
 }
 
 .progress-chart-conclusion{
-  position: absolute;
+  position: relative;
+  float: left;
+  clear: left;
   text-align: right;
-  margin: 90px 0 0 20%;
+  margin: 50px 5% 0 35%;
 }
 
 .progress-chart-status{
   position: absolute;
-  margin: 35px 0 0 50%;
   color: #DD9F16;
 }
 .reaction-icon {

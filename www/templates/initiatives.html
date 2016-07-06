@@ -21,7 +21,7 @@
         <df-initiative-card
           initiative="initiative"
           city="Initiatives.city"
-          isnew="true"
+          isnew="false"
           ui-sref="initiative-info({'id_initiative': initiative.id, 'id_city': Initiatives.city.id, 'theme': Initiatives.theme})"
           ng-repeat="initiative in Initiatives.initiatives | filter:Initiatives.theme:true"></df-initiative-card>
     </ion-content>

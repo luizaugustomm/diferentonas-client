@@ -30,7 +30,9 @@ angular.module('Diferentonas')
 
     vm.initiative = Initiative.get({id: $stateParams.id_initiative}, function() {
       // TODO issue #54 Remover essa chamada quando o objeto cidade já estiver incluso na iniciativa
-      vm.initiative.city = City.get({id: $stateParams.id_city});
+      vm.initiative.city = City.get({id: $stateParams.id_city}, function() {
+        vm.initiative.statusClass = City.getInitiativeStatus(vm.initiative);
+      });
       if (vm.initiative.sumario !== null) {
         setSumario(vm.initiative.sumario);
       }
