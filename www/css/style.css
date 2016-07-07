@@ -3,10 +3,34 @@
 .content-secondary { background-color: #444242; }
 .content-tertiary  { background-color: #FFAA00; }
 
+p.score-update-info, .score-update-info {
+  text-align: right;
+  margin-right: 3px;
+  font-size: 12px;
+  color: #666666;
+}
+
+p.score-update-value, .score-update-value {
+  text-align: left;
+  margin-left: 3px;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.updated-score-title {
+  color: #FFFFFF!important;
+  padding-top: 15px!important;
+}
+
 .item p.item-positive,
 .item-positive { color: #58A87D; }
+.item p.item-negative,
+.item-negative { color: #C64832; }
+.item p.item-neutral,
+.item-neutral { color: #444444; }
 .card-positive { background-color: #58A87D; }
 .card-negative { background-color: #C64832; }
+.card-neutral { background-color: #666666; }
 .item.card-positive p { color: #fff;}
 .item.card-negative p { color: #fff;}
 

@@ -1,19 +1,32 @@
 <ion-pane class="cards">
-    <ion-header-bar align-title="center" class="bar bar-header">
-        <button class="button icon ion-android-arrow-back" ng-click="CityNews.goBack()"></button>
-        <h1 class="title">{{ CityNews.city.nome }} - {{ CityNews.city.uf }}</h1>
-    </ion-header-bar>
+  <ion-header-bar align-title="center" class="bar bar-header">
+    <button class="button icon ion-android-arrow-back" ng-click="CityNews.goBack()"></button>
+    <h1 class="title">{{ CityNews.city.nome }} - {{ CityNews.city.uf }}</h1>
+  </ion-header-bar>
 
-    <div class="tabs tabs-striped tabs-top tabs-icon-only">
-        <a class="tab-item" ui-sref="city-themes({'id_city': CityNews.city.id})">Áreas</a>
-        <a class="tab-item" ui-sref="city-similars({'id_city': CityNews.city.id})">Cidades Semelhantes</a>
-        <a class="tab-item active">Novidades</a>
+  <div class="tabs tabs-striped tabs-top tabs-icon-only">
+    <a class="tab-item" ui-sref="city-themes({'id_city': CityNews.city.id})">Áreas</a>
+    <a class="tab-item" ui-sref="city-similars({'id_city': CityNews.city.id})">Cidades Semelhantes</a>
+    <a class="tab-item active">Novidades</a>
+  </div>
+
+  <ion-content class="padding content-default has-subheader has-tabs">
+
+    <div class="empty-message" ng-if="CityNews.city.news.length === 0">
+        Não há novidades nesta cidade.<br>Volte mais tarde.
     </div>
 
-    <ion-content class="padding content-default has-subheader has-tabs">
-    {{ CityNews.city.news | json }}
-    </ion-content>
+    <div ng-repeat="new in CityNews.city.news">
+      <div ng-if="new.tipo === 'NOVO_SCORE' || new.tipo === 'ATUALIZACAO_DE_SCORE'">
+        <df-updated-score-card
+        city="CityNews.city"
+        score="new.score"
+        ui-sref="initiatives({'id_city': CityNews.city.id, 'theme': new.score.area})"
+        ng-hide="new.score.area === 'TOTAL GERAL'"></df-updated-score-card>
+      </div>
+    </div>
+  </ion-content>
 
-    <df-main-nav nav-class="'content-default'"></df-main-nav>
+  <df-main-nav nav-class="'content-default'"></df-main-nav>
 
 </ion-pane>

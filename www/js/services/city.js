@@ -13,7 +13,7 @@ angular.module('Diferentonas')
       return (valorScore <= -1 || valorScore >= 1);
     };
     City.getScoreText = function(valorScore) {
-      if (this.isNeutral(valorScore)) {
+      if (City.isNeutral(valorScore)) {
         return "Recebeu dentro do esperado";
       } else {
         var x = valorScore;
