@@ -29,7 +29,8 @@
         <df-initiative-card
         city="CityNews.city"
         initiative="new.iniciativa"
-        updatestatus="'new'">
+        updatestatus="'new'"
+        ui-sref="initiative-info({'id_initiative': new.iniciativa.id, 'id_city': CityNews.city.id, 'theme': new.iniciativa.area})">
       </df-initiative-card>
     </div>
 
@@ -37,7 +38,8 @@
       <df-initiative-card
       city="CityNews.city"
       initiative="new.iniciativa"
-      updatestatus="'updated'">
+      updatestatus="'updated'"
+      ui-sref="initiative-info({'id_initiative': new.iniciativa.id, 'id_city': CityNews.city.id, 'theme': new.iniciativa.area})">
     </df-initiative-card>
   </div>
   </div>
