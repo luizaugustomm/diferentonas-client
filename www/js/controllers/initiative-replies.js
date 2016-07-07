@@ -30,7 +30,12 @@ angular.module('Diferentonas')
       }).success(function(data) {
           vm.city.info = data;
           City.info = data;
-      })
+      }).error(function(error){
+        if(error.status === 500){
+          ionicToast.show("Não foi possível carregar dados, tente mais tarde.", 'center', false, 2500);
+          $ionicHistory.goBack();
+        }
+      });
       $http.get(api.concat("/cidade/", vm.id, "/similares"), {
           headers: {'Access-Control-Allow-Origin': '*'}
       }).success(function(data) {

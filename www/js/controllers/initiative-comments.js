@@ -21,6 +21,10 @@ angular.module('Diferentonas')
       });
     }, function(error) {
       $ionicLoading.hide();
+      if(error.status === 500){
+        ionicToast.show("Não foi possível carregar dados, tente mais tarde.", 'center', false, 2500);
+        $ionicHistory.goBack();
+      }
     });
 
     vm.selectReaction = function(reaction) {
