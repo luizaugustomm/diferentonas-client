@@ -14,7 +14,7 @@ angular.module('Diferentonas')
     vm.showNeutralThemes = false;
 
     vm.orderByScore = function(score) {
-      if (score.area == "TOTAL GERAL" && City.isNeutral(score)) {
+      if (score.area == "TOTAL GERAL" && City.isNeutral(score.valorScore)) {
         return 10;
       }
       return Math.abs(score.valorScore)*-1;

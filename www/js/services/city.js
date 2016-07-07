@@ -5,17 +5,17 @@ angular.module('Diferentonas')
     City.cities = $resource('js/cities.json');
     City.similars = $resource(ApiEndpoint.url +'/cidade/:id/similares');
     City.initiatives = $resource(ApiEndpoint.url +'/cidade/:id/iniciativas');
-    City.isNeutral = function(score) {
-      return (score.valorScore > -1 && score.valorScore < 1);
+    City.isNeutral = function(valorScore) {
+      return (valorScore > -1 && valorScore < 1);
     };
-    City.isDifferent = function(score) {
-      return (score.valorScore <= -1 || score.valorScore >= 1);
+    City.isDifferent = function(valorScore) {
+      return (valorScore <= -1 || valorScore >= 1);
     };
-    City.getScoreText = function(score) {
-      if (this.isNeutral(score)) {
+    City.getScoreText = function(valorScore) {
+      if (this.isNeutral(valorScore)) {
         return "Recebeu dentro do esperado";
       } else {
-        var x = score.valorScore;
+        var x = valorScore;
         switch (true) {
           case (x < -2):
             return "Recebeu muito menos";
@@ -47,7 +47,7 @@ angular.module('Diferentonas')
     City.hasNeutralThemes = function(scores) {
         var neutrals = 0;
         scores.forEach(function(score) {
-            if (City.isNeutral(score))
+            if (City.isNeutral(score.valorScore))
                 neutrals += 1;
         });
         return neutrals !== 0;
@@ -55,7 +55,7 @@ angular.module('Diferentonas')
     City.hasDifferentThemes = function(scores) {
         var diferentices = 0;
         scores.forEach(function(score) {
-            if (City.isDifferent(score) && score.area !== 'TOTAL GERAL')
+            if (City.isDifferent(score.valorScore) && score.area !== 'TOTAL GERAL')
                 diferentices += 1;
         });
         return diferentices !== 0;

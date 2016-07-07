@@ -18,11 +18,11 @@
       <df-theme-card
         city="CityThemes.city"
         score="score"
-        score-text="CityThemes.CityResource.getScoreText(score)"
+        score-text="CityThemes.CityResource.getScoreText(score.valorScore)"
         base-color="'#FFF'"
         ng-repeat="score in CityThemes.city.scores | orderBy:CityThemes.orderByScore"
         ui-sref="initiatives({'id_city': CityThemes.city.id, 'theme': score.area})"
-        ng-hide="score.area === 'TOTAL GERAL' || score.valorScore == 0 || CityThemes.CityResource.isNeutral(score)"></df-theme-card>
+        ng-hide="score.area === 'TOTAL GERAL' || score.valorScore == 0 || CityThemes.CityResource.isNeutral(score.valorScore)"></df-theme-card>
 
 
         <button df-scroll-to class="button button-block button-clear button-positive" ng-show="CityThemes.city.hasNeutralThemes" ng-click="CityThemes.toggleNeutralThemes()">
@@ -33,10 +33,10 @@
             <df-theme-card
             city="CityThemes.city"
             score="score"
-            score-text="CityThemes.CityResource.getScoreText(score)"
+            score-text="CityThemes.CityResource.getScoreText(score.valorScore)"
             ng-repeat="score in CityThemes.city.scores | orderBy:CityThemes.orderByScore"
             ui-sref="initiatives({'id_city': CityThemes.city.id, 'theme': score.area})"
-            ng-hide="score.area === 'TOTAL GERAL' || score.valorScore == 0 || !CityThemes.CityResource.isNeutral(score)"></df-theme-card>
+            ng-hide="score.area === 'TOTAL GERAL' || score.valorScore == 0 || !CityThemes.CityResource.isNeutral(score.valorScore)"></df-theme-card>
         </div>
 
     </ion-content>
