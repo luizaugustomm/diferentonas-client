@@ -1,0 +1,21 @@
+<div class="list card">
+
+  <div class="item item-text-wrap">
+    <p class="new-initiative">Novo comentário em iniciativa!</p>
+    <p><strong>{{ initiative.titulo }}</strong></p>
+  </div>
+
+  <div class="item item-avatar">
+    <img src="http://www.gravatar.com/avatar/484649846498?f=y&d=retro">
+    <div class="reaction-icon">
+      <i class="icon" ng-class="getIcon()"></i>
+    </div>
+    <h2>{{ comment.autor.login }}</h2>
+    <p>{{ comment.criadaEm }}</p>
+  </div>
+
+  <div class="item item-body">
+      <p style="margin-top: -6px">{{ comment.conteudo }}</p>
+    </div>
+
+</div>

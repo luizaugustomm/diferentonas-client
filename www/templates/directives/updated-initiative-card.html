@@ -1,0 +1,32 @@
+<div class="card">
+  <div class="item item-divider row">
+    <div class="col-20">
+      <img src="img/logo.svg" alt="Ícone" />
+    </div>
+    <div class="col-80" style="margin: 0px 5px;" ng-class="{'card-positive': (score.valorScore >= 1), 'card-negative': (score.valorScore <= -1), 'card-neutral' : (score.valorScore > -1 && score.valorScore < 1)}">
+      <p class="theme-title text-center updated-score-title">{{ score.area }}</p>
+    </div>
+  </div>
+  <div class="item item-text-wrap">
+    <div class="row">
+      <div class="col-40 score-update-info">
+        Passou de
+      </div>
+      <div class="col-60 score-update-value">
+        <p ng-class="{'item-positive' : (score.valorAnteriorScore >=1), 'item-negative' : (score.valorAnteriorScore <= -1), 'item-neutral' : (score.valorAnteriorScore > -1 && score.valorAnteriorScore < 1)}">
+          <strong>{{ city.getScoreText(score.valorAnteriorScore) }}</strong>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-40 score-update-info">
+        para
+      </div>
+      <div class="col-60 score-update-value">
+        <p ng-class="{'item-positive' : (score.valorScore >=1), 'item-negative' : (score.valorScore <= -1), 'item-neutral' : (score.valorScore > -1 && score.valorScore < 1)}">
+          <strong>{{ city.getScoreText(score.valorScore) }}</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

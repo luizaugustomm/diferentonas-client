@@ -1,12 +1,12 @@
 angular.module('Diferentonas')
 
-.directive('dfInitiativeCard', function() {
+.directive('dfUpdatedInitiativeCard', function() {
   return {
     restrict: 'E',
     scope: {
       city: '=',
       initiative: '='
     },
-    templateUrl: 'templates/directives/initiative-card.html'
+    templateUrl: 'templates/directives/updated-initiative-card.html'
   }
 });
