@@ -4,9 +4,9 @@ angular.module('Diferentonas')
   return {
     restrict: 'E',
     scope: {
-      score: '=',
-      city: '='
+      city: '=',
+      score: '='
     },
-    templateUrl: 'templates/directives/theme-card.html'
+    templateUrl: 'templates/directives/updated-score-card.html'
   }
 });
