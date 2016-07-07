@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('InitiativesCtrl', ['$ionicHistory', '$stateParams', '$http', '$ionicLoading', 'City', function($ionicHistory, $stateParams, $http, $ionicLoading, City) {
+.controller('InitiativesCtrl', ['$ionicHistory','ionicToast','$stateParams', '$http', '$ionicLoading', 'City', function($ionicHistory,ionicToast,$stateParams, $http, $ionicLoading, City) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.initiatives = [];
@@ -23,6 +23,10 @@ angular.module('Diferentonas')
       });
     }, function(error) {
       $ionicLoading.hide();
+      if(error.status === 500){
+        ionicToast.show("Não foi possível carregar dados, tente mais tarde.", 'center', false, 2500);
+        $ionicHistory.goBack();
+      }
     });
 
     vm.goBack = function() {
