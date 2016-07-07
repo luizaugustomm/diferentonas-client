@@ -76,6 +76,12 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngRe
     controller: 'CitySimilarsCtrl',
     controllerAs: 'CitySimilars'
   })
+  .state('city-news', {
+    url: '/city/:id_city/news',
+    templateUrl: 'templates/city-news.html',
+    controller: 'CityNewsCtrl',
+    controllerAs: 'CityNews'
+  })
   .state('battle', {
     url: '/battle',
     templateUrl: 'templates/battle.html',

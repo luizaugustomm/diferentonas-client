@@ -4,6 +4,7 @@ angular.module('Diferentonas')
     var City = $resource(ApiEndpoint.url + '/cidade/:id');
     City.cities = $resource('js/cities.json');
     City.similars = $resource(ApiEndpoint.url +'/cidade/:id/similares');
+    City.news = $resource(ApiEndpoint.url +'/cidade/:id/linhadotempo');
     City.initiatives = $resource(ApiEndpoint.url +'/cidade/:id/iniciativas');
     City.isNeutral = function(valorScore) {
       return (valorScore > -1 && valorScore < 1);
