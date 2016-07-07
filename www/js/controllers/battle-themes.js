@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('BattleThemesCtrl', ['$ionicHistory', '$http', '$stateParams', '$ionicLoading', 'ApiEndpoint',  function($ionicHistory, $http, $stateParams, $ionicLoading, ApiEndpoint) {
+.controller('BattleThemesCtrl', ['$ionicHistory','ionicToast','$http', '$stateParams', '$ionicLoading', 'ApiEndpoint',  function($ionicHistory,ionicToast,$http, $stateParams, $ionicLoading, ApiEndpoint) {
   $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
   var vm = this;
   vm.firstCity = {};
@@ -36,6 +36,10 @@ angular.module('Diferentonas')
       }
     });
     $ionicLoading.hide();
+  }).error(function(error){
+      $ionicLoading.hide();
+      ionicToast.show("Não foi possível carregar dados, tente mais tarde.", 'center', false, 2500);
+      vm.goBack();
   });
 
   vm.getFullCityName = function(city) {

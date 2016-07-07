@@ -19,7 +19,7 @@ angular.module('Diferentonas')
         $ionicLoading.hide();
     }, function(error) {
         $ionicLoading.hide();
-        ionicToast.show("Não foi possível carregar mais novidades.", 'bottom', false, 2500);
+        ionicToast.show("Não foi possível carregar as informações", 'bottom', false, 2500);
     });
 
     vm.loadMore = function() {
@@ -34,7 +34,7 @@ angular.module('Diferentonas')
           moreData = true;
         }
       }).error(function(data) {
-          ionicToast.show("Não foi possível carregar mais novidades.", 'bottom', false, 2500);
+          ionicToast.show("Não foi possível carregar mais informações, tente mais tarde.", 'center', false, 2500);
       });
       $scope.$broadcast('scroll.infiniteScrollComplete');
       items = [];
