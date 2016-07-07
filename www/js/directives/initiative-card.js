@@ -4,9 +4,10 @@ angular.module('Diferentonas')
   return {
     restrict: 'E',
     scope: {
-      initiative: '=',
       city: '=',
-      isnew: '='
+      initiative: '=',
+      updatestatus: '=',
+      hascomment: '='
     },
     templateUrl: 'templates/directives/initiative-card.html'
   }

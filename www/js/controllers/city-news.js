@@ -6,11 +6,8 @@ angular.module('Diferentonas')
     vm.CityResource = City;
     vm.city = City.get({id: $stateParams.id_city}, function() {
       vm.city.getScoreText = City.getScoreText;
-      vm.city.news = City.news.query({id: $stateParams.id_city}, function() {
-        $ionicLoading.hide();
-      }, function(error) {
-        $ionicLoading.hide();
-      });
+      vm.city.news = City.news.query({id: $stateParams.id_city});
+      $ionicLoading.hide();
     }, function(error) {
       $ionicLoading.hide();
     });

@@ -13,7 +13,7 @@
   <ion-content class="padding content-default has-subheader has-tabs">
 
     <div class="empty-message" ng-if="CityNews.city.news.length === 0">
-        Não há novidades nesta cidade.<br>Volte mais tarde.
+      Não há novidades nesta cidade.<br>Volte mais tarde.
     </div>
 
     <div ng-repeat="new in CityNews.city.news">
@@ -24,9 +24,25 @@
         ui-sref="initiatives({'id_city': CityNews.city.id, 'theme': new.score.area})"
         ng-hide="new.score.area === 'TOTAL GERAL'"></df-updated-score-card>
       </div>
-    </div>
-  </ion-content>
 
-  <df-main-nav nav-class="'content-default'"></df-main-nav>
+      <div ng-if="new.tipo === 'NOVA_INICIATIVA'">
+        <df-initiative-card
+        city="CityNews.city"
+        initiative="new.iniciativa"
+        updatestatus="'new'">
+      </df-initiative-card>
+    </div>
+
+    <div ng-if="new.tipo === 'ATUALIZACAO_DE_INICIATIVA'">
+      <df-initiative-card
+      city="CityNews.city"
+      initiative="new.iniciativa"
+      updatestatus="'updated'">
+    </df-initiative-card>
+  </div>
+  </div>
+</ion-content>
+
+<df-main-nav nav-class="'content-default'"></df-main-nav>
 
 </ion-pane>

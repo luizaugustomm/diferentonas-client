@@ -1,11 +1,16 @@
 <div class="card">
   <div class="item item-text-wrap">
     <div class="row">
-      <div ng-class="isnew ? 'col-40' : 'col-60'">
+      <div ng-class="updatestatus !== 'no' ? 'col-40' : 'col-60'">
         <p class="initiative-card-city centered-text" ng-show="city.nome">{{city.nome}} - {{city.uf}}</p>
       </div>
-      <div ng-show="isnew" class="col-20">
-        <p class="new-initiative">Nova!</p>
+      <div ng-show="updatestatus" class="col-30">
+        <div ng-if="updatestatus === 'new'">
+          <p class="new-initiative">Nova!</p>
+        </div>
+        <div ng-if="updatestatus === 'updated'">
+          <p class="new-initiative">Atualizada!</p>
+        </div>
       </div>
       <div class="col-40">
         <p style="text-align: right" class="initiative-card-city">Data de início: <strong>{{ initiative.dataInicio }}</strong></p>
