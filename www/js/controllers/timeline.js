@@ -7,9 +7,9 @@ angular.module('Diferentonas')
     vm.np = 0;
     vm.news = Timeline.query({npagina : vm.np}, function() {
       if(vm.news.length === 0){
-        moreData = false;
+        vm.moreData = false;
       }else{
-        moreData = true;
+        vm.moreData = true;
       }
       vm.np++;
       $ionicLoading.hide();
@@ -23,10 +23,10 @@ angular.module('Diferentonas')
         console.log("Current page = " + vm.np);
         if (items.length === 0){
           ionicToast.show("Não existem mais novidades", 'bottom', false, 2000);
-          moreData = false;
+          vm.moreData = false;
         } else {
           vm.news = vm.news.concat(items);
-          moreData = true;
+          vm.moreData = true;
           vm.np++;
         }
         items = [];

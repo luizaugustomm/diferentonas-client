@@ -79,10 +79,10 @@ angular.module('Diferentonas')
           console.log("Current page = " + vm.np);
           if(data.length === 0){
             ionicToast.show("Não existem mais comentários", 'bottom', false, 2000);
-            moreData = false;
+            vm.moreData = false;
           }else{
             vm.comments = vm.comments.concat(data);
-            moreData = true;
+            vm.moreData = true;
             vm.np++;
           }
           $scope.$broadcast('scroll.infiniteScrollComplete');

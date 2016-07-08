@@ -47,6 +47,9 @@
 
     </div>
 
+    <ion-infinite-scroll distance="5%" on-infinite="CityNews.loadMore()" ng-if="CityNews.moreData">
+    </ion-infinite-scroll>
+
   </ion-content>
 
   <df-main-nav nav-class="'content-default'"></df-main-nav>
