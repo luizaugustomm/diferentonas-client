@@ -6,7 +6,8 @@ angular.module('Diferentonas')
     scope: {
       city: '=',
       initiative: '=',
-      comment: '='
+      comment: '=',
+      showcityname: '='
     },
     templateUrl: 'templates/directives/new-comment-card.html',
     link: function(scope, element, attrs) {

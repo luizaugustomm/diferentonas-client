@@ -2,11 +2,11 @@
   <div class="item item-text-wrap">
 
     <div class="row">
-      <div class="col-60">
+      <div ng-class="showcityname ? 'col-60' : 'col-100'">
         <p class="new-initiative">Nova iniciativa!</p>
       </div>
-      <div class="col-40">
-        <p style="text-align: right" class="initiative-card-city">Data de início: <strong>{{ initiative.dataInicio }}</strong></p>
+      <div ng-show="showcityname" class="col-40">
+        <p style="text-align: right" class="initiative-card-city">{{ city.nome }} - {{ city.uf }}</p>
       </div>
     </div>
 

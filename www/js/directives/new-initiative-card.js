@@ -5,7 +5,8 @@ angular.module('Diferentonas')
     restrict: 'E',
     scope: {
       city: '=',
-      initiative: '='
+      initiative: '=',
+      showcityname: '='
     },
     templateUrl: 'templates/directives/new-initiative-card.html'
   }

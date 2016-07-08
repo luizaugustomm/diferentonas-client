@@ -1,7 +1,15 @@
 <div class="card">
 
   <div class="item item-text-wrap">
-    <p class="new-initiative">Atualização em iniciativa!</p>
+    <div class="row">
+      <div ng-class="showcityname ? 'col-60' : 'col-100'">
+        <p class="new-initiative">Iniciativa atualizada!</p>
+      </div>
+      <div ng-show="showcityname" class="col-40">
+        <p style="text-align: right" class="initiative-card-city">{{ city.nome }} - {{ city.uf }}</p>
+      </div>
+    </div>
+    
     <p><strong>{{ initiative.titulo }}</strong></p>
   </div>
 
