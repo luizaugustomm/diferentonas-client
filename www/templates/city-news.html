@@ -19,29 +19,30 @@
     <div ng-repeat="new in CityNews.city.news">
 
       <df-updated-score-card
-      city="CityNews.city"
+      city="new.cidade"
       score="new.score"
-      ui-sref="initiatives({'id_city': CityNews.city.id, 'theme': new.score.area})"
+      ui-sref="initiatives({'id_city': new.cidade.id, 'theme': new.score.area})"
       ng-hide="new.score.area === 'TOTAL GERAL'"
       ng-if="new.tipo === 'NOVO_SCORE' || new.tipo === 'ATUALIZACAO_DE_SCORE'"></df-updated-score-card>
 
       <df-new-initiative-card
-      city="CityNews.city"
+      city="new.cidade"
       initiative="new.iniciativa"
-      ui-sref="initiative-info({'id_initiative': new.iniciativa.id, 'id_city': CityNews.city.id, 'theme': new.iniciativa.area})"
+      ui-sref="initiative-info({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
       ng-if="new.tipo === 'NOVA_INICIATIVA'"></df-new-initiative-card>
 
-      <!-- <df-updated-initiative-card
-      city="CityNews.city"
+      <df-updated-initiative-card
+      new="new"
+      city="new.cidade"
       initiative="new.iniciativa"
-      ui-sref="initiative-info({'id_initiative': new.iniciativa.id, 'id_city': CityNews.city.id, 'theme': new.iniciativa.area})"
-      ng-if="new.tipo === 'ATUALIZACAO_DE_INICIATIVA'"></df-updated-initiative-card> -->
+      ui-sref="initiative-info({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
+      ng-if="new.tipo === 'ATUALIZACAO_DE_INICIATIVA'"></df-updated-initiative-card>
 
       <df-new-comment-card
-      city="CityNews.city"
+      city="new.cidade"
       initiative="new.iniciativa"
       comment="new.opiniao"
-      ui-sref="initiative-comments({'id_initiative': new.iniciativa.id, 'id_city': CityNews.city.id, 'theme': new.iniciativa.area})"
+      ui-sref="initiative-comments({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
       ng-if="new.tipo === 'NOVA_OPINIAO'"></df-new-comment-card>
 
     </div>

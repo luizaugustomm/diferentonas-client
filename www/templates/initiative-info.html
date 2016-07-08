@@ -68,9 +68,9 @@
 
     <div class="initiative-card initiative-values padding">
       <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
-      <p>Valor repassada pelo Governo Federal<br> <strong>({{InitiativeInfo.initiative.fonte === InitiativeInfo.initiative.concedente ? InitiativeInfo.initiative.fonte : InitiativeInfo.initiative.fonte + ' / ' + InitiativeInfo.initiative.concedente}}):</strong></p>
+      <p>Valor repassado pelo Governo Federal<br> <strong>({{InitiativeInfo.initiative.fonte === InitiativeInfo.initiative.concedente ? InitiativeInfo.initiative.fonte : InitiativeInfo.initiative.fonte + ' / ' + InitiativeInfo.initiative.concedente}}):</strong></p>
       <p class="initiative-currency">{{InitiativeInfo.initiative.verbaGovernoFederal | currency}}</p>
-      <p>Valor complementada pela Prefeitura:</p>
+      <p>Valor complementado pela Prefeitura:</p>
       <p class="initiative-currency">{{InitiativeInfo.initiative.verbaMunicipio | currency}}</p>
       <p>Valor total:</p>
       <p class="initiative-currency">{{InitiativeInfo.initiative.verbaGovernoFederal+InitiativeInfo.initiative.verbaMunicipio | currency}}</p>

@@ -4,38 +4,32 @@ angular.module('Diferentonas')
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.moreData = false;
-    vm.initiatives = [];
-
-    vm.initiatives = Timeline.query(function() {
-      if (vm.initiatives.length == 0) {
-        vm.initiatives = [{
-          id: null,
-          titulo: "No momento não temos novidades para serem exibidas, para ver novidades na sua linha do tempo você deve seguir Iniciativas ou Cidades.",
-          status: "Não existem novidades disponíveis no sistema"}];
-      } else {
-          vm.moreData = false;
+    vm.news = Timeline.query(function() {
+      if(vm.news.length == 0){
+        moreData = false;
+      }else{
+        moreData = true;
       }
-        vm.moreData = false;
-        $ionicLoading.hide();
-    }, function(error) {
-        $ionicLoading.hide();
-        ionicToast.show("Não foi possível carregar as informações", 'bottom', false, 2500);
+      $ionicLoading.hide();
+    }, function() {
+      $ionicLoading.hide();
+      ionicToast.show("Não foi possível carregar mais informações, tente mais tarde.", 'center', false, 2500);
     });
 
     vm.loadMore = function() {
-      var items = [];
-      $http.get(api.concat("/linhadotempo")).success(function(data){
-        if(data.length == 0){
+      var items = Timeline.query(function() {
+        if(items.length == 0){
           ionicToast.show("Não existem mais novidades", 'bottom', false, 2500);
           moreData = false;
         }else{
-          items = data;
-          vm.initiatives.push(items);
+          vm.news.push(items);
           moreData = true;
         }
-      }).error(function(data) {
-          ionicToast.show("Não foi possível carregar mais informações, tente mais tarde.", 'center', false, 2500);
-      });
+        $ionicLoading.hide();
+      }, function() {
+        $ionicLoading.hide();
+        ionicToast.show("Não foi possível carregar mais informações, tente mais tarde.", 'center', false, 2500);
+      })
       $scope.$broadcast('scroll.infiniteScrollComplete');
       items = [];
     };

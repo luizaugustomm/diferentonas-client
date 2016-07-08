@@ -14,7 +14,7 @@
       </div>
       <div class="col-60 score-update-value">
         <p ng-class="{'item-positive' : (score.valorAnteriorScore >=1), 'item-negative' : (score.valorAnteriorScore <= -1), 'item-neutral' : (score.valorAnteriorScore > -1 && score.valorAnteriorScore < 1)}">
-          <strong>{{ city.getScoreText(score.valorAnteriorScore) }}</strong>
+          <strong>{{ getScoreText(score.valorAnteriorScore) }}</strong>
         </p>
       </div>
     </div>
@@ -24,7 +24,7 @@
       </div>
       <div class="col-60 score-update-value">
         <p ng-class="{'item-positive' : (score.valorScore >=1), 'item-negative' : (score.valorScore <= -1), 'item-neutral' : (score.valorScore > -1 && score.valorScore < 1)}">
-          <strong>{{ city.getScoreText(score.valorScore) }}</strong>
+          <strong>{{ getScoreText(score.valorScore) }}</strong>
         </p>
       </div>
     </div>
