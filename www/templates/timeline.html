@@ -13,13 +13,6 @@
 
       <div ng-repeat="new in Timeline.news">
 
-        <df-updated-score-card
-        city="new.cidade"
-        score="new.score"
-        ui-sref="initiatives({'id_city': new.cidade.id, 'theme': new.score.area})"
-        ng-hide="new.score.area === 'TOTAL GERAL'"
-        ng-if="new.tipo === 'NOVO_SCORE' || new.tipo === 'ATUALIZACAO_DE_SCORE'"></df-updated-score-card>
-
         <df-new-initiative-card
         city="new.cidade"
         initiative="new.iniciativa"
@@ -44,7 +37,7 @@
 
       </div>
 
-      <ion-infinite-scroll distance="2" on-infinite="Timeline.loadMore()" ng-if="Timeline.moreData">
+      <ion-infinite-scroll distance="5%" on-infinite="Timeline.loadMore()" ng-if="Timeline.moreData">
       </ion-infinite-scroll>
     </ion-content>
 
