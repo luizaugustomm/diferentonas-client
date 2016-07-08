@@ -40,7 +40,7 @@ angular.module('Diferentonas')
       }).success(function(data) {
           $ionicLoading.hide();
           ionicToast.show("Discussão lançada!", 'bottom', false, 2500);
-          vm.comments.push(vm.comment);
+          vm.comments.unshift(vm.comment);
           vm.comment = {
             "tipo": "",
             "conteudo": ""
