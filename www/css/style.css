@@ -291,29 +291,19 @@ p.score-update-value, .score-update-value {
     font-size: 30px;
     color : #C64832;
 }
+
 .progress-chart {
   height: 300px;
   width: 4px;
-  margin: 30px 0 25px 50%;
+  margin: 30px 0 25px 40%;
   overflow: hidden;
-  background-color: #DD9F16;
+  background-color: #5D5D5D;
 }
 
-.triangle-status{
-  height: 3px;
-  width: 15px;
-  position: absolute;
-  margin-top: 298px;
-  margin-left: -5px;
-  border: solid 8px;
-  border-color: transparent #DD9F16 transparent transparent;
-}
-
-.progress-chart-done {
-  height: 300px;
-  width: 4px;
-  position: absolute;
-  background-color:#5D5D5D;
+.icon-status{
+  font-size: 23px;
+  color:#58A87D;
+  margin-left:5px;
 }
 
 .legend-progress-chart{
@@ -327,33 +317,49 @@ p.score-update-value, .score-update-value {
   background-color: #FFF;
 }
 
-.progress-chart-begin{
+.progress-chart-conclusion{
   position: relative;
   float: left;
   clear: left;
   text-align: right;
-  margin: -38px 5% 0 35%;
+  margin: 70px 8% 0 12%;
 }
 
 .progress-chart-end{
   position: relative;
   float: left;
   text-align: right;
-  margin: 22px 5% 0 18%;
+  margin: 0px 8% 0 -58%;
 }
 
-.progress-chart-conclusion{
+.progress-chart-begin{
   position: relative;
   float: left;
   clear: left;
   text-align: right;
-  margin: 50px 5% 0 35%;
+  margin: 163px 5% 0 12%;
 }
 
-.progress-chart-status{
+.triangle-status{
+  height: 3px;
+  width: 15px;
   position: absolute;
-  color: #DD9F16;
+  margin-top: 298px;
+  margin-left: 15px;
+  border: solid 8px;
+  border-color: transparent #DD9F16 transparent transparent;
 }
+
+.square-info{
+    background: #fff;
+    border: solid 2px #DD9F16;
+    width: 90px;
+    text-align: center;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: 8px;
+}
+
 .reaction-icon {
   float: right;
   color: #5850C0;

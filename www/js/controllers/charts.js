@@ -4,11 +4,11 @@ angular.module('Diferentonas')
         restrict: 'A',
         replace: true,
         link: function(scope, elem, attrs) {
-            var margin = "320px 0 0 60%";
+            var margin = "320px 0 0 40%";
             angular.element(document).ready(function (){
             	if(attrs.statusIniciative=="Aprovada pelo Governo Federal" ||
             		attrs.statusIniciative=="Aprovada pelo Governo Federal com ressalvas"){
-            		margin="20px 0 0 60%";
+            		margin="20px 0 0 40%";
             	}else if(attrs.statusIniciative=="Em andamento"){
             		var begin = new Date((attrs.beginIniciative.slice(6,10)+"-"+
             							attrs.beginIniciative.slice(3,5)+"-"+
@@ -22,7 +22,7 @@ angular.module('Diferentonas')
             		var daypx = estimated/210;
             		margin = ((currentDay/daypx)+90)+"px 0 0 60%";
             	}else if(attrs.statusIniciative=="Concluída, segundo a prefeitura"){
-            		margin = "90px 0 0 60%";
+            		margin = "90px 0 0 40%";
             	}
             	elem.css("margin", margin);
             });
