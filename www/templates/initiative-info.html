@@ -39,7 +39,26 @@
     <div class="initiative-card initiative-progress padding">
       <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
 
-      <div class="progress-chart-conclusion">
+      <div class='progress-chart-done'ng-to-bar status-iniciative="{{InitiativeInfo.initiative.status}}" begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}"> 
+        
+        <div class = "legend-progress-chart" ng-to-status ng-attr-status={{InitiativeInfo.initiative.status}}
+        begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" status-iniciative="{{InitiativeInfo.initiative.status}}"></div>
+
+        <div class = "legend-progress-chart" style="margin-top: 75px"
+         ng-to-conclusion begin-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" status-iniciative="{{InitiativeInfo.initiative.status}}"></div>
+
+        <div class = "legend-progress-chart" style="margin-top: 0px" ng-to-end begin-iniciative="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}" status-iniciative="{{InitiativeInfo.initiative.status}}"></div>
+
+        <div class="triangle-status" ng-show-status status-iniciative="{{InitiativeInfo.initiative.status}}" begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}">
+          <div class="square-info" ng-square-status status-iniciative="{{InitiativeInfo.initiative.status}}">
+            <span class="status {{InitiativeInfo.initiative.statusClass}}"> Status atual: <br> {{ InitiativeInfo.initiative.status }}</span>
+          </div>
+        </div>
+        
+        <div class='progress-chart' ng-to-done  status-iniciative="{{InitiativeInfo.initiative.status}}"
+        begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}"></div>
+        </div>
+        <div class="progress-chart-conclusion">
         Conclusão:<br>{{InitiativeInfo.initiative.dataConclusaoMunicipio}}
       </div>
       <div class="progress-chart-end">
@@ -48,21 +67,7 @@
       <div class='progress-chart-begin'>
         Início: <br>
         {{InitiativeInfo.initiative.dataInicio}}
-      </div>
-
-      <div class='progress-chart'>
-        <div class = "legend-progress-chart" ng-to-status status-iniciative="{{InitiativeInfo.initiative.status}}" begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}"></div>
-        <div class = "legend-progress-chart" style="margin-top: 75px"></div>
-        <div class = "legend-progress-chart" style="margin-top: 0px"></div>
-        <div class="triangle-status" ng-show-status  status-iniciative="{{InitiativeInfo.initiative.status}}"
-        begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}">
-          <div class="square-info">
-            <span class="status {{InitiativeInfo.initiative.statusClass}}"> Status atual: <br> {{ InitiativeInfo.initiative.status }}</span>
-          </div>
-        </div>
-        <div class='progress-chart-done' ng-to-done  status-iniciative="{{InitiativeInfo.initiative.status}}"
-        begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}"></div>
-      </div>     
+      </div>    
     </div>
 
     <div class="initiative-card initiative-values padding">

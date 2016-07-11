@@ -284,6 +284,19 @@ p.score-update-value, .score-update-value {
 .progress-bar-balanced {
   background-color: #000;
 }
+
+.icon-check {
+    font-size: 25px;
+    text-align: center;
+    color: #58A87D;
+}
+
+.icon-delay {
+    font-size: 25px;
+    text-align: center;
+    color: #DD3C16;
+}
+
 .icon-right {
     padding-right: 15px;
 }
@@ -292,18 +305,18 @@ p.score-update-value, .score-update-value {
     color : #C64832;
 }
 
-.progress-chart {
+.progress-chart-done {
   height: 300px;
-  width: 4px;
-  margin: 30px 0 25px 40%;
+  width: 5px;
+  margin: 30px 0 25px 45%;
   overflow: hidden;
   background-color: #5D5D5D;
 }
 
-.progress-chart-done {
-  height: 300px;
+.progress-chart {
+  height: 0px;
   width: 5px;
-  margin: 30px 0 25px 40%;
+  margin: 30px 0 25px 0;
   overflow: hidden;
   background-color: #5D5D5D;
 }
@@ -330,14 +343,14 @@ p.score-update-value, .score-update-value {
   float: left;
   clear: left;
   text-align: right;
-  margin: 70px 8% 0 12%;
+  margin: -245px 8% 0 12%;
 }
 
 .progress-chart-end{
   position: relative;
   float: left;
   text-align: right;
-  margin: 0px 8% 0 -58%;
+  margin: -320px 8% 0 -10%;
 }
 
 .progress-chart-begin{
@@ -345,7 +358,7 @@ p.score-update-value, .score-update-value {
   float: left;
   clear: left;
   text-align: right;
-  margin: 163px 5% 0 12%;
+  margin: -55px 5% 0 12%;
 }
 
 .triangle-status{
