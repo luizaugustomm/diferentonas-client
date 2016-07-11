@@ -4,5 +4,8 @@
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.2.4",
     "facebook-connect-plugin": "https://cdn.rawgit.com/Wizcorp/phonegap-facebook-plugin/master/facebookConnectPlugin.js"
+  },
+  "dependencies": {
+    "ng-cordova-oauth": "^0.2.9"
   }
 }

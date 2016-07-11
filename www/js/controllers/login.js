@@ -1,5 +1,5 @@
 angular.module('Diferentonas')
-.controller('LoginCtrl', function($scope,$location,$state,$q,$cordovaFacebook,$ionicLoading,UserService) {
+.controller('LoginCtrl', function($scope,$location,$state,$q,$cordovaFacebook,$ionicLoading,UserService,$cordovaOauth) {
     $scope.data = {};
 
     var getFacebookProfileInfo = function (authResponse) {
@@ -40,5 +40,13 @@ angular.module('Diferentonas')
         facebookConnectPlugin.login(["public_profile"],fbLoginSuccess,
         function (error) { alert("" + error) }
         );
+        $cordovaOauth.facebook("1168526739834367", ["email"], {
+          "auth_type": "rerequest"
+        }).then(function(result) {
+          console.log(JSON.stringify(result));
+        }, function(error) {
+          console.log(JSON.stringify(error));
+        });
+
     }
 })
