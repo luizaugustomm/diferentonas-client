@@ -72,4 +72,8 @@
     </platform>
     <icon src="resources/android/icon/drawable-hdpi-icon.png" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.2" />
+    <preference name="xwalkVersion" value="19+" />
+    <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
+    <preference name="xwalkMode" value="embedded" />
+    <preference name="xwalkMultipleApk" value="true" />
 </widget>
