@@ -24,7 +24,7 @@
           <ion-list ng-show="Battle.selectedCities[0].nome && !Battle.selectedCities[0].isSelected">
               <ion-item
                 class="shorter"
-                ng-repeat="city in Battle.cities | ignoreAccents:Battle.selectedCities[0].nome | orderBy:'nome' | limitTo: 8"
+                ng-repeat="city in Battle.cities | filter:Battle.selectedCities[0].nome | orderBy:'nome' | limitTo: 8"
                 ng-click="Battle.selectCity(city, 0)">
                   {{ city.nome }} - {{ city.uf }}
               </ion-item>
@@ -48,7 +48,7 @@
           <ion-list ng-show="Battle.selectedCities[1].nome && !Battle.selectedCities[1].isSelected">
               <ion-item
                 class="shorter"
-                ng-repeat="city in Battle.cities | ignoreAccents:Battle.selectedCities[1].nome | orderBy:'nome' | limitTo: 8"
+                ng-repeat="city in Battle.cities | filter:Battle.selectedCities[1].nome | orderBy:'nome' | limitTo: 8"
                 ng-click="Battle.selectCity(city, 1)">
                   {{ city.nome }} - {{ city.uf }}
               </ion-item>
