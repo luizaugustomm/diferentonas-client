@@ -388,6 +388,11 @@ p.score-update-value, .score-update-value {
     margin-left: 8px;
 }
 
+.icon-opinion{
+  color: #5C5C5C;
+  font-size: 1.5em;
+}
+
 .reaction-icon {
   float: right;
   color: #5850C0;
