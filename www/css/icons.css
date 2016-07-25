@@ -1,10 +1,10 @@
 @font-face {
     font-family: 'icomoon';
-    src:    url('fonts/icomoon.eot?m2k3ma');
-    src:    url('fonts/icomoon.eot?m2k3ma#iefix') format('embedded-opentype'),
-        url('fonts/icomoon.ttf?m2k3ma') format('truetype'),
-        url('fonts/icomoon.woff?m2k3ma') format('woff'),
-        url('fonts/icomoon.svg?m2k3ma#icomoon') format('svg');
+    src:    url('fonts/icomoon.eot?5b30ea');
+    src:    url('fonts/icomoon.eot?5b30ea#iefix') format('embedded-opentype'),
+        url('fonts/icomoon.ttf?5b30ea') format('truetype'),
+        url('fonts/icomoon.woff?5b30ea') format('woff'),
+        url('fonts/icomoon.svg?5b30ea#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -24,34 +24,37 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-curti:before {
+.icon-busca:before {
     content: "\e900";
 }
-.icon-nao-curti:before {
+.icon-curtiu:before {
     content: "\e901";
 }
-.icon-concodo:before {
+.icon-nao-curtiu:before {
     content: "\e902";
 }
-.icon-nao-concordo:before {
+.icon-confiavel:before {
     content: "\e903";
 }
-.icon-bomba:before {
+.icon-nao-confiavel:before {
     content: "\e904";
 }
-.icon-distintivo:before {
+.icon-bomba:before {
     content: "\e905";
 }
-.icon-mensagem:before {
+.icon-distintivo:before {
     content: "\e906";
 }
-.icon-seguir:before {
+.icon-mensagem:before {
     content: "\e907";
 }
-.icon-status:before {
+.icon-seguir:before {
     content: "\e908";
 }
-.icon-valor:before {
+.icon-status:before {
     content: "\e909";
+}
+.icon-valor:before {
+    content: "\e90a";
 }
 
