@@ -2,6 +2,10 @@
 .content-primary   { background-color: #5850C0; }
 .content-secondary { background-color: #444242; }
 .content-tertiary  { background-color: #FFAA00; }
+.icon-default { color: #444242; }
+.icon-positive { color: #58A87D; }
+.icon-negative { color: #C64832; }
+.icon-especial { color: #99003c; }
 
 p.score-update-info, .score-update-info {
   text-align: right;
@@ -150,10 +154,8 @@ p.score-update-value, .score-update-value {
 }
 
 .icon-chart{
-  font-size: 30px;
-  text-align: center;
-  position: absolute;
-  margin: -5% 0 0 8%;
+  font-size: 25px;
+  margin-left: 25%;
 }
 
 .two-line-title {

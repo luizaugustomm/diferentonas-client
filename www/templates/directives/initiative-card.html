@@ -12,20 +12,20 @@
     <br>
     <div class="row">
       <div class="col-60">
-        <i class="ion-android-time status" ng-class="city.getInitiativeStatus(initiative)"></i> {{ initiative.status }}
+        <span class="icon-status icon-positive" ng-class="city.getInitiativeStatus(initiative)"></span> {{ initiative.status }}
       </div>
       <div class="col-40">
-        <i class="ion-social-usd balanced"></i> {{ initiative.verbaGovernoFederal | currency:'R$ ' }}
+        <span class="icon-valor icon-positive"></span> {{ initiative.verbaGovernoFederal | currency:'R$ ' }}
       </div>
     </div>
   </div>
 
   <div class="item item-divider">
     <div class="row">
-      <div class="col-25 text-center"><i class="ion-ios-chatbubble"></i> {{initiative.sumario.coracao+initiative.sumario.coracao_partido+initiative.sumario.bomba}}</div>
-      <div class="col-25 text-center"><i class="ion-heart"></i> {{initiative.sumario.coracao}}</div>
-      <div class="col-25 text-center"><i class="ion-heart-broken"></i> {{initiative.sumario.coracao_partido}}</div>
-      <div class="col-25 text-center"><i class="ion-flame"></i> {{initiative.sumario.bomba}}</div>
+      <div class="col-25 text-center"><span class="icon-mensagem icon-default"></span> {{initiative.sumario.coracao+initiative.sumario.coracao_partido+initiative.sumario.bomba}}</div>
+      <div class="col-25 text-center"><span class="icon-curtiu icon-especial"></span> {{initiative.sumario.coracao}}</div>
+      <div class="col-25 text-center"><span class="icon-nao-curtiu icon-especial"></span> {{initiative.sumario.coracao_partido}}</div>
+      <div class="col-25 text-center"><span class="icon-bomba"></span> {{initiative.sumario.bomba}}</div>
     </div>
   </div>
 

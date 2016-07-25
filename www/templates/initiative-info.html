@@ -31,7 +31,7 @@
     <div class="initiative-card initiative-title padding" style="padding-top: 10px;">
       <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
       <div class="col">
-        Status da iniciativa: <br> 
+        Status da iniciativa: <br>
         <span class="status {{InitiativeInfo.initiative.statusClass}}"> {{ InitiativeInfo.initiative.status }}</span>
       </div>
     </div>
@@ -39,8 +39,8 @@
     <div class="initiative-card initiative-progress padding">
       <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
 
-      <div class='progress-chart-done'ng-to-bar status-iniciative="{{InitiativeInfo.initiative.status}}" begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}"> 
-        
+      <div class='progress-chart-done'ng-to-bar status-iniciative="{{InitiativeInfo.initiative.status}}" begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}">
+
         <div class = "legend-progress-chart" ng-to-status ng-attr-status={{InitiativeInfo.initiative.status}}
         begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" status-iniciative="{{InitiativeInfo.initiative.status}}"></div>
 
@@ -54,7 +54,7 @@
             <span class="status {{InitiativeInfo.initiative.statusClass}}"> Status atual: <br> {{ InitiativeInfo.initiative.status }}</span>
           </div>
         </div>
-        
+
         <div class='progress-chart' ng-to-done  status-iniciative="{{InitiativeInfo.initiative.status}}"
         begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}"></div>
         </div>
@@ -67,7 +67,7 @@
       <div class='progress-chart-begin'>
         Início: <br>
         {{InitiativeInfo.initiative.dataInicio}}
-      </div>    
+      </div>
     </div>
 
     <div class="initiative-card initiative-values padding">
@@ -82,10 +82,10 @@
     <div class="initiative-card initiative-evaluation padding">
       <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
       <nvd3 options="InitiativeInfo.options" data="InitiativeInfo.data"></nvd3>
-      <div class = "row">
-        <div class = "col"><i class="icon-chart ion-alert-circled"></i></div>
-        <div class = "col"><i class="icon-chart ion-heart" style="color:#99003c"></i></div>
-        <div class = "col"><i class="icon-chart ion-heart-broken" style="color:#99003c"></i></div>
+      <div class="row" style="margin-top: -20px;">
+        <div class="col"><span class="icon-chart icon-bomba icon-default"></span></div>
+        <div class="col"><span class="icon-chart icon-curtiu icon-especial"></span></div>
+        <div class="col"><span class="icon-chart icon-nao-curtiu icon-especial"></span></div>
       </div>
     </div>
   </ion-content>
