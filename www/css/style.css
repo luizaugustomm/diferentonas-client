@@ -350,14 +350,14 @@ p.score-update-value, .score-update-value {
   float: left;
   clear: left;
   text-align: right;
-  margin: -245px 8% 0 12%;
+  margin: -245px 8% 0 8%;
 }
 
 .progress-chart-end{
   position: relative;
   float: left;
   text-align: right;
-  margin: -320px 8% 0 -10%;
+  margin: -320px 8% 0 8%;
 }
 
 .progress-chart-begin{
@@ -365,7 +365,7 @@ p.score-update-value, .score-update-value {
   float: left;
   clear: left;
   text-align: right;
-  margin: -55px 5% 0 12%;
+  margin: -55px 5% 0 8%;
 }
 
 .triangle-status{
