@@ -2,6 +2,7 @@
 .content-primary   { background-color: #5850C0; }
 .content-secondary { background-color: #444242; }
 .content-tertiary  { background-color: #FFAA00; }
+.content-quaternary  { background-color: #7D427D; }
 
 p.score-update-info, .score-update-info {
   text-align: right;

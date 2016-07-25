@@ -46,17 +46,23 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast','nvd3','ngCordova', 'ngRe
     controller: 'ProfileCtrl',
     controllerAs: 'Profile'
   })
+  .state('help', {
+    url: '/help',
+    templateUrl: 'templates/help.html',
+    controller: 'HelpCtrl',
+    controllerAs: 'Help'
+  })
+  .state('about', {
+    url: '/about',
+    templateUrl: 'templates/about.html',
+    controller: 'AboutCtrl',
+    controllerAs: 'About'
+  })
   .state('messages', {
     url: '/messages',
     templateUrl: 'templates/messages.html',
     controller: 'MessagesCtrl',
     controllerAs: 'Messages'
-  })
-  .state('broadcast', {
-    url: '/broadcast',
-    templateUrl: 'templates/broadcast.html',
-    controller: 'BroadcastCtrl',
-    controllerAs: 'Broadcast'
   })
   .state('search', {
     url: '/search',
