@@ -15,10 +15,10 @@
 
     <div class="row">
       <div class="col-60">
-        <i class="ion-android-time status" ng-class="city.getInitiativeStatus(initiative)"></i> {{ initiative.status }}
+        <span class="icon-status status" ng-class="city.getInitiativeStatus(initiative)"></span> {{ initiative.status }}
       </div>
       <div class="col-40">
-        <i class="ion-social-usd balanced"></i> {{ initiative.verbaGovernoFederal | currency:'R$ ' }}
+        <span class="icon-valor balanced"></span> {{ initiative.verbaGovernoFederal | currency:'R$ ' }}
       </div>
     </div>
 
