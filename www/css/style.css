@@ -142,6 +142,7 @@ p.score-update-value, .score-update-value {
 }
 .initiative-icon-img {
   float: left;
+  margin-top: -12px;
   margin-left: -48px;
   background-color: #FFF;
   border-radius: 50%;

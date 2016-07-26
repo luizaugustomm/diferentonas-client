@@ -30,8 +30,10 @@ angular.module('Diferentonas')
 
     vm.initiative = Initiative.get({id: $stateParams.id_initiative}, function() {
       // TODO issue #54 Remover essa chamada quando o objeto cidade já estiver incluso na iniciativa
+      console.log(vm.initiative);
       vm.initiative.city = City.get({id: $stateParams.id_city}, function() {
         vm.initiative.statusClass = City.getInitiativeStatus(vm.initiative);
+        vm.initiative.icone = getIconArea(vm.initiative.area);
       });
       if (vm.initiative.sumario !== null) {
         setSumario(vm.initiative.sumario);
@@ -80,6 +82,36 @@ angular.module('Diferentonas')
 
     vm.goBack = function() {
       $ionicHistory.goBack();
+    }
+
+    getIconArea = function(area) {
+      switch (area) {
+        case "Administração": return "administracao"; break;
+        case "Agricultura": return "agricultura"; break;
+        case "Assitência Social": return "assistencia_social"; break;
+        case "Ciência e Tecnologia": return "ciencia_e_tecnologia"; break;
+        case "Comércio e Serviços": return "comercio"; break;
+        case "Comunicações": return "comunicacoes"; break;
+        case "Cultura": return "cultura"; break;
+        case "Defesa Nacional": return "defesa_nacional"; break;
+        case "Disporto e Lazer": return "desporto_e_lazer"; break;
+        case "Direitos da Cidadania": return "direitos_da_cidadania"; break;
+        case "Educação": return "educacao"; break;
+        case "Energia": return "energia"; break;
+        case "Gestão Ambiental": return "gestao_ambiental"; break;
+        case "Indústria": return "industria"; break;
+        case "Organização Agrária": return "organizacao_agraria"; break;
+        case "Saneamento": return "saneamento"; break;
+        case "Saúde": return "saude"; break;
+        case "Segurança": return "seguranca"; break;
+        case "Trabalho": return "trabalho"; break;
+        case "Transporte": return "transporte"; break;
+        case "Urbanismo": return "urbanismo"; break;
+
+        default:
+          return "batalha"
+          break;
+      }
     }
 
 }]);

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Camada_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 56.7 56.7" style="enable-background:new 0 0 56.7 56.7;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#4600CC;}
+	.st2{opacity:5.000000e-002;fill:#211915;}
+	.st3{fill:#C64832;}
+</style>
+<g>
+	<circle class="st0" cx="28.3" cy="28.3" r="28.3"/>
+	<g>
+		
+			<rect x="18.7" y="13.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 28.6598 68.3374)" class="st1" width="19.6" height="29.3"/>
+		<polygon class="st2" points="39.9,22.9 31.5,31.3 23.1,39.6 25,45.5 35.4,35.1 45.8,24.8 		"/>
+		<polygon class="st2" points="26.9,39.6 18.5,31.3 17.1,29.8 11.2,31.7 14.7,35.1 25,45.5 		"/>
+		<polygon class="st2" points="39.9,26.7 31.5,18.3 30,16.8 31.9,11 35.4,14.4 45.8,24.8 		"/>
+		<g>
+			<path class="st3" d="M40.2,30.3c-0.1-0.1-0.1-0.1-0.1-0.2l0-10.6c0-0.2,0.1-0.3,0.3-0.3c0.2,0,0.3,0.1,0.3,0.3l0,10.6
+				c0,0.2-0.1,0.3-0.3,0.3C40.4,30.4,40.3,30.4,40.2,30.3z"/>
+		</g>
+		<g>
+			<path class="st3" d="M19.5,40.4c-0.1-0.1-0.1-0.1-0.1-0.2c0-0.2,0.1-0.3,0.3-0.3l10.6,0c0.2,0,0.3,0.1,0.3,0.3
+				c0,0.2-0.1,0.3-0.3,0.3l-10.6,0C19.6,40.5,19.5,40.5,19.5,40.4z"/>
+		</g>
+	</g>
+</g>
+</svg>

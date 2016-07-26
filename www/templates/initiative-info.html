@@ -20,7 +20,7 @@
   <ion-content class="padding-top content-default has-subheader has-tabs">
     <br>
     <div class="initiative-card initiative-title padding">
-      <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon-img" />
+      <img ng-src="img/{{InitiativeInfo.initiative.icone}}.svg" alt="{{InitiativeInfo.initiative.area}}" width="40px" class="initiative-icon-img" />
       <div class="col">
         <strong class="initiative-values-title">
           {{InitiativeInfo.initiative.titulo}}
@@ -38,7 +38,6 @@
 
     <div class="initiative-card initiative-progress padding">
       <span class="icon-status {{InitiativeInfo.initiative.statusClass}} initiative-icon"></span>
-
 
       <div class='progress-chart-done'ng-to-bar status-iniciative="{{InitiativeInfo.initiative.status}}" begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}">
 
