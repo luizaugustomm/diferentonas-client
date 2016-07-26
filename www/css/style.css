@@ -3,6 +3,10 @@
 .content-secondary { background-color: #444242; }
 .content-tertiary  { background-color: #FFAA00; }
 .content-quaternary  { background-color: #7D427D; }
+.icon-default { color: #444242; }
+.icon-positive { color: #58A87D; }
+.icon-negative { color: #C64832; }
+.icon-especial { color: #99003c; }
 
 .text-title {
   color: white;
@@ -146,6 +150,16 @@ p.score-update-value, .score-update-value {
 .initiative-icon {
   float: left;
   margin-left: -48px;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 7px;
+  font-size: 1.8em;
+  z-index: 9999;
+}
+.initiative-icon-img {
+  float: left;
+  margin-top: -12px;
+  margin-left: -48px;
   background-color: #FFF;
   border-radius: 50%;
   z-index: 9999;
@@ -167,10 +181,8 @@ p.score-update-value, .score-update-value {
 }
 
 .icon-chart{
-  font-size: 30px;
-  text-align: center;
-  position: absolute;
-  margin: -5% 0 0 8%;
+  font-size: 25px;
+  margin-left: 25%;
 }
 
 .two-line-title {
@@ -345,12 +357,6 @@ p.score-update-value, .score-update-value {
   background-color: #5D5D5D;
 }
 
-.icon-status{
-  font-size: 23px;
-  color:#58A87D;
-  margin-left:5px;
-}
-
 .legend-progress-chart{
   height: 35px;
   width: 35px;
@@ -436,6 +442,7 @@ p.score-update-value, .score-update-value {
 }
 .button-reaction.active {
   background-color: #5850C0;
+  color: #fff;
 }
 .button.button-full.button-reply {
   margin: 0 0 -1px 0;

@@ -3,7 +3,7 @@
   <div class="item item-avatar">
     <img ng-src="{{comment.autor.urlDaFoto || 'http://www.gravatar.com/avatar/4563456781896?f=y&d=retro'}}"/>
     <div class="reaction-icon">
-      <i class="icon" ng-class="getIcon()"></i>
+      <span class="icon" ng-class="getIcon()"></span>
     </div>
     <h2><img ng-if="comment.autor.funcionario" src="img/distintivo.png" class="funcionario-badge"><strong>{{ comment.autor.nome }}</strong></h2>
     <p>{{ comment.criadaEm }}</p>
@@ -16,12 +16,12 @@
     <div class="row">
       <div class="col-50 text-center">
         <!-- <button ng-class="comment.user.reaction ? 'like' : 'dislike'" class="icon-opinion button" ng-click="comment.likedComment()">-->
-         <i class="icon-opinion ion-thumbsup"> 0 </i>
+         <span class="icon-confiavel"> 0 </i>
          <!--</button>-->
       </div>
       <div class="col-50 text-center">
         <!--<button ng-class="comment.user.reaction ? 'like' : 'dislike'" class="icon-opinion button" ng-click="comment.likedComment()">-->
-         <i class="icon-opinion ion-thumbsdown"> 0 </i>
+         <span class="icon-nao-confiavel"> 0 </i>
          <!--</button>-->
       </div>
     </div>

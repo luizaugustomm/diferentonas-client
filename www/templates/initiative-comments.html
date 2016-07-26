@@ -17,19 +17,19 @@
 
     <div class="row text-center">
       <div class="col">
-        <button class="button icon ion-heart button-reaction"
+        <button class="button button-reaction"
         ng-class="{'active': InitiativeComments.comment.tipo === 'coracao'}"
-        ng-click="InitiativeComments.selectReaction('coracao')"></button>
+        ng-click="InitiativeComments.selectReaction('coracao')"><span class="icon-curtiu"></span></button>
       </div>
       <div class="col">
-        <button class="button icon ion-heart-broken button-reaction"
+        <button class="button button-reaction"
         ng-class="{'active': InitiativeComments.comment.tipo === 'coracao_partido'}"
-        ng-click="InitiativeComments.selectReaction('coracao_partido')"></button>
+        ng-click="InitiativeComments.selectReaction('coracao_partido')"><span class="icon-nao-curtiu"></span></button>
       </div>
       <div class="col">
-        <button class="button icon ion-flame button-reaction"
+        <button class="button button-reaction"
         ng-class="{'active': InitiativeComments.comment.tipo === 'bomba'}"
-        ng-click="InitiativeComments.selectReaction('bomba')"></button>
+        ng-click="InitiativeComments.selectReaction('bomba')"><span class="icon-bomba"></span></button>
       </div>
     </div>
 
@@ -55,11 +55,11 @@
   </div>
 
   <df-comment-card
-  city="InitiativeComments.city"
-  theme="InitiativeComments.theme"
-  initiative="InitiativeComments.initiative"
-  comment="comment"
-  ng-repeat="comment in InitiativeComments.comments | orderBy:comment.criadaEm"></df-comment-card>
+    city="InitiativeComments.city"
+    theme="InitiativeComments.theme"
+    initiative="InitiativeComments.initiative"
+    comment="comment"
+    ng-repeat="comment in InitiativeComments.comments | orderBy:comment.criadaEm"></df-comment-card>
 
   <ion-infinite-scroll distance="5%" on-infinite="InitiativeComments.loadMore()" ng-if="InitiativeComments.moreData">
   </ion-infinite-scroll>

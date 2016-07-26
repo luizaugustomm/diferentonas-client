@@ -11,15 +11,15 @@
       <form novalidate>
         <div class="search-input padding">
           <div class="item item-input" ng-class="Battle.selectedCities[0].nome ? 'search-input-part-rounded' : 'search-input-rounded'">
-            <i class="icon icon-balanced placeholder-icon ion-search"></i>
+            <span class="icon-busca icon-negative placeholder-icon"></span>
             <input
               type="text"
               placeholder="Comparar esta cidade"
               ng-model="Battle.selectedCities[0].nome"
               ng-change="Battle.inputChanged(0)">
-              <i class="icon icon-right ion-close-circled placeholder-icon"
+              <span class="icon icon-right ion-close-circled placeholder-icon"
                 ng-click="Battle.clearFields()"
-                ng-show="Battle.selectedCities[0].nome"></i>
+                ng-show="Battle.selectedCities[0].nome"></span>
           </div>
           <ion-list ng-show="Battle.selectedCities[0].nome && !Battle.selectedCities[0].isSelected">
               <ion-item
@@ -35,15 +35,15 @@
 
         <div class="padding">
           <div class="item item-input" ng-class="Battle.selectedCities[1].nome ? 'search-input-part-rounded' : 'search-input-rounded'">
-            <i class="icon icon-balanced placeholder-icon ion-search"></i>
+            <span class="icon-busca icon-negative placeholder-icon"></span>
             <input
               type="text"
               placeholder="Com esta cidade"
               ng-model="Battle.selectedCities[1].nome"
               ng-change="Battle.inputChanged(1)">
-              <i class="icon icon-right ion-close-circled placeholder-icon"
+              <span class="icon icon-right ion-close-circled placeholder-icon"
                 ng-click="Battle.clearFields()"
-                ng-show="Battle.selectedCities[1].nome"></i>
+                ng-show="Battle.selectedCities[1].nome"></span>
           </div>
           <ion-list ng-show="Battle.selectedCities[1].nome && !Battle.selectedCities[1].isSelected">
               <ion-item
