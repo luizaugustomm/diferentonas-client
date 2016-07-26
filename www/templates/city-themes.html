@@ -1,9 +1,7 @@
 <ion-pane class="cards">
     <ion-header-bar align-title="center" class="bar bar-header">
         <button class="button icon ion-android-arrow-back" ng-click="CityThemes.goBack()"></button>
-         <span class="two-line-title">
-         <strong>{{CityThemes.city.nome}} - {{ CityThemes.city.uf }}</strong><br>
-         </span>
+        <h1 class="title">{{ CityThemes.city.nome }} - {{ CityThemes.city.uf }}</h1>
         <button ng-class="CityThemes.city.seguidaPeloRequisitante ? 'follow' : 'unfollow'" class="icon-follow button" ng-click="CityThemes.followCity()">
         <i class="icon-follow ion-eye"></i>
     </button>

@@ -1,13 +1,15 @@
 <ion-pane class="cards">
     <ion-header-bar align-title="center" class="bar bar-header">
-      <button class="button icon ion-android-arrow-back" ng-click="Timeline.goBack()"></button>
-      <h1 class="title">Feed de novidades</h1>
+      <!-- <button class="button icon ion-android-arrow-back" ng-click="Timeline.goBack()"></button> -->
+      <h1 class="title">Últimas atualizações</h1>
     </ion-header-bar>
 
     <div class="tabs tabs-striped tabs-top tabs-icon-only">
+      <a class="tab-item" style="visibility: hidden;"></a>
       <a class="tab-item" ui-sref="profile"><i class="icon ion-person"></i></a>
       <a class="tab-item" ui-sref="help"><i class="icon ion-help-circled"></i></a>
       <a class="tab-item" ui-sref="about"><i class="icon ion-information-circled"></i></a>
+      <a class="tab-item" style="visibility: hidden;"></a>
     </div>
 
     <ion-content class="padding content-default has-subheader has-tabs">
