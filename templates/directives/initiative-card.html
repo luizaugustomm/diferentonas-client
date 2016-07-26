@@ -1,23 +1,32 @@
-<div class="card">
+<div class="list card">
   <div class="item item-text-wrap">
-    <p class="initiative-card-city" ng-show="city.nome">{{city.nome}} - {{city.uf}}</p>
-    <p><strong>{{ iniciativa.titulo }}</strong></p>
+    <div class="row">
+      <div class="col-60">
+        <p class="initiative-card-city centered-text" ng-show="city.nome">{{city.nome}} - {{city.uf}}</p>
+      </div>
+      <div class="col-40">
+        <p style="text-align: right" class="initiative-card-city">Data de início: <strong>{{ initiative.dataInicio }}</strong></p>
+      </div>
+    </div>
+    <p><strong>{{ initiative.titulo }}</strong></p>
     <br>
     <div class="row">
-      <div class="col-50">
-        <i class="ion-android-time status" ng-class="city.getInitiativeStatus(iniciativa)"></i> {{ iniciativa.status }}
+      <div class="col-60">
+        <span class="icon-status icon-positive" ng-class="city.getInitiativeStatus(initiative)"></span> {{ initiative.status }}
       </div>
-      <div class="col-50">
-        <i class="ion-social-usd balanced"></i> {{ iniciativa.verbaGovernoFederal | currency:'R$ ' }}
+      <div class="col-40">
+        <span class="icon-valor icon-positive"></span> {{ initiative.verbaGovernoFederal | currency:'R$ ' }}
       </div>
     </div>
   </div>
+
   <div class="item item-divider">
     <div class="row">
-      <div class="col-25 text-center"><i class="ion-ios-chatbubble"></i> {{iniciativa.sumario.coracao+iniciativa.sumario.coracao_partido+iniciativa.sumario.bomba}}</div>
-      <div class="col-25 text-center"><i class="ion-heart"></i> {{iniciativa.sumario.coracao}}</div>
-      <div class="col-25 text-center"><i class="ion-heart-broken"></i> {{iniciativa.sumario.coracao_partido}}</div>
-      <div class="col-25 text-center"><i class="ion-flame"></i> {{iniciativa.sumario.bomba}}</div>
+      <div class="col-25 text-center"><span class="icon-mensagem icon-default"></span> {{initiative.sumario.coracao+initiative.sumario.coracao_partido+initiative.sumario.bomba}}</div>
+      <div class="col-25 text-center"><span class="icon-curtiu icon-especial"></span> {{initiative.sumario.coracao}}</div>
+      <div class="col-25 text-center"><span class="icon-nao-curtiu icon-especial"></span> {{initiative.sumario.coracao_partido}}</div>
+      <div class="col-25 text-center"><span class="icon-bomba"></span> {{initiative.sumario.bomba}}</div>
     </div>
   </div>
+
 </div>

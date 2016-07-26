@@ -1,0 +1,27 @@
+<div class="list card">
+  <div class="item item-text-wrap">
+
+    <div class="row">
+      <div ng-class="showcityname ? 'col-60' : 'col-100'">
+        <p class="new-initiative">Nova iniciativa!</p>
+      </div>
+      <div ng-show="showcityname" class="col-40">
+        <p style="text-align: right" class="initiative-card-city">{{ city.nome }} - {{ city.uf }}</p>
+      </div>
+    </div>
+
+    <p><strong>{{ initiative.titulo }}</strong></p>
+    <br>
+
+    <div class="row">
+      <div class="col-60">
+        <span class="icon-status status" ng-class="city.getInitiativeStatus(initiative)"></span> {{ initiative.status }}
+      </div>
+      <div class="col-40">
+        <span class="icon-valor balanced"></span> {{ initiative.verbaGovernoFederal | currency:'R$ ' }}
+      </div>
+    </div>
+
+  </div>
+
+</div>

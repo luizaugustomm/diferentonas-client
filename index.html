@@ -3,22 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
     <title>As Diferentonas</title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/icons.css" rel="stylesheet">
     <link rel="stylesheet" href="lib/nvd3/build/nv.d3.css">
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
-    <script src='lib/cordova-facebook-connect-plugin.js'></script>
     <script src="lib/d3/d3.js"></script>
-    <script src="lib/nvd3/build/nv.d3.min.js"></script>
-    <script src="lib/angular-nvd3/dist/angular-nvd3.min.js"></script>
-    <script src="lib/angular/angular-locale_pt-br.js"></script>
-    <script src="lib/ionic-toast/ionic-toast.bundle.min.js"></script>
-    <script src="lib/angular-resource/angular-resource.min.js"></script>
+    <script src="lib/angular-locale-pt-br/angular-locale_pt-br.js"></script>
+    <script src="lib/ionic-toast/dist/ionic-toast.bundle.min.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/satellizer/dist/satellizer.js"></script>
+
     <script src="js/app.js"></script>
     <script src="js/filters/city-filter.js"></script>
     <script src="js/filters/search-filter.js"></script>
@@ -30,24 +32,30 @@
     <script src="js/controllers/search.js"></script>
     <script src="js/controllers/login.js"></script>
     <script src="js/controllers/timeline.js"></script>
-    <script src="js/controllers/city.js"></script>
-    <script src="js/controllers/city-similar.js"></script>
+    <script src="js/controllers/city-themes.js"></script>
+    <script src="js/controllers/city-similars.js"></script>
+    <script src="js/controllers/city-news.js"></script>
     <script src="js/controllers/charts.js"></script>
-    <script src="js/controllers/themes.js"></script>
+    <script src="js/controllers/help.js"></script>
+    <script src="js/controllers/about.js"></script>
     <script src="js/controllers/profile.js"></script>
-    <script src="js/controllers/initiative.js"></script>
+    <script src="js/controllers/initiatives.js"></script>
+    <script src="js/controllers/initiative-info.js"></script>
     <script src="js/controllers/initiative-comments.js"></script>
     <script src="js/controllers/initiative-replies.js"></script>
-    <script src="js/controllers/initiative-similar.js"></script>
+    <script src="js/controllers/initiative-similars.js"></script>
     <script src="js/controllers/messages.js"></script>
-    <script src="js/controllers/broadcast.js"></script>
-    <script src="js/controllers/cities-battle-search.js"></script>
-    <script src="js/controllers/cities-battle-result.js"></script>
+    <script src="js/controllers/battle.js"></script>
+    <script src="js/controllers/battle-themes.js"></script>
     <script src="js/directives/theme-card.js"></script>
     <script src="js/directives/battle-card.js"></script>
+    <script src="js/directives/updated-score-card.js"></script>
     <script src="js/directives/profile.js"></script>
     <script src="js/directives/initiative-card.js"></script>
+    <script src="js/directives/new-initiative-card.js"></script>
+    <script src="js/directives/updated-initiative-card.js"></script>
     <script src="js/directives/comment-card.js"></script>
+    <script src="js/directives/new-comment-card.js"></script>
     <script src="js/directives/timeline-card.js"></script>
     <script src="js/directives/message-card.js"></script>
     <script src="js/directives/theme-chart.js"></script>

@@ -1,28 +1,29 @@
 <div class="list card">
 
   <div class="item item-avatar">
-    <img src="http://www.gravatar.com/avatar/484649846498?f=y&d=retro">
+    <img ng-src="{{comment.autor.urlDaFoto || 'http://www.gravatar.com/avatar/4563456781896?f=y&d=retro'}}"/>
     <div class="reaction-icon">
-      <i class="icon" ng-class="getIcon()"></i>
+      <span class="icon" ng-class="getIcon()"></span>
     </div>
-    <h2>Admin</h2>
+    <h2><img ng-if="comment.autor.funcionario" src="img/distintivo.png" class="funcionario-badge"><strong>{{ comment.autor.nome }}</strong></h2>
     <p>{{ comment.criadaEm }}</p>
   </div>
 
   <div class="item item-text-wrap item-avatar-text">
     <p>{{ comment.conteudo }}</p>
   </div>
-
-  <!-- <div class="item item-divider">
+   <div class="item opinion-divider">
     <div class="row">
-      <div class="col col-50 col-mid">
-        <a
-          class="button icon-left ion-chatbubble button-clear button-dark"
-          ui-sref="initiative-replies({'id_city': city.info.id, 'theme': theme, 'id_initiative': initiative.id})"> 32</a>
+      <div class="col-50 text-center">
+        <!-- <button ng-class="comment.user.reaction ? 'like' : 'dislike'" class="icon-opinion button" ng-click="comment.likedComment()">-->
+         <span class="icon-confiavel"> 0 </i>
+         <!--</button>-->
       </div>
-      <div class="col text-center"><a class="button button-icon icon ion-happy"></a></div>
-      <div class="col text-center"><a class="button button-icon icon ion-sad"></a></div>
+      <div class="col-50 text-center">
+        <!--<button ng-class="comment.user.reaction ? 'like' : 'dislike'" class="icon-opinion button" ng-click="comment.likedComment()">-->
+         <span class="icon-nao-confiavel"> 0 </i>
+         <!--</button>-->
+      </div>
     </div>
-  </div> -->
-
+  </div>
 </div>

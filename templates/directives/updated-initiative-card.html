@@ -1,0 +1,58 @@
+<div class="card">
+
+  <div class="item item-text-wrap">
+    <div class="row">
+      <div ng-class="showcityname ? 'col-60' : 'col-100'">
+        <p class="new-initiative">Iniciativa atualizada!</p>
+      </div>
+      <div ng-show="showcityname" class="col-40">
+        <p style="text-align: right" class="initiative-card-city">{{ city.nome }} - {{ city.uf }}</p>
+      </div>
+    </div>
+    
+    <p><strong>{{ initiative.titulo }}</strong></p>
+  </div>
+
+  <div class="item item-text-wrap">
+    <div class="row">
+      <div class="col-40 score-update-info">
+        Dado
+      </div>
+      <div class="col-60 score-update-value">
+        {{ getUpdatedFieldLabel(new.nomeDoCampo) }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-40 score-update-info">
+        Passou de
+      </div>
+      <div class="col-60 score-update-value">
+        <p ng-if="new.nomeDoCampo === 'verbaMunicipio' || new.nomeDoCampo === 'verbaGovernoFederal'">
+          <strong>{{ new.valorAntigo | currency }}</strong>
+        </p>
+        <p ng-if="new.nomeDoCampo === 'temAditivo'">
+          <strong>{{ new.valorAntigo ? 'Sim' : 'Não' }}</strong>
+        </p>
+        <p ng-if="!(new.nomeDoCampo === 'verbaMunicipio' || new.nomeDoCampo === 'verbaGovernoFederal' || new.nomeDoCampo === 'temAditivo')">
+          <strong>{{ new.valorAntigo }}</strong>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-40 score-update-info">
+        para
+      </div>
+      <div class="col-60 score-update-value">
+        <p ng-if="new.nomeDoCampo === 'verbaMunicipio' || new.nomeDoCampo === 'verbaGovernoFederal'">
+          <strong>{{ new.valorNovo | currency }}</strong>
+        </p>
+        <p ng-if="new.nomeDoCampo === 'temAditivo'">
+          <strong>{{ new.valorNovo ? 'Sim' : 'Não' }}</strong>
+        </p>
+        <p ng-if="!(new.nomeDoCampo === 'verbaMunicipio' || new.nomeDoCampo === 'verbaGovernoFederal' || new.nomeDoCampo === 'temAditivo')">
+          <strong>{{ new.valorNovo }}</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

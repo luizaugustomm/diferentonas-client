@@ -1,0 +1,94 @@
+<ion-pane class="cards">
+  <ion-header-bar align-title="center" class="bar bar-header">
+    <button class="button icon ion-android-arrow-back" ng-click="InitiativeInfo.goBack()"></button>
+    <span class="two-line-title">
+      <strong>{{InitiativeInfo.theme}}</strong><br>
+      <span style="font-size: 12px;">{{InitiativeInfo.initiative.city.nome}} - {{InitiativeInfo.initiative.city.uf}}</span>
+    </span>
+    <button ng-class="InitiativeInfo.initiative.seguidaPeloRequisitante ? 'follow' : 'unfollow'" class="icon-follow button" ng-click="InitiativeInfo.followInitiative()">
+      <span class="icon-seguir"></span>
+    </button>
+
+  </ion-header-bar>
+
+  <div class="tabs tabs-striped tabs-top tabs-icon-only">
+    <a nav-transition="none" class="tab-item active">Informações</a>
+    <a nav-transition="none" class="tab-item" ui-sref="initiative-similars({'id_initiative': InitiativeInfo.initiative.id, 'id_city': InitiativeInfo.initiative.city.id, 'theme': InitiativeInfo.theme})">Semelhantes</a>
+    <a nav-transition="none" class="tab-item" ui-sref="initiative-comments({'id_initiative': InitiativeInfo.initiative.id, 'id_city': InitiativeInfo.initiative.city.id, 'theme': InitiativeInfo.theme})">Discussões</a>
+  </div>
+
+  <ion-content class="padding-top content-default has-subheader has-tabs">
+    <br>
+    <div class="initiative-card initiative-title padding">
+      <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
+      <div class="col">
+        <strong class="initiative-values-title">
+          {{InitiativeInfo.initiative.titulo}}
+        </strong>
+      </div>
+    </div>
+
+    <div class="initiative-card initiative-title padding" style="padding-top: 10px;">
+      <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
+      <div class="col">
+        Status da iniciativa: <br>
+        <span class="status {{InitiativeInfo.initiative.statusClass}}"> {{ InitiativeInfo.initiative.status }}</span>
+      </div>
+    </div>
+
+    <div class="initiative-card initiative-progress padding">
+      <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
+
+      <div class='progress-chart-done'ng-to-bar status-iniciative="{{InitiativeInfo.initiative.status}}" begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}">
+
+        <div class = "legend-progress-chart" ng-to-status ng-attr-status={{InitiativeInfo.initiative.status}}
+        begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" status-iniciative="{{InitiativeInfo.initiative.status}}"></div>
+
+        <div class = "legend-progress-chart" style="margin-top: 75px"
+         ng-to-conclusion begin-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" status-iniciative="{{InitiativeInfo.initiative.status}}"></div>
+
+        <div class = "legend-progress-chart" style="margin-top: 0px" ng-to-end begin-iniciative="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}" status-iniciative="{{InitiativeInfo.initiative.status}}"></div>
+
+        <div class="triangle-status" ng-show-status status-iniciative="{{InitiativeInfo.initiative.status}}" begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}">
+          <div class="square-info" ng-square-status status-iniciative="{{InitiativeInfo.initiative.status}}">
+            <span class="status {{InitiativeInfo.initiative.statusClass}}"> Status atual: <br> {{ InitiativeInfo.initiative.status }}</span>
+          </div>
+        </div>
+
+        <div class='progress-chart' ng-to-done  status-iniciative="{{InitiativeInfo.initiative.status}}"
+        begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}"></div>
+        </div>
+        <div class="progress-chart-conclusion">
+        Conclusão:<br>{{InitiativeInfo.initiative.dataConclusaoMunicipio}}
+      </div>
+      <div class="progress-chart-end">
+        Prestação <br>de contas:<br>{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}
+      </div>
+      <div class='progress-chart-begin'>
+        Início: <br>
+        {{InitiativeInfo.initiative.dataInicio}}
+      </div>
+    </div>
+
+    <div class="initiative-card initiative-values padding">
+      <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
+      <p>Valor repassado pelo Governo Federal<br> <strong>({{InitiativeInfo.initiative.fonte}}):</strong></p>
+      <p class="initiative-currency">{{InitiativeInfo.initiative.verbaGovernoFederal | currency : 'R$'}}</p>
+      <p>Valor complementado pela Prefeitura:</p>
+      <p class="initiative-currency">{{InitiativeInfo.initiative.verbaMunicipio | currency: 'R$'}}</p>
+      <p>Valor total:</p>
+      <p class="initiative-currency">{{InitiativeInfo.initiative.verbaGovernoFederal+InitiativeInfo.initiative.verbaMunicipio | currency : 'R$'}}</p>
+    </div>
+    <div class="initiative-card initiative-evaluation padding">
+      <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
+      <nvd3 options="InitiativeInfo.options" data="InitiativeInfo.data"></nvd3>
+      <div class="row" style="margin-top: -20px;">
+        <div class="col"><span class="icon-chart icon-bomba icon-default"></span></div>
+        <div class="col"><span class="icon-chart icon-curtiu icon-especial"></span></div>
+        <div class="col"><span class="icon-chart icon-nao-curtiu icon-especial"></span></div>
+      </div>
+    </div>
+  </ion-content>
+
+  <df-main-nav nav-class="'content-default'"></df-main-nav>
+</ion-pane>

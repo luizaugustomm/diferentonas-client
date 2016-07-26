@@ -1,16 +1,50 @@
 <ion-pane class="cards">
     <ion-header-bar align-title="center" class="bar bar-header">
-      <button class="button icon ion-android-arrow-back" ui-sref="search"></button>
-      <h1 class="title">Eu</h1>
-        <button class="button icon ion-person" ui-sref="profile"></button>
+      <!-- <button class="button icon ion-android-arrow-back" ng-click="Timeline.goBack()"></button> -->
+      <h1 class="title">Últimas atualizações</h1>
     </ion-header-bar>
 
-    <ion-content class="padding content-default has-tabs">
+    <div class="tabs tabs-striped tabs-top tabs-icon-only">
+      <a class="tab-item" style="visibility: hidden;"></a>
+      <a class="tab-item" ui-sref="profile"><i class="icon ion-person"></i></a>
+      <a class="tab-item" ui-sref="help"><i class="icon ion-help-circled"></i></a>
+      <a class="tab-item" ui-sref="about"><i class="icon ion-information-circled"></i></a>
+      <a class="tab-item" style="visibility: hidden;"></a>
+    </div>
 
-      <df-timeline-card
-        novidade="iniciativa"
-        ng-repeat="iniciativa in Timeline.initiatives"></df-timeline-card>
-      <ion-infinite-scroll distance="2" on-infinite="Timeline.loadMore()" ng-if="Timeline.moredata">
+    <ion-content class="padding content-default has-subheader has-tabs">
+
+      <div class="empty-message" ng-if="Timeline.news.length === 0">
+          Não há novidades.<br>Siga iniciativas e volte mais tarde.
+      </div>
+
+      <div ng-repeat="new in Timeline.news">
+
+        <df-new-initiative-card
+        city="new.cidade"
+        initiative="new.iniciativa"
+        showcityname="true"
+        ui-sref="initiative-info({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
+        ng-if="new.tipo === 'NOVA_INICIATIVA'"></df-new-initiative-card>
+
+        <df-updated-initiative-card
+        city="new.cidade"
+        initiative="new.iniciativa"
+        showcityname="true"
+        ui-sref="initiative-info({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
+        ng-if="new.tipo === 'ATUALIZACAO_DE_INICIATIVA'"></df-updated-initiative-card>
+
+        <df-new-comment-card
+        city="new.cidade"
+        initiative="new.iniciativa"
+        comment="new.opiniao"
+        showcityname="true"
+        ui-sref="initiative-comments({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
+        ng-if="new.tipo === 'NOVA_OPINIAO'"></df-new-comment-card>
+
+      </div>
+
+      <ion-infinite-scroll distance="5%" on-infinite="Timeline.loadMore()" ng-if="Timeline.moreData">
       </ion-infinite-scroll>
     </ion-content>
 

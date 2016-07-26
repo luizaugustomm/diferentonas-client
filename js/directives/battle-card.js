@@ -4,7 +4,8 @@ angular.module('Diferentonas')
   return {
     restrict: 'E',
     scope: {
-      details: '=',
+      firstcity: '=',
+      secondcity: '=',
       theme: '=',
       firstcitymoney: '=',
       secondcitymoney: '=',

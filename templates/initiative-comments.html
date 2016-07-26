@@ -1,15 +1,15 @@
 <ion-pane class="cards">
   <ion-header-bar align-title="center" class="bar bar-header">
-    <button class="button icon ion-android-arrow-back" ui-sref="initiative({'id': Comments.initiative.id, 'id_city': Comments.initiative.city.id, 'theme': Comments.theme})"></button>
+    <button class="button icon ion-android-arrow-back" ng-click="InitiativeComments.goBack()"></button>
     <span class="two-line-title">
-      <strong>{{Comments.theme}}</strong><br>
-      <span style="font-size: 12px;">{{Comments.initiative.city.nome}} - {{Comments.initiative.city.uf}}</span>
+      <strong>{{InitiativeComments.theme}}</strong><br>
+      <span style="font-size: 12px;">{{InitiativeComments.initiative.city.nome}} - {{InitiativeComments.initiative.city.uf}}</span>
     </span>
   </ion-header-bar>
 
   <div class="tabs tabs-striped tabs-top tabs-icon-only">
-    <a nav-transition="none" class="tab-item" ui-sref="initiative({'id': Comments.initiative.id, 'id_city': Comments.initiative.city.id, 'theme': Comments.theme})">Informações</a>
-    <a nav-transition="none" class="tab-item" ui-sref="initiative-similar({'id': Comments.initiative.id, 'id_city': Comments.initiative.city.id, 'theme': Comments.theme})">Semelhantes</a>
+    <a nav-transition="none" class="tab-item" ui-sref="initiative-info({'id_initiative': InitiativeComments.initiative.id, 'id_city': InitiativeComments.initiative.city.id, 'theme': InitiativeComments.theme})">Informações</a>
+    <a nav-transition="none" class="tab-item" ui-sref="initiative-similars({'id_initiative': InitiativeComments.initiative.id, 'id_city': InitiativeComments.initiative.city.id, 'theme': InitiativeComments.theme})">Semelhantes</a>
     <a nav-transition="none" class="tab-item active">Discussões</a>
   </div>
 
@@ -17,19 +17,19 @@
 
     <div class="row text-center">
       <div class="col">
-        <button class="button icon ion-heart button-reaction"
-        ng-class="{'active': Comments.comment.tipo === 'coracao'}"
-        ng-click="Comments.selectReaction('coracao')"></button>
+        <button class="button button-reaction"
+        ng-class="{'active': InitiativeComments.comment.tipo === 'coracao'}"
+        ng-click="InitiativeComments.selectReaction('coracao')"><span class="icon-curtiu"></span></button>
       </div>
       <div class="col">
-        <button class="button icon ion-heart-broken button-reaction"
-        ng-class="{'active': Comments.comment.tipo === 'coracao_partido'}"
-        ng-click="Comments.selectReaction('coracao_partido')"></button>
+        <button class="button button-reaction"
+        ng-class="{'active': InitiativeComments.comment.tipo === 'coracao_partido'}"
+        ng-click="InitiativeComments.selectReaction('coracao_partido')"><span class="icon-nao-curtiu"></span></button>
       </div>
       <div class="col">
-        <button class="button icon ion-flame button-reaction"
-        ng-class="{'active': Comments.comment.tipo === 'bomba'}"
-        ng-click="Comments.selectReaction('bomba')"></button>
+        <button class="button button-reaction"
+        ng-class="{'active': InitiativeComments.comment.tipo === 'bomba'}"
+        ng-click="InitiativeComments.selectReaction('bomba')"><span class="icon-bomba"></span></button>
       </div>
     </div>
 
@@ -38,28 +38,31 @@
       <div class="item">
         <div class="list">
           <label class="item item-input">
-            <textarea rows="5" placeholder="Inicie uma discussão sobre a iniciativa: '{{ Comments.initiative.titulo }}'" ng-model="Comments.comment.conteudo"></textarea>
+            <textarea rows="5" placeholder="Inicie uma discussão sobre a iniciativa: '{{ InitiativeComments.initiative.titulo }}'" ng-model="InitiativeComments.comment.conteudo"></textarea>
           </label>
         </div>
       </div>
       <button type="submit" class="button button-full button-positive button-reply"
-      ng-disabled="!Comments.isReadyToSend()"
-      ng-click="Comments.submitComment()">
+      ng-disabled="!InitiativeComments.isReadyToSend()"
+      ng-click="InitiativeComments.submitComment()">
       Lançar discussão
     </button>
 
   </div>
 
-  <div class="empty-message" ng-hide="Comments.comments.length">
+  <div class="empty-message" ng-hide="InitiativeComments.comments.length">
     Esta iniciativa ainda não foi discutida.
   </div>
 
   <df-comment-card
-  city="Comments.city"
-  theme="Comments.theme"
-  initiative="Comments.initiative"
-  comment="comment"
-  ng-repeat="comment in Comments.comments | orderBy:comment.criadaEm"></df-comment-card>
+    city="InitiativeComments.city"
+    theme="InitiativeComments.theme"
+    initiative="InitiativeComments.initiative"
+    comment="comment"
+    ng-repeat="comment in InitiativeComments.comments | orderBy:comment.criadaEm"></df-comment-card>
+
+  <ion-infinite-scroll distance="5%" on-infinite="InitiativeComments.loadMore()" ng-if="InitiativeComments.moreData">
+  </ion-infinite-scroll>
 
 </ion-content>
 

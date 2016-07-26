@@ -2,11 +2,47 @@
 .content-primary   { background-color: #5850C0; }
 .content-secondary { background-color: #444242; }
 .content-tertiary  { background-color: #FFAA00; }
+.content-quaternary  { background-color: #7D427D; }
+.icon-default { color: #444242; }
+.icon-positive { color: #58A87D; }
+.icon-negative { color: #C64832; }
+.icon-especial { color: #99003c; }
+
+p.score-update-info, .score-update-info {
+  text-align: right;
+  margin-right: 3px;
+  font-size: 12px;
+  color: #666666;
+}
+
+p.score-update-value, .score-update-value {
+  text-align: left;
+  margin-left: 3px;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.updated-score-title {
+  color: #FFFFFF!important;
+  padding-top: 15px!important;
+}
+
+.funcionario-badge {
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+  z-index: 1;
+}
 
 .item p.item-positive,
 .item-positive { color: #58A87D; }
+.item p.item-negative,
+.item-negative { color: #C64832; }
+.item p.item-neutral,
+.item-neutral { color: #444444; }
 .card-positive { background-color: #58A87D; }
 .card-negative { background-color: #C64832; }
+.card-neutral { background-color: #666666; }
 .item.card-positive p { color: #fff;}
 .item.card-negative p { color: #fff;}
 
@@ -19,7 +55,10 @@
 
 .smaller-text {
   font-size: 13px!important;
+}
 
+.text-left {
+  text-align: left;
 }
 
 .login{
@@ -51,12 +90,32 @@
   font-weight: bold;
 }
 
+.first-city-link {
+  color: #FFAA00;
+  font-size: 13px;
+  word-wrap: break-word;
+}
+
+.second-city-link {
+  color: #7D427D;
+  font-size: 13px;
+  word-wrap: break-word;
+}
+
 .city-won-card {
   background-color: #FFAA00;
 }
 
 .city-lost-card {
   background-color: #7D427D;
+}
+
+.city-tied-card {
+  background-color: #D3D3D3;
+}
+
+.item.city-won-card p {
+  color: #FFFFFF;
 }
 
 .item.city-lost-card p {
@@ -90,11 +149,14 @@
   color: #B3B2B5;
 }
 
+.item p.new-initiative {
+  font-size: 0.8em;
+  color: #7D427D;
+}
+
 .icon-chart{
-  font-size: 30px;
-  text-align: center;
-  position: absolute;
-  margin: -5% 0 0 8%;
+  font-size: 25px;
+  margin-left: 25%;
 }
 
 .two-line-title {
@@ -127,6 +189,22 @@
   text-align: center;
   font-size: 18px;
   padding: 15px 0px 15px 0px;
+}
+
+.x-text {
+  display: table;
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 200%;
+  font-size: 20px!important;
+}
+
+.centered-text {
+  display: table;
+  vertical-align: middle;
+  width: 100%;
+  line-height: 200%;
 }
 
 .battle-button {
@@ -216,6 +294,19 @@
 .progress-bar-balanced {
   background-color: #000;
 }
+
+.icon-check {
+    font-size: 25px;
+    text-align: center;
+    color: #58A87D;
+}
+
+.icon-delay {
+    font-size: 25px;
+    text-align: center;
+    color: #DD3C16;
+}
+
 .icon-right {
     padding-right: 15px;
 }
@@ -223,12 +314,55 @@
     font-size: 30px;
     color : #C64832;
 }
-.progress-chart {
+
+.progress-chart-done {
   height: 300px;
-  width: 4px;
-  margin: 30px 0 25px 50%;
+  width: 5px;
+  margin: 30px 0 25px 45%;
   overflow: hidden;
-  background-color: #DD9F16;
+  background-color: #5D5D5D;
+}
+
+.progress-chart {
+  height: 0px;
+  width: 5px;
+  margin: 30px 0 25px 0;
+  overflow: hidden;
+  background-color: #5D5D5D;
+}
+
+.legend-progress-chart{
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  position: absolute;
+  margin-top: 265px;
+  margin-left: -15px;
+  border: 3px solid #5D5D5D;
+  background-color: #FFF;
+}
+
+.progress-chart-conclusion{
+  position: relative;
+  float: left;
+  clear: left;
+  text-align: right;
+  margin: -245px 8% 18%;
+}
+
+.progress-chart-end{
+  position: relative;
+  float: left;
+  text-align: right;
+  margin: -320px 8% 0 8%;
+}
+
+.progress-chart-begin{
+  position: relative;
+  float: left;
+  clear: left;
+  text-align: right;
+  margin: -55px 5% 0 8%;
 }
 
 .triangle-status{
@@ -236,50 +370,26 @@
   width: 15px;
   position: absolute;
   margin-top: 298px;
-  margin-left: -5px;
+  margin-left: 15px;
   border: solid 8px;
   border-color: transparent #DD9F16 transparent transparent;
 }
 
-.progress-chart-done {
-  height: 300px;
-  width: 4px;
-  position: absolute;
-  background-color:#5D5D5D;
+.square-info{
+    background: #fff;
+    border: solid 2px #DD9F16;
+    width: 100px;
+    text-align: center;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: 8px;
 }
 
-.legend-progress-chart{
-  height: 3px;
-  width: 15px;
-  position: absolute;
-  margin-top: 298px;
-  margin-left: -5px;
-  background-color: #5D5D5D;
+.icon-opinion{
+  color: #5C5C5C;
+  font-size: 1.5em;
 }
 
-.progress-chart-begin{
-  position: absolute;
-  text-align: right;
-  margin: -35px 0 0 20%;
-}
-
-.progress-chart-end{
-  position: absolute;
-  text-align: right;
-  margin: 20px 0 0 3%;
-}
-
-.progress-chart-conclusion{
-  position: absolute;
-  text-align: right;
-  margin: 90px 0 0 20%;
-}
-
-.progress-chart-status{
-  position: absolute;
-  margin: 35px 0 0 50%;
-  color: #DD9F16;
-}
 .reaction-icon {
   float: right;
   color: #5850C0;
@@ -412,6 +522,7 @@ h2.gov-message-title {
 .icon-follow{
   font-size: 23px;
   margin-left: -1px;
+  margin-right: 3px;
   height: 35px;
   width: 35px;
   color:#fff;

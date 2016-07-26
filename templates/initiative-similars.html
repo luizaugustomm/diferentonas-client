@@ -1,0 +1,38 @@
+<ion-pane class="cards">
+  <ion-header-bar align-title="center" class="bar bar-header">
+    <button class="button icon ion-android-arrow-back" ng-click="InitiativeSimilars.goBack()"></button>
+    <span class="two-line-title">
+      <strong>{{InitiativeSimilars.theme}}</strong><br>
+      <span style="font-size: 12px;">{{InitiativeSimilars.initiative.city.nome}} - {{InitiativeSimilars.initiative.city.uf}}</span>
+    </span>
+  </ion-header-bar>
+
+  <div class="tabs tabs-striped tabs-top tabs-icon-only">
+    <a nav-transition="none" class="tab-item" ui-sref="initiative-info({'id_initiative': InitiativeSimilars.initiative.id, 'id_city': InitiativeSimilars.initiative.city.id, 'theme': InitiativeSimilars.theme})">Informações</a>
+    <a nav-transition="none" class="tab-item active">Semelhantes</a>
+    <a nav-transition="none" class="tab-item" ui-sref="initiative-comments({'id_initiative': InitiativeSimilars.initiative.id, 'id_city': InitiativeSimilars.initiative.city.id, 'theme': InitiativeSimilars.theme})">Discussões</a>
+  </div>
+
+  <ion-content class="padding-top content-default has-subheader has-tabs">
+
+    <div class="card">
+      <div class="item item-text-wrap">
+        Iniciativas semelhantes a:<br><br>
+        <strong>{{InitiativeSimilars.initiative.titulo}}</strong>
+      </div>
+    </div>
+
+    <div class="empty-message" ng-hide="InitiativeSimilars.initiative.similars.length">
+      Não há iniciativas semelhantes.
+    </div>
+
+    <df-initiative-card
+    initiative="initiative"
+    city="initiative.cidade"
+    ui-sref="initiative-info({'id_initiative': initiative.id, 'id_city': initiative.cidade.id, 'theme': InitiativeSimilars.theme})"
+    ng-repeat="initiative in InitiativeSimilars.initiative.similars"></df-initiative-card>
+  </ion-content>
+
+  <df-main-nav nav-class="'content-default'"></df-main-nav>
+
+</ion-pane>

@@ -1,0 +1,57 @@
+<ion-pane class="cards">
+  <ion-header-bar align-title="center" class="bar bar-header">
+    <button class="button icon ion-android-arrow-back" ng-click="CityNews.goBack()"></button>
+    <h1 class="title">{{ CityNews.city.nome }} - {{ CityNews.city.uf }}</h1>
+  </ion-header-bar>
+
+  <div class="tabs tabs-striped tabs-top tabs-icon-only">
+    <a class="tab-item" ui-sref="city-themes({'id_city': CityNews.city.id})">Áreas</a>
+    <a class="tab-item" ui-sref="city-similars({'id_city': CityNews.city.id})">Cidades Semelhantes</a>
+    <a class="tab-item active">Novidades</a>
+  </div>
+
+  <ion-content class="padding content-default has-subheader has-tabs">
+
+    <div class="empty-message" ng-if="CityNews.city.news.length === 0">
+      Não há novidades nesta cidade.<br>Volte mais tarde.
+    </div>
+
+    <div ng-repeat="new in CityNews.city.news">
+
+      <df-updated-score-card
+      city="new.cidade"
+      score="new.score"
+      ui-sref="initiatives({'id_city': new.cidade.id, 'theme': new.score.area})"
+      ng-hide="new.score.area === 'TOTAL GERAL'"
+      ng-if="new.tipo === 'NOVO_SCORE' || new.tipo === 'ATUALIZACAO_DE_SCORE'"></df-updated-score-card>
+
+      <df-new-initiative-card
+      city="new.cidade"
+      initiative="new.iniciativa"
+      ui-sref="initiative-info({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
+      ng-if="new.tipo === 'NOVA_INICIATIVA'"></df-new-initiative-card>
+
+      <df-updated-initiative-card
+      new="new"
+      city="new.cidade"
+      initiative="new.iniciativa"
+      ui-sref="initiative-info({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
+      ng-if="new.tipo === 'ATUALIZACAO_DE_INICIATIVA'"></df-updated-initiative-card>
+
+      <df-new-comment-card
+      city="new.cidade"
+      initiative="new.iniciativa"
+      comment="new.opiniao"
+      ui-sref="initiative-comments({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
+      ng-if="new.tipo === 'NOVA_OPINIAO'"></df-new-comment-card>
+
+    </div>
+
+    <ion-infinite-scroll distance="5%" on-infinite="CityNews.loadMore()" ng-if="CityNews.moreData">
+    </ion-infinite-scroll>
+
+  </ion-content>
+
+  <df-main-nav nav-class="'content-default'"></df-main-nav>
+
+</ion-pane>

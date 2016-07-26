@@ -1,0 +1,43 @@
+<div class="list card">
+
+  <div class="item item-text-wrap">
+    <div class="row">
+      <div ng-class="showcityname ? 'col-60' : 'col-100'">
+        <p class="new-initiative">Novo comentário!</p>
+      </div>
+      <div ng-show="showcityname" class="col-40">
+        <p style="text-align: right" class="initiative-card-city">{{ city.nome }} - {{ city.uf }}</p>
+      </div>
+    </div>
+    <p><strong>{{ initiative.titulo }}</strong></p>
+  </div>
+
+  <div class="item item-avatar">
+    <img ng-src="{{ comment.autor.urlDaFoto || 'http://www.gravatar.com/avatar/484649846498?f=y&d=retro'}}">
+    <div class="reaction-icon">
+      <i class="icon" ng-class="getIcon()"></i>
+    </div>
+    <h2>{{ comment.autor.nome }}</h2>
+    <p>{{ comment.criadaEm }}</p>
+  </div>
+
+  <div class="item item-body">
+      <p style="margin-top: -6px">{{ comment.conteudo }}</p>
+    </div>
+
+   <div class="item opinion-divider">
+    <div class="row">
+      <div class="col-50 text-center">
+        <!-- <button ng-class="comment.user.reaction ? 'like' : 'dislike'" class="icon-opinion button" ng-click="comment.likedComment()">-->
+         <span class="icon-confiavel"></span> 0
+         <!--</button>-->
+      </div>
+      <div class="col-50 text-center">
+        <!--<button ng-class="comment.user.reaction ? 'like' : 'dislike'" class="icon-opinion button" ng-click="comment.likedComment()">-->
+         <span class="icon-nao-confiavel"></span> 0
+         <!--</button>-->
+      </div>
+    </div>
+   </div>
+
+</div>

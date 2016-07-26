@@ -18,4 +18,14 @@ angular.module('Diferentonas')
       });
     }
   };
+}])
+
+.directive('dfScrollToTop', ['$ionicScrollDelegate', function($ionicScrollDelegate) {
+  return {
+    link: function (scope, element, attrs) {
+      element.on('click', function (event) {
+        $ionicScrollDelegate.scrollTop(true);
+      });
+    }
+  };
 }]);
