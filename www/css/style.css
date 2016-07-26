@@ -2,6 +2,7 @@
 .content-primary   { background-color: #5850C0; }
 .content-secondary { background-color: #444242; }
 .content-tertiary  { background-color: #FFAA00; }
+.content-quaternary  { background-color: #7D427D; }
 .icon-default { color: #444242; }
 .icon-positive { color: #58A87D; }
 .icon-negative { color: #C64832; }
@@ -346,14 +347,14 @@ p.score-update-value, .score-update-value {
   float: left;
   clear: left;
   text-align: right;
-  margin: -245px 8% 0 12%;
+  margin: -245px 8% 18%;
 }
 
 .progress-chart-end{
   position: relative;
   float: left;
   text-align: right;
-  margin: -320px 8% 0 -10%;
+  margin: -320px 8% 0 8%;
 }
 
 .progress-chart-begin{
@@ -361,7 +362,7 @@ p.score-update-value, .score-update-value {
   float: left;
   clear: left;
   text-align: right;
-  margin: -55px 5% 0 12%;
+  margin: -55px 5% 0 8%;
 }
 
 .triangle-status{
@@ -521,6 +522,7 @@ h2.gov-message-title {
 .icon-follow{
   font-size: 23px;
   margin-left: -1px;
+  margin-right: 3px;
   height: 35px;
   width: 35px;
   color:#fff;
