@@ -4,6 +4,22 @@
 .content-tertiary  { background-color: #FFAA00; }
 .content-quaternary  { background-color: #7D427D; }
 
+.text-title {
+  color: white;
+  padding: 12px 6px 0px 6px;
+}
+
+.text-body {
+  text-align: justify;
+  padding: 0px 6px 0px 6px;
+}
+
+.text-list {
+  margin: 0px 12px 0px 6px;
+  padding-left: 35px;
+  list-style: square;
+}
+
 p.score-update-info, .score-update-info {
   text-align: right;
   margin-right: 3px;
