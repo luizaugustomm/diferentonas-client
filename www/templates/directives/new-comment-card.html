@@ -13,11 +13,11 @@
   </div>
 
   <div class="item item-avatar">
-    <img src="http://www.gravatar.com/avatar/484649846498?f=y&d=retro">
+    <img ng-src="{{ comment.autor.urlDaFoto || 'http://www.gravatar.com/avatar/484649846498?f=y&d=retro'}}">
     <div class="reaction-icon">
       <i class="icon" ng-class="getIcon()"></i>
     </div>
-    <h2>{{ comment.autor.login }}</h2>
+    <h2>{{ comment.autor.nome }}</h2>
     <p>{{ comment.criadaEm }}</p>
   </div>
 

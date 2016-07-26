@@ -1,12 +1,18 @@
 angular.module('Diferentonas')
 
-.controller('ProfileCtrl', ['$ionicHistory', 'UserService','$ionicActionSheet','$ionicLoading','$state', function($ionicHistory, UserService,$ionicActionSheet,$ionicLoading,$state) {
-	var vm = this;
-	vm.user = UserService.getUser();
-	var response = vm.user.authResponse;
+.controller('ProfileCtrl', ['$ionicHistory', 'UserService','$ionicActionSheet','$ionicLoading','$state','$auth', '$location', function($ionicHistory, UserService,$ionicActionSheet,$ionicLoading,$state,$auth,$location) {
+	$ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
 
-	vm.image = vm.user.picture;
-	vm.name = vm.user.name;
+	var vm = this;
+
+	UserService.get(function(response) {
+		vm.user = response;
+		$ionicLoading.hide();
+	}, function(error) {
+		$ionicLoading.hide();
+		ionicToast.show("Não foi possível carregar dados, tente mais tarde.", 'center', false, 2500);
+		$ionicHistory.goBack();
+	});
 
 	vm.logout = function (){
 		var hideSheet = $ionicActionSheet.show({
@@ -18,15 +24,11 @@ angular.module('Diferentonas')
 				return true;
 			},
 			destructiveButtonClicked: function(){
-	        	facebookConnectPlugin.logout(function(){
-
-		        },function(error){
-		        	console.log("error");
-		        });
-
-		        $state.go('login');
-	        	UserService.deleteUser();
-	        	console.log(UserService.getUser());
+				if (!$auth.isAuthenticated()) { return; }
+				$auth.logout()
+					.then(function() {
+						$location.path('/login');
+					});
 			}
 		});
 	};

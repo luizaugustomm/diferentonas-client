@@ -8,8 +8,8 @@
     <ion-content class="padding content-default">
 
       <div class="user-profile-card text-center">
-        <img class="user-picture" fallback-src="http://www.gravatar.com/avatar/4563456781896?f=y&d=retro" ng-src="{{Profile.image}}"/>
-        <p>{{Profile.name}}</p>
+        <img class="user-picture" ng-src="{{Profile.user.urlDaFoto || 'http://www.gravatar.com/avatar/4563456781896?f=y&d=retro'}}"/>
+        <p>{{Profile.user.nome}}</p>
       </div>
 
     </ion-content>

@@ -1,11 +1,11 @@
 <div class="list card">
 
   <div class="item item-avatar">
-    <img src="http://www.gravatar.com/avatar/484649846498?f=y&d=retro">
+    <img ng-src="{{comment.autor.urlDaFoto || 'http://www.gravatar.com/avatar/4563456781896?f=y&d=retro'}}"/>
     <div class="reaction-icon">
       <i class="icon" ng-class="getIcon()"></i>
     </div>
-    <h2><img ng-if="comment.autor.funcionario" src="img/distintivo.png" class="funcionario-badge"><strong>{{ comment.autor.login }}</strong></h2>
+    <h2><img ng-if="comment.autor.funcionario" src="img/distintivo.png" class="funcionario-badge"><strong>{{ comment.autor.nome }}</strong></h2>
     <p>{{ comment.criadaEm }}</p>
   </div>
 
