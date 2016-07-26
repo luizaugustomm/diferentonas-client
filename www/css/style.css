@@ -134,6 +134,15 @@ p.score-update-value, .score-update-value {
 .initiative-icon {
   float: left;
   margin-left: -48px;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 7px;
+  font-size: 1.8em;
+  z-index: 9999;
+}
+.initiative-icon-img {
+  float: left;
+  margin-left: -48px;
   background-color: #FFF;
   border-radius: 50%;
   z-index: 9999;
@@ -416,6 +425,7 @@ p.score-update-value, .score-update-value {
 }
 .button-reaction.active {
   background-color: #5850C0;
+  color: #fff;
 }
 .button.button-full.button-reply {
   margin: 0 0 -1px 0;

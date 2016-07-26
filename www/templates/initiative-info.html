@@ -20,7 +20,7 @@
   <ion-content class="padding-top content-default has-subheader has-tabs">
     <br>
     <div class="initiative-card initiative-title padding">
-      <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
+      <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon-img" />
       <div class="col">
         <strong class="initiative-values-title">
           {{InitiativeInfo.initiative.titulo}}
@@ -28,16 +28,17 @@
       </div>
     </div>
 
-    <div class="initiative-card initiative-title padding" style="padding-top: 10px;">
-      <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
+    <!-- <div class="initiative-card initiative-title padding" style="padding-top: 10px;">
+      <span class="icon-status {{InitiativeInfo.initiative.statusClass}} initiative-icon"></span>
       <div class="col">
         Status da iniciativa: <br>
         <span class="status {{InitiativeInfo.initiative.statusClass}}"> {{ InitiativeInfo.initiative.status }}</span>
       </div>
-    </div>
+    </div> -->
 
     <div class="initiative-card initiative-progress padding">
-      <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
+      <span class="icon-status {{InitiativeInfo.initiative.statusClass}} initiative-icon"></span>
+
 
       <div class='progress-chart-done'ng-to-bar status-iniciative="{{InitiativeInfo.initiative.status}}" begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}">
 
@@ -71,7 +72,7 @@
     </div>
 
     <div class="initiative-card initiative-values padding">
-      <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
+      <span class="icon-valor balanced initiative-icon"></span>
       <p>Valor repassado pelo Governo Federal<br> <strong>({{InitiativeInfo.initiative.fonte}}):</strong></p>
       <p class="initiative-currency">{{InitiativeInfo.initiative.verbaGovernoFederal | currency : 'R$'}}</p>
       <p>Valor complementado pela Prefeitura:</p>
@@ -80,7 +81,7 @@
       <p class="initiative-currency">{{InitiativeInfo.initiative.verbaGovernoFederal+InitiativeInfo.initiative.verbaMunicipio | currency : 'R$'}}</p>
     </div>
     <div class="initiative-card initiative-evaluation padding">
-      <img src="img/home.svg" alt="Perfil" width="40px" class="initiative-icon" />
+      <span class="icon-mensagem initiative-icon"></span>
       <nvd3 options="InitiativeInfo.options" data="InitiativeInfo.data"></nvd3>
       <div class="row" style="margin-top: -20px;">
         <div class="col"><span class="icon-chart icon-bomba icon-default"></span></div>
