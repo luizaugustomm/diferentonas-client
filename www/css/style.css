@@ -547,12 +547,10 @@ h2.gov-message-title {
 }
 
 .icon-follow{
-  font-size: 23px;
+  font-size: 18px!important;
   margin-left: -1px;
-  margin-right: 3px;
-  height: 35px;
-  width: 35px;
-  color:#fff;
+  margin-right: 2px;
+  color:#fff!important;
   border-radius: 50%;
 }
 
