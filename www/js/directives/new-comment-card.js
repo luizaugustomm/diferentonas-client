@@ -14,13 +14,13 @@ angular.module('Diferentonas')
       scope.getIcon = function() {
         switch (scope.comment.tipo) {
           case "coracao":
-            return "ion-heart";
+            return "icon-curtiu";
             break;
           case "coracao_partido":
-            return "ion-heart-broken";
+            return "icon-nao-curtiu";
             break;
           case "bomba":
-            return "ion-flame";
+            return "icon-bomba";
             break;
           default:
             return "ion-minus"
