@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('ProfileCtrl', ['$ionicHistory', 'UserService','$ionicActionSheet','$ionicLoading','$state','$auth', '$location', function($ionicHistory, UserService,$ionicActionSheet,$ionicLoading,$state,$auth,$location) {
+.controller('ProfileCtrl', ['$ionicHistory', 'UserService','$ionicActionSheet','$ionicLoading','$state','$auth', '$location', 'ionicToast', function($ionicHistory, UserService,$ionicActionSheet,$ionicLoading,$state,$auth,$location,ionicToast) {
 	$ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
 
 	var vm = this;
