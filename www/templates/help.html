@@ -4,42 +4,67 @@
       <h1 class="title">Ajuda</h1>
     </ion-header-bar>
 
-    <ion-content class="padding content-primary" style="color: white">
+    <div class="tabs tabs-striped tabs-top tabs-icon-only">
+      <a class="tab-item" style="visibility: hidden;"></a>
+      <a class="tab-item" ui-sref="about"><i class="icon ion-information-circled"></i></a>
+      <a class="tab-item" ui-sref="help"><i class="icon ion-help-circled"></i></a>
+      <a class="tab-item" ui-sref="profile"><i class="icon ion-person"></i></a>
+      <a class="tab-item" style="visibility: hidden;"></a>
+    </div>
 
-    <h4 class="text-title">O que faz uma cidade ser Diferentona?</h4>
-    <p class="text-body">
-      Uma cidade é considerada <em>diferentona</em> em determinada área quando recebe uma quantidade superior ou inferior de verba em comparação a outras cidades semelhantes, considerando dados a partir do ano de 2013. Essa semelhança é calculada a partir do Índice de Desenvolvimento Humano (IDH) e do tamanho da população de cada município. Pegando o exemplo de Campina Grande - PB, ela pode ser <em>diferentona</em> em saúde se as iniciativas dela nesta área possuírem mais verba em relação ao que é esperado nas cidades semelhantes.
-    </p>
-    <p class="text-body">
-      Cada área possui 5 níveis de <em>diferentice</em>: (1) recebeu muito menos ou (2) recebeu menos, caso a quantidade de verba recebida tenha sido menor em relação ao que foi investido em outras cidades semelhantes; (3) recebeu dentro do esperado, caso a cidade em questão tenha recebido uma quantidade de verba parecida; ou (4) recebeu mais ou (5) recebeu muito mais, caso a verba tenha superado a das outras cidades semelhantes.
-    </p>
+    <ion-content class="has-subheader">
 
-    <h4 class="text-title">O que é a Batalha das Diferentonas?</h4>
-    <p class="text-body">
-      A Batalha das Diferentonas é uma função na qual você pode escolher quaisquer duas cidades do Brasil para comparar a quantidade de verbas destinadas em cada área. Uma cidade é vencedora se tiver mais áreas com verbas superiores à outra cidade. Essa opção é ideal para você testar cidades vizinhas à sua ou municípios que você acha que possuem características em comum.
-    </p>
+      <div class="content-primary text-body" style="color: #fff">
+        <h4>O QUE FAZ UMA CIDADE SER DIFERENTONA?</h4>
+        <p>Uma cidade é considerada diferentona em determinada área quando recebe uma quantidade superior ou inferior de verba em comparação a outras cidades semelhantes. Essa semelhança é calculada a partir do Índice de Desenvolvimento Humano (IDH) e do tamanho da população de cada município. Pegando o exemplo de Campina Grande - PB, ela pode ser diferentona em saúde se as iniciativas dela nesta área possuírem mais verba em relação ao que é esperado nas cidades semelhantes.
+        Cada área possui 5 níveis de diferentice:</p>
+        <br>
+        <p>(1) RECEBEU MUITO MENOS: Caso a quantidade de verba recebida tenha sido muito menor em relação ao que foi investido em outras cidades semelhantes</p>
 
-    <h4 class="text-title">O que são iniciativas?</h4>
-    <p class="text-body">
-      Na esfera pública, as iniciativas são conhecidas como convênios e se referem a acordos realizados entre os órgãos públicos e outras  instituições, públicas ou privadas, para a realização de um objetivo comum, mediante formação de parceria.
-    </p>
+        <df-theme-card city="Help.city" score="Help.scoreMuitoMenos" score-text="''" base-color="'#FFF'"></df-theme-card>
 
-    <h4 class="text-title">Quais são os status das iniciativas e o que eles significam?</h4>
-    <p class="text-body">
-      Os status das iniciativas dizem em que ponto está a sua execucação. Eles podem ser:
-    </p>
-    <ul class="text-list">
-      <li><strong>Não iniciada</strong>: a iniciativa foi assinada e o valor foi repassado, entretanto, as ações ainda não começaram
-</li>
-      <li><strong>Em andamento</strong>: as ações da iniciativa começaram, mas ainda não foram concluídas
-</li>
-      <li><strong>Concluída, segundo a prefeitura</strong>: a prefeitura afirmou que concluiu a iniciativa, mas ainda não entregou a prestação de contas ao Governo Federal</li>
-      <li><strong>Aprovada pelo Governo Federal</strong>: a prefeitura realizou a iniciativa e a prestação de contas foi aprovada pelo Governo Federal</li>
-      <li><strong>Aprovada pelo Governo Federal com ressalvas</strong>: a prefeitura realizou a iniciativa, mas a prestação de contas foi aprovada pelo Governo Federal com ressalvas</li>
-      <li><strong>Rejeitada pelo Governo Federal</strong>: a prefeitura afirmou ter realizado a iniciativa, mas a prestação de contas foi rejeitada pelo Governo Federal</li>
-      <li><strong>Anulada</strong>: houve algum problema com a iniciativa e o Governo Federal anulou o acordo</li>
-    </ul>
-    <br><br><br>
+        <p>(2) RECEBEU MENOS: Caso a quantidade de verba recebida tenha sido menor em relação ao que foi investido em outras cidades semelhantes</p>
+
+        <df-theme-card city="Help.city" score="Help.scoreMenos" score-text="''" base-color="'#FFF'"></df-theme-card>
+
+        <p>(3) RECEBEU DENTRO DO ESPERADO: Caso a quantidade de verba recebida tenha sido parecida em relação ao que foi investido em outras cidades semelhantes</p>
+
+        <df-theme-card city="Help.city" score="Help.scoreMedia" score-text="''"></df-theme-card>
+
+        <p>(4) RECEBEU MAIS: Caso a quantidade de verba recebida tenha sido maior em relação ao que foi investido em outras cidades semelhantes</p>
+
+        <df-theme-card city="Help.city" score="Help.scoreMais" score-text="''" base-color="'#FFF'"></df-theme-card>
+
+        <p>(5) RECEBEU MUITO MAIS: Caso a quantidade de verba recebida tenha sido muito maior em relação ao que foi investido em outras cidades semelhantes</p>
+
+        <df-theme-card city="Help.city" score="Help.scoreMuitoMais" score-text="''" base-color="'#FFF'"></df-theme-card>
+
+        <h4>O QUE É A BATALHA DE DIFERENTONAS?</h4>
+        <p>A Batalha das Diferentonas é uma função na qual você pode escolher quaisquer duas cidades do Brasil para comparar a quantidade de verbas destinadas em cada área. Uma das cidades vence a batalha se tiver mais temas com verbas superiores à outra cidade. Essa opção é ideal para você testar cidades vizinhas à sua ou municípios que você acha que possuem características em comum.</p>
+
+        <h4>O QUE SÃO INICIATIVAS?</h4>
+        <p>Na esfera pública as iniciativas são conhecidas como convênios e se referem a acordos realizados entre os órgãos públicos e outras  instituições, públicas ou privadas, para a realização de um objetivo comum, mediante formação de parceria.</p>
+
+        <h4>QUAIS SÃO OS STATUS DAS INICIATIVAS E O QUE ELES DIZEM?</h4>
+        <p>Os status das iniciativas dizem em que ponto está a sua execucação. Eles podem ser:</p>
+
+        <p>NÃO INICIADA: A iniciativa foi assinada e o valor foi repassado, entretanto, as ações ainda não começaram.</p>
+
+        <p>EM ANDAMENTO: As ações da iniciativa começaram, mas ainda não foram concluídas.</p>
+
+        <p>CONCLUÍDA - SEGUNDO A PREFEITURA: A prefeitura afirmou que concluiu a iniciativa, mas ainda não entregou a prestação de contas ao Governo Federal.</p>
+
+        <p>CONCLUÍDA - APROVADA PELO GOVERNO FEDERAL: A prefeitura realizou a iniciativa e a prestação de contas foi aprovada pelo Governo Federal.</p>
+
+        <p>CONCLUÍDA - APROVADA PELO GOVERNO FEDERAL COM RESSALVAS: A prefeitura realizou a iniciativa, mas a prestação de contas foi aprovada pelo Governo Federal com ressalvas</p>
+
+        <p>CONCLUÍDA - REJEITADA PELO GOVERNO FEDERAL: A prefeitura afirmou ter realizado a iniciativa, mas a prestação de contas foi rejeitada pelo Governo Federal</p>
+
+        <p>ANULADA: houve algum problema com a iniciativa e o Governo Federal anulou o acordo</p>
+
+        <h4>O QUE SÃO ALERTAS DO GOVERNO?</h4>
+        <p>Alertas do governo são mensagens enviadas por um funcionário do governo para todos os usuários do aplicativo. Os alertas servem para informar períodos de interesse para o usuário ou informações/notificações importantes sobre iniciativas.</p>
+      </div>
     </ion-content>
 
     <df-main-nav nav-class="'content-primary'"></df-main-nav>

@@ -5,6 +5,7 @@ angular.module('Diferentonas')
     var vm = this;
     vm.CityResource = City;
     vm.city = City.get({id: $stateParams.id_city}, function() {
+      console.log(vm.city);
       vm.city.hasDifferentThemes = City.hasDifferentThemes(vm.city.scores);
       vm.city.hasNeutralThemes = City.hasNeutralThemes(vm.city.scores);
       $ionicLoading.hide();
@@ -35,7 +36,7 @@ angular.module('Diferentonas')
       //adicionar chamada que faz o check do usuário seguir a iniciativa
       /*
       var api = ApiEndpoint.url + '/iniciativas/';
-      
+
       if (vm.city.seguidaPeloRequisitante) {
         $http.delete(api.concat(vm.city.id, "/inscritos"), vm.city.id, {
             headers: {'Access-Control-Allow-Origin': '*'}

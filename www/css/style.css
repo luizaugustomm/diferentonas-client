@@ -18,6 +18,8 @@
   color: #fff;
   padding: 0;
   margin: 20px 0;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .text-body > p {
