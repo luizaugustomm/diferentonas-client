@@ -8,20 +8,28 @@
 .icon-negative { color: #C64832; }
 .icon-especial { color: #99003c; }
 
-.text-title {
-  color: white;
-  padding: 12px 6px 0px 6px;
-}
-
 .text-body {
-  text-align: justify;
-  padding: 0px 6px 0px 6px;
+  padding: 20px;
+}
+.text-body:first-child {
+  margin-top: 0;
+}
+.text-body > h4 {
+  color: #fff;
+  padding: 0;
+  margin: 20px 0;
 }
 
-.text-list {
-  margin: 0px 12px 0px 6px;
-  padding-left: 35px;
-  list-style: square;
+.text-body > p {
+  padding: 0;
+  margin: 0;
+}
+
+.text-body > p > a,
+.text-body > p > a:link,
+.text-body > p > a:visited {
+  color: #fff;
+  text-decoration: none;
 }
 
 p.score-update-info, .score-update-info {
@@ -565,4 +573,12 @@ h2.gov-message-title {
    margin-left: 200px;
    margin-top: -35px;
    padding-bottom: 25px;
+}
+
+.img-staff {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: solid 4px #5850C0;
 }
