@@ -66,6 +66,7 @@ p.score-update-value, .score-update-value {
 .status.em-andamento { color: #DD9F16; }
 .status.concluída-segundo-a-prefeitura { color: #7770CB; }
 .status.não-iniciada { color: #000; }
+.status.anulado { color: #DD3C16; }
 .status.aprovada-pelo-governo-federal { color: #58A87D; }
 .status.aprovada-pelo-governo-federal-com-ressalvas { color: #58A87D; }
 
@@ -403,10 +404,10 @@ p.score-update-value, .score-update-value {
 
 .square-info{
     background: #fff;
-    border: solid 2px #DD9F16;
+    border: solid 3px #DD9F16;
     width: 100px;
     text-align: center;
-    height: 70px;
+    height: 85px;
     margin-top: -35px;
     margin-left: 8px;
 }

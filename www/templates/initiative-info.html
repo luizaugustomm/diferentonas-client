@@ -50,8 +50,9 @@
         <div class = "legend-progress-chart" style="margin-top: 0px" ng-to-end begin-iniciative="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}" status-iniciative="{{InitiativeInfo.initiative.status}}"></div>
 
         <div class="triangle-status" ng-show-status status-iniciative="{{InitiativeInfo.initiative.status}}" begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}">
-          <div class="square-info" ng-square-status status-iniciative="{{InitiativeInfo.initiative.status}}">
-            <span class="status {{InitiativeInfo.initiative.statusClass}}"> Status atual: <br> {{ InitiativeInfo.initiative.status }}</span>
+          <div class="square-info" ng-square-status status-iniciative="{{InitiativeInfo.initiative.status}}"
+          begin-iniciative="{{InitiativeInfo.initiative.dataInicio}}" end-iniciative="{{InitiativeInfo.initiative.dataConclusaoMunicipio}}" end="{{InitiativeInfo.initiative.dataConclusaoGovernoFederal}}">
+            <span class="status {{InitiativeInfo.initiative.statusClass}}" style="vertical-align: middle;"><br> Status atual: <br> {{ InitiativeInfo.initiative.status }}<br></span>
           </div>
         </div>
 

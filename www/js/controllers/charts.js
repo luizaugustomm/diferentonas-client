@@ -65,6 +65,8 @@ angular.module('Diferentonas')
                     color = "transparent #7770CB transparent transparent";
                 }else if(attrs.statusIniciative=="Não iniciada" || attrs.statusIniciative=="Anulado"){
                     color = "transparent #DD3C16 transparent transparent";
+                }else if(attrs.statusIniciative=="Não divulgado"){
+                    color = "transparent #5C5C5C transparent transparent";
                 }
                 elem.css("border-color",color);
             }
@@ -84,13 +86,18 @@ angular.module('Diferentonas')
             var color = "#DD3C16";
             var changeColorBox = function(){
                 if(attrs.statusIniciative == "Em andamento"){
-                    color = "solid 2px #DD9F16";
+                    color = "solid 3px #DD9F16";
+                    elem.css("height", "65px");
                 }else if(attrs.statusIniciative=="Concluída, segundo a prefeitura" || 
                     attrs.statusIniciative=="Aprovada pelo Governo Federal" ||
                 attrs.statusIniciative=="Aprovada pelo Governo Federal com ressalvas"){
-                    color = "solid 2px #7770CB";
+                    color = "solid 3px #7770CB";
                 }else if(attrs.statusIniciative=="Não iniciada" || attrs.statusIniciative=="Anulado"){
-                    color = "solid 2px #DD3C16";
+                    color = "solid 3px #DD3C16";
+                    elem.css("height", "65px");
+                }else if(attrs.statusIniciative=="Não divulgado"){
+                    color = "solid 3px #5C5C5C";
+                    elem.css("height", "65px");
                 }
                 elem.css("border",color);
             }
@@ -118,6 +125,8 @@ angular.module('Diferentonas')
                 }else if(attrs.status=="Aprovada pelo Governo Federal" ||
                 attrs.status=="Aprovada pelo Governo Federal com ressalvas"){
                     color = "3px solid #58A87D";
+                }else if(attrs.statusIniciative=="Não divulgado"){
+                    color = "3px solid #5C5C5C";
                 }
                 elem.css("border",color);
             }
@@ -167,6 +176,8 @@ angular.module('Diferentonas')
                 }else if(attrs.statusIniciative=="Aprovada pelo Governo Federal" ||
                 attrs.statusIniciative=="Aprovada pelo Governo Federal com ressalvas"){
                     color = "3px solid #58A87D";
+                }else if(attrs.statusIniciative=="Não divulgado"){
+                    color = "3px solid #5C5C5C";
                 }
                 elem.css("border",color);
             }
@@ -210,6 +221,8 @@ angular.module('Diferentonas')
                     color = "3px solid #DD3C16";
                 }else if(attrs.statusIniciative=="Aprovada pelo Governo Federal"){
                     color = "3px solid #58A87D";
+                }else if(attrs.statusIniciative=="Não divulgado"){
+                    color = "3px solid #5C5C5C";
                 }
                 elem.css("border",color);
             }
@@ -249,6 +262,8 @@ angular.module('Diferentonas')
                 }else if(attrs.statusIniciative=="Aprovada pelo Governo Federal" ||
                 attrs.status=="Aprovada pelo Governo Federal com ressalvas"){
                     color = "#58A87D";
+                }else if(attrs.statusIniciative=="Não divulgado"){
+                    color = "#5C5C5C";
                 }
                 elem.css("background",color);
             }

@@ -10,6 +10,9 @@ angular.module('Diferentonas')
                 values: [{"label":"Bomba","value":sumario.bomba,"color": "#5D5D5D"},
                         {"label":"Curti","value":sumario.coracao,"color": "#5D5D5D"},
                         {"label":"Não curti","value":sumario.coracao_partido,"color": "#5D5D5D"}]}];
+
+      console.log(sumario);
+
       vm.options = {
         chart: {
           type: 'discreteBarChart',
@@ -30,7 +33,6 @@ angular.module('Diferentonas')
 
     vm.initiative = Initiative.get({id: $stateParams.id_initiative}, function() {
       // TODO issue #54 Remover essa chamada quando o objeto cidade já estiver incluso na iniciativa
-      console.log(vm.initiative);
       vm.initiative.city = City.get({id: $stateParams.id_city}, function() {
         vm.initiative.statusClass = City.getInitiativeStatus(vm.initiative);
         vm.initiative.icone = getIconArea(vm.initiative.area);
