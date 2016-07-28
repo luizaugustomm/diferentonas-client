@@ -6,14 +6,14 @@ angular.module('Diferentonas')
     vm.theme = $stateParams.theme;
 
     var setSumario = function(sumario) {
-      vm.data = [{key:"Analise de iniciativa",
+      vm.barrasdata = [{key:"Analise de iniciativa",
                 values: [{"label":"Bomba","value":sumario.bomba,"color": "#5D5D5D"},
                         {"label":"Curti","value":sumario.coracao,"color": "#5D5D5D"},
                         {"label":"Não curti","value":sumario.coracao_partido,"color": "#5D5D5D"}]}];
 
       console.log(sumario);
 
-      vm.options = {
+      vm.barrasoptions = {
         chart: {
           type: 'discreteBarChart',
             height: 200,

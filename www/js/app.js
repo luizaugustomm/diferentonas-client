@@ -1,5 +1,5 @@
 
-angular.module('Diferentonas', ['ionic', 'ionic-toast','ngCordova', 'ngResource', 'satellizer' ])
+angular.module('Diferentonas', ['ionic', 'ionic-toast', 'nvd3', 'ngCordova', 'ngResource', 'satellizer' ])
 
 .constant('ApiEndpoint', {
 // usar 'gulp deploy-emulator' quando for gerar aplicativo (apk, ipa) ou testar com emulador
