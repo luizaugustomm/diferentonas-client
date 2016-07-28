@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.controller('CityThemesCtrl', ['$ionicHistory','ionicToast','$stateParams', '$http', '$ionicLoading', '$ionicScrollDelegate', 'City', function($ionicHistory,ionicToast, $stateParams, $http, $ionicLoading, $ionicScrollDelegate, City) {
+.controller('CityThemesCtrl', ['$ionicHistory','ionicToast','$stateParams', '$http', '$ionicLoading', '$ionicScrollDelegate', 'City', 'ApiEndpoint', function($ionicHistory,ionicToast, $stateParams, $http, $ionicLoading, $ionicScrollDelegate, City, ApiEndpoint) {
     $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
     var vm = this;
     vm.CityResource = City;
@@ -34,8 +34,8 @@ angular.module('Diferentonas')
 
     vm.followCity= function() {
       //adicionar chamada que faz o check do usuário seguir a iniciativa
-      /*
-      var api = ApiEndpoint.url + '/iniciativas/';
+
+      var api = ApiEndpoint.url + '/cidade/';
 
       if (vm.city.seguidaPeloRequisitante) {
         $http.delete(api.concat(vm.city.id, "/inscritos"), vm.city.id, {
@@ -64,7 +64,7 @@ angular.module('Diferentonas')
         });
       }
       console.log("Cidade #" + vm.city.id + " está sendo seguida? " + vm.city.seguidaPeloRequisitante);
-      */
+
     }
 
 }]);
