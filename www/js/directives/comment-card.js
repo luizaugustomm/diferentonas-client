@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.directive('dfCommentCard', function() {
+.directive('dfCommentCard',['$http', function($http) {
   return {
     restrict: 'E',
     scope: {
@@ -27,6 +27,20 @@ angular.module('Diferentonas')
             break;
         }
       }
+    scope.likedComment = function(){
+      var api = 'http://localhost:8100/api';
+      if(!scope.comment.apoiada){
+        //iniciativas/:iniciativa/opinioes/:opiniao/joinha
+        $http.post(api.concat("/iniciativas/", scope.initiative.id, "/opinioes/"), scope.comment, {
+          headers: {'Access-Control-Allow-Origin': '*'}
+        }).success(function(data) {
+          refreshComments();
+        }).error(function(data) {
+          ionicToast.show("Algo deu errado.", 'bottom', false, 2500);
+          //console.log(data);
+        });
+      }
+    }
     }
   }
-});
+}]);

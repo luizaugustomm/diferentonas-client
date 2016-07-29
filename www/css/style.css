@@ -424,6 +424,7 @@ p.score-update-value, .score-update-value {
 
 .icon-opinion{
   color: #5C5C5C;
+  background: none;
   font-size: 1.5em;
 }
 

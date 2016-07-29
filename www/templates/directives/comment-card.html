@@ -15,14 +15,14 @@
    <div class="item opinion-divider">
     <div class="row">
       <div class="col-50 text-center">
-        <!-- <button ng-class="comment.user.reaction ? 'like' : 'dislike'" class="icon-opinion button" ng-click="comment.likedComment()">-->
-         <span class="icon-confiavel"> 0 </i>
-         <!--</button>-->
+        <button class="icon-opinion button" ng-click="likedComment()">
+         <span class="icon-confiavel"> {{comment.numeroDeApoiadores}} </span>
+         </button>
       </div>
       <div class="col-50 text-center">
-        <!--<button ng-class="comment.user.reaction ? 'like' : 'dislike'" class="icon-opinion button" ng-click="comment.likedComment()">-->
-         <span class="icon-nao-confiavel"> 0 </i>
-         <!--</button>-->
+        <button ng-if="comment.apoiada" class="icon-opinion button" ng-click="likedComment()">
+         <span class="icon-nao-confiavel">
+         </button>
       </div>
     </div>
   </div>

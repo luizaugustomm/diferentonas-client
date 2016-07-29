@@ -87,17 +87,17 @@ angular.module('Diferentonas')
             var changeColorBox = function(){
                 if(attrs.statusIniciative == "Em andamento"){
                     color = "solid 3px #DD9F16";
-                    elem.css("height", "65px");
+                    elem.css("height", "75px");
                 }else if(attrs.statusIniciative=="Concluída, segundo a prefeitura" || 
                     attrs.statusIniciative=="Aprovada pelo Governo Federal" ||
                 attrs.statusIniciative=="Aprovada pelo Governo Federal com ressalvas"){
                     color = "solid 3px #7770CB";
                 }else if(attrs.statusIniciative=="Não iniciada" || attrs.statusIniciative=="Anulado"){
                     color = "solid 3px #DD3C16";
-                    elem.css("height", "65px");
+                    elem.css("height", "75px");
                 }else if(attrs.statusIniciative=="Não divulgado"){
                     color = "solid 3px #5C5C5C";
-                    elem.css("height", "65px");
+                    elem.css("height", "75px");
                 }
                 elem.css("border",color);
             }
