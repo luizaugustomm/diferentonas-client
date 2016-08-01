@@ -198,7 +198,7 @@ p.score-update-value, .score-update-value {
 
 .two-line-title {
   color : #5D5D5D;
-  display: center;
+  margin: auto;
   text-align: center;
   line-height: 17px;
   font-size: 15px;
