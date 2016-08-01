@@ -2,17 +2,20 @@
   <ion-header-bar align-title="center" class="bar bar-header">
     <button class="button icon ion-android-arrow-back" ng-click="CityNews.goBack()"></button>
     <h1 class="title">{{ CityNews.city.nome }} - {{ CityNews.city.uf }}</h1>
+    <button ng-class="CityNews.city.seguidaPeloRequisitante ? 'follow' : 'unfollow'" class="icon-follow button" ng-click="CityNews.followCity()">
+      <span class="icon-seguir"></span>
+    </button>
   </ion-header-bar>
 
   <div class="tabs tabs-striped tabs-top tabs-icon-only">
-    <a class="tab-item" ui-sref="city-themes({'id_city': CityNews.city.id})">Áreas</a>
-    <a class="tab-item" ui-sref="city-similars({'id_city': CityNews.city.id})">Cidades Semelhantes</a>
+    <a nav-transition="none"class="tab-item" ui-sref="city-themes({'id_city': CityNews.city.id})">Áreas</a>
+    <a nav-transition="none" class="tab-item" ui-sref="city-similars({'id_city': CityNews.city.id})">Cidades Semelhantes</a>
     <a class="tab-item active">Novidades</a>
   </div>
 
   <ion-content class="padding content-default has-subheader has-tabs">
 
-    <div class="empty-message" ng-if="CityNews.city.news.length === 0 || (CityNews.city.news.length !== 0 && CityNews.city.news[0].tipo === 'NOVA_OPINIAO')">
+    <div class="empty-message" ng-if="CityNews.city.news.length === 0">
       Não há novidades nesta cidade.<br>Volte mais tarde.
     </div>
 
@@ -38,12 +41,12 @@
       ui-sref="initiative-info({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
       ng-if="new.tipo === 'ATUALIZACAO_DE_INICIATIVA'"></df-updated-initiative-card>
 
-      <!-- <df-new-comment-card
+      <df-new-comment-card
       city="new.cidade"
       initiative="new.iniciativa"
       comment="new.opiniao"
       ui-sref="initiative-comments({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
-      ng-if="new.tipo === 'NOVA_OPINIAO'"></df-new-comment-card> -->
+      ng-if="new.tipo === 'NOVA_OPINIAO'"></df-new-comment-card>
 
     </div>
 

@@ -21,11 +21,9 @@ angular.module('Diferentonas')
     vm.doRefresh = function() {
       vm.moreData = true;
       vm.np = 0;
-      vm.news = Timeline.query({npagina : vm.np}, function() {
-        if(vm.news.length === 0){
-          vm.moreData = false;
-        }else{
-          vm.moreData = true;
+      vm.items = Timeline.query({npagina : vm.np}, function() {
+        if(vm.items.length !== 0){
+          vm.news = vm.items;
         }
         vm.np++;
         $ionicLoading.hide();
@@ -38,6 +36,10 @@ angular.module('Diferentonas')
     }
 
     vm.loadMore = function() {
+      if (vm.news.length === 0) {
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+        return;
+      }
       var items = Timeline.query({npagina : vm.np}, function() {
         console.log("Current page = " + vm.np);
         if (items.length === 0){
