@@ -49,8 +49,11 @@
 
       </div>
 
-      <ion-infinite-scroll distance="5%" on-infinite="Timeline.loadMore()" ng-if="Timeline.moreData">
+      <ion-infinite-scroll distance="40%" on-infinite="Timeline.loadMore()" ng-if="Timeline.moreData">
       </ion-infinite-scroll>
+
+      <div style="padding-top: 25px; text-align: center"><img src="img/logo.svg" height="64" width="64"></div>
+
     </ion-content>
 
     <df-main-nav nav-class="'content-default'"></df-main-nav>

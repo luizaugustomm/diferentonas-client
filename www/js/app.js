@@ -162,15 +162,6 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast', 'nvd3', 'ngCordova', 'ng
     resolve: {
       loginRequired: loginRequired
     }
-  })
-  .state('initiative-replies', {
-    url: '/city/:id_city/:theme/initiative/:id_initiative/replies',
-    templateUrl: 'templates/initiative-replies.html',
-    controller: 'InitiativeRepliesCtrl',
-    controllerAs: 'InitiativeReplies',
-    resolve: {
-      loginRequired: loginRequired
-    }
   });
 
   var commonConfig = {

@@ -93,6 +93,41 @@ angular.module('Diferentonas')
       })
     };
 
+
+    vm.followInitiative = function() {
+      //adicionar chamada que faz o check do usuário seguir a iniciativa
+      var api = ApiEndpoint.url + '/iniciativas/';
+
+      if (vm.initiative.seguidaPeloRequisitante) {
+        $http.delete(api.concat(vm.initiative.id, "/inscritos"), vm.initiative.id, {
+            headers: {'Access-Control-Allow-Origin': '*'}
+        }).success(function(data) {
+            vm.initiative.seguidaPeloRequisitante = false;
+            $ionicLoading.hide();
+            ionicToast.show("Parou de seguir a iniciativa!", 'bottom', false, 2500);
+            })
+          .error(function(data) {
+            $ionicLoading.hide();
+            console.log(data);
+            ionicToast.show("Algo deu errado.", 'bottom', false, 2500);
+        });
+      } else {
+        $http.post(api.concat(vm.initiative.id, "/inscritos"), vm.initiative.id, {
+            headers: {'Access-Control-Allow-Origin': '*'}
+        }).success(function(data) {
+            vm.initiative.seguidaPeloRequisitante = true;
+            $ionicLoading.hide();
+            ionicToast.show("Está seguindo a iniciativa!", 'bottom', false, 2500);
+            })
+          .error(function(data) {
+            $ionicLoading.hide();
+            ionicToast.show("Algo deu errado.", 'bottom', false, 2500);
+        });
+      }
+      console.log("Iniciativa #" + vm.initiative.id + " está sendo seguida? " + vm.initiative.seguidaPeloRequisitante);
+    }
+
+
     vm.goBack = function() {
       $ionicHistory.goBack();
     }

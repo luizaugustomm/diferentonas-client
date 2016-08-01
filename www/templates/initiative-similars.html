@@ -5,6 +5,9 @@
       <strong>{{InitiativeSimilars.theme}}</strong><br>
       <span style="font-size: 12px;">{{InitiativeSimilars.initiative.city.nome}} - {{InitiativeSimilars.initiative.city.uf}}</span>
     </span>
+    <button ng-class="InitiativeSimilars.initiative.seguidaPeloRequisitante ? 'follow' : 'unfollow'" class="icon-follow button" ng-click="InitiativeSimilars.followInitiative()">
+      <span class="icon-seguir"></span>
+    </button>
   </ion-header-bar>
 
   <div class="tabs tabs-striped tabs-top tabs-icon-only">
