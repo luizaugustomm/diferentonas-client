@@ -18,6 +18,7 @@ angular.module('Diferentonas')
         }
         vm.np = 1;
         $ionicLoading.hide();
+        $scope.$broadcast('scroll.infiniteScrollComplete');
       }, function(error) {
         $ionicLoading.hide();
         if(error.status === 500){

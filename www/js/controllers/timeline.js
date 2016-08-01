@@ -18,6 +18,25 @@ angular.module('Diferentonas')
       ionicToast.show("Não foi possível carregar mais informações, tente mais tarde.", 'center', false, 2000);
     });
 
+    vm.doRefresh = function() {
+      vm.moreData = true;
+      vm.np = 0;
+      vm.news = Timeline.query({npagina : vm.np}, function() {
+        if(vm.news.length === 0){
+          vm.moreData = false;
+        }else{
+          vm.moreData = true;
+        }
+        vm.np++;
+        $ionicLoading.hide();
+        $scope.$broadcast('scroll.refreshComplete');
+      }, function() {
+        $ionicLoading.hide();
+        $scope.$broadcast('scroll.refreshComplete');
+        ionicToast.show("Não foi possível carregar mais informações, tente mais tarde.", 'center', false, 2000);
+      });
+    }
+
     vm.loadMore = function() {
       var items = Timeline.query({npagina : vm.np}, function() {
         console.log("Current page = " + vm.np);

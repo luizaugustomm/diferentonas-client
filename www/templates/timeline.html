@@ -14,8 +14,13 @@
 
     <ion-content class="padding content-default has-subheader has-tabs">
 
+      <ion-refresher
+          pulling-text="Puxe para recarregar..."
+          on-refresh="Timeline.doRefresh()">
+      </ion-refresher>
+
       <div class="empty-message" ng-if="Timeline.news.length === 0">
-          Não há novidades.<br>Siga iniciativas e volte mais tarde.
+          Não há novidades.<br>Siga alguma cidade ou iniciativa.
       </div>
 
       <div ng-repeat="new in Timeline.news">

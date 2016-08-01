@@ -12,7 +12,7 @@
 
   <ion-content class="padding content-default has-subheader has-tabs">
 
-    <div class="empty-message" ng-if="CityNews.city.news.length === 0">
+    <div class="empty-message" ng-if="CityNews.city.news.length === 0 || (CityNews.city.news.length !== 0 && CityNews.city.news[0].tipo === 'NOVA_OPINIAO')">
       Não há novidades nesta cidade.<br>Volte mais tarde.
     </div>
 
@@ -38,12 +38,12 @@
       ui-sref="initiative-info({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
       ng-if="new.tipo === 'ATUALIZACAO_DE_INICIATIVA'"></df-updated-initiative-card>
 
-      <df-new-comment-card
+      <!-- <df-new-comment-card
       city="new.cidade"
       initiative="new.iniciativa"
       comment="new.opiniao"
       ui-sref="initiative-comments({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
-      ng-if="new.tipo === 'NOVA_OPINIAO'"></df-new-comment-card>
+      ng-if="new.tipo === 'NOVA_OPINIAO'"></df-new-comment-card> -->
 
     </div>
 
