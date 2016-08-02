@@ -3,6 +3,7 @@
 .content-secondary { background-color: #444242; }
 .content-tertiary  { background-color: #FFAA00; }
 .content-quaternary  { background-color: #7D427D; }
+.content-transparent  { background-color: rgba(190, 211, 219, 0) }
 .icon-default { color: #444242; }
 .icon-positive { color: #58A87D; }
 .icon-negative { color: #C64832; }
