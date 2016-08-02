@@ -26,8 +26,8 @@
     "cordova-plugin-inappbrowser"
   ],
   "cordovaPlatforms": [
-    "ios",
-    "android"
+    "android",
+    "ios"
   ],
   "scripts": {
     "postinstall": "node_modules/.bin/bower install"
