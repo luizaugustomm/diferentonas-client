@@ -6,12 +6,5 @@
       "path": "/api",
       "proxyUrl": "http://diferentonas.herokuapp.com/api"
     }
-  ],
-  "browsers": [
-    {
-      "platform": "android",
-      "browser": "crosswalk",
-      "version": "14.42.334.0"
-    }
   ]
 }

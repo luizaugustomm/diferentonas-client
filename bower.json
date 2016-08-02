@@ -3,7 +3,7 @@
   "private": "true",
   "dependencies": {
     "ionic": "driftyco/ionic-bower#1.3.1",
-    "satellizer": "^0.15.4",
+    "satellizer": "0.14.1",
     "angular-resource": "^1.5.8",
     "d3": "^4.1.1",
     "ionic-toast": "^0.4.1",

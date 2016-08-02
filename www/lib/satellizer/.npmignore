@@ -1,9 +1,12 @@
 .idea
-build
+bower_components
+coverage
 examples
 node_modules
 test
 .travis.yml
+bower.json
+gulpfile.js
 karma.conf.js
-rollup.config.js
-tslint.json
+LICENSE
+README.md

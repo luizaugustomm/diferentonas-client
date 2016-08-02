@@ -10,7 +10,7 @@ angular.module('Diferentonas')
           $location.path('/search');
         })
         .catch(function(response) {
-          console.log(response.data);
+          console.log(response);
         });
     };
 

@@ -5,7 +5,7 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast', 'nvd3', 'ngCordova', 'ng
 // usar 'gulp deploy-emulator' quando for gerar aplicativo (apk, ipa) ou testar com emulador
 // usar 'gulp deploy-ionic-serve' quando for executar com ionic serve
 // usar 'gulp deploy' para fazer upload no github io
-  url: 'http://localhost:8100/api'
+  url: 'http://diferentonas.herokuapp.com/api'
 })
 
 .run(function($ionicPlatform,UserService,$state) {
@@ -17,7 +17,7 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast', 'nvd3', 'ngCordova', 'ng
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
       cordova.plugins.Keyboard.disableScroll(true);
-      cordova.plugins.TestFairy.begin('c5a6698ec054a327018a8ceddde9fa3997317e12');
+      // cordova.plugins.TestFairy.begin('c5a6698ec054a327018a8ceddde9fa3997317e12');
     }
     if(window.StatusBar) {
       StatusBar.styleDefault();
@@ -174,7 +174,10 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast', 'nvd3', 'ngCordova', 'ng
   };
 
   if (ionic.Platform.isIOS() || ionic.Platform.isAndroid()) {
+    $authProvider.cordova = true;
+    // $authProvider.platform = 'mobile';
     commonConfig.redirectUri = 'http://localhost/';
+    console.log("is a mobile!!!");
   }
 
   $authProvider.facebook(angular.extend({}, commonConfig, {
