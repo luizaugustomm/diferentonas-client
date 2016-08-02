@@ -1,6 +1,6 @@
 angular.module('Diferentonas')
 
-.directive('dfCommentCard',['$http',"ionicToast", function($http,ionicToast) {
+.directive('dfCommentCard',['$http','ionicToast', 'ApiEndpoint', function($http,ionicToast,ApiEndpoint) {
   return {
     restrict: 'AE',
     scope: {
@@ -28,7 +28,7 @@ angular.module('Diferentonas')
         }
       }
     scope.likedComment = function(){
-      var api = scope.ApiEndpoint;
+      var api = ApiEndpoint.url;
       if(!scope.comment.apoiada){
         //iniciativas/:iniciativa/opinioes/:opiniao/joinha
         $http.post(api.concat("/iniciativas/", scope.initiative.id, "/opinioes/",scope.comment.id,"/joinha"), scope.comment.id, {
@@ -45,8 +45,8 @@ angular.module('Diferentonas')
     }
 
     scope.unlikedComment = function(){
-      var api = scope.ApiEndpoint;
-      
+      var api = ApiEndpoint.url;
+
       if(!scope.comment.apoiada){
         //iniciativas/:iniciativa/opinioes/:opiniao/joinha
         $http.delete(api.concat("/iniciativas/", scope.initiative.id, "/opinioes/",scope.comment.id,"/joinha"), scope.comment.id, {
