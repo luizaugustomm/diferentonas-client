@@ -63,7 +63,7 @@ angular.module('Diferentonas')
     }
 
     var refreshComments = function(like){
-      if(like===true){
+      if(like){
         scope.comment.numeroDeApoiadores = scope.comment.numeroDeApoiadores + 1;
         scope.comment.apoiada = true;
       }else{

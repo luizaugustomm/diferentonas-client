@@ -9,7 +9,7 @@
         <p style="text-align: right" class="initiative-card-city">{{ city.nome }} - {{ city.uf }}</p>
       </div>
     </div>
-    <p><strong>{{ initiative.titulo }}</strong></p>
+    <p ui-sref="initiative-comments({'id_initiative': initiative.id, 'id_city': city.id, 'theme': initiative.area})"><strong>{{ initiative.titulo }}</strong></p>
   </div>
 
   <div class="item item-avatar">
@@ -21,23 +21,11 @@
     <p>{{ comment.criadaEm }}</p>
   </div>
 
-  <div class="item item-body">
-      <p style="margin-top: -6px">{{ comment.conteudo }}</p>
-    </div>
-
-   <div class="item opinion-divider">
-    <div class="row">
-      <div class="col-50 text-center">
-        <!-- <button ng-class="comment.user.reaction ? 'like' : 'dislike'" class="icon-opinion button" ng-click="comment.likedComment()">-->
-         <span class="icon-confiavel"></span> 0
-         <!--</button>-->
-      </div>
-      <div class="col-50 text-center">
-        <!--<button ng-class="comment.user.reaction ? 'like' : 'dislike'" class="icon-opinion button" ng-click="comment.likedComment()">-->
-         <span class="icon-nao-confiavel"></span> 0
-         <!--</button>-->
-      </div>
-    </div>
-   </div>
-
+  <div class="item item-body item-avatar-text">
+    <p>{{ comment.conteudo }}</p>
+    <p>
+      <a href="#" class="subdued" style="font-weight: bold" ng-if="!comment.apoiada" ng-click="likedComment()"><i class="icon icon-confiavel"></i><span ng-if="comment.numeroDeApoiadores > 0">{{comment.numeroDeApoiadores}}</span> Apoiar</a>
+      <a href="#" class="subdued" style="font-weight: bold; color: #5850C0" ng-if="comment.apoiada" ng-click="unlikedComment()"><i class="icon icon-confiavel"></i><span ng-if="comment.numeroDeApoiadores > 0">{{comment.numeroDeApoiadores}}</span> Desapoiar</a>
+    </p>
+  </div>
 </div>

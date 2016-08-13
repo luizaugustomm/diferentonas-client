@@ -9,8 +9,8 @@
         <p style="text-align: right" class="initiative-card-city">{{ city.nome }} - {{ city.uf }}</p>
       </div>
     </div>
-    
-    <p><strong>{{ initiative.titulo }}</strong></p>
+
+    <p ui-sref="initiative-info({'id_initiative': initiative.id, 'id_city': city.id, 'theme': initiative.area})"><strong>{{ initiative.titulo }}</strong></p>
   </div>
 
   <div class="item item-text-wrap">

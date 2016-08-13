@@ -29,14 +29,12 @@
         city="new.cidade"
         initiative="new.iniciativa"
         showcityname="true"
-        ui-sref="initiative-info({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
         ng-if="new.tipo === 'NOVA_INICIATIVA'"></df-new-initiative-card>
 
         <df-updated-initiative-card
         city="new.cidade"
         initiative="new.iniciativa"
         showcityname="true"
-        ui-sref="initiative-info({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
         ng-if="new.tipo === 'ATUALIZACAO_DE_INICIATIVA'"></df-updated-initiative-card>
 
         <df-new-comment-card
@@ -44,7 +42,6 @@
         initiative="new.iniciativa"
         comment="new.opiniao"
         showcityname="true"
-        ui-sref="initiative-comments({'id_initiative': new.iniciativa.id, 'id_city': new.cidade.id, 'theme': new.iniciativa.area})"
         ng-if="new.tipo === 'NOVA_OPINIAO'"></df-new-comment-card>
 
       </div>
