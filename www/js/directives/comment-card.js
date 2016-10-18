@@ -29,35 +29,32 @@ angular.module('Diferentonas')
       }
     scope.likedComment = function(){
       var api = ApiEndpoint.url;
-      if(!scope.comment.apoiada){
-        //iniciativas/:iniciativa/opinioes/:opiniao/joinha
-        $http.post(api.concat("/iniciativas/", scope.initiative.id, "/opinioes/",scope.comment.id,"/joinha"), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-        }).success(function(data) {
-          refreshComments(true);  //funcao que atualiza a contagem
-        }).error(function(data) {
-          ionicToast.show("Algo deu errado.", 'bottom', false, 2500);
-        });
-      }else{
-        ionicToast.show("Você já apoiou o comentário.", 'bottom', false, 2500);
-      }
+      //iniciativas/:iniciativa/opinioes/:opiniao/joinha
+      $http.post(api.concat("/iniciativas/", scope.initiative.id, "/opinioes/",scope.comment.id,"/joinha"), {
+        headers: {'Access-Control-Allow-Origin': '*'}
+      }).success(function(data) {
+        console.log(scope.comment);
+        console.log('Curtiu!');
+        refreshComments(true);  //funcao que atualiza a contagem
+      }).error(function(data) {
+        ionicToast.show("Algo deu errado.", 'bottom', false, 2500);
+        console.log(scope.comment);
+      });
     }
 
     scope.unlikedComment = function(){
       var api = ApiEndpoint.url;
-
-      if(!scope.comment.apoiada){
-        //iniciativas/:iniciativa/opinioes/:opiniao/joinha
-        $http.delete(api.concat("/iniciativas/", scope.initiative.id, "/opinioes/",scope.comment.id,"/joinha"), {
-          headers: {'Access-Control-Allow-Origin': '*'}
-        }).success(function(data) {
-          refreshComments(false); //funcao que atualiza a contagem
-        }).error(function(data) {
-          ionicToast.show("Algo deu errado.", 'bottom', false, 2500);
-        });
-      }else{
-        ionicToast.show("Você já retirou apoio ao comentário.", 'bottom', false, 2500);
-      }
+      //iniciativas/:iniciativa/opinioes/:opiniao/joinha
+      $http.delete(api.concat("/iniciativas/", scope.initiative.id, "/opinioes/",scope.comment.id,"/joinha"), {
+        headers: {'Access-Control-Allow-Origin': '*'}
+      }).success(function(data) {
+        refreshComments(false); //funcao que atualiza a contagem
+        console.log(scope.comment);
+        console.log('Descurtiu!');
+      }).error(function(data) {
+        ionicToast.show("Algo deu errado.", 'bottom', false, 2500);
+        console.log(scope.comment);
+      });
     }
 
     var refreshComments = function(like){
