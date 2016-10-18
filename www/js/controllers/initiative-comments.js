@@ -38,6 +38,10 @@ angular.module('Diferentonas')
       return (vm.comment.tipo && vm.comment.conteudo);
     }
 
+    vm.isDenounce = function() {
+      return (vm.comment.tipo === 'bomba');
+    }
+
     vm.submitComment = function() {
       $ionicLoading.show({ template: "<ion-spinner></ion-spinner>" });
       $http.post(api.concat("/iniciativas/", $stateParams.id_initiative, "/opinioes"), vm.comment, {

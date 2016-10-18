@@ -32,16 +32,15 @@ angular.module('Diferentonas')
         var api = ApiEndpoint.url;
         if(!scope.comment.apoiada){
           //iniciativas/:iniciativa/opinioes/:opiniao/joinha
-          $http.post(api.concat("/iniciativas/", scope.initiative.id, "/opinioes/",scope.comment.id,"/joinha"), scope.comment.id, {
+          $http.post(api.concat("/iniciativas/", scope.initiative.id, "/opinioes/",scope.comment.id,"/joinha"), {
             headers: {'Access-Control-Allow-Origin': '*'}
           }).success(function(data) {
-            ionicToast.show("Você curtiu o comentário.", 'bottom', false, 2500);
             refreshComments(true);  //funcao que atualiza a contagem
           }).error(function(data) {
             ionicToast.show("Algo deu errado.", 'bottom', false, 2500);
           });
         }else{
-          ionicToast.show("Você já curtiu o comentário.", 'bottom', false, 2500);
+          ionicToast.show("Você já apoiou o comentário.", 'bottom', false, 2500);
         }
       }
 
@@ -50,16 +49,15 @@ angular.module('Diferentonas')
 
         if(!scope.comment.apoiada){
           //iniciativas/:iniciativa/opinioes/:opiniao/joinha
-          $http.delete(api.concat("/iniciativas/", scope.initiative.id, "/opinioes/",scope.comment.id,"/joinha"), scope.comment.id, {
+          $http.delete(api.concat("/iniciativas/", scope.initiative.id, "/opinioes/",scope.comment.id,"/joinha"), {
             headers: {'Access-Control-Allow-Origin': '*'}
           }).success(function(data) {
-            ionicToast.show("Você curtiu o comentário.", 'bottom', false, 2500);
             refreshComments(false); //funcao que atualiza a contagem
           }).error(function(data) {
             ionicToast.show("Algo deu errado.", 'bottom', false, 2500);
           });
         }else{
-          ionicToast.show("Você já curtiu o comentário.", 'bottom', false, 2500);
+          ionicToast.show("Você já retirou apoio ao comentário.", 'bottom', false, 2500);
         }
       }
 

@@ -53,6 +53,14 @@
 
   </div>
 
+  <div class="card" ng-show="InitiativeComments.isDenounce()">
+    <div class="item item-text-wrap">
+      Quer que essa denúncia seja ouvida oficialmente pelo governo?<br>
+      <br>
+      <a href="#" onclick="window.open('https://sistema.ouvidorias.gov.br/publico/Manifestacao/RegistrarManifestacao.aspx', '_system', 'location=yes'); return false;">Envie para o e-OUV</a> e mencione na mensagem que está se referindo ao convênio #{{InitiativeComments.initiative.id}}.
+    </div>
+  </div>
+
   <div class="empty-message" ng-hide="InitiativeComments.comments.length">
     Esta iniciativa ainda não foi discutida.
   </div>
