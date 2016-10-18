@@ -34,6 +34,7 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast', 'nvd3', 'ngCordova', 'ng
     controllerAs: 'Login'
   })
   .state('timeline', {
+    cache: false,
     url: '/timeline',
     templateUrl: 'templates/timeline.html',
     controller: 'TimelineCtrl',
@@ -64,6 +65,7 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast', 'nvd3', 'ngCordova', 'ng
     controllerAs: 'About'
   })
   .state('messages', {
+    cache: false,
     url: '/messages',
     templateUrl: 'templates/messages.html',
     controller: 'MessagesCtrl',
@@ -100,6 +102,7 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast', 'nvd3', 'ngCordova', 'ng
     }
   })
   .state('city-news', {
+    cache: false,
     url: '/city/:id_city/news',
     templateUrl: 'templates/city-news.html',
     controller: 'CityNewsCtrl',
@@ -154,6 +157,7 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast', 'nvd3', 'ngCordova', 'ng
     }
   })
   .state('initiative-comments', {
+    cache: false,
     url: '/city/:id_city/:theme/initiative/:id_initiative/comments',
     templateUrl: 'templates/initiative-comments.html',
     controller: 'InitiativeCommentsCtrl',
