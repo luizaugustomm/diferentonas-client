@@ -18,7 +18,7 @@ before_install:
 - npm install -g cordova ionic
 script:
 - npm install
-- ionic platform add android
+- cordova platform add android
 - cordova plugin add ionic-plugin-keyboard
 - cordova plugin add cordova-plugin-whitelist
 - cordova plugin add com.testfairy.cordova-plugin
@@ -28,9 +28,9 @@ deploy:
   provider: testfairy
   api-key:
     secure: IAFz/uweY8zAh6xDXoacW5BU0iFD2qpo7gCJgOXjyNNO/hIMiDqn8h/EQjTuQC8Va+JVyhbMikM1s1TZ01HcfxHjhElj85p8LrwIzFhYGEfNc8VsAVvL4g0zoGN+e3ibC+XXqx/GFfDRn5drLqdU6DbLDUhxJY7qvB0vFgzo0gZ8qcMwmC0mI4NB1wrAvfOOJ71OCvxP8pvA/Yb3vt1ydjUh+eqz+FJcCtC78SGWQBnOqrw4c3b7dSISbcvFljLYwdnJSM44sULaoFUFf0HqAK31wrLuDY4QblGn2GokkOMlSuVA0KvXSiB0hsRpIxQ9FsOr0MGuJbJ04f780EgXdM/nog2g4gFOMoNdQtl/8SaERJRM0Ax+JboCVzWy0fIuzNCeGiCzOu03CbdqnqOMNV2AJhRyBP04kWINnlst23/GUdvdoapmzcJDoCvCaBh2B206e4h6gCUk1M/DvH8vrf2QJTs0RC6dllFpHKoJKsiwTfwnttX5irN1oRvdze16y9c2FzTJn9SNCuMEnzYl1JjOiU+i+LDp7CCJvg9UaZ9kTjQW34U+DVq7kcUfwbUjl51AZvLMZFtXByeK+XVH/68NgqM56TjzxRzMJPiGp8lkockE88NkrkGymVKrq0KVLv+OpcMi8yo+qMivQ4f4dZohukS23U0by581GGDw4E8=
-  app-file: $APP_FILE
-  keystore-file: "my-release-key.keystore"
+  app-file: "$APP_FILE"
+  keystore-file: my-release-key.keystore
   storepass:
-    secure: QdA7uFujk8I+UsUtOsmsZsw4YJXjyjHj2VXV5UF/sQ96PjuhaRc9ew0ehbiNmq4cu9wSQUjNeovPC0/sipETVji1EbYdAcJMA/rfW4os0s550KcAj+W0uIjzS9dmfdyviLejhI6ErCtSqTddrvNSrJuWQ7E/iEXPtBV9AGHaomOWMPC+iY+TKVznfwhDoxSmqJx1xmvK3FW/Z+bhOI3lB0tqrVbDTSCBQeF9r+30TvrDONJH/r05G+1skMGhlBnRPu3qBvOU2BdZ476MlFokFRSeoJOCdGZ4RDPA3vq3VE1Ihp4p9/XpZZpRSDsLHtkIbQxNCj0liyOWHhOBTfcX/BVSwle6/dzb8cmFM48+5sh2Rou8K0t0knuidt6VtMGVdI5jhCsSlislU8ySrwqYi7CeN4uRbPgviNUMjEjiszGUs051iVi4UOL4SyhBrvikqdezz9DcAEaDApDutr0XJ9G7p/xrnxpxaDn4NDdBvVlqCW7Gwgty635dkVmAh6KBy0rfRidEFz6ASJ1Ddf4SX9wpkloO+5ejE6i8XOABRNInXkkvIpcj70Bwm9xlecqU+GKVN7e3iFw8jiRKpmHl/2vfDQ/pzON1oJAbUnIrujuGGJDkd9rDp+JSWR/xoe1ixj8E9U3ixtObdsIBQPFgX0fTvTpiRSCI2C9Wt5wQufs=
-  alias: android
+    secure: oCTaMANvB+5xqGLEiNTCiOi9T9sCiIcJKZFzDhqXQpzx1Dr6YzWTrJIbTJE39HXbOoB6/bCHIfHjwFWClVR+s9fcXZauluRiagzfzGkhfT7HijN+o+UZwXb1guGgedMzq5amXxg5I7+PnSlku/c8BUfLfIgvD1zs+0UZ5a+W7XyQVbrqxR7Brcb9uE++iEhDLxa+fjO1+bvFLns/GSjENtLl/R6XXrmjUBfgWwFE+11EXuiC2ym6+JjphaueJ20hjKA5vVajfkngJGWfXVZSj4HMJg34HcgRHFcMnA/CEXwiVIc1f21QHe17WVx3OpWcTd9LxTZdTeTecqRIKBO2QR0/2D0YA/TM2kmz+odc726uwr/na6ZzNhM86oMTEkmHUoGVyDyOROO6gJ54S2i4w5gsuRMAzbnA+OJ6j24yjm1GDJh5pThe0FInAHWNF1pFL0xYWjZkp2EXnEKXwHruZwK14YXA9ZjXzN+PI7vx5idg6PsTQiSrnBIvb26d9F34/ZOaVL9ol3ju2dU0SnLZoJuOv7iRtUXAh4m6W3k50wPJjYoy3ilSva9cJ46fTtKBfkXozT+s8V3X0k7OQ1Xk1pVgrNvkKmrz38HR/TTKhpkdujdasLR16M9/AWZjN4Ui/gkRjBeSlPPBQaKNEfF9HPIMLF/nwQBx/LMZWJPPSIA=
+  alias: diferentonasapp
   metrics: cpu,memory,network,logcat,battery
