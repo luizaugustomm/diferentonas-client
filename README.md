@@ -1,8 +1,8 @@
-# Diferentonas 
+# Diferentonas
 
 [![Build Status](https://travis-ci.org/luizaugustomm/diferentonas-client.svg?branch=master)](https://travis-ci.org/luizaugustomm/diferentonas-client)
 
-Só minha cidade que investe verba federal assim? 
+Só minha cidade que investe verba federal assim?
 
 Usamos dados dos convênios que os municípios celebram com o governo federal e a sua execução, cruzados com dados socioeconômicos sobre os municípios do Brasil para examinar no que uma cidade é diferentona com relação aos convênios que celebrou com o governo federal. Melhor explicado aqui: https://vimeo.com/162919268 .
 
