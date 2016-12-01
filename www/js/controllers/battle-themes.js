@@ -17,8 +17,10 @@ angular.module('Diferentonas')
       vm.secondCity = data;
       vm.secondCity.battleScore = 0;
 
+      var totalGeralIndex = -1;
       for (i = 0; i < vm.firstCity.scores.length; i++) {
-        if (vm.firstCity.scores[i].area === 'TOTAL GERAL')  continue;
+        if (vm.firstCity.scores[i].area === 'TOTAL GERAL')
+          totalGeralIndex = i;
         vm.themes[i] = {
           nome: vm.firstCity.scores[i].area,
           firstCityMoney: vm.firstCity.scores[i].repasseTotal,
@@ -34,6 +36,10 @@ angular.module('Diferentonas')
           vm.themes[i].status = 'tied';
         }
       }
+
+      // Removing total geral content
+      if (totalGeralIndex != -1)
+        vm.themes.splice(totalGeralIndex, 1);
     });
     $ionicLoading.hide();
   }).error(function(error){
