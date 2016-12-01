@@ -20,16 +20,16 @@ angular.module('Diferentonas')
 
             var getScore = function(scoreValue) {
               switch (true) {
-                case (scoreValue < -2):
+                case (scoreValue < -1.5):
                   return [1, 1, 0.5, 0.3, 0.3]; // Recebeu muito menos
                   break;
-                case (scoreValue >= -2 && scoreValue < -1):
+                case (scoreValue >= -1.5 && scoreValue < -0.7):
                   return [0.3, 1, 0.5, 0.3, 0.3]; // Recebeu menos
                   break;
-                case (scoreValue >= -1 && scoreValue < 1):
+                case (scoreValue >= -0.7 && scoreValue < 0.7):
                   return [0.3, 0.3, 0.5, 0.3, 0.3]; // Recebeu dentro do esperado
                   break;
-                case (scoreValue >= 1 && scoreValue < 2):
+                case (scoreValue >= 0.7 && scoreValue < 1.5):
                   return [0.3, 0.3, 0.5, 1, 0.3]; // Recebeu mais
                   break;
                 default:

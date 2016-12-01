@@ -7,10 +7,10 @@ angular.module('Diferentonas')
     City.news = $resource(ApiEndpoint.url +'/cidade/:id/linhadotempo?pagina=:npagina&tamanhoPagina=10');
     City.initiatives = $resource(ApiEndpoint.url +'/cidade/:id/iniciativas');
     City.isNeutral = function(valorScore) {
-      return (valorScore > -1 && valorScore < 1);
+      return (valorScore > -0.7 && valorScore < 0.7);
     };
     City.isDifferent = function(valorScore) {
-      return (valorScore <= -1 || valorScore >= 1);
+      return (valorScore <= -0.7 || valorScore >= 0.7);
     };
     City.getScoreText = function(valorScore) {
       if (City.isNeutral(valorScore)) {
@@ -18,13 +18,13 @@ angular.module('Diferentonas')
       } else {
         var x = valorScore;
         switch (true) {
-          case (x < -2):
+          case (x < -1.5):
             return "Recebeu muito menos";
             break;
-          case (x >= -2 && x < -1):
+          case (x >= -1.5 && x < -0.7):
             return "Recebeu menos";
             break;
-          case (x >= 1 && x < 2):
+          case (x >= 0.7 && x < 1.5):
             return "Recebeu mais";
             break;
           default:
