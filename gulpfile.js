@@ -56,7 +56,7 @@ gulp.task('git-check', function(done) {
 
 gulp.task('deploy-ionic-serve', ['remove-ghpages-proxy'], function() {
   return replace({
-    regex: "http://diferentonas.herokuapp.com",
+    regex: "http://diferentonas.nuvem.gov.br",
     replacement: "http://localhost:8100",
     paths: replaceFiles,
     recursive: false,
@@ -67,7 +67,7 @@ gulp.task('deploy-ionic-serve', ['remove-ghpages-proxy'], function() {
 gulp.task('deploy-emulator', ['remove-ghpages-proxy'], function() {
   return replace({
     regex: "http://localhost:8100",
-    replacement: "http://diferentonas.herokuapp.com",
+    replacement: "http://diferentonas.nuvem.gov.br",
     paths: replaceFiles,
     recursive: false,
     silent: false,
