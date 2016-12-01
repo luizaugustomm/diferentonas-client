@@ -5,8 +5,8 @@ angular.module('Diferentonas', ['ionic', 'ionic-toast', 'nvd3', 'ngCordova', 'ng
 // usar 'gulp deploy-emulator' quando for gerar aplicativo (apk, ipa) ou testar com emulador
 // usar 'gulp deploy-ionic-serve' quando for executar com ionic serve
 // usar 'gulp deploy' para fazer upload no github io
-  // url: 'http://diferentonas.herokuapp.com/api'
-  url: 'http://diferentonas.nuvem.gov.br/api'
+  // url: 'http://localhost:8100/api'
+  url: 'http://localhost:8100/api'
 })
 
 .run(function($ionicPlatform,UserService,$state) {

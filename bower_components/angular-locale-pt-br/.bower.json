@@ -1,0 +1,21 @@
+{
+  "name": "angular-locale-pt-br",
+  "version": "1.3.15",
+  "main": "angular-locale_pt-br.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "precommit.sh"
+  ],
+  "homepage": "https://github.com/renato/bower-angular-locale-pt-br",
+  "_release": "1.3.15",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.3.15",
+    "commit": "2d90eccb3b35cc06f3ee4eb9741aebdca6be9178"
+  },
+  "_source": "https://github.com/renato/bower-angular-locale-pt-br.git",
+  "_target": "^1.3.15",
+  "_originalSource": "angular-locale-pt-br"
+}

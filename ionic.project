@@ -4,7 +4,7 @@
   "proxies": [
     {
       "path": "/api",
-      "proxyUrl": "http://diferentonas.herokuapp.com/api"
+      "proxyUrl": "http://diferentonas.nuvem.gov.br/api"
     }
   ]
 }
